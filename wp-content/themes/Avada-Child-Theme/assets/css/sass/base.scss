@@ -1,0 +1,20 @@
+
+@import "settings";
+
+/* FIX AVADAT STYLES */
+.fusion-header-v2 .fusion-secondary-header{
+  border-top: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+.fusion-main-menu > ul > li > a{
+  border-top: none;
+  border-bottom: 3px solid transparent;
+}
+.fusion-main-menu .current-menu-ancestor > a,
+.fusion-main-menu .current-menu-item > a,
+.fusion-main-menu .current-menu-parent > a,
+.fusion-main-menu .current_page_item > a,
+.fusion-main-menu > ul > li > a:hover{
+  border-top: none;
+  border-bottom: 3px solid $color-orange;
+}

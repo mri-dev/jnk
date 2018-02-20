@@ -1,0 +1,22 @@
+/* FIX AVADAT STYLES */
+/* line 5, sass/base.scss */
+.fusion-header-v2 .fusion-secondary-header {
+  border-top: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* line 9, sass/base.scss */
+.fusion-main-menu > ul > li > a {
+  border-top: none;
+  border-bottom: 3px solid transparent;
+}
+
+/* line 17, sass/base.scss */
+.fusion-main-menu .current-menu-ancestor > a,
+.fusion-main-menu .current-menu-item > a,
+.fusion-main-menu .current-menu-parent > a,
+.fusion-main-menu .current_page_item > a,
+.fusion-main-menu > ul > li > a:hover {
+  border-top: none;
+  border-bottom: 3px solid #fbb03b;
+}
