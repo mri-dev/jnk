@@ -20,3 +20,13 @@
   border-top: none;
   border-bottom: 3px solid #fbb03b;
 }
+
+/* line 21, sass/base.scss */
+.fusion-contact-info {
+  font-size: 1.1em;
+}
+/* line 23, sass/base.scss */
+.fusion-contact-info svg.svg-inline--fa {
+  margin-right: 5px;
+  vertical-align: middle;
+}
