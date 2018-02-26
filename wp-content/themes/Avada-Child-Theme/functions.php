@@ -64,8 +64,56 @@ function jk_init()
 {
   date_default_timezone_set('Europe/Budapest');
   add_post_type_support( 'page', 'excerpt' );
+
+  create_custom_posttypes();
 }
 add_action('init', 'jk_init');
+
+function create_custom_posttypes()
+{
+  // Utak
+  $utak = new PostTypeFactory( 'utazas' );
+	$utak->set_textdomain( TD );
+	$utak->set_icon('tag');
+	$utak->set_name( 'Utazás', 'Utazások' );
+	$utak->set_labels( array(
+		'add_new' => 'Új %s',
+		'not_found_in_trash' => 'Nincsenek %s a lomtárban.',
+		'not_found' => 'Nincsenek %s a listában.',
+		'add_new_item' => 'Új %s létrehozása',
+	) );
+
+  $utak->add_taxonomy( 'utazas_duration', array(
+		'rewrite' => 'utazasok',
+		'name' => array('Utazás hossz', 'Utazások hossza'),
+		'labels' => array(
+			'menu_name' => 'Utazások hossza',
+			'add_new_item' => 'Új %s',
+			'search_items' => '%s keresése',
+			'all_items' => '%s',
+		)
+	) );
+  $utak->add_taxonomy( 'utazas_uticel', array(
+    'rewrite' => 'uticelok',
+    'name' => array('Úti cél', 'Úti célok'),
+    'labels' => array(
+      'menu_name' => 'Úti célok',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
+  /*$utak_metabox = new CustomMetabox(
+    'utazas',
+    __('Utazás beállítások', TD),
+    new UtazasMetaboxSave(),
+    'utazas'
+  );*/
+
+	$utak->create();
+  add_post_type_support( 'utazas', 'excerpt' );
+}
 
 /**
 * AJAX REQUESTS
