@@ -1,6 +1,83 @@
 
 @import "settings";
 
+input[type=checkbox]{
+  display: none;
+}
+input[type=checkbox] + label {
+  cursor: pointer;
+  position: relative;
+  padding-left: 24px;
+
+  &:before {
+    content: "\f096";
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    color: #a7a7a7;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+  }
+}
+input[type=checkbox]:checked + label {
+  &:before {
+    content: "\f046";
+    color: #000000;
+  }
+}
+input[type=checkbox].fake-radio + label {
+  &:before {
+    background: #ffffff;
+    border: 2px solid #eaeaea;
+    content: "\f111";
+    vertical-align: middle;
+    padding: 0;
+    margin: 1px 0 0 0;
+  }
+}
+input[type=checkbox].fake-radio:checked + label {
+  &:before {
+    content: "\f192";
+    border: none;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.tglwatcher{
+  cursor: pointer;
+}
+
+.tglwatcher-wrapper,
+.select-wrapper{
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    pointer-events: none;
+    content:"\f0d7";
+    font-family: 'FontAwesome';
+    right: 0;
+    position: absolute;
+    top: 0;
+    background: #5f6c77;
+    height: 34px;
+    width: 20px;
+    text-align: center;
+    line-height: 34px;
+    color: #adb5bb;
+  }
+
+  &.tgl-def {
+    &:after {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+}
+
 /* FIX AVADAT STYLES */
 .fusion-header-v2 .fusion-secondary-header{
   border-top: none !important;
@@ -23,5 +100,153 @@
   svg.svg-inline--fa{
     margin-right: 5px;
     vertical-align: middle;
+  }
+}
+.autocomplete-suggestions{
+  background: rgba(56, 56, 56, 0.9);
+  border: 1px solid #5d6b75;
+  border-top: 1px dashed #5d6b75;
+
+  .autocomplete-suggestion{
+    padding: 4px;
+    font-size: 0.9em;
+
+    strong {
+      color: #5eb4ec;
+    }
+
+    &.autocomplete-selected{
+      background: rgba(11, 133, 213, 0.9);
+      color: #b7dcf5;
+      strong{
+        color: white;
+      }
+    }
+  }
+}
+
+.destination-searcher-holder{
+  .wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    & > div {
+      flex-basis: calc(100%/5);
+      .iwrapper{
+        padding: 0 10px;
+
+        & > label {
+          color: white;
+          font-weight: bold;
+          font-size: 0.9em;
+          margin: 0 0 15px 0;
+          display: block;
+        }
+
+        .input-wrapper{
+          background: rgba(126, 168, 195, 0.28);
+          border: 1px solid #616f79;
+          position: relative;
+          .ico {
+            position: absolute;
+            right: 5px;
+            color: #adb5bb;
+            top: 50%;
+            -webkit-transform:translateY(-50%);
+              transform:translateY(-50%);
+          }
+
+          input[type=text] {
+            background: transparent;
+            border:none;
+            padding: 0 25px 0 10px;
+            height: 34px;
+            line-height: 34px;
+          }
+        }
+      }
+    }
+
+    .srcbutton{
+      button {
+        cursor: pointer;
+        height: 34px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: $color-blue;
+        border: none;
+      }
+    }
+  }
+}
+
+.multi-selector-holder{
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  display: none;
+
+  &.opened {
+    display: block;
+  }
+
+  .selector-wrapper {
+    background: rgba(56, 56, 56, 0.9);
+    border: 1px solid #5d6b75;
+    border-top: 1px dashed #5d6b75;
+    margin-top: -1px;
+    -webkit-box-shadow: 0 10px 26px -9px #8e8e8e;
+    -moz-box-shadow: 0 10px 26px -9px #8e8e8e;
+    box-shadow: 0 10px 26px -9px #8e8e8e;
+
+    .selector-row {
+      input[type=checkbox] + label{
+        padding: 5px 5px 5px 35px;
+        margin: 0 0 1px 0;
+        font-size: 0.8em;
+        width: 100%;
+        display: block;
+        line-height: 17px;
+
+        .n {
+          color: #d2d2d2;
+          font-size: 0.85em;
+        }
+        &:before {
+          left: 10px;
+        }
+      }
+      input[type=checkbox] + label:hover,
+      input[type=checkbox]:checked + label {
+        background: rgba(11, 133, 213, 0.9);
+        color: white;
+
+        &:before {
+          color: white;
+        }
+      }
+      &.lvl-1{
+        label {
+          padding-left: 45px !important;
+          &:before {
+            left: 20px !important;
+          }
+        }
+      }
+    }
+    &.sel-def{
+      margin-top: -2px;
+      margin-right: 30px;
+    }
   }
 }

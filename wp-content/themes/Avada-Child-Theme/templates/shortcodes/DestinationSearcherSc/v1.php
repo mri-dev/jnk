@@ -1,46 +1,69 @@
 <?php
   $searcher = new Searcher();
 ?>
+<form class="" action="/utazasok" method="get" id="searcher-form">
 <div class="wrapper">
-  <form class="" action="/utazasok" method="get">
-    <div class="keywords">
-      <div class="iwrapper">
-        <label for="src_search"><?php echo __('Keresés', TD); ?>:</label>
-        <div class="input-wrapper">
-          <div class="ico"><i class="fas fa-search"></i></div>
-          <input type="text" name="search" value="<?=$_GET['search']?>" id="src_search">
-        </div>
+  <div class="keywords">
+    <div class="iwrapper">
+      <label for="src_search"><?php echo __('Keresés', TD); ?>:</label>
+      <div class="input-wrapper">
+        <div class="ico"><i class="fas fa-search"></i></div>
+        <input type="text" name="search" value="<?=$_GET['search']?>" id="src_search">
       </div>
     </div>
-    <div class="durations">
+  </div>
+  <div class="location">
+    <div class="iwrapper">
+      <label for="searcher_city"><?=__('Úti cél', TD)?></label>
+      <div class="input-wrapper">
+        <input type="text" id="searcher_city" name="cities" class="form-control" value="" placeholder="<?=__('Összes', 'gh')?>">
+        <div id="searcher_city_autocomplete" class="selector-wrapper"></div>
+        <input type="hidden" name="ci" id="searcher_city_ids" value="">
+      </div>
+    </div>
+  </div>
+  <div class="durations">
+    <div class="iwrapper">
       <label for="duration_multiselect_text"><?=__('Utazás hossza', TD)?></label>
-      <div class="tglwatcher-wrapper">
-        <input type="text" readonly="readonly" id="duration_multiselect_text" class="form-control tglwatcher" tglwatcher="duration_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
-      </div>
-      <input type="hidden" id="duration_multiselect_ids" name="d" value="">
-      <div class="multi-selector-holder" tglwatcherkey="duration_multiselect" id="duration_multiselect">
-        <div class="selector-wrapper">
-          <? $durations = $searcher->getSelectors('utazas_duration'); ?>
-          <?php if ($durations): ?>
-            <?php foreach ($durations as $k): ?>
-            <div class="selector-row">
-              <input type="checkbox" tglwatcherkey="duration_multiselect" htxt="<?=$k->name?>" id="stat_<?=$k->term_id?>" value="<?=$k->term_id?>"> <label for="stat_<?=$k->term_id?>"><?=$k->name?>
-                <?php if (get_locale() === DEFAULT_LANGUAGE): ?>
-                 <span class="n">(<?=$k->count?>)</span>
-                <?php endif; ?></label>
-            </div>
-            <?php endforeach; ?>
-          <?php endif; ?>
+      <div class="input-wrapper">
+        <div class="tglwatcher-wrapper">
+          <input type="text" readonly="readonly" id="duration_multiselect_text" class="form-control tglwatcher" tglwatcher="duration_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
+        </div>
+        <input type="hidden" id="duration_multiselect_ids" name="d" value="">
+        <div class="multi-selector-holder" tglwatcherkey="duration_multiselect" id="duration_multiselect">
+          <div class="selector-wrapper">
+            <? $durations = $searcher->getSelectors('utazas_duration'); ?>
+            <?php if ($durations): ?>
+              <?php foreach ($durations as $k): ?>
+              <div class="selector-row">
+                <input type="checkbox" tglwatcherkey="duration_multiselect" htxt="<?=$k->name?>" id="stat_<?=$k->term_id?>" value="<?=$k->term_id?>"> <label for="stat_<?=$k->term_id?>"><?=$k->name?>
+                  <?php if (get_locale() === DEFAULT_LANGUAGE): ?>
+                   <span class="n">(<?=$k->count?>)</span>
+                  <?php endif; ?></label>
+              </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
     </div>
-    <div class="srcbutton">
-      <div class="iwrapper">
-        <button type="submit"><?php echo __('Keresés',TD); ?></button>
+  </div>
+  <div class="datetime">
+    <div class="iwrapper">
+      <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
+      <div class="input-wrapper">
+        <div class="ico"><i class="far fa-calendar-alt"></i></div>
+        <input type="text" name="date" value="<?=$_GET['search']?>" id="src_datetime">
       </div>
     </div>
-  </form>
+  </div>
+  <div class="srcbutton">
+    <div class="iwrapper">
+      <button type="submit"><?php echo __('Keresés',TD); ?></button>
+    </div>
+  </div>
 </div>
+</form>
 
 <script type="text/javascript">
   (function($){
@@ -118,7 +141,7 @@
     });
 
     /* Autocompleter */
-    /*
+    /* */
     var src_current_region = 0;
     $("#searcher-form input[name='rg']").change(function(){
       var sl = $(this).val();
@@ -134,6 +157,7 @@
         transformResult: function(response) {
             return {
                 suggestions: $.map(response, function(dataItem) {
+                  console.log(dataItem);
                     //return { value: dataItem.label.toLowerCase().capitalizeFirstLetter(), data: dataItem.value };
                     return { value: dataItem.label, data: dataItem.value };
                 })
@@ -152,7 +176,7 @@
             console.log('Autocomplete error: '+textStatus);
         }
     });
-    */
+    /* */
 
      function get_current_regio() {
        return $("#searcher-form input[name=rg]:checked").val();
