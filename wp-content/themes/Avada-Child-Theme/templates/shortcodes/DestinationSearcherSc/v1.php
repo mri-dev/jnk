@@ -16,7 +16,8 @@
     <div class="iwrapper">
       <label for="searcher_city"><?=__('Úti cél', TD)?></label>
       <div class="input-wrapper">
-        <input type="text" id="searcher_city" name="cities" class="form-control" value="" placeholder="<?=__('Összes', 'gh')?>">
+        <div class="ico"><i class="fas fa-globe"></i></div>
+        <input type="text" id="searcher_city" name="cities" class="form-control" autocomplete="off" value="" placeholder="<?=__('Összes város', TD)?>">
         <div id="searcher_city_autocomplete" class="selector-wrapper"></div>
         <input type="hidden" name="ci" id="searcher_city_ids" value="">
       </div>
@@ -53,7 +54,7 @@
       <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
       <div class="input-wrapper">
         <div class="ico"><i class="far fa-calendar-alt"></i></div>
-        <input type="text" name="date" value="<?=$_GET['search']?>" id="src_datetime">
+        <input type="text" name="date" readonly="readonly" value="<?=$_GET['search']?>" placeholder="<?=__('Bármikor', TD)?>" id="src_datetime">
       </div>
     </div>
   </div>
@@ -72,6 +73,11 @@
         $('.toggler-opener').removeClass('opened toggler-opener');
         $('.tglwatcher.toggled').removeClass('toggled');
       }
+    });
+
+    $( "#datepicker" ).datepicker( $.datepicker.regional[ "hu" ] );
+    $('#src_datetime').datepicker({
+      minDate: 0
     });
 
     $('#options-toggler').click(function(){

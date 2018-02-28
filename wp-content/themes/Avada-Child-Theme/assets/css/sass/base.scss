@@ -87,6 +87,9 @@ input[type=checkbox].fake-radio:checked + label {
   border-top: none;
   border-bottom: 3px solid transparent;
 }
+.fusion-modal h1, .fusion-widget-area h1, .post-content h1{
+  font-size: 24px;
+}
 .fusion-main-menu .current-menu-ancestor > a,
 .fusion-main-menu .current-menu-item > a,
 .fusion-main-menu .current-menu-parent > a,
@@ -101,6 +104,30 @@ input[type=checkbox].fake-radio:checked + label {
     margin-right: 5px;
     vertical-align: middle;
   }
+}
+.ui-widget-content{
+  background:rgba(56, 56, 56, 0.9);
+  color: #c7c7c7;
+}
+.ui-datepicker-div, .ui-datepicker-inline, #ui-datepicker-div{
+  border-color: #5d6b75;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+  text-align: center;
+  background: rgba(0, 0, 0, 0.58);
+  border: 1px solid rgba(132, 132, 132, 0.8);
+  color: #d8d8d8;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+  text-align: center;
+  background: $color-blue;
+  color: white;
+}
+.ui-widget-header {
+  border: 1px solid #6a7580;
+  background: #727d86;
+  color: #32c5ff;
+  font-weight: bold;
 }
 .autocomplete-suggestions{
   background: rgba(56, 56, 56, 0.9);
@@ -123,6 +150,9 @@ input[type=checkbox].fake-radio:checked + label {
       }
     }
   }
+}
+.hasDatepicker{
+  cursor: pointer;
 }
 
 .destination-searcher-holder{
@@ -153,6 +183,7 @@ input[type=checkbox].fake-radio:checked + label {
           border: 1px solid #616f79;
           position: relative;
           .ico {
+            pointer-events: none;
             position: absolute;
             right: 5px;
             color: #adb5bb;
