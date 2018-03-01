@@ -98,6 +98,17 @@ input[type=checkbox].fake-radio:checked + label {
   border-top: none;
   border-bottom: 3px solid $color-orange;
 }
+.fusion-page-title-wrapper{
+  padding-top: 115px;
+}
+.fusion-page-title-bar{
+  background-size: inherit !important;
+}
+.fusion-separator.short-sep{
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .fusion-contact-info{
   font-size: 1.1em;
   svg.svg-inline--fa{
