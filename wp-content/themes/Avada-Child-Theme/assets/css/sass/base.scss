@@ -166,9 +166,131 @@ input[type=checkbox].fake-radio:checked + label {
   cursor: pointer;
 }
 .ui-datepicker th{
-  font-family: 'Poppins', arial;    
+  font-family: 'Poppins', arial;
   color: #868686;
   font-weight: 300;
+}
+
+.articles{
+  article{
+    background: #ffffff;
+    margin-bottom: 25px;
+
+    .image {
+      min-height: 500px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+        max-width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+
+    .datas{
+      padding: 40px 35px 45px 35px;
+
+      .metas{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+        color: #cacaca;
+        font-size: 0.95em;
+
+        & > div{
+          padding-right: 20px;
+
+          .svg-inline--fa{
+            margin-right: 5px;
+          }
+
+          strong {
+            color: $color-blue;
+          }
+        }
+      }
+
+      .desc{
+        margin: 0 0 25px 0;
+      }
+
+      .title {
+        h2{
+          a{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black !important;
+            text-decoration: none;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+    a.read-more{
+      background: $color-blue;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 35px;
+      font-size: 0.9em;
+      display: block;
+      float:left;
+
+      &:hover{
+        background: darken($color-blue, 10%);
+      }
+    }
+
+    &.format-quote{
+      background: $color-blue;
+      color: white;
+
+      .datas{
+        padding: 40px;
+      }
+
+      .desc {
+        margin: 0;
+        position: relative;
+        .quote-left,
+        .quote-right{
+          position: absolute;
+          font-size: 32px;
+        }
+        .quote-left{
+          left: 0;
+          top: 0;
+        }
+        .quote-right{
+          right: 0;
+          bottom: 10px;
+        }
+
+        a{
+          display: block;
+          padding: 0 45px;
+        }
+        .by{
+          text-align: right;
+          font-size: 0.8em;
+          margin-top: 10px;
+        }
+      }
+
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .destination-searcher-holder{
