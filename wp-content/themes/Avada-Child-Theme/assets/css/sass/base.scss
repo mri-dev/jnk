@@ -182,13 +182,15 @@ input[type=checkbox].fake-radio:checked + label {
       position: relative;
       overflow: hidden;
       img {
-        width: 100%;
-        max-width: 100%;
+        width: auto;
+        max-width: initial;
+        height: 110%;
+        max-height: 110%;
         position: absolute;
-        left: 0;
+        left: 50%;
         top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
       }
     }
 
@@ -288,6 +290,86 @@ input[type=checkbox].fake-radio:checked + label {
       a{
         color: white;
         text-decoration: none;
+      }
+    }
+  }
+  .cat-header{
+    margin: 0 0 25px 0;
+    h1{
+      font-size: 2em;
+      color: black;
+      margin: 0 0 5px 0;
+    }
+    .count-post{
+      margin: 0 0 15px 0;
+      color: #7c7c7c;
+    }
+  }
+}
+
+.sidebar {
+  &.article-sidebar{
+    h3 {
+      color: black;
+      margin: 0 0 15px 0;
+    }
+
+    .tags{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: -5px;
+
+      .tag {
+        padding: 5px;
+        a{
+          background: #ffffff;
+          display: block;
+          color: #4c4c4c;
+          font-size: 0.8em;
+          padding: 10px;
+          line-height: 1;
+          text-transform: capitalize;
+          border: 1px solid #eaeaea;
+        }
+      }
+    }
+  }
+  .recent-post{
+    margin-bottom: 25px;
+    .popular-articles{
+      article{
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0e0;
+        h4 {
+          margin: 0 0 5px 0;
+          line-height: 1.2;
+          a{
+            color: $color-blue;
+            text-decoration: none;
+          }
+        }
+        .data{
+          color: #b9b9b9;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          font-size: 0.65em;
+          justify-content: space-between;
+
+          .cats{
+            a{
+              color: black;
+            }
+          }
+        }
+        &:last-child{
+          border-bottom: none;
+        }
       }
     }
   }

@@ -14,8 +14,8 @@
   <div class="datas">
     <?php if (!$isquote): ?>
     <div class="metas">
-      <div class="date"><i class="far fa-clock"></i> <strong><?php echo get_the_date('Y. F j.'); ?></strong></div>
       <div class="author"><i class="far fa-file-alt"></i> <strong><?php the_author(); ?></strong></div>
+      <?php if (false): ?>
       <div class="cats">
         <i class="fa fa-columns"></i>
         <?php if ($cats): ?>
@@ -24,6 +24,7 @@
           <?php endforeach; ?>
         <?php endif; ?>
       </div>
+      <?php endif; ?>
     </div>
     <?php endif; ?>
     <?php if (!$isquote): ?>

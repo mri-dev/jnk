@@ -3,6 +3,15 @@ get_header(); ?>
 
 	<section id="primary" class="content-area">
 		<div id="content" class="articles">
+			<?php
+				$current_cat = get_the_category();
+			?>
+			<div class="cat-header">
+				<h1><?php echo $current_cat[0]->name; ?></h1>
+				<div class="count-post">
+					<?php echo $current_cat[0]->count; ?> db bejegyzés.
+				</div>
+			</div>
 
 			<?php if ( have_posts() ) : ?>
 
