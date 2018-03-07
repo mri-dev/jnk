@@ -79,6 +79,15 @@ input[type=checkbox].fake-radio:checked + label {
 }
 
 /* FIX AVADAT STYLES */
+body.single{
+  .fusion-page-title-bar{
+    height: 380px;
+    box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.85);
+  }
+  .fusion-page-title-wrapper{
+    padding-top: 250px;
+  }
+}
 .fusion-header-v2 .fusion-secondary-header{
   border-top: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
@@ -104,10 +113,19 @@ input[type=checkbox].fake-radio:checked + label {
 .fusion-page-title-bar{
   background-size: inherit !important;
 }
+.fusion-header-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
 .fusion-separator.short-sep{
   width: 80px;
   margin-left: auto;
   margin-right: auto;
+}
+.fusion-page-title-bar{
+  background-color: #262626;
 }
 .fusion-contact-info{
   font-size: 1.1em;
@@ -115,6 +133,9 @@ input[type=checkbox].fake-radio:checked + label {
     margin-right: 5px;
     vertical-align: middle;
   }
+}
+.avada-skin-rev{
+  border: none !important;
 }
 .ui-widget-content{
   background:rgba(56, 56, 56, 0.9);
@@ -301,6 +322,7 @@ input[type=checkbox].fake-radio:checked + label {
       margin: 0 0 5px 0;
     }
     .count-post{
+      text-align: center;
       margin: 0 0 15px 0;
       color: #7c7c7c;
     }

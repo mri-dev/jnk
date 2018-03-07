@@ -1,23 +1,16 @@
 <?php
 get_header(); ?>
-
 	<section id="primary" class="content-area">
-		<div id="content" class="articles">
+		<div id="content" class="article">
 			<?php
 				$current_cat = get_the_category();
 			?>
-			<div class="cat-header">
-				<div class="count-post">
-					<?php echo sprintf(__('%d db bejegyzést találtunk:', TD), $current_cat[0]->count); ?>
-				</div>
-			</div>
-
 			<?php if ( have_posts() ) : ?>
 
 			<?php
 					// Start the Loop.
 					while ( have_posts() ) : the_post();
-            get_template_part( 'content', 'blog' );
+            get_template_part( 'content', 'single' );
 					endwhile;
 					// Previous/next page navigation.
 

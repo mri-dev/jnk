@@ -4,6 +4,7 @@
   $cats = wp_get_post_categories($post->ID, array('fields' => 'all_with_object_id'));
   $pf = get_post_format($post->ID);
   $isquote = ($pf == 'quote') ? true : false;
+  $is_tag = is_tag();
 ?>
 <article <?php post_class(); ?>>
   <?php if ($image && !$isquote): ?>
@@ -15,7 +16,7 @@
     <?php if (!$isquote): ?>
     <div class="metas">
       <div class="author"><i class="far fa-file-alt"></i> <strong><?php the_author(); ?></strong></div>
-      <?php if (false): ?>
+      <?php if ($is_tag): ?>
       <div class="cats">
         <i class="fa fa-columns"></i>
         <?php if ($cats): ?>

@@ -2,13 +2,13 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area">
-		<div id="content" class="articles">
+		<div id="content" class="articles tag-list">
 			<?php
 				$current_cat = get_the_category();
 			?>
 			<div class="cat-header">
 				<div class="count-post">
-					<?php echo sprintf(__('%d db bejegyzést találtunk:', TD), $current_cat[0]->count); ?>
+					<?php echo sprintf(__('%d db bejegyzést találtunk a(z) <strong>%s</strong> címke szerint:', TD), $current_cat[0]->count, single_tag_title('', false)); ?>
 				</div>
 			</div>
 
