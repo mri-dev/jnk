@@ -536,6 +536,26 @@ body.single{
   }
 }
 
+.front-home-testimonials{
+  .testimonial-content{
+    text-align: center;
+    color: #c8bdbb;
+    font-style: italic;
+  }
+  .testimonial-client{
+    text-align: center;
+    .testimonial-name{
+      font-weight: bold;
+      font-size: 1em;
+      color: white;
+      text-transform: uppercase;
+    }
+    .testimonial-destination{
+      color: $color-blue;
+    }
+  }
+}
+
 .contact-form-holder{
   .requester-holder,
   .btns{
