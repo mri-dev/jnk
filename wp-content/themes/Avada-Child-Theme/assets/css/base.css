@@ -623,29 +623,42 @@ body.single .fusion-page-title-wrapper {
   font-size: 1.1em;
 }
 /* line 572, sass/base.scss */
+.postlist-holder .head .links {
+  float: right;
+  font-size: 0.56em;
+  font-weight: normal;
+  color: #b7b7b7;
+  margin: 5px 0 0 0;
+}
+/* line 579, sass/base.scss */
+.postlist-holder .head .links a {
+  font-size: 1.1em;
+  margin: 0 3px;
+}
+/* line 585, sass/base.scss */
 .postlist-holder .head .svg-inline--fa {
   color: #0b85d5;
   font-size: 18px;
   margin-right: 8px;
   vertical-align: middle;
 }
-/* line 580, sass/base.scss */
+/* line 593, sass/base.scss */
 .postlist-holder > div.newest-article {
   flex-basis: 60%;
 }
-/* line 583, sass/base.scss */
+/* line 596, sass/base.scss */
 .postlist-holder > div.more-articles {
   flex: 1;
 }
-/* line 586, sass/base.scss */
+/* line 599, sass/base.scss */
 .postlist-holder > div.more-articles article {
   border-bottom: 1px solid #e4e4e4;
 }
-/* line 589, sass/base.scss */
+/* line 602, sass/base.scss */
 .postlist-holder > div.more-articles article:last-child {
   border-bottom: none;
 }
-/* line 594, sass/base.scss */
+/* line 607, sass/base.scss */
 .postlist-holder article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -656,20 +669,20 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
 }
-/* line 604, sass/base.scss */
+/* line 617, sass/base.scss */
 .postlist-holder article .image {
   flex-basis: 90px;
   border-radius: 4px;
   overflow: hidden;
 }
-/* line 610, sass/base.scss */
+/* line 623, sass/base.scss */
 .postlist-holder article .data {
   flex: 1;
   font-size: 0.9em;
   padding-left: 10px;
 }
-/* line 615, sass/base.scss */
-.postlist-holder article .data a {
+/* line 629, sass/base.scss */
+.postlist-holder article .data .title a {
   color: black;
   text-decoration: none;
   line-height: 1.2;
@@ -677,46 +690,47 @@ body.single .fusion-page-title-wrapper {
   display: block;
   overflow: hidden;
 }
-/* line 623, sass/base.scss */
-.postlist-holder article .data a:hover {
+/* line 637, sass/base.scss */
+.postlist-holder article .data .title a:hover {
   color: #0b85d5;
 }
-/* line 628, sass/base.scss */
+/* line 643, sass/base.scss */
 .postlist-holder article .data .meta {
   font-size: 0.8em !important;
   margin: 10px 0 0 0 !important;
   color: #0b85d5 !important;
   font-weight: bold !important;
 }
-/* line 634, sass/base.scss */
+/* line 649, sass/base.scss */
 .postlist-holder article .data .meta .svg-inline--fa {
   color: #acacac !important;
   margin-right: 5px;
 }
-/* line 641, sass/base.scss */
+/* line 656, sass/base.scss */
 .postlist-holder article img {
   max-width: 100%;
 }
-/* line 646, sass/base.scss */
+/* line 661, sass/base.scss */
 .postlist-holder div.newest-article {
   padding-right: 25px;
 }
-/* line 648, sass/base.scss */
+/* line 663, sass/base.scss */
 .postlist-holder div.newest-article article {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
 }
-/* line 652, sass/base.scss */
+/* line 667, sass/base.scss */
 .postlist-holder div.newest-article article .image {
   flex-basis: 100%;
-  border-radius: 0;
+  border-radius: 3px;
   overflow: hidden;
   margin-bottom: 25px;
   height: 276px;
   position: relative;
+  box-shadow: 0 25px 30px -13px #ababab;
 }
-/* line 660, sass/base.scss */
+/* line 676, sass/base.scss */
 .postlist-holder div.newest-article article .image img {
   position: absolute;
   top: 50%;
@@ -724,28 +738,28 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 669, sass/base.scss */
+/* line 685, sass/base.scss */
 .postlist-holder div.newest-article article .data {
   padding-left: 0 !important;
 }
-/* line 671, sass/base.scss */
+/* line 687, sass/base.scss */
 .postlist-holder div.newest-article article .data .desc {
   margin: 15px 0 5px 0;
   line-height: 1.4;
   font-size: 0.8em;
 }
-/* line 676, sass/base.scss */
-.postlist-holder div.newest-article article .data a {
+/* line 693, sass/base.scss */
+.postlist-holder div.newest-article article .data .title a {
   color: #0b85d5 !important;
   font-size: 1.6em !important;
 }
 
-/* line 687, sass/base.scss */
+/* line 705, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 691, sass/base.scss */
+/* line 709, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -754,11 +768,11 @@ body.single .fusion-page-title-wrapper {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 698, sass/base.scss */
+/* line 716, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 701, sass/base.scss */
+/* line 719, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -768,44 +782,44 @@ body.single .fusion-page-title-wrapper {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 709, sass/base.scss */
+/* line 727, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 712, sass/base.scss */
+/* line 730, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 715, sass/base.scss */
+/* line 733, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 718, sass/base.scss */
+/* line 736, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 721, sass/base.scss */
+/* line 739, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 727, sass/base.scss */
+/* line 745, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 731, sass/base.scss */
+/* line 749, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 737, sass/base.scss */
+/* line 755, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -820,28 +834,28 @@ body.single .fusion-page-title-wrapper {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 751, sass/base.scss */
+/* line 769, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 754, sass/base.scss */
+/* line 772, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 763, sass/base.scss */
+/* line 781, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 768, sass/base.scss */
+/* line 786, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 771, sass/base.scss */
+/* line 789, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 775, sass/base.scss */
+/* line 793, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

@@ -569,6 +569,19 @@ body.single{
     color: black;
     font-size: 1.1em;
 
+    .links{
+      float: right;
+      font-size: 0.56em;
+      font-weight: normal;
+      color: #b7b7b7;
+      margin: 5px 0 0 0;
+
+      a{
+        font-size: 1.1em;
+        margin: 0 3px;
+      }
+    }
+
     .svg-inline--fa {
       color: $color-blue;
       font-size: 18px;
@@ -612,16 +625,18 @@ body.single{
       font-size: 0.9em;
       padding-left: 10px;
 
-      a{
-        color: black;
-        text-decoration: none;
-        line-height: 1.2;
-        font-weight: bold;
-        display: block;
-        overflow: hidden;
+      .title{
+        a{
+          color: black;
+          text-decoration: none;
+          line-height: 1.2;
+          font-weight: bold;
+          display: block;
+          overflow: hidden;
 
-        &:hover{
-          color: $color-blue;
+          &:hover{
+            color: $color-blue;
+          }
         }
       }
 
@@ -651,11 +666,12 @@ body.single{
       font-size: 1.2em;
       .image{
         flex-basis: 100%;
-        border-radius: 0;
+        border-radius: 3px;
         overflow: hidden;
         margin-bottom: 25px;
         height: 276px;
         position: relative;
+        box-shadow: 0 25px 30px -13px #ababab;
 
         img {
           position: absolute;
@@ -673,9 +689,11 @@ body.single{
           line-height: 1.4;
           font-size: 0.8em;
         }
-        a{
-          color: $color-blue !important;
-          font-size: 1.6em !important;
+        .title{
+          a{
+            color: $color-blue !important;
+            font-size: 1.6em !important;
+          }
         }
       }
     }

@@ -27,6 +27,12 @@
       </div>
       <div class="meta">
         <span class="time"><i class="far fa-clock"></i> <?=$date?></span>
+        <?php if ($cats): ?>
+          &nbsp;&nbsp;&nbsp;<i class="fa fa-columns"></i>
+          <?php foreach ( $cats as $cat ): ?>
+            <span><a href="/category/<?=$cat->slug?>"><strong><?=$cat->name?></strong></a></span>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
     </div>
   </article>
@@ -34,6 +40,9 @@
 <div class="more-articles">
   <div class="head">
    <i class="far fa-lightbulb"></i> <?php echo __('További bejegyzések',TD); ?>
+   <div class="links">
+     <a href="/category/hirek"><?php echo __('Összes hír', TD); ?></a> / <a href="/category/blog"><?php echo __('Összes blog', TD); ?></a>
+   </div>
   </div>
 <?php
   $i = 0;

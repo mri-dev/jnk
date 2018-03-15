@@ -90,7 +90,7 @@ function create_custom_posttypes()
 
   // Utazás hosszak
   $utak->add_taxonomy( 'utazas_duration', array(
-		'rewrite' => 'utazasok',
+		'rewrite' => 'utazas-hossz',
 		'name' => array('Utazás hossz', 'Utazások hossza'),
 		'labels' => array(
 			'menu_name' => 'Utazások hossza',
@@ -102,7 +102,7 @@ function create_custom_posttypes()
 
   // Utazás úti célok
   $utak->add_taxonomy( 'utazas_uticel', array(
-    'rewrite' => 'uticelok',
+    'rewrite' => 'utazas-uticel',
     'name' => array('Úti cél', 'Úti célok'),
     'labels' => array(
       'menu_name' => 'Úti célok',
@@ -113,7 +113,7 @@ function create_custom_posttypes()
   ) );
 
   $utak->add_taxonomy( 'utazas_kategoria', array(
-    'rewrite' => 'kategoria',
+    'rewrite' => 'utazas-kategoria',
     'name' => array('Kategória', 'Kategóriák'),
     'labels' => array(
       'menu_name' => 'Kategóriák',
