@@ -18,7 +18,7 @@
           </div>
           <div class="data">
             <div class="cats">
-              <i class="fa fa-columns"></i>
+              <i class="far fa-folder"></i>
               <?php if ($cats): ?>
                 <?php foreach ( $cats as $cat ): ?>
                   <span><a href="/category/<?=$cat->slug?>"><strong><?=$cat->name?></strong></a></span>
@@ -48,7 +48,6 @@
           <?php echo $tag; ?>
         </div>
       <?php endforeach; ?>
-
     </div>
   </div>
   <?php } endif; ?>

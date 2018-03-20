@@ -28,7 +28,7 @@
       <div class="meta">
         <span class="time"><i class="far fa-clock"></i> <?=$date?></span>
         <?php if ($cats): ?>
-          &nbsp;&nbsp;&nbsp;<i class="fa fa-columns"></i>
+          &nbsp;&nbsp;&nbsp;<i class="far fa-folder"></i>
           <?php foreach ( $cats as $cat ): ?>
             <span><a href="/category/<?=$cat->slug?>"><strong><?=$cat->name?></strong></a></span>
           <?php endforeach; ?>

@@ -700,6 +700,97 @@ body.single{
   }
 }
 
+body.single-post {
+  .content-inside{
+    color: #323232;
+  }
+
+  .author-data{
+    border-top: 1px solid #dfdfdf;
+    margin: 40px 0;
+    padding: 30px 0 0 0;
+    text-align: center;
+    color: #343434;
+
+    .author-title {
+      color: #b2b2b2;
+      font-style: italic;
+      margin: 0 0 5px 0;
+      font-size: 0.8em;
+    }
+    .name {
+      color: black;
+      font-size: 1.5em;
+      margin: 0 0 10px 0;
+    }
+    .desc {
+      line-height: 1.4;
+      color: grey;
+      font-size: 0.9em;
+    }
+  }
+}
+
+.fusion-page-title-bar{
+  background-position: center;
+}
+.single-post-caption{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .date {
+    flex-basis: 80px;
+    padding: 0 25px 0 0;
+    border-right: 1px solid white;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+    line-height: 1;
+    color: #808080;
+
+    .day {
+      font-size: 4em;
+      font-weight: bold;
+      color: white;
+    }
+  }
+  .titledata{
+    flex: 1;
+    padding: 0 0 0 25px;
+
+    .meta{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: white !important;
+      margin-top: 10px;
+
+      .svg-inline--fa{
+        color: white;
+        margin-right: 5px;
+      }
+
+      a {
+        color: white;
+
+        &:hover{
+          color: $color-blue;
+        }
+      }
+
+      & > div {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
 .contact-form-holder{
   .requester-holder,
   .btns{

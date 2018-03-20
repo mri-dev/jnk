@@ -754,12 +754,108 @@ body.single .fusion-page-title-wrapper {
   font-size: 1.6em !important;
 }
 
-/* line 705, sass/base.scss */
+/* line 704, sass/base.scss */
+body.single-post .content-inside {
+  color: #323232;
+}
+/* line 708, sass/base.scss */
+body.single-post .author-data {
+  border-top: 1px solid #dfdfdf;
+  margin: 40px 0;
+  padding: 30px 0 0 0;
+  text-align: center;
+  color: #343434;
+}
+/* line 715, sass/base.scss */
+body.single-post .author-data .author-title {
+  color: #b2b2b2;
+  font-style: italic;
+  margin: 0 0 5px 0;
+  font-size: 0.8em;
+}
+/* line 721, sass/base.scss */
+body.single-post .author-data .name {
+  color: black;
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+}
+/* line 726, sass/base.scss */
+body.single-post .author-data .desc {
+  line-height: 1.4;
+  color: grey;
+  font-size: 0.9em;
+}
+
+/* line 734, sass/base.scss */
+.fusion-page-title-bar {
+  background-position: center;
+}
+
+/* line 737, sass/base.scss */
+.single-post-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+/* line 745, sass/base.scss */
+.single-post-caption .date {
+  flex-basis: 80px;
+  padding: 0 25px 0 0;
+  border-right: 1px solid white;
+  color: white;
+  font-size: 1em;
+  text-align: center;
+  line-height: 1;
+  color: #808080;
+}
+/* line 755, sass/base.scss */
+.single-post-caption .date .day {
+  font-size: 4em;
+  font-weight: bold;
+  color: white;
+}
+/* line 761, sass/base.scss */
+.single-post-caption .titledata {
+  flex: 1;
+  padding: 0 0 0 25px;
+}
+/* line 765, sass/base.scss */
+.single-post-caption .titledata .meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: white !important;
+  margin-top: 10px;
+}
+/* line 774, sass/base.scss */
+.single-post-caption .titledata .meta .svg-inline--fa {
+  color: white;
+  margin-right: 5px;
+}
+/* line 779, sass/base.scss */
+.single-post-caption .titledata .meta a {
+  color: white;
+}
+/* line 782, sass/base.scss */
+.single-post-caption .titledata .meta a:hover {
+  color: #0b85d5;
+}
+/* line 787, sass/base.scss */
+.single-post-caption .titledata .meta > div {
+  margin-right: 20px;
+}
+
+/* line 796, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 709, sass/base.scss */
+/* line 800, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -768,11 +864,11 @@ body.single .fusion-page-title-wrapper {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 716, sass/base.scss */
+/* line 807, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 719, sass/base.scss */
+/* line 810, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -782,44 +878,44 @@ body.single .fusion-page-title-wrapper {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 727, sass/base.scss */
+/* line 818, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 730, sass/base.scss */
+/* line 821, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 733, sass/base.scss */
+/* line 824, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 736, sass/base.scss */
+/* line 827, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 739, sass/base.scss */
+/* line 830, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 745, sass/base.scss */
+/* line 836, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 749, sass/base.scss */
+/* line 840, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 755, sass/base.scss */
+/* line 846, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -834,28 +930,28 @@ body.single .fusion-page-title-wrapper {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 769, sass/base.scss */
+/* line 860, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 772, sass/base.scss */
+/* line 863, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 781, sass/base.scss */
+/* line 872, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 786, sass/base.scss */
+/* line 877, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 789, sass/base.scss */
+/* line 880, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 793, sass/base.scss */
+/* line 884, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

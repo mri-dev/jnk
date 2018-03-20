@@ -18,7 +18,7 @@
       <div class="author"><i class="far fa-file-alt"></i> <strong><?php the_author(); ?></strong></div>
       <?php if ($is_tag): ?>
       <div class="cats">
-        <i class="fa fa-columns"></i>
+        <i class="far fa-folder"></i>
         <?php if ($cats): ?>
           <?php foreach ( $cats as $cat ): ?>
             <span><a href="/category/<?=$cat->slug?>"><strong><?=$cat->name?></strong></a></span>
