@@ -730,6 +730,96 @@ body.single-post {
     }
   }
 }
+.comments {
+  .commentlist div.avatar{
+    border-radius: 55px;
+    overflow: hidden;
+  }
+  .comment-numbers{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #000000;
+    margin: 0 0 30px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .comment-box{
+    .comment-text{
+      margin: 20px 0 0 69px;
+    }
+    .comment-author{
+      strong {
+        color: #323232;
+        font-size: 1.45em;
+      }
+
+      .date{
+        font-size: 1.1em;
+        margin: 10px 0 0 0;
+        color: #9c9c9c;
+      }
+    }
+    .comment-reply-link
+    {
+      margin-left: 5px;
+      float: right;
+      color: #757575;
+      font-weight: bold;
+      font-size: 0.8em;
+      text-transform: uppercase;
+    }
+    .comment-edit{
+      margin: 10px 0 0 69px;
+
+      .svg-inline--fa{
+        font-size: 10px;
+        margin-right: 5px;
+        color: #ec7878;
+      }
+    }
+    .comment-edit-link{
+      font-size: 0.65em;
+      color: #ec7878;
+    }
+  }
+}
+.comment-respond{
+  background: #ededed;
+  padding: 40px;
+  .comment-form .form-submit{
+    text-align: center;
+  }
+  .comment-form #comment-submit{
+    margin: 0 auto;
+    background-color: $color-blue;
+    font-weight: bold;
+    padding: 12px 20px;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+  }
+  .logged-in-as{
+    text-align: center;
+    color: #4c4c4c;
+    font-size: 0.85em;
+    margin: 0 0 35px 0;
+  }
+  .fusion-title .title-sep-container{
+    display: none;
+  }
+  .fusion-title{
+    margin: 0 0 10px 0 !important;
+    h3{
+      flex-basis: 100%;
+      padding: 0 !important;
+      text-align: center !important;
+      color: black;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+  }
+}
 
 .fusion-page-title-bar{
   background-position: center;

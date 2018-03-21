@@ -219,3 +219,62 @@ function custom_admin_css() {
   </style>';
 }
 add_action('admin_head', 'custom_admin_css');
+
+function jnk_comment($comment, $args, $depth) {
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag       = 'li';
+        $add_below = 'div-comment';
+    }?>
+    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php
+    if ( 'div' != $args['style'] ) { ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="the-comment"><?php
+    } ?>
+        <div class="avatar">
+          <?php
+              if ( $args['avatar_size'] != 0 ) {
+                  echo get_avatar( $comment, 54 );
+              }
+          ?>
+        </div>
+        <div class="comment-box">
+          <div class="comment-author meta">
+            <?php
+              $args['reply_text'] = __('Reply').' <i class="fas fa-reply" data-fa-transform="flip-h"></i>';
+              comment_reply_link(
+                  array_merge(
+                      $args,
+                      array(
+                          'add_below' => $add_below,
+                          'depth'     => $depth,
+                          'max_depth' => $args['max_depth']
+                      )
+                  )
+              );
+            ?>
+            <strong><?php printf( __( '%s' ), get_comment_author_link() ); ?></strong>
+            <div class="date">
+              <?php
+                /* translators: 1: date, 2: time */
+                printf(
+                    '%s, %s',
+                    get_comment_date('Y. F j.'),
+                    get_comment_time()
+                );
+              ?>
+            </div>
+          </div>
+          <div class="comment-text">
+            <?php comment_text(); ?>
+          </div>
+          <div class="comment-edit">
+            <?php edit_comment_link( __( 'Edit' ), '<i class="fas fa-pencil-alt"></i>', '' ); ?>
+          </div>
+        </div>
+        <?php
+    if ( 'div' != $args['style'] ) : ?>
+        </div><?php
+    endif;
+}
