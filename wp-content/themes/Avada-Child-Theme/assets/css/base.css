@@ -455,10 +455,10 @@ body.single .fusion-page-title-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
-  margin: 0 -10px;
+  margin: -10px;
 }
 /* line 415, sass/base.scss */
 .destination-searcher-holder .wrapper > div {
@@ -466,7 +466,7 @@ body.single .fusion-page-title-wrapper {
 }
 /* line 417, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper {
-  padding: 0 10px;
+  padding: 10px;
 }
 /* line 420, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper > label {
@@ -500,10 +500,30 @@ body.single .fusion-page-title-wrapper {
   height: 34px;
   line-height: 34px;
 }
-/* line 454, sass/base.scss */
+/* line 452, sass/base.scss */
+.destination-searcher-holder .wrapper > div.keywords {
+  flex-basis: 40%;
+}
+/* line 455, sass/base.scss */
+.destination-searcher-holder .wrapper > div.location {
+  flex-basis: 25%;
+}
+/* line 459, sass/base.scss */
+.destination-searcher-holder .wrapper > div.ellatas, .destination-searcher-holder .wrapper > div.datetime {
+  flex-basis: calc(35%/2);
+}
+/* line 463, sass/base.scss */
+.destination-searcher-holder .wrapper > div.durations, .destination-searcher-holder .wrapper > div.utazasmod {
+  flex-basis: 20%;
+}
+/* line 466, sass/base.scss */
+.destination-searcher-holder .wrapper > div.szolgaltatasok {
+  flex-basis: 40%;
+}
+/* line 472, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton button {
   cursor: pointer;
-  height: 34px;
+  height: 36px;
   display: block;
   width: 100%;
   text-align: center;
@@ -515,18 +535,18 @@ body.single .fusion-page-title-wrapper {
   border: none;
 }
 
-/* line 471, sass/base.scss */
+/* line 489, sass/base.scss */
 .multi-selector-holder {
   position: absolute;
   width: 100%;
   z-index: 1000;
   display: none;
 }
-/* line 477, sass/base.scss */
+/* line 495, sass/base.scss */
 .multi-selector-holder.opened {
   display: block;
 }
-/* line 481, sass/base.scss */
+/* line 499, sass/base.scss */
 .multi-selector-holder .selector-wrapper {
   background: rgba(56, 56, 56, 0.9);
   border: 1px solid #5d6b75;
@@ -536,7 +556,7 @@ body.single .fusion-page-title-wrapper {
   -moz-box-shadow: 0 10px 26px -9px #8e8e8e;
   box-shadow: 0 10px 26px -9px #8e8e8e;
 }
-/* line 491, sass/base.scss */
+/* line 509, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label {
   padding: 5px 5px 5px 35px;
   margin: 0 0 1px 0;
@@ -545,69 +565,69 @@ body.single .fusion-page-title-wrapper {
   display: block;
   line-height: 17px;
 }
-/* line 499, sass/base.scss */
+/* line 517, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label .n {
   color: #d2d2d2;
   font-size: 0.85em;
 }
-/* line 503, sass/base.scss */
+/* line 521, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:before {
   left: 10px;
 }
-/* line 508, sass/base.scss */
+/* line 526, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label {
   background: rgba(11, 133, 213, 0.9);
   color: white;
 }
-/* line 512, sass/base.scss */
+/* line 530, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover:before,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label:before {
   color: white;
 }
-/* line 517, sass/base.scss */
+/* line 535, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label {
   padding-left: 45px !important;
 }
-/* line 519, sass/base.scss */
+/* line 537, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label:before {
   left: 20px !important;
 }
-/* line 525, sass/base.scss */
+/* line 543, sass/base.scss */
 .multi-selector-holder .selector-wrapper.sel-def {
   margin-top: -2px;
   margin-right: 30px;
 }
 
-/* line 533, sass/base.scss */
+/* line 551, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed {
   height: 320px;
   background: rgba(21, 37, 47, 0.76);
 }
 
-/* line 540, sass/base.scss */
+/* line 558, sass/base.scss */
 .front-home-testimonials .testimonial-content {
   text-align: center;
   color: #c8bdbb;
   font-style: italic;
 }
-/* line 545, sass/base.scss */
+/* line 563, sass/base.scss */
 .front-home-testimonials .testimonial-client {
   text-align: center;
 }
-/* line 547, sass/base.scss */
+/* line 565, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-name {
   font-weight: bold;
   font-size: 1em;
   color: white;
   text-transform: uppercase;
 }
-/* line 553, sass/base.scss */
+/* line 571, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-destination {
   color: #0b85d5;
 }
 
-/* line 559, sass/base.scss */
+/* line 577, sass/base.scss */
 .postlist-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -615,14 +635,14 @@ body.single .fusion-page-title-wrapper {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-/* line 566, sass/base.scss */
+/* line 584, sass/base.scss */
 .postlist-holder .head {
   margin: 0 0 25px 0;
   font-weight: bold;
   color: black;
   font-size: 1.1em;
 }
-/* line 572, sass/base.scss */
+/* line 590, sass/base.scss */
 .postlist-holder .head .links {
   float: right;
   font-size: 0.56em;
@@ -630,35 +650,35 @@ body.single .fusion-page-title-wrapper {
   color: #b7b7b7;
   margin: 5px 0 0 0;
 }
-/* line 579, sass/base.scss */
+/* line 597, sass/base.scss */
 .postlist-holder .head .links a {
   font-size: 1.1em;
   margin: 0 3px;
 }
-/* line 585, sass/base.scss */
+/* line 603, sass/base.scss */
 .postlist-holder .head .svg-inline--fa {
   color: #0b85d5;
   font-size: 18px;
   margin-right: 8px;
   vertical-align: middle;
 }
-/* line 593, sass/base.scss */
+/* line 611, sass/base.scss */
 .postlist-holder > div.newest-article {
   flex-basis: 60%;
 }
-/* line 596, sass/base.scss */
+/* line 614, sass/base.scss */
 .postlist-holder > div.more-articles {
   flex: 1;
 }
-/* line 599, sass/base.scss */
+/* line 617, sass/base.scss */
 .postlist-holder > div.more-articles article {
   border-bottom: 1px solid #e4e4e4;
 }
-/* line 602, sass/base.scss */
+/* line 620, sass/base.scss */
 .postlist-holder > div.more-articles article:last-child {
   border-bottom: none;
 }
-/* line 607, sass/base.scss */
+/* line 625, sass/base.scss */
 .postlist-holder article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -669,19 +689,19 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
 }
-/* line 617, sass/base.scss */
+/* line 635, sass/base.scss */
 .postlist-holder article .image {
   flex-basis: 90px;
   border-radius: 4px;
   overflow: hidden;
 }
-/* line 623, sass/base.scss */
+/* line 641, sass/base.scss */
 .postlist-holder article .data {
   flex: 1;
   font-size: 0.9em;
   padding-left: 10px;
 }
-/* line 629, sass/base.scss */
+/* line 647, sass/base.scss */
 .postlist-holder article .data .title a {
   color: black;
   text-decoration: none;
@@ -690,37 +710,37 @@ body.single .fusion-page-title-wrapper {
   display: block;
   overflow: hidden;
 }
-/* line 637, sass/base.scss */
+/* line 655, sass/base.scss */
 .postlist-holder article .data .title a:hover {
   color: #0b85d5;
 }
-/* line 643, sass/base.scss */
+/* line 661, sass/base.scss */
 .postlist-holder article .data .meta {
   font-size: 0.8em !important;
   margin: 10px 0 0 0 !important;
   color: #0b85d5 !important;
   font-weight: bold !important;
 }
-/* line 649, sass/base.scss */
+/* line 667, sass/base.scss */
 .postlist-holder article .data .meta .svg-inline--fa {
   color: #acacac !important;
   margin-right: 5px;
 }
-/* line 656, sass/base.scss */
+/* line 674, sass/base.scss */
 .postlist-holder article img {
   max-width: 100%;
 }
-/* line 661, sass/base.scss */
+/* line 679, sass/base.scss */
 .postlist-holder div.newest-article {
   padding-right: 25px;
 }
-/* line 663, sass/base.scss */
+/* line 681, sass/base.scss */
 .postlist-holder div.newest-article article {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
 }
-/* line 667, sass/base.scss */
+/* line 685, sass/base.scss */
 .postlist-holder div.newest-article article .image {
   flex-basis: 100%;
   border-radius: 3px;
@@ -730,7 +750,7 @@ body.single .fusion-page-title-wrapper {
   position: relative;
   box-shadow: 0 25px 30px -13px #ababab;
 }
-/* line 676, sass/base.scss */
+/* line 694, sass/base.scss */
 .postlist-holder div.newest-article article .image img {
   position: absolute;
   top: 50%;
@@ -738,27 +758,27 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 685, sass/base.scss */
+/* line 703, sass/base.scss */
 .postlist-holder div.newest-article article .data {
   padding-left: 0 !important;
 }
-/* line 687, sass/base.scss */
+/* line 705, sass/base.scss */
 .postlist-holder div.newest-article article .data .desc {
   margin: 15px 0 5px 0;
   line-height: 1.4;
   font-size: 0.8em;
 }
-/* line 693, sass/base.scss */
+/* line 711, sass/base.scss */
 .postlist-holder div.newest-article article .data .title a {
   color: #0b85d5 !important;
   font-size: 1.6em !important;
 }
 
-/* line 704, sass/base.scss */
+/* line 722, sass/base.scss */
 body.single-post .content-inside {
   color: #323232;
 }
-/* line 708, sass/base.scss */
+/* line 726, sass/base.scss */
 body.single-post .author-data {
   border-top: 1px solid #dfdfdf;
   margin: 40px 0;
@@ -766,32 +786,32 @@ body.single-post .author-data {
   text-align: center;
   color: #343434;
 }
-/* line 715, sass/base.scss */
+/* line 733, sass/base.scss */
 body.single-post .author-data .author-title {
   color: #b2b2b2;
   font-style: italic;
   margin: 0 0 5px 0;
   font-size: 0.8em;
 }
-/* line 721, sass/base.scss */
+/* line 739, sass/base.scss */
 body.single-post .author-data .name {
   color: black;
   font-size: 1.5em;
   margin: 0 0 10px 0;
 }
-/* line 726, sass/base.scss */
+/* line 744, sass/base.scss */
 body.single-post .author-data .desc {
   line-height: 1.4;
   color: grey;
   font-size: 0.9em;
 }
 
-/* line 734, sass/base.scss */
+/* line 752, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 738, sass/base.scss */
+/* line 756, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -801,22 +821,22 @@ body.single-post .author-data .desc {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 748, sass/base.scss */
+/* line 766, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 752, sass/base.scss */
+/* line 770, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 757, sass/base.scss */
+/* line 775, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 764, sass/base.scss */
+/* line 782, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -825,32 +845,32 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 772, sass/base.scss */
+/* line 790, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 775, sass/base.scss */
+/* line 793, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 781, sass/base.scss */
+/* line 799, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 787, sass/base.scss */
+/* line 805, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 790, sass/base.scss */
+/* line 808, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 793, sass/base.scss */
+/* line 811, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -859,22 +879,22 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 801, sass/base.scss */
+/* line 819, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 807, sass/base.scss */
+/* line 825, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 810, sass/base.scss */
+/* line 828, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 812, sass/base.scss */
+/* line 830, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -885,12 +905,12 @@ body.single-post .author-data .desc {
   font-weight: bold;
 }
 
-/* line 824, sass/base.scss */
-.fusion-page-title-bar {
+/* line 842, sass/base.scss */
+body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 827, sass/base.scss */
+/* line 845, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -899,7 +919,7 @@ body.single-post .author-data .desc {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 835, sass/base.scss */
+/* line 853, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -910,18 +930,18 @@ body.single-post .author-data .desc {
   line-height: 1;
   color: #808080;
 }
-/* line 845, sass/base.scss */
+/* line 863, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 851, sass/base.scss */
+/* line 869, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 855, sass/base.scss */
+/* line 873, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -931,30 +951,30 @@ body.single-post .author-data .desc {
   color: white !important;
   margin-top: 10px;
 }
-/* line 864, sass/base.scss */
+/* line 882, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 869, sass/base.scss */
+/* line 887, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 872, sass/base.scss */
+/* line 890, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 877, sass/base.scss */
+/* line 895, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 886, sass/base.scss */
+/* line 904, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 890, sass/base.scss */
+/* line 908, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -963,11 +983,11 @@ body.single-post .author-data .desc {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 897, sass/base.scss */
+/* line 915, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 900, sass/base.scss */
+/* line 918, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -977,44 +997,44 @@ body.single-post .author-data .desc {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 908, sass/base.scss */
+/* line 926, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 911, sass/base.scss */
+/* line 929, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 914, sass/base.scss */
+/* line 932, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 917, sass/base.scss */
+/* line 935, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 920, sass/base.scss */
+/* line 938, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 926, sass/base.scss */
+/* line 944, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 930, sass/base.scss */
+/* line 948, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 936, sass/base.scss */
+/* line 954, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -1029,28 +1049,28 @@ body.single-post .author-data .desc {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 950, sass/base.scss */
+/* line 968, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 953, sass/base.scss */
+/* line 971, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 962, sass/base.scss */
+/* line 980, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 967, sass/base.scss */
+/* line 985, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 970, sass/base.scss */
+/* line 988, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 974, sass/base.scss */
+/* line 992, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

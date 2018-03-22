@@ -123,6 +123,39 @@ function create_custom_posttypes()
     )
   ) );
 
+  $utak->add_taxonomy( 'utazas_ellatas', array(
+    'rewrite' => 'ellatas',
+    'name' => array('Ellátás', 'Ellátások'),
+    'labels' => array(
+      'menu_name' => 'Ellátások',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
+  $utak->add_taxonomy( 'utazas_mod', array(
+    'rewrite' => 'utazas-mod',
+    'name' => array('Utazás mód', 'Utazás módok'),
+    'labels' => array(
+      'menu_name' => 'Utazás módok',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
+  $utak->add_taxonomy( 'utazas_szolgaltatasok', array(
+    'rewrite' => 'szolgaltatasok',
+    'name' => array('Szolgáltatás', 'Szolgáltatások'),
+    'labels' => array(
+      'menu_name' => 'Szolgáltatások',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
   /*$utak_metabox = new CustomMetabox(
     'utazas',
     __('Utazás beállítások', TD),

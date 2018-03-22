@@ -51,7 +51,7 @@
     </div>
     <?php if ( !$isquote ): ?>
     <div class="buttons">
-      <a href="#" class="read-more"><?php echo __('Részletek', TD); ?></a>
+      <a href="<?php the_permalink(); ?>" class="read-more"><?php echo __('Részletek', TD); ?></a>
     </div>
     <?php endif; ?>
     <div class="clear fusion-clear"></div>

@@ -23,6 +23,44 @@
       </div>
     </div>
   </div>
+
+  <div class="ellatas">
+    <div class="iwrapper">
+      <label for="ellatas_multiselect_text"><?=__('Ellátás', TD)?></label>
+      <div class="input-wrapper">
+        <div class="tglwatcher-wrapper">
+          <input type="text" readonly="readonly" id="ellatas_multiselect_text" class="form-control tglwatcher" tglwatcher="ellatas_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
+        </div>
+        <input type="hidden" id="ellatas_multiselect_ids" name="d" value="">
+        <div class="multi-selector-holder" tglwatcherkey="ellatas_multiselect" id="ellatas_multiselect">
+          <div class="selector-wrapper">
+            <? $ellatasok = $searcher->getSelectors('utazas_ellatas'); ?>
+            <?php if ($ellatasok): ?>
+              <?php foreach ($ellatasok as $k): ?>
+              <div class="selector-row">
+                <input type="checkbox" tglwatcherkey="ellatas_multiselect" htxt="<?=$k->name?>" id="stat_<?=$k->term_id?>" value="<?=$k->term_id?>"> <label for="stat_<?=$k->term_id?>"><?=$k->name?>
+                  <?php if (get_locale() === DEFAULT_LANGUAGE): ?>
+                   <span class="n">(<?=$k->count?>)</span>
+                  <?php endif; ?></label>
+              </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="datetime">
+    <div class="iwrapper">
+      <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
+      <div class="input-wrapper">
+        <div class="ico"><i class="far fa-calendar-alt"></i></div>
+        <input type="text" name="date" readonly="readonly" value="<?=$_GET['search']?>" placeholder="<?=__('Bármikor', TD)?>" id="src_datetime">
+      </div>
+    </div>
+  </div>
+
   <div class="durations">
     <div class="iwrapper">
       <label for="duration_multiselect_text"><?=__('Utazás hossza', TD)?></label>
@@ -49,15 +87,61 @@
       </div>
     </div>
   </div>
-  <div class="datetime">
+
+  <div class="utazasmod">
     <div class="iwrapper">
-      <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
+      <label for="utazasmod_multiselect_text"><?=__('Utazás módja', TD)?></label>
       <div class="input-wrapper">
-        <div class="ico"><i class="far fa-calendar-alt"></i></div>
-        <input type="text" name="date" readonly="readonly" value="<?=$_GET['search']?>" placeholder="<?=__('Bármikor', TD)?>" id="src_datetime">
+        <div class="tglwatcher-wrapper">
+          <input type="text" readonly="readonly" id="utazasmod_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasmod_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
+        </div>
+        <input type="hidden" id="utazasmod_multiselect_ids" name="d" value="">
+        <div class="multi-selector-holder" tglwatcherkey="utazasmod_multiselect" id="utazasmod_multiselect">
+          <div class="selector-wrapper">
+            <? $ellatasok = $searcher->getSelectors('utazas_mod'); ?>
+            <?php if ($ellatasok): ?>
+              <?php foreach ($ellatasok as $k): ?>
+              <div class="selector-row">
+                <input type="checkbox" tglwatcherkey="utazasmod_multiselect" htxt="<?=$k->name?>" id="stat_<?=$k->term_id?>" value="<?=$k->term_id?>"> <label for="stat_<?=$k->term_id?>"><?=$k->name?>
+                  <?php if (get_locale() === DEFAULT_LANGUAGE): ?>
+                   <span class="n">(<?=$k->count?>)</span>
+                  <?php endif; ?></label>
+              </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="szolgaltatasok">
+    <div class="iwrapper">
+      <label for="utazasszolg_multiselect_text"><?=__('Szolgáltatások', TD)?></label>
+      <div class="input-wrapper">
+        <div class="tglwatcher-wrapper">
+          <input type="text" readonly="readonly" id="utazasszolg_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasszolg_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
+        </div>
+        <input type="hidden" id="utazasszolg_multiselect_ids" name="d" value="">
+        <div class="multi-selector-holder" tglwatcherkey="utazasszolg_multiselect" id="utazasszolg_multiselect">
+          <div class="selector-wrapper">
+            <? $ellatasok = $searcher->getSelectors('utazas_szolgaltatasok'); ?>
+            <?php if ($ellatasok): ?>
+              <?php foreach ($ellatasok as $k): ?>
+              <div class="selector-row">
+                <input type="checkbox" tglwatcherkey="utazasszolg_multiselect" htxt="<?=$k->name?>" id="stat_<?=$k->term_id?>" value="<?=$k->term_id?>"> <label for="stat_<?=$k->term_id?>"><?=$k->name?>
+                  <?php if (get_locale() === DEFAULT_LANGUAGE): ?>
+                   <span class="n">(<?=$k->count?>)</span>
+                  <?php endif; ?></label>
+              </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="srcbutton">
     <div class="iwrapper">
       <button type="submit"><?php echo __('Keresés',TD); ?></button>
