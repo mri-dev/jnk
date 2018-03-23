@@ -9,6 +9,7 @@ define('TD', 'jnk'); // Textdomain
 define('METAKEY_PREFIX', 'jnk_'); // Textdomain
 define('CAPTCHA_SITE_KEY', '6LcUGUoUAAAAAIjFl--yWShSlAHTOBKLUZwpXXeV');
 define('CAPTCHA_SECRET_KEY', '6LcUGUoUAAAAAEmnJEAqm3Ks5X_HodUkw5vIn0C0');
+define('UTAZAS_SLUG', 'utazas');
 
 // Includes
 //require_once WP_PLUGIN_DIR."/cmb2/init.php";

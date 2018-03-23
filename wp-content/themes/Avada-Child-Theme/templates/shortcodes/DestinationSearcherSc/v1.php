@@ -1,7 +1,7 @@
 <?php
   $searcher = new Searcher();
 ?>
-<form class="" action="/utazasok" method="get" id="searcher-form">
+<form class="" action="/<?=UTAZAS_SLUG?>" method="get" id="searcher-form">
 <div class="wrapper">
   <div class="keywords">
     <div class="iwrapper">
@@ -31,7 +31,7 @@
         <div class="tglwatcher-wrapper">
           <input type="text" readonly="readonly" id="ellatas_multiselect_text" class="form-control tglwatcher" tglwatcher="ellatas_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
         </div>
-        <input type="hidden" id="ellatas_multiselect_ids" name="d" value="">
+        <input type="hidden" id="ellatas_multiselect_ids" name="el" value="">
         <div class="multi-selector-holder" tglwatcherkey="ellatas_multiselect" id="ellatas_multiselect">
           <div class="selector-wrapper">
             <? $ellatasok = $searcher->getSelectors('utazas_ellatas'); ?>
@@ -68,7 +68,7 @@
         <div class="tglwatcher-wrapper">
           <input type="text" readonly="readonly" id="duration_multiselect_text" class="form-control tglwatcher" tglwatcher="duration_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
         </div>
-        <input type="hidden" id="duration_multiselect_ids" name="d" value="">
+        <input type="hidden" id="duration_multiselect_ids" name="dur" value="">
         <div class="multi-selector-holder" tglwatcherkey="duration_multiselect" id="duration_multiselect">
           <div class="selector-wrapper">
             <? $durations = $searcher->getSelectors('utazas_duration'); ?>
@@ -95,7 +95,7 @@
         <div class="tglwatcher-wrapper">
           <input type="text" readonly="readonly" id="utazasmod_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasmod_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
         </div>
-        <input type="hidden" id="utazasmod_multiselect_ids" name="d" value="">
+        <input type="hidden" id="utazasmod_multiselect_ids" name="um" value="">
         <div class="multi-selector-holder" tglwatcherkey="utazasmod_multiselect" id="utazasmod_multiselect">
           <div class="selector-wrapper">
             <? $ellatasok = $searcher->getSelectors('utazas_mod'); ?>
@@ -122,7 +122,7 @@
         <div class="tglwatcher-wrapper">
           <input type="text" readonly="readonly" id="utazasszolg_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasszolg_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
         </div>
-        <input type="hidden" id="utazasszolg_multiselect_ids" name="d" value="">
+        <input type="hidden" id="utazasszolg_multiselect_ids" name="szolg" value="">
         <div class="multi-selector-holder" tglwatcherkey="utazasszolg_multiselect" id="utazasszolg_multiselect">
           <div class="selector-wrapper">
             <? $ellatasok = $searcher->getSelectors('utazas_szolgaltatasok'); ?>

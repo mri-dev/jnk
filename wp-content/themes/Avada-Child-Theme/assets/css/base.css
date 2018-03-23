@@ -451,6 +451,34 @@ body.single .fusion-page-title-wrapper {
 }
 
 /* line 406, sass/base.scss */
+.listing-utazasok .list-wrapper {
+  padding: 30px 0;
+}
+
+/* line 411, sass/base.scss */
+.travels {
+  margin: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+/* line 419, sass/base.scss */
+.travels .travel {
+  padding: 20px;
+  flex-basis: calc(100%/3);
+}
+/* line 422, sass/base.scss */
+.travels .travel .wrapper {
+  background: #ffffff;
+}
+/* line 426, sass/base.scss */
+.travels .travel .wrapper .image img {
+  max-width: 100%;
+}
+
+/* line 435, sass/base.scss */
 .destination-searcher-holder .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -460,15 +488,15 @@ body.single .fusion-page-title-wrapper {
   flex-wrap: wrap;
   margin: -10px;
 }
-/* line 415, sass/base.scss */
+/* line 444, sass/base.scss */
 .destination-searcher-holder .wrapper > div {
   flex-basis: calc(100%/5);
 }
-/* line 417, sass/base.scss */
+/* line 446, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper {
   padding: 10px;
 }
-/* line 420, sass/base.scss */
+/* line 449, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper > label {
   color: white;
   font-weight: bold;
@@ -476,13 +504,13 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 15px 0;
   display: block;
 }
-/* line 428, sass/base.scss */
+/* line 457, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper {
   background: rgba(126, 168, 195, 0.28);
   border: 1px solid #616f79;
   position: relative;
 }
-/* line 432, sass/base.scss */
+/* line 461, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper .ico {
   pointer-events: none;
   position: absolute;
@@ -492,7 +520,7 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 442, sass/base.scss */
+/* line 471, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text] {
   background: transparent;
   border: none;
@@ -500,27 +528,27 @@ body.single .fusion-page-title-wrapper {
   height: 34px;
   line-height: 34px;
 }
-/* line 452, sass/base.scss */
+/* line 481, sass/base.scss */
 .destination-searcher-holder .wrapper > div.keywords {
   flex-basis: 40%;
 }
-/* line 455, sass/base.scss */
+/* line 484, sass/base.scss */
 .destination-searcher-holder .wrapper > div.location {
   flex-basis: 25%;
 }
-/* line 459, sass/base.scss */
+/* line 488, sass/base.scss */
 .destination-searcher-holder .wrapper > div.ellatas, .destination-searcher-holder .wrapper > div.datetime {
   flex-basis: calc(35%/2);
 }
-/* line 463, sass/base.scss */
+/* line 492, sass/base.scss */
 .destination-searcher-holder .wrapper > div.durations, .destination-searcher-holder .wrapper > div.utazasmod {
   flex-basis: 20%;
 }
-/* line 466, sass/base.scss */
+/* line 495, sass/base.scss */
 .destination-searcher-holder .wrapper > div.szolgaltatasok {
   flex-basis: 40%;
 }
-/* line 472, sass/base.scss */
+/* line 501, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton button {
   cursor: pointer;
   height: 36px;
@@ -534,29 +562,42 @@ body.single .fusion-page-title-wrapper {
   background: #0b85d5;
   border: none;
 }
+/* line 517, sass/base.scss */
+.destination-searcher-holder.manual-insert {
+  background-color: #343434;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+/* line 523, sass/base.scss */
+.destination-searcher-holder.manual-insert .wrapper {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 25px 0;
+}
 
-/* line 489, sass/base.scss */
+/* line 531, sass/base.scss */
 .multi-selector-holder {
   position: absolute;
   width: 100%;
   z-index: 1000;
   display: none;
 }
-/* line 495, sass/base.scss */
+/* line 537, sass/base.scss */
 .multi-selector-holder.opened {
   display: block;
 }
-/* line 499, sass/base.scss */
+/* line 541, sass/base.scss */
 .multi-selector-holder .selector-wrapper {
   background: rgba(56, 56, 56, 0.9);
   border: 1px solid #5d6b75;
   border-top: 1px dashed #5d6b75;
   margin-top: -1px;
-  -webkit-box-shadow: 0 10px 26px -9px #8e8e8e;
-  -moz-box-shadow: 0 10px 26px -9px #8e8e8e;
-  box-shadow: 0 10px 26px -9px #8e8e8e;
+  -webkit-box-shadow: 0 10px 26px -9px black;
+  -moz-box-shadow: 0 10px 26px -9px black;
+  box-shadow: 0 10px 26px -9px black;
 }
-/* line 509, sass/base.scss */
+/* line 551, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label {
   padding: 5px 5px 5px 35px;
   margin: 0 0 1px 0;
@@ -565,69 +606,69 @@ body.single .fusion-page-title-wrapper {
   display: block;
   line-height: 17px;
 }
-/* line 517, sass/base.scss */
+/* line 559, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label .n {
   color: #d2d2d2;
   font-size: 0.85em;
 }
-/* line 521, sass/base.scss */
+/* line 563, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:before {
   left: 10px;
 }
-/* line 526, sass/base.scss */
+/* line 568, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label {
   background: rgba(11, 133, 213, 0.9);
   color: white;
 }
-/* line 530, sass/base.scss */
+/* line 572, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover:before,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label:before {
   color: white;
 }
-/* line 535, sass/base.scss */
+/* line 577, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label {
   padding-left: 45px !important;
 }
-/* line 537, sass/base.scss */
+/* line 579, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label:before {
   left: 20px !important;
 }
-/* line 543, sass/base.scss */
+/* line 585, sass/base.scss */
 .multi-selector-holder .selector-wrapper.sel-def {
   margin-top: -2px;
   margin-right: 30px;
 }
 
-/* line 551, sass/base.scss */
+/* line 593, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed {
   height: 320px;
   background: rgba(21, 37, 47, 0.76);
 }
 
-/* line 558, sass/base.scss */
+/* line 600, sass/base.scss */
 .front-home-testimonials .testimonial-content {
   text-align: center;
   color: #c8bdbb;
   font-style: italic;
 }
-/* line 563, sass/base.scss */
+/* line 605, sass/base.scss */
 .front-home-testimonials .testimonial-client {
   text-align: center;
 }
-/* line 565, sass/base.scss */
+/* line 607, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-name {
   font-weight: bold;
   font-size: 1em;
   color: white;
   text-transform: uppercase;
 }
-/* line 571, sass/base.scss */
+/* line 613, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-destination {
   color: #0b85d5;
 }
 
-/* line 577, sass/base.scss */
+/* line 619, sass/base.scss */
 .postlist-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -635,14 +676,14 @@ body.single .fusion-page-title-wrapper {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-/* line 584, sass/base.scss */
+/* line 626, sass/base.scss */
 .postlist-holder .head {
   margin: 0 0 25px 0;
   font-weight: bold;
   color: black;
   font-size: 1.1em;
 }
-/* line 590, sass/base.scss */
+/* line 632, sass/base.scss */
 .postlist-holder .head .links {
   float: right;
   font-size: 0.56em;
@@ -650,35 +691,35 @@ body.single .fusion-page-title-wrapper {
   color: #b7b7b7;
   margin: 5px 0 0 0;
 }
-/* line 597, sass/base.scss */
+/* line 639, sass/base.scss */
 .postlist-holder .head .links a {
   font-size: 1.1em;
   margin: 0 3px;
 }
-/* line 603, sass/base.scss */
+/* line 645, sass/base.scss */
 .postlist-holder .head .svg-inline--fa {
   color: #0b85d5;
   font-size: 18px;
   margin-right: 8px;
   vertical-align: middle;
 }
-/* line 611, sass/base.scss */
+/* line 653, sass/base.scss */
 .postlist-holder > div.newest-article {
   flex-basis: 60%;
 }
-/* line 614, sass/base.scss */
+/* line 656, sass/base.scss */
 .postlist-holder > div.more-articles {
   flex: 1;
 }
-/* line 617, sass/base.scss */
+/* line 659, sass/base.scss */
 .postlist-holder > div.more-articles article {
   border-bottom: 1px solid #e4e4e4;
 }
-/* line 620, sass/base.scss */
+/* line 662, sass/base.scss */
 .postlist-holder > div.more-articles article:last-child {
   border-bottom: none;
 }
-/* line 625, sass/base.scss */
+/* line 667, sass/base.scss */
 .postlist-holder article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -689,19 +730,19 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
 }
-/* line 635, sass/base.scss */
+/* line 677, sass/base.scss */
 .postlist-holder article .image {
   flex-basis: 90px;
   border-radius: 4px;
   overflow: hidden;
 }
-/* line 641, sass/base.scss */
+/* line 683, sass/base.scss */
 .postlist-holder article .data {
   flex: 1;
   font-size: 0.9em;
   padding-left: 10px;
 }
-/* line 647, sass/base.scss */
+/* line 689, sass/base.scss */
 .postlist-holder article .data .title a {
   color: black;
   text-decoration: none;
@@ -710,37 +751,37 @@ body.single .fusion-page-title-wrapper {
   display: block;
   overflow: hidden;
 }
-/* line 655, sass/base.scss */
+/* line 697, sass/base.scss */
 .postlist-holder article .data .title a:hover {
   color: #0b85d5;
 }
-/* line 661, sass/base.scss */
+/* line 703, sass/base.scss */
 .postlist-holder article .data .meta {
   font-size: 0.8em !important;
   margin: 10px 0 0 0 !important;
   color: #0b85d5 !important;
   font-weight: bold !important;
 }
-/* line 667, sass/base.scss */
+/* line 709, sass/base.scss */
 .postlist-holder article .data .meta .svg-inline--fa {
   color: #acacac !important;
   margin-right: 5px;
 }
-/* line 674, sass/base.scss */
+/* line 716, sass/base.scss */
 .postlist-holder article img {
   max-width: 100%;
 }
-/* line 679, sass/base.scss */
+/* line 721, sass/base.scss */
 .postlist-holder div.newest-article {
   padding-right: 25px;
 }
-/* line 681, sass/base.scss */
+/* line 723, sass/base.scss */
 .postlist-holder div.newest-article article {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
 }
-/* line 685, sass/base.scss */
+/* line 727, sass/base.scss */
 .postlist-holder div.newest-article article .image {
   flex-basis: 100%;
   border-radius: 3px;
@@ -750,7 +791,7 @@ body.single .fusion-page-title-wrapper {
   position: relative;
   box-shadow: 0 25px 30px -13px #ababab;
 }
-/* line 694, sass/base.scss */
+/* line 736, sass/base.scss */
 .postlist-holder div.newest-article article .image img {
   position: absolute;
   top: 50%;
@@ -758,27 +799,33 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 703, sass/base.scss */
+/* line 745, sass/base.scss */
 .postlist-holder div.newest-article article .data {
   padding-left: 0 !important;
 }
-/* line 705, sass/base.scss */
+/* line 747, sass/base.scss */
 .postlist-holder div.newest-article article .data .desc {
   margin: 15px 0 5px 0;
   line-height: 1.4;
   font-size: 0.8em;
 }
-/* line 711, sass/base.scss */
+/* line 753, sass/base.scss */
 .postlist-holder div.newest-article article .data .title a {
   color: #0b85d5 !important;
   font-size: 1.6em !important;
 }
 
-/* line 722, sass/base.scss */
+/* line 763, sass/base.scss */
+body.archive.post-type-archive-utazas #main {
+  background: #e7edf1 !important;
+  padding: 0 !important;
+}
+
+/* line 770, sass/base.scss */
 body.single-post .content-inside {
   color: #323232;
 }
-/* line 726, sass/base.scss */
+/* line 774, sass/base.scss */
 body.single-post .author-data {
   border-top: 1px solid #dfdfdf;
   margin: 40px 0;
@@ -786,32 +833,32 @@ body.single-post .author-data {
   text-align: center;
   color: #343434;
 }
-/* line 733, sass/base.scss */
+/* line 781, sass/base.scss */
 body.single-post .author-data .author-title {
   color: #b2b2b2;
   font-style: italic;
   margin: 0 0 5px 0;
   font-size: 0.8em;
 }
-/* line 739, sass/base.scss */
+/* line 787, sass/base.scss */
 body.single-post .author-data .name {
   color: black;
   font-size: 1.5em;
   margin: 0 0 10px 0;
 }
-/* line 744, sass/base.scss */
+/* line 792, sass/base.scss */
 body.single-post .author-data .desc {
   line-height: 1.4;
   color: grey;
   font-size: 0.9em;
 }
 
-/* line 752, sass/base.scss */
+/* line 800, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 756, sass/base.scss */
+/* line 804, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -821,22 +868,22 @@ body.single-post .author-data .desc {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 766, sass/base.scss */
+/* line 814, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 770, sass/base.scss */
+/* line 818, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 775, sass/base.scss */
+/* line 823, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 782, sass/base.scss */
+/* line 830, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -845,32 +892,32 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 790, sass/base.scss */
+/* line 838, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 793, sass/base.scss */
+/* line 841, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 799, sass/base.scss */
+/* line 847, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 805, sass/base.scss */
+/* line 853, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 808, sass/base.scss */
+/* line 856, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 811, sass/base.scss */
+/* line 859, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -879,22 +926,22 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 819, sass/base.scss */
+/* line 867, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 825, sass/base.scss */
+/* line 873, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 828, sass/base.scss */
+/* line 876, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 830, sass/base.scss */
+/* line 878, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -905,12 +952,12 @@ body.single-post .author-data .desc {
   font-weight: bold;
 }
 
-/* line 842, sass/base.scss */
+/* line 890, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 845, sass/base.scss */
+/* line 893, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -919,7 +966,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 853, sass/base.scss */
+/* line 901, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -930,18 +977,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 863, sass/base.scss */
+/* line 911, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 869, sass/base.scss */
+/* line 917, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 873, sass/base.scss */
+/* line 921, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -951,30 +998,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 882, sass/base.scss */
+/* line 930, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 887, sass/base.scss */
+/* line 935, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 890, sass/base.scss */
+/* line 938, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 895, sass/base.scss */
+/* line 943, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 904, sass/base.scss */
+/* line 952, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 908, sass/base.scss */
+/* line 956, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -983,11 +1030,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 915, sass/base.scss */
+/* line 963, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 918, sass/base.scss */
+/* line 966, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -997,44 +1044,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 926, sass/base.scss */
+/* line 974, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 929, sass/base.scss */
+/* line 977, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 932, sass/base.scss */
+/* line 980, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 935, sass/base.scss */
+/* line 983, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 938, sass/base.scss */
+/* line 986, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 944, sass/base.scss */
+/* line 992, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 948, sass/base.scss */
+/* line 996, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 954, sass/base.scss */
+/* line 1002, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -1049,28 +1096,28 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 968, sass/base.scss */
+/* line 1016, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 971, sass/base.scss */
+/* line 1019, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 980, sass/base.scss */
+/* line 1028, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 985, sass/base.scss */
+/* line 1033, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 988, sass/base.scss */
+/* line 1036, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 992, sass/base.scss */
+/* line 1040, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

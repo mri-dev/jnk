@@ -13,6 +13,28 @@ class Searcher
      return $this;
   }
 
+  public function Listing( $arg = array() )
+  {
+    global $post;
+    $back = array();
+    $filters = (array)$arg['filters'];
+
+    $datas = new WP_Query(array(
+      'post_type' => 'utazas'
+    ));
+
+    if ( $datas->have_posts() ) {
+      while( $datas->have_posts() ) {
+        $datas->the_post();
+
+        $back[] = new Travel( $post );
+      }
+      wp_reset_postdata();
+    }
+
+    return $back;
+  }
+
   public function getSelectors( $id, $sel_values = array(), $arg = array() )
   {
     if (!$sel_values) {
