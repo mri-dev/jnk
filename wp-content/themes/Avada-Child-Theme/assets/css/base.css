@@ -472,13 +472,131 @@ body.single .fusion-page-title-wrapper {
 /* line 422, sass/base.scss */
 .travels .travel .wrapper {
   background: #ffffff;
+  position: relative;
+  box-shadow: 0 5px 20px -5px #d2d8dc;
+  border-radius: 3px;
 }
-/* line 426, sass/base.scss */
+/* line 428, sass/base.scss */
+.travels .travel .wrapper .badges {
+  position: absolute;
+  top: 10px;
+  left: -10px;
+}
+/* line 433, sass/base.scss */
+.travels .travel .wrapper .badges > div {
+  position: relative;
+  margin: 0 0 10px 0;
+  background: #4a4a4a;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 10px 10px 10px 20px;
+  pointer-events: none;
+}
+/* line 444, sass/base.scss */
+.travels .travel .wrapper .badges > div:after {
+  position: absolute;
+  content: "";
+  left: -10px;
+  bottom: -10px;
+  background: transparent;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #4a4a4a transparent transparent;
+}
+/* line 455, sass/base.scss */
+.travels .travel .wrapper .badges > div.discounted {
+  background: #0b85d5;
+}
+/* line 457, sass/base.scss */
+.travels .travel .wrapper .badges > div.discounted:after {
+  border-color: transparent #0b85d5 transparent transparent;
+}
+/* line 461, sass/base.scss */
+.travels .travel .wrapper .badges > div.highlighted {
+  background: #e83939;
+}
+/* line 463, sass/base.scss */
+.travels .travel .wrapper .badges > div.highlighted:after {
+  border-color: transparent #e83939 transparent transparent;
+}
+/* line 470, sass/base.scss */
+.travels .travel .wrapper .image {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+/* line 474, sass/base.scss */
 .travels .travel .wrapper .image img {
   max-width: 100%;
 }
+/* line 479, sass/base.scss */
+.travels .travel .wrapper .datas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+/* line 487, sass/base.scss */
+.travels .travel .wrapper .datas .title {
+  flex: 1;
+}
+/* line 489, sass/base.scss */
+.travels .travel .wrapper .datas .title h3 {
+  margin: 0;
+  line-height: 1.1;
+  font-size: 1em;
+}
+/* line 494, sass/base.scss */
+.travels .travel .wrapper .datas .title h3 a {
+  line-height: 1.2;
+  color: black;
+  display: block;
+  text-decoration: none;
+}
+/* line 502, sass/base.scss */
+.travels .travel .wrapper .datas .price {
+  flex-basis: 100px;
+  text-align: right;
+  line-height: 1.2;
+}
+/* line 507, sass/base.scss */
+.travels .travel .wrapper .datas .price .old {
+  color: #c1c1c1;
+  text-decoration: line-through;
+}
+/* line 512, sass/base.scss */
+.travels .travel .wrapper .datas .price .current {
+  font-weight: bold;
+  color: #0b85d5;
+  font-size: 1.1em;
+}
+/* line 519, sass/base.scss */
+.travels .travel .wrapper .datas .position,
+.travels .travel .wrapper .datas .duration {
+  flex-basis: 100%;
+  margin: 10px 0 5px 0;
+}
+/* line 523, sass/base.scss */
+.travels .travel .wrapper .datas .position .svg-inline--fa,
+.travels .travel .wrapper .datas .duration .svg-inline--fa {
+  width: 20px;
+  text-align: center;
+  color: #0b85d5;
+}
+/* line 530, sass/base.scss */
+.travels .travel .wrapper .datas .position {
+  font-size: 0.9em;
+  color: #fbb03b;
+}
+/* line 533, sass/base.scss */
+.travels .travel .wrapper .datas .position .svg-inline--fa {
+  color: #f75119;
+}
 
-/* line 435, sass/base.scss */
+/* line 543, sass/base.scss */
 .destination-searcher-holder .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -488,15 +606,15 @@ body.single .fusion-page-title-wrapper {
   flex-wrap: wrap;
   margin: -10px;
 }
-/* line 444, sass/base.scss */
+/* line 552, sass/base.scss */
 .destination-searcher-holder .wrapper > div {
   flex-basis: calc(100%/5);
 }
-/* line 446, sass/base.scss */
+/* line 554, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper {
   padding: 10px;
 }
-/* line 449, sass/base.scss */
+/* line 557, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper > label {
   color: white;
   font-weight: bold;
@@ -504,13 +622,13 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 15px 0;
   display: block;
 }
-/* line 457, sass/base.scss */
+/* line 565, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper {
   background: rgba(126, 168, 195, 0.28);
   border: 1px solid #616f79;
   position: relative;
 }
-/* line 461, sass/base.scss */
+/* line 569, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper .ico {
   pointer-events: none;
   position: absolute;
@@ -520,7 +638,7 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 471, sass/base.scss */
+/* line 579, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text] {
   background: transparent;
   border: none;
@@ -528,27 +646,27 @@ body.single .fusion-page-title-wrapper {
   height: 34px;
   line-height: 34px;
 }
-/* line 481, sass/base.scss */
+/* line 589, sass/base.scss */
 .destination-searcher-holder .wrapper > div.keywords {
   flex-basis: 40%;
 }
-/* line 484, sass/base.scss */
+/* line 592, sass/base.scss */
 .destination-searcher-holder .wrapper > div.location {
   flex-basis: 25%;
 }
-/* line 488, sass/base.scss */
+/* line 596, sass/base.scss */
 .destination-searcher-holder .wrapper > div.ellatas, .destination-searcher-holder .wrapper > div.datetime {
   flex-basis: calc(35%/2);
 }
-/* line 492, sass/base.scss */
+/* line 600, sass/base.scss */
 .destination-searcher-holder .wrapper > div.durations, .destination-searcher-holder .wrapper > div.utazasmod {
   flex-basis: 20%;
 }
-/* line 495, sass/base.scss */
+/* line 603, sass/base.scss */
 .destination-searcher-holder .wrapper > div.szolgaltatasok {
   flex-basis: 40%;
 }
-/* line 501, sass/base.scss */
+/* line 609, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton button {
   cursor: pointer;
   height: 36px;
@@ -562,32 +680,32 @@ body.single .fusion-page-title-wrapper {
   background: #0b85d5;
   border: none;
 }
-/* line 517, sass/base.scss */
+/* line 625, sass/base.scss */
 .destination-searcher-holder.manual-insert {
   background-color: #343434;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
-/* line 523, sass/base.scss */
+/* line 631, sass/base.scss */
 .destination-searcher-holder.manual-insert .wrapper {
   width: 1100px;
   margin: 0 auto;
   padding: 25px 0;
 }
 
-/* line 531, sass/base.scss */
+/* line 639, sass/base.scss */
 .multi-selector-holder {
   position: absolute;
   width: 100%;
   z-index: 1000;
   display: none;
 }
-/* line 537, sass/base.scss */
+/* line 645, sass/base.scss */
 .multi-selector-holder.opened {
   display: block;
 }
-/* line 541, sass/base.scss */
+/* line 649, sass/base.scss */
 .multi-selector-holder .selector-wrapper {
   background: rgba(56, 56, 56, 0.9);
   border: 1px solid #5d6b75;
@@ -597,7 +715,7 @@ body.single .fusion-page-title-wrapper {
   -moz-box-shadow: 0 10px 26px -9px black;
   box-shadow: 0 10px 26px -9px black;
 }
-/* line 551, sass/base.scss */
+/* line 659, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label {
   padding: 5px 5px 5px 35px;
   margin: 0 0 1px 0;
@@ -606,69 +724,69 @@ body.single .fusion-page-title-wrapper {
   display: block;
   line-height: 17px;
 }
-/* line 559, sass/base.scss */
+/* line 667, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label .n {
   color: #d2d2d2;
   font-size: 0.85em;
 }
-/* line 563, sass/base.scss */
+/* line 671, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:before {
   left: 10px;
 }
-/* line 568, sass/base.scss */
+/* line 676, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label {
   background: rgba(11, 133, 213, 0.9);
   color: white;
 }
-/* line 572, sass/base.scss */
+/* line 680, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover:before,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label:before {
   color: white;
 }
-/* line 577, sass/base.scss */
+/* line 685, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label {
   padding-left: 45px !important;
 }
-/* line 579, sass/base.scss */
+/* line 687, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label:before {
   left: 20px !important;
 }
-/* line 585, sass/base.scss */
+/* line 693, sass/base.scss */
 .multi-selector-holder .selector-wrapper.sel-def {
   margin-top: -2px;
   margin-right: 30px;
 }
 
-/* line 593, sass/base.scss */
+/* line 701, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed {
   height: 320px;
   background: rgba(21, 37, 47, 0.76);
 }
 
-/* line 600, sass/base.scss */
+/* line 708, sass/base.scss */
 .front-home-testimonials .testimonial-content {
   text-align: center;
   color: #c8bdbb;
   font-style: italic;
 }
-/* line 605, sass/base.scss */
+/* line 713, sass/base.scss */
 .front-home-testimonials .testimonial-client {
   text-align: center;
 }
-/* line 607, sass/base.scss */
+/* line 715, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-name {
   font-weight: bold;
   font-size: 1em;
   color: white;
   text-transform: uppercase;
 }
-/* line 613, sass/base.scss */
+/* line 721, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-destination {
   color: #0b85d5;
 }
 
-/* line 619, sass/base.scss */
+/* line 727, sass/base.scss */
 .postlist-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -676,14 +794,14 @@ body.single .fusion-page-title-wrapper {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-/* line 626, sass/base.scss */
+/* line 734, sass/base.scss */
 .postlist-holder .head {
   margin: 0 0 25px 0;
   font-weight: bold;
   color: black;
   font-size: 1.1em;
 }
-/* line 632, sass/base.scss */
+/* line 740, sass/base.scss */
 .postlist-holder .head .links {
   float: right;
   font-size: 0.56em;
@@ -691,35 +809,35 @@ body.single .fusion-page-title-wrapper {
   color: #b7b7b7;
   margin: 5px 0 0 0;
 }
-/* line 639, sass/base.scss */
+/* line 747, sass/base.scss */
 .postlist-holder .head .links a {
   font-size: 1.1em;
   margin: 0 3px;
 }
-/* line 645, sass/base.scss */
+/* line 753, sass/base.scss */
 .postlist-holder .head .svg-inline--fa {
   color: #0b85d5;
   font-size: 18px;
   margin-right: 8px;
   vertical-align: middle;
 }
-/* line 653, sass/base.scss */
+/* line 761, sass/base.scss */
 .postlist-holder > div.newest-article {
   flex-basis: 60%;
 }
-/* line 656, sass/base.scss */
+/* line 764, sass/base.scss */
 .postlist-holder > div.more-articles {
   flex: 1;
 }
-/* line 659, sass/base.scss */
+/* line 767, sass/base.scss */
 .postlist-holder > div.more-articles article {
   border-bottom: 1px solid #e4e4e4;
 }
-/* line 662, sass/base.scss */
+/* line 770, sass/base.scss */
 .postlist-holder > div.more-articles article:last-child {
   border-bottom: none;
 }
-/* line 667, sass/base.scss */
+/* line 775, sass/base.scss */
 .postlist-holder article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -730,19 +848,19 @@ body.single .fusion-page-title-wrapper {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
 }
-/* line 677, sass/base.scss */
+/* line 785, sass/base.scss */
 .postlist-holder article .image {
   flex-basis: 90px;
   border-radius: 4px;
   overflow: hidden;
 }
-/* line 683, sass/base.scss */
+/* line 791, sass/base.scss */
 .postlist-holder article .data {
   flex: 1;
   font-size: 0.9em;
   padding-left: 10px;
 }
-/* line 689, sass/base.scss */
+/* line 797, sass/base.scss */
 .postlist-holder article .data .title a {
   color: black;
   text-decoration: none;
@@ -751,37 +869,37 @@ body.single .fusion-page-title-wrapper {
   display: block;
   overflow: hidden;
 }
-/* line 697, sass/base.scss */
+/* line 805, sass/base.scss */
 .postlist-holder article .data .title a:hover {
   color: #0b85d5;
 }
-/* line 703, sass/base.scss */
+/* line 811, sass/base.scss */
 .postlist-holder article .data .meta {
   font-size: 0.8em !important;
   margin: 10px 0 0 0 !important;
   color: #0b85d5 !important;
   font-weight: bold !important;
 }
-/* line 709, sass/base.scss */
+/* line 817, sass/base.scss */
 .postlist-holder article .data .meta .svg-inline--fa {
   color: #acacac !important;
   margin-right: 5px;
 }
-/* line 716, sass/base.scss */
+/* line 824, sass/base.scss */
 .postlist-holder article img {
   max-width: 100%;
 }
-/* line 721, sass/base.scss */
+/* line 829, sass/base.scss */
 .postlist-holder div.newest-article {
   padding-right: 25px;
 }
-/* line 723, sass/base.scss */
+/* line 831, sass/base.scss */
 .postlist-holder div.newest-article article {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
 }
-/* line 727, sass/base.scss */
+/* line 835, sass/base.scss */
 .postlist-holder div.newest-article article .image {
   flex-basis: 100%;
   border-radius: 3px;
@@ -791,7 +909,7 @@ body.single .fusion-page-title-wrapper {
   position: relative;
   box-shadow: 0 25px 30px -13px #ababab;
 }
-/* line 736, sass/base.scss */
+/* line 844, sass/base.scss */
 .postlist-holder div.newest-article article .image img {
   position: absolute;
   top: 50%;
@@ -799,33 +917,33 @@ body.single .fusion-page-title-wrapper {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 745, sass/base.scss */
+/* line 853, sass/base.scss */
 .postlist-holder div.newest-article article .data {
   padding-left: 0 !important;
 }
-/* line 747, sass/base.scss */
+/* line 855, sass/base.scss */
 .postlist-holder div.newest-article article .data .desc {
   margin: 15px 0 5px 0;
   line-height: 1.4;
   font-size: 0.8em;
 }
-/* line 753, sass/base.scss */
+/* line 861, sass/base.scss */
 .postlist-holder div.newest-article article .data .title a {
   color: #0b85d5 !important;
   font-size: 1.6em !important;
 }
 
-/* line 763, sass/base.scss */
+/* line 871, sass/base.scss */
 body.archive.post-type-archive-utazas #main {
   background: #e7edf1 !important;
   padding: 0 !important;
 }
 
-/* line 770, sass/base.scss */
+/* line 878, sass/base.scss */
 body.single-post .content-inside {
   color: #323232;
 }
-/* line 774, sass/base.scss */
+/* line 882, sass/base.scss */
 body.single-post .author-data {
   border-top: 1px solid #dfdfdf;
   margin: 40px 0;
@@ -833,32 +951,32 @@ body.single-post .author-data {
   text-align: center;
   color: #343434;
 }
-/* line 781, sass/base.scss */
+/* line 889, sass/base.scss */
 body.single-post .author-data .author-title {
   color: #b2b2b2;
   font-style: italic;
   margin: 0 0 5px 0;
   font-size: 0.8em;
 }
-/* line 787, sass/base.scss */
+/* line 895, sass/base.scss */
 body.single-post .author-data .name {
   color: black;
   font-size: 1.5em;
   margin: 0 0 10px 0;
 }
-/* line 792, sass/base.scss */
+/* line 900, sass/base.scss */
 body.single-post .author-data .desc {
   line-height: 1.4;
   color: grey;
   font-size: 0.9em;
 }
 
-/* line 800, sass/base.scss */
+/* line 908, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 804, sass/base.scss */
+/* line 912, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -868,22 +986,22 @@ body.single-post .author-data .desc {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 814, sass/base.scss */
+/* line 922, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 818, sass/base.scss */
+/* line 926, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 823, sass/base.scss */
+/* line 931, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 830, sass/base.scss */
+/* line 938, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -892,32 +1010,32 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 838, sass/base.scss */
+/* line 946, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 841, sass/base.scss */
+/* line 949, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 847, sass/base.scss */
+/* line 955, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 853, sass/base.scss */
+/* line 961, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 856, sass/base.scss */
+/* line 964, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 859, sass/base.scss */
+/* line 967, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -926,22 +1044,22 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 867, sass/base.scss */
+/* line 975, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 873, sass/base.scss */
+/* line 981, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 876, sass/base.scss */
+/* line 984, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 878, sass/base.scss */
+/* line 986, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -952,12 +1070,12 @@ body.single-post .author-data .desc {
   font-weight: bold;
 }
 
-/* line 890, sass/base.scss */
+/* line 998, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 893, sass/base.scss */
+/* line 1001, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -966,7 +1084,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 901, sass/base.scss */
+/* line 1009, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -977,18 +1095,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 911, sass/base.scss */
+/* line 1019, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 917, sass/base.scss */
+/* line 1025, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 921, sass/base.scss */
+/* line 1029, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -998,30 +1116,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 930, sass/base.scss */
+/* line 1038, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 935, sass/base.scss */
+/* line 1043, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 938, sass/base.scss */
+/* line 1046, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 943, sass/base.scss */
+/* line 1051, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 952, sass/base.scss */
+/* line 1060, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 956, sass/base.scss */
+/* line 1064, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1030,11 +1148,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 963, sass/base.scss */
+/* line 1071, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 966, sass/base.scss */
+/* line 1074, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -1044,44 +1162,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 974, sass/base.scss */
+/* line 1082, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 977, sass/base.scss */
+/* line 1085, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 980, sass/base.scss */
+/* line 1088, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 983, sass/base.scss */
+/* line 1091, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 986, sass/base.scss */
+/* line 1094, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 992, sass/base.scss */
+/* line 1100, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 996, sass/base.scss */
+/* line 1104, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 1002, sass/base.scss */
+/* line 1110, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -1096,28 +1214,28 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 1016, sass/base.scss */
+/* line 1124, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 1019, sass/base.scss */
+/* line 1127, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 1028, sass/base.scss */
+/* line 1136, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 1033, sass/base.scss */
+/* line 1141, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 1036, sass/base.scss */
+/* line 1144, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 1040, sass/base.scss */
+/* line 1148, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

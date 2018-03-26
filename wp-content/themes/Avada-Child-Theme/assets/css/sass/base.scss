@@ -421,10 +421,118 @@ body.single{
     flex-basis: calc(100%/3);
     .wrapper{
       background: #ffffff;
+      position: relative;
+      box-shadow: 0 5px 20px -5px #d2d8dc;
+      border-radius: 3px;
+
+      .badges {
+        position: absolute;
+        top: 10px;
+        left: -10px;
+
+        & > div {
+          position: relative;
+          margin: 0 0 10px 0;
+          background: rgba(74, 74, 74, 1);
+          color: white;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 0.8em;
+          padding: 10px 10px 10px 20px;
+          pointer-events: none;
+
+          &:after{
+            position: absolute;
+            content: "";
+            left: -10px;
+            bottom: -10px;
+            background: transparent;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent rgba(74, 74, 74, 1) transparent transparent;
+          }
+
+          &.discounted{
+            background:$color-blue;
+            &:after{
+              border-color: transparent $color-blue transparent transparent;
+            }
+          }
+          &.highlighted{
+            background:#e83939;
+            &:after{
+              border-color: transparent #e83939 transparent transparent;
+            }
+          }
+        }
+      }
 
       .image{
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+
         img{
           max-width: 100%;
+        }
+      }
+
+      .datas{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 15px;
+
+        .title {
+          flex: 1;
+          h3 {
+            margin: 0;
+            line-height: 1.1;
+            font-size: 1em;
+
+            a {
+              line-height: 1.2;
+              color: black;
+              display: block;
+              text-decoration: none;
+            }
+          }
+        }
+        .price {
+          flex-basis: 100px;
+          text-align: right;
+          line-height: 1.2;
+
+          .old{
+            color: #c1c1c1;
+            text-decoration: line-through;
+          }
+
+          .current{
+            font-weight: bold;
+            color: $color-blue;
+            font-size: 1.1em;
+          }
+        }
+        .position,
+        .duration{
+          flex-basis: 100%;
+          margin: 10px 0 5px 0;
+
+          .svg-inline--fa{
+            width: 20px;
+            text-align: center;
+            color: $color-blue;
+          }
+        }
+
+        .position{
+          font-size: 0.9em;
+          color: $color-orange;
+          .svg-inline--fa{
+            color: #f75119;
+          }
         }
       }
     }
