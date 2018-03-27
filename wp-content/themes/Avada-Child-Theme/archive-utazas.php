@@ -39,11 +39,13 @@
 								<h3><a href="<?=$travel->Url()?>"><?=$travel->Title()?></a></h3>
 							</div>
 							<div class="price">
+								<?php if ($discount): ?>
 								<div class="old">
-									112 000 Ft
+									<?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
 								</div>
+								<?php endif; ?>
 								<div class="current">
-									56 000 Ft
+									<?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
 								</div>
 							</div>
 							<?php

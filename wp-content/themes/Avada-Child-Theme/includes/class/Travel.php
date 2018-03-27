@@ -36,17 +36,60 @@ class Travel
 
   public function isKiemelt()
   {
-    return true;
+    $kiemelt = (int)get_post_meta($this->id, METAKEY_PREFIX . 'kiemelt', true);
+
+    if ( $kiemelt == 0 ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  public function getOriginalPrice()
+  {
+    $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar', true);
+
+    return $v;
+  }
+
+  public function getDiscountPrice()
+  {
+    $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar_akcios', true);
+
+    return $v;
+  }
+
+  public function getPrice()
+  {
+    if ( $this->getDiscount() ) {
+      $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar_akcios', true);
+    } else {
+      $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar', true);
+    }
+
+    return $v;
   }
 
   public function getDiscount()
   {
     $discount = false;
 
-    $discount = array(
-      'percent' => 45,
-      'price' => 56000
-    );
+    $disc_price = $this->getDiscountPrice();
+
+    if ( $disc_price )
+    {
+      $dp = $this->getDiscountPrice();
+      $p = $this->getOriginalPrice();
+
+      $sze = $p - $dp;
+
+      $percent = ($sze/$p) * 100;
+
+      $discount = array(
+        'percent' => round($percent),
+        'price' => round($p-$dp)
+      );
+    }
 
     return $discount;
   }

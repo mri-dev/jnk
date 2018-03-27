@@ -15,6 +15,11 @@ define('UTAZAS_SLUG', 'utazas');
 //require_once WP_PLUGIN_DIR."/cmb2/init.php";
 require_once "includes/include.php";
 
+function get_valuta()
+{
+  return 'Ft';
+}
+
 function theme_enqueue_styles() {
     wp_enqueue_style( 'avada-parent-stylesheet', get_template_directory_uri() . '/style.css?' . ( (DEVMODE === true) ? time() : '' )  );
     wp_enqueue_style( 'avada-child-stylesheet', IFROOT . '/style.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
@@ -157,12 +162,12 @@ function create_custom_posttypes()
     )
   ) );
 
-  /*$utak_metabox = new CustomMetabox(
+  $utak_metabox = new CustomMetabox(
     'utazas',
     __('Utazás beállítások', TD),
     new UtazasMetaboxSave(),
     'utazas'
-  );*/
+  );
 
 	$utak->create();
   add_post_type_support( 'utazas', 'excerpt' );

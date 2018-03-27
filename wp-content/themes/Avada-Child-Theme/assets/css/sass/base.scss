@@ -429,6 +429,7 @@ body.single{
         position: absolute;
         top: 10px;
         left: -10px;
+        pointer-events: none;
 
         & > div {
           position: relative;
