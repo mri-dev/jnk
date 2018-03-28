@@ -1,4 +1,5 @@
 <?php
+global $travel;
 get_header(); ?>
 	<section id="primary" class="content-area">
 		<div id="content" class="article">
@@ -9,8 +10,15 @@ get_header(); ?>
 
 			<?php
 					// Start the Loop.
-					while ( have_posts() ) : the_post();
-            get_template_part( 'content', 'single' );
+					while ( have_posts() ) :
+						the_post();
+						$post_type = get_post_type();
+						$sub = ($post_type == 'utazas') ? 'single-utazas' : 'single';
+
+						if ( $post_type == 'utazas' ) {
+							$travel = new Travel($post);
+						}
+            get_template_part( 'content', $sub );
 					endwhile;
 					// Previous/next page navigation.
 
@@ -23,7 +31,11 @@ get_header(); ?>
         wp_reset_postdata();
 			?>
 		</div><!-- #content -->
-    <?php get_template_part( 'content', 'blog-sidebar' ); ?>
+    <?php
+			if ( $post_type != 'utazas' ) {
+				get_template_part( 'content', 'blog-sidebar' );
+			}
+		?>
 	</section><!-- #primary -->
 
 <?php

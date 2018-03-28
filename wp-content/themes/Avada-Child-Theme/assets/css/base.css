@@ -84,7 +84,7 @@ input[type=checkbox].fake-radio:checked + label:before {
 /* line 83, sass/base.scss */
 body.single .fusion-page-title-bar {
   height: 380px;
-  box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0);
 }
 /* line 87, sass/base.scss */
 body.single .fusion-page-title-wrapper {
@@ -94,7 +94,7 @@ body.single .fusion-page-title-wrapper {
 /* line 91, sass/base.scss */
 .fusion-header-v2 .fusion-secondary-header {
   border-top: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 
 /* line 95, sass/base.scss */
@@ -172,7 +172,7 @@ body.single .fusion-page-title-wrapper {
 
 /* line 145, sass/base.scss */
 .ui-widget-content {
-  background: rgba(56, 56, 56, 0.9);
+  background: rgba(56, 56, 56, 0);
   color: #c7c7c7;
 }
 
@@ -184,8 +184,8 @@ body.single .fusion-page-title-wrapper {
 /* line 152, sass/base.scss */
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
   text-align: center;
-  background: rgba(0, 0, 0, 0.58);
-  border: 1px solid rgba(132, 132, 132, 0.8);
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(132, 132, 132, 0);
   color: #d8d8d8;
 }
 
@@ -206,7 +206,7 @@ body.single .fusion-page-title-wrapper {
 
 /* line 169, sass/base.scss */
 .autocomplete-suggestions {
-  background: rgba(56, 56, 56, 0.9);
+  background: rgba(56, 56, 56, 0);
   border: 1px solid #5d6b75;
   border-top: 1px dashed #5d6b75;
 }
@@ -221,7 +221,7 @@ body.single .fusion-page-title-wrapper {
 }
 /* line 182, sass/base.scss */
 .autocomplete-suggestions .autocomplete-suggestion.autocomplete-selected {
-  background: rgba(11, 133, 213, 0.9);
+  background: rgba(11, 133, 213, 0);
   color: #b7dcf5;
 }
 /* line 185, sass/base.scss */
@@ -625,7 +625,7 @@ body.single .fusion-page-title-wrapper {
 }
 /* line 566, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper {
-  background: rgba(126, 168, 195, 0.28);
+  background: rgba(126, 168, 195, 0);
   border: 1px solid #616f79;
   position: relative;
 }
@@ -708,7 +708,7 @@ body.single .fusion-page-title-wrapper {
 }
 /* line 650, sass/base.scss */
 .multi-selector-holder .selector-wrapper {
-  background: rgba(56, 56, 56, 0.9);
+  background: rgba(56, 56, 56, 0);
   border: 1px solid #5d6b75;
   border-top: 1px dashed #5d6b75;
   margin-top: -1px;
@@ -737,7 +737,7 @@ body.single .fusion-page-title-wrapper {
 /* line 677, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label {
-  background: rgba(11, 133, 213, 0.9);
+  background: rgba(11, 133, 213, 0);
   color: white;
 }
 /* line 681, sass/base.scss */
@@ -762,7 +762,7 @@ body.single .fusion-page-title-wrapper {
 /* line 702, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed {
   height: 320px;
-  background: rgba(21, 37, 47, 0.76);
+  background: rgba(21, 37, 47, 0);
 }
 
 /* line 709, sass/base.scss */
@@ -972,12 +972,52 @@ body.single-post .author-data .desc {
   font-size: 0.9em;
 }
 
-/* line 909, sass/base.scss */
+/* line 910, sass/base.scss */
+body.single-utazas #main {
+  padding: 0 !important;
+}
+/* line 914, sass/base.scss */
+body.single-utazas #primary.content-area #content {
+  float: none;
+  width: 100%;
+}
+
+/* line 922, sass/base.scss */
+.travel-base-wrapper .travel-header {
+  background: #eaeaea;
+  padding: 40px 0;
+}
+/* line 926, sass/base.scss */
+.travel-base-wrapper .travel-nav {
+  background: #e1e1e1;
+}
+/* line 929, sass/base.scss */
+.travel-base-wrapper .base-content-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 35px 0;
+}
+/* line 939, sass/base.scss */
+.travel-base-wrapper .base-content-holder .travel-contents {
+  flex: 1;
+  padding: 0 25px 0 0;
+}
+/* line 944, sass/base.scss */
+.travel-base-wrapper .base-content-holder .sidebar {
+  flex-basis: 250px;
+}
+
+/* line 951, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 913, sass/base.scss */
+/* line 955, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -987,22 +1027,22 @@ body.single-post .author-data .desc {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 923, sass/base.scss */
+/* line 965, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 927, sass/base.scss */
+/* line 969, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 932, sass/base.scss */
+/* line 974, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 939, sass/base.scss */
+/* line 981, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -1011,32 +1051,32 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 947, sass/base.scss */
+/* line 989, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 950, sass/base.scss */
+/* line 992, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 956, sass/base.scss */
+/* line 998, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 962, sass/base.scss */
+/* line 1004, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 965, sass/base.scss */
+/* line 1007, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 968, sass/base.scss */
+/* line 1010, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -1045,22 +1085,22 @@ body.single-post .author-data .desc {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 976, sass/base.scss */
+/* line 1018, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 982, sass/base.scss */
+/* line 1024, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 985, sass/base.scss */
+/* line 1027, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 987, sass/base.scss */
+/* line 1029, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -1071,12 +1111,12 @@ body.single-post .author-data .desc {
   font-weight: bold;
 }
 
-/* line 999, sass/base.scss */
+/* line 1041, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 1002, sass/base.scss */
+/* line 1044, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1085,7 +1125,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 1010, sass/base.scss */
+/* line 1052, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -1096,18 +1136,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 1020, sass/base.scss */
+/* line 1062, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 1026, sass/base.scss */
+/* line 1068, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 1030, sass/base.scss */
+/* line 1072, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1117,30 +1157,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 1039, sass/base.scss */
+/* line 1081, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 1044, sass/base.scss */
+/* line 1086, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 1047, sass/base.scss */
+/* line 1089, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 1052, sass/base.scss */
+/* line 1094, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 1061, sass/base.scss */
+/* line 1103, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 1065, sass/base.scss */
+/* line 1107, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1149,11 +1189,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 1072, sass/base.scss */
+/* line 1114, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 1075, sass/base.scss */
+/* line 1117, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -1163,44 +1203,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 1083, sass/base.scss */
+/* line 1125, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 1086, sass/base.scss */
+/* line 1128, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 1089, sass/base.scss */
+/* line 1131, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 1092, sass/base.scss */
+/* line 1134, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 1095, sass/base.scss */
+/* line 1137, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 1101, sass/base.scss */
+/* line 1143, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 1105, sass/base.scss */
+/* line 1147, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 1111, sass/base.scss */
+/* line 1153, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -1215,28 +1255,28 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 1125, sass/base.scss */
+/* line 1167, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 1128, sass/base.scss */
+/* line 1170, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 1137, sass/base.scss */
+/* line 1179, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 1142, sass/base.scss */
+/* line 1184, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 1145, sass/base.scss */
+/* line 1187, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 1149, sass/base.scss */
+/* line 1191, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

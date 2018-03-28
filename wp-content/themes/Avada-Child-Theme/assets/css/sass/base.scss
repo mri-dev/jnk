@@ -905,6 +905,48 @@ body.single-post {
     }
   }
 }
+
+body.single-utazas{
+  #main {
+    padding: 0 !important;
+  }
+  #primary.content-area{
+    #content{
+      float:none;
+      width: 100%;
+    }
+  }
+}
+
+.travel-base-wrapper{
+  .travel-header{
+    background: #eaeaea;
+    padding: 40px 0;
+  }
+  .travel-nav{
+    background: #e1e1e1;
+  }
+  .base-content-holder{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: $page-width;
+    margin: 0 auto;
+    padding: 35px 0;
+
+    .travel-contents{
+      flex: 1;
+      padding: 0 25px 0 0;
+    }
+
+    .sidebar{
+      flex-basis: 250px;
+    }
+  }
+}
+
 .comments {
   .commentlist div.avatar{
     border-radius: 55px;
