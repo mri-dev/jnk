@@ -701,7 +701,7 @@ body.single{
 .tematikus-kategoria-holder{
   &.style-boxed{
     height: 320px;
-    background: rgba(21, 37, 47, 0.76);
+    background: rgba(21, 37, 47, 0.77);
   }
 }
 
@@ -907,6 +907,9 @@ body.single-post {
 }
 
 body.single-utazas{
+  #wrapper{
+    background: white;
+  }
   #main {
     padding: 0 !important;
   }
@@ -919,12 +922,58 @@ body.single-utazas{
 }
 
 .travel-base-wrapper{
+
+  .fake-wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: nowrap;
+
+    .fake-inside{
+      flex-basis: calc(100% - 350px);
+      padding-right: 25px;
+    }
+  }
+
   .travel-header{
     background: #eaeaea;
     padding: 40px 0;
   }
   .travel-nav{
-    background: #e1e1e1;
+    background: #e0e0e0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      li{
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+
+        a{
+          display: block;
+          font-weight: bold;
+          color: #b3b3b3;
+          padding: 25px 20px;
+          font-size: 0.9em;
+          border-bottom: 3px solid transparent;
+        }
+
+        &.active {
+          a {
+            border-bottom: 3px solid $color-blue;
+            color: #313131;
+          }
+        }
+      }
+    }
   }
   .base-content-holder{
     display: -webkit-box;
@@ -942,8 +991,70 @@ body.single-utazas{
     }
 
     .sidebar{
-      flex-basis: 250px;
+      flex-basis: 350px;
+
+      .sidebar-fix-holder{
+        position: relative;
+        top: 0;
+        z-index: 20;
+      }
     }
+  }
+  &.fixedelements{
+    .travel-nav{
+      z-index: 10;
+      position: fixed; 
+      top: 65px;
+      left: 0;
+      right: 0;
+      box-shadow: 0 5px 10px -2px rgba(187, 187, 187, 0.88);
+    }
+    .base-content-holder{
+      padding-top: 115px;
+    }
+  }
+}
+
+.utazas-sidebar{
+  box-shadow: 0 0 8px -1px #acacac;
+  color: #545454;
+  font-size: 0.9em;
+
+  .swrapper{
+    padding: 15px;
+  }
+
+  .discount{
+    background: darken($color-blue, 10%);
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 0;
+    line-height: 3;
+  }
+  .sidebar-header{
+    color: white;
+    background: $color-blue;
+
+    .price{
+      text-align: center;
+      font-size: 1.2em;
+      padding: 20px 0;
+
+      .current {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+      .old {
+        margin-right: 10px;
+        font-size: 0.9em;
+        color: #a8cce4;
+        text-decoration: line-through;
+      }
+    }
+  }
+  .sidebar-content{
+    background: rgba(255, 255, 255, 0.91);
   }
 }
 
