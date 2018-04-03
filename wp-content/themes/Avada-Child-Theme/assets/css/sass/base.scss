@@ -919,6 +919,42 @@ body.single-utazas{
       width: 100%;
     }
   }
+
+  .fusion-page-title-bar{
+    .meta{
+      font-size: 1.1em;
+      .kiemelt{
+        background: #e83939;
+        font-size: 0.65em;
+        padding: 4px 6px;
+      }
+      .positions{
+        color: $color-orange;
+      }
+    }
+  }
+
+  .travel-main-params{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -25px;
+
+    & > div {
+      flex-basis: 50%;
+      padding: 5px 25px;
+      font-size: 1.13em;
+      color: #2c2c2c;
+
+      .svg-inline--fa{
+        width: 25px;
+        text-align: center;
+        color: $color-blue;
+      }
+    }
+  }
 }
 
 .travel-base-wrapper{
@@ -937,7 +973,7 @@ body.single-utazas{
 
   .travel-header{
     background: #eaeaea;
-    padding: 40px 0;
+    padding: 30px 0;
   }
   .travel-nav{
     background: #e0e0e0;
@@ -985,9 +1021,24 @@ body.single-utazas{
     margin: 0 auto;
     padding: 35px 0;
 
+    h2 {
+      .svg-inline--fa{
+        color: $color-blue;
+      }
+    }
+
     .travel-contents{
       flex: 1;
       padding: 0 25px 0 0;
+
+      a.gotop{
+        text-align: right;
+        color: #c5c5c5;
+        font-size: 0.7em;
+        letter-spacing: -0.5px;
+        margin: 5px 0;
+        display: block;
+      }
     }
 
     .sidebar{
@@ -1003,7 +1054,7 @@ body.single-utazas{
   &.fixedelements{
     .travel-nav{
       z-index: 10;
-      position: fixed; 
+      position: fixed;
       top: 65px;
       left: 0;
       right: 0;
@@ -1025,7 +1076,7 @@ body.single-utazas{
   }
 
   .discount{
-    background: darken($color-blue, 10%);
+    background: transparentize(darken($color-blue, 10%), 0.1);
     font-weight: bold;
     color: white;
     text-align: center;
@@ -1034,7 +1085,7 @@ body.single-utazas{
   }
   .sidebar-header{
     color: white;
-    background: $color-blue;
+    background: transparentize($color-blue, 0.1);
 
     .price{
       text-align: center;
