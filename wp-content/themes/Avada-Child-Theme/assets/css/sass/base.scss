@@ -1066,6 +1066,12 @@ body.single-utazas{
   }
 }
 
+body.admin-bar{
+  .travel-base-wrapper.fixedelements .travel-nav{
+    top: 97px;
+  }
+}
+
 .utazas-sidebar{
   box-shadow: 0 0 8px -1px #acacac;
   color: #545454;

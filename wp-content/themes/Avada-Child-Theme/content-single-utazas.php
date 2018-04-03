@@ -31,7 +31,7 @@
             </div>
             <div class="travel-by">
               <i class="fas fa-car"></i>
-              Egyéni
+              Repülős
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
 
       $.each(contentGroups, function(i,e){
         var topp = $('a[name='+e+']').offset().top;
-        topp = topp - $('#fixnav').height() - 65 - 40;
+        topp = topp - $('#fixnav').height() - 65 - 40 - $('#wpadminbar').height();
 
         if( sc >= topp) {
           currentelem = e;
@@ -115,7 +115,8 @@
     }
 
     function trackFixElement() {
-      var navbarpos = $('.travel-header').offset().top + $('.travel-header').height()+80;
+
+      var navbarpos = $('.travel-header').offset().top + $('.travel-header').height()+80-$('#wpadminbar').height();
       var sc = $(document).scrollTop();
       var fixed = ( navbarpos < (sc+60) ) ? true : false;
 
@@ -141,7 +142,7 @@
 
       $('body, html').stop().animate({
         // elem távolsága a top-tól - lebegő nav magassága - sticky header magasság - 25px padding
-        scrollTop: ttop.top - $('#fixnav').height() - 65 - 25
+        scrollTop: ttop.top - $('#fixnav').height() - 65 - 25 - $('#wpadminbar').height()
       }, 800);
     });
 
