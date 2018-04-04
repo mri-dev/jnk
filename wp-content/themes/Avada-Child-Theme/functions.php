@@ -255,6 +255,16 @@ function custom_admin_css() {
 	float: right;
 	margin: 0;
 	}
+  table.jnk{
+    width: 100%;
+  }
+  table.jnk td{
+    padding: 10px;
+  }
+  table.jnk input[type=text]{
+    width: 100%;
+    padding: 8px;
+  }
   </style>';
 }
 add_action('admin_head', 'custom_admin_css');

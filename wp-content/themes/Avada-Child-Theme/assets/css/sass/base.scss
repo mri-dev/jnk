@@ -1112,6 +1112,45 @@ body.admin-bar{
   }
   .sidebar-content{
     background: rgba(255, 255, 255, 0.91);
+
+    .header, .title{
+      background: #f3f3f3;
+      padding: 8px;
+      text-align: center;
+      border: 0.4px solid #dedede;
+      border-right: none;
+      border-left: none;
+
+      h3, h2{
+        text-transform: uppercase;
+        color: #505050;
+        margin: 0;
+        font-size: 0.8em;
+      }
+    }
+
+    .title{
+      background: #e0e0e0;
+      border: none;
+      border-bottom: 2px solid #d0d0d0;
+      h2{
+        font-weight: bold !important;
+        font-size: 1.2em !important;
+        color: black !important;
+      }
+    }
+  }
+  .sidebar-footer{
+    background: rgba(255, 255, 255, 0.91);
+    border-top: 1px solid #f1f1f1;
+    font-size: 0.7em;
+    padding: 10px;
+    line-height: 1.1;
+    color: #a7a7a7;
+
+    div {
+      margin: 5px 0;
+    }
   }
 }
 

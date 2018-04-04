@@ -1,6 +1,10 @@
 <?php global $travel; ?>
 <?php
   $durations = $travel->showDuration();
+  $ellatasok = $travel->showEllatas();
+  $utazas_mod = $travel->showUtazasMod();
+  $travel_from = $travel->getTravelFrom();
+  $travel_to = $travel->getTravelTo();
 ?>
 <a name="datas"></a>
 <div class="travel-base-wrapper">
@@ -17,21 +21,25 @@
               <i class="fas fa-users"></i>
               3 - 24 fő
             </div>
+            <?php if ($travel_from): ?>
             <div class="travel-from">
               <i class="fas fa-sign-out-alt" data-fa-transform="rotate--45"></i>
-              Budapest
+              <?php echo $travel_from; ?>
             </div>
+            <?php endif; ?>
+            <?php if ($travel_to): ?>
             <div class="travel-to">
               <i class="fas fa-sign-in-alt" data-fa-transform="rotate-45"></i>
-              Krakkó
+              <?php echo $travel_to; ?>
             </div>
+            <?php endif; ?>
             <div class="ellatas">
               <i class="fas fa-utensils"></i>
-              Önellátás
+              <?php echo implode(', ', $ellatasok); ?>
             </div>
             <div class="travel-by">
               <i class="fas fa-car"></i>
-              Repülős
+              <?php echo implode(', ', $utazas_mod); ?>
             </div>
           </div>
         </div>

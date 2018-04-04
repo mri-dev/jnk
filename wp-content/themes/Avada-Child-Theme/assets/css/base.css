@@ -1176,13 +1176,54 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
 .utazas-sidebar .sidebar-content {
   background: rgba(255, 255, 255, 0.91);
 }
+/* line 1116, sass/base.scss */
+.utazas-sidebar .sidebar-content .header, .utazas-sidebar .sidebar-content .title {
+  background: #f3f3f3;
+  padding: 8px;
+  text-align: center;
+  border: 0.4px solid #dedede;
+  border-right: none;
+  border-left: none;
+}
+/* line 1124, sass/base.scss */
+.utazas-sidebar .sidebar-content .header h3, .utazas-sidebar .sidebar-content .header h2, .utazas-sidebar .sidebar-content .title h3, .utazas-sidebar .sidebar-content .title h2 {
+  text-transform: uppercase;
+  color: #505050;
+  margin: 0;
+  font-size: 0.8em;
+}
+/* line 1132, sass/base.scss */
+.utazas-sidebar .sidebar-content .title {
+  background: #e0e0e0;
+  border: none;
+  border-bottom: 2px solid #d0d0d0;
+}
+/* line 1136, sass/base.scss */
+.utazas-sidebar .sidebar-content .title h2 {
+  font-weight: bold !important;
+  font-size: 1.2em !important;
+  color: black !important;
+}
+/* line 1143, sass/base.scss */
+.utazas-sidebar .sidebar-footer {
+  background: rgba(255, 255, 255, 0.91);
+  border-top: 1px solid #f1f1f1;
+  font-size: 0.7em;
+  padding: 10px;
+  line-height: 1.1;
+  color: #a7a7a7;
+}
+/* line 1151, sass/base.scss */
+.utazas-sidebar .sidebar-footer div {
+  margin: 5px 0;
+}
 
-/* line 1119, sass/base.scss */
+/* line 1158, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 1123, sass/base.scss */
+/* line 1162, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -1192,22 +1233,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 1133, sass/base.scss */
+/* line 1172, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 1137, sass/base.scss */
+/* line 1176, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 1142, sass/base.scss */
+/* line 1181, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 1149, sass/base.scss */
+/* line 1188, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -1216,32 +1257,32 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 1157, sass/base.scss */
+/* line 1196, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 1160, sass/base.scss */
+/* line 1199, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 1166, sass/base.scss */
+/* line 1205, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 1172, sass/base.scss */
+/* line 1211, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 1175, sass/base.scss */
+/* line 1214, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 1178, sass/base.scss */
+/* line 1217, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -1250,22 +1291,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 1186, sass/base.scss */
+/* line 1225, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 1192, sass/base.scss */
+/* line 1231, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 1195, sass/base.scss */
+/* line 1234, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 1197, sass/base.scss */
+/* line 1236, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -1276,12 +1317,12 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-weight: bold;
 }
 
-/* line 1209, sass/base.scss */
+/* line 1248, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 1212, sass/base.scss */
+/* line 1251, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1290,7 +1331,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 1220, sass/base.scss */
+/* line 1259, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -1301,18 +1342,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 1230, sass/base.scss */
+/* line 1269, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 1236, sass/base.scss */
+/* line 1275, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 1240, sass/base.scss */
+/* line 1279, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1322,30 +1363,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 1249, sass/base.scss */
+/* line 1288, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 1254, sass/base.scss */
+/* line 1293, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 1257, sass/base.scss */
+/* line 1296, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 1262, sass/base.scss */
+/* line 1301, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 1271, sass/base.scss */
+/* line 1310, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 1275, sass/base.scss */
+/* line 1314, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1354,11 +1395,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 1282, sass/base.scss */
+/* line 1321, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 1285, sass/base.scss */
+/* line 1324, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -1368,44 +1409,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 1293, sass/base.scss */
+/* line 1332, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 1296, sass/base.scss */
+/* line 1335, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 1299, sass/base.scss */
+/* line 1338, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 1302, sass/base.scss */
+/* line 1341, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 1305, sass/base.scss */
+/* line 1344, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 1311, sass/base.scss */
+/* line 1350, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 1315, sass/base.scss */
+/* line 1354, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 1321, sass/base.scss */
+/* line 1360, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -1420,28 +1461,28 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 1335, sass/base.scss */
+/* line 1374, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 1338, sass/base.scss */
+/* line 1377, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 1347, sass/base.scss */
+/* line 1386, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 1352, sass/base.scss */
+/* line 1391, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 1355, sass/base.scss */
+/* line 1394, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 1359, sass/base.scss */
+/* line 1398, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

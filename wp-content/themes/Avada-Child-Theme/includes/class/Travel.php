@@ -52,6 +52,27 @@ class Travel
     return $v;
   }
 
+  public function getTravelFrom()
+  {
+    $v = get_post_meta($this->id, METAKEY_PREFIX . 'travel_from', true);
+
+    return $v;
+  }
+
+  public function getPriceComment()
+  {
+    $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar_magyarazat', true);
+
+    return $v;
+  }
+
+  public function getTravelTo()
+  {
+    $v = get_post_meta($this->id, METAKEY_PREFIX . 'travel_to', true);
+
+    return $v;
+  }
+
   public function getDiscountPrice()
   {
     $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar_akcios', true);
@@ -107,12 +128,37 @@ class Travel
     return $back;
   }
 
-
   public function showDestinations()
   {
     $back = array();
 
     $raw_terms = $this->getDestinations();
+
+    foreach ($raw_terms as $t) {
+      $back[] = $t['name'];
+    }
+
+    return $back;
+  }
+
+  public function showUtazasMod()
+  {
+    $back = array();
+
+    $raw_terms = $this->getTermValues('utazas_mod');
+
+    foreach ($raw_terms as $t) {
+      $back[] = $t['name'];
+    }
+
+    return $back;
+  }
+
+  public function showEllatas()
+  {
+    $back = array();
+
+    $raw_terms = $this->getTermValues('utazas_ellatas');
 
     foreach ($raw_terms as $t) {
       $back[] = $t['name'];
@@ -127,6 +173,24 @@ class Travel
 
     $terms = wp_get_post_terms($this->id, array(
       'taxonomy' => 'utazas_duration'
+    ));
+
+    foreach ((array)$terms as $t) {
+      $list[] = array(
+        'name' => $t->name,
+        'obj' => $t
+      );
+    }
+
+    return $list;
+  }
+
+  private function getTermValues( $term = false )
+  {
+    $list = array();
+
+    $terms = wp_get_post_terms($this->id, array(
+      'taxonomy' => $term
     ));
 
     foreach ((array)$terms as $t) {
