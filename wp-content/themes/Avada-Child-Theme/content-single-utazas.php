@@ -95,6 +95,17 @@
       <?php get_template_part( 'content', 'utazas-sidebar' );  ?>
     </div>
   </div>
+  <div class="gettraveloffer">
+    <a name="getoffer"></a>
+    <div class="header">
+      <h2><?=__('Ajánlatkérés', TD)?></h2>
+    </div>
+    <div class="wrapper">
+      <div class="page-width">
+        Tartalom
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
   (function($){
@@ -124,19 +135,23 @@
 
     function trackFixElement() {
 
-      var navbarpos = $('.travel-header').offset().top + $('.travel-header').height()+80-$('#wpadminbar').height();
+      var navbarpos = $('.travel-header').offset().top + $('.travel-header').height()+60-$('#wpadminbar').height();
       var sc = $(document).scrollTop();
       var fixed = ( navbarpos < (sc+60) ) ? true : false;
 
       if (fixed) {
-        $('.travel-base-wrapper').addClass('fixedelements');
+        $('.travel-base-wrapper, .sidebar-fix-holder').addClass('fixedelements');
       } else if( !fixed) {
-        $('.travel-base-wrapper').removeClass('fixedelements');
+        $('.travel-base-wrapper, .sidebar-fix-holder').removeClass('fixedelements');
       }
 
-      var sidebaroffset = $('.travel-header').height() + 60 + $('.travel-nav').height() + 35 + $('.sidebar-header').height() +$('.utazas-sidebar .discount').height();
-      $('.sidebar-fix-holder').css({
-        top: (sidebaroffset * -1)
+      $('.sidebar-header').animate({
+        height: $('.travel-header').height() + 60
+      }, function(){
+        var sidebaroffset = $('.sidebar-fix-holder').height()+35;
+        $('.sidebar-fix-holder').css({
+          top: (sidebaroffset * -1)
+        });
       });
     }
 

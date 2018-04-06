@@ -1090,6 +1090,29 @@ body.single-utazas{
   }
 }
 
+.gettraveloffer{
+  background: #eaeaea;
+  & > .header{
+    background: $color-blue;
+    padding: 20px;
+    text-align: center;
+
+    h2 {
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.8em;
+      margin: 0;
+      line-height: 1;
+    }
+  }
+
+  & > .wrapper{
+    padding: 25px 0;
+    color: #202020;
+  }
+}
+
 body.admin-bar{
   .travel-base-wrapper.fixedelements .travel-nav{
     top: 97px;
@@ -1097,22 +1120,24 @@ body.admin-bar{
 }
 
 .utazas-sidebar{
-  box-shadow: 0 0 8px -1px #acacac;
   color: #545454;
   font-size: 0.9em;
 
   .swrapper{
     padding: 15px;
+    height: 100%;
+    position: relative;
   }
 
   .discount{
-    background: transparentize(darken($color-blue, 10%), 0.1);
+    background: transparentize(darken($color-red, 10%), 0.1);
     font-weight: bold;
     color: white;
     text-align: center;
     padding: 0;
     line-height: 3;
   }
+
   .sidebar-header{
     color: white;
     background: transparentize($color-blue, 0.1);
@@ -1121,6 +1146,17 @@ body.admin-bar{
       text-align: center;
       font-size: 1.2em;
       padding: 20px 0;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+      .c{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.75em;
+      }
 
       .current {
         font-weight: bold;
@@ -1134,113 +1170,20 @@ body.admin-bar{
       }
     }
   }
-  .sidebar-content{
-    background: rgba(255, 255, 255, 0.91);
-
-    .header, .title{
-      background: #f3f3f3;
-      padding: 8px;
-      text-align: center;
-      border: 0.4px solid #dedede;
-      border-right: none;
-      border-left: none;
-
-      h3, h2{
-        text-transform: uppercase;
-        color: #505050;
-        margin: 0;
-        font-size: 0.8em;
-      }
-    }
-
-    .title{
-      background: #e0e0e0;
-      border: none;
-      border-bottom: 2px solid #d0d0d0;
-      h2{
-        font-weight: bold !important;
-        font-size: 1.2em !important;
-        color: black !important;
-      }
-    }
-
-    .inp {
-      margin: 0 0 10px 0;
-
-      label {
-        font-weight: bold;
-        display: block;
-        margin: 0 0 5px 0;
-        font-size: 0.9em;
-      }
-      input[type=text],
-      input[type=email],
-      select,
-      textarea{
-        padding: 15px;
-        font-size: 0.9em;
-        color: $color-orange;
-        border: 1px solid #eaeaea;
-        width: 100%;
-      }
-      select {
-        display: block;
-        width: 100%;
-        padding: 5px;
-        font-size: 1.8em;
-        height: auto;
-      }
-      textarea{
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-      }
-    }
-
-    .calc-result{
-      text-align: center;
-      color: black;
-      margin: 0 0 10px 0;
-
-      .cash{
-        color: $color-green;
-        font-weight: bold;
-        font-size: 1.5em;
-      }
-
-      .taj {
-        font-size: 0.7em;
-        color: #acacac;
-      }
-    }
-
-    .requestOrder{
-      text-transform: uppercase;
+  .getoffer{
+    a{
+      display: block;
+      background: darken($color-blue, 20%);
       color: white;
+      height: 73px;
+      text-align: center;
+      line-height: 73px;
       font-weight: bold;
-      padding: 25px;
-      background: $color-blue;
-      border: none;
-      width: 100%;
-    }
-
-    .aszfcheck{
-      font-size: 0.75em;
-      margin: 0 0 10px 0;
-      line-height: 16px;
+      font-size: 1.4em;
     }
   }
-  .sidebar-footer{
+  .sidebar-content{
     background: rgba(255, 255, 255, 0.91);
-    border-top: 1px solid #f1f1f1;
-    font-size: 0.7em;
-    padding: 10px;
-    line-height: 1.1;
-    color: #a7a7a7;
-
-    div {
-      margin: 5px 0;
-    }
   }
 }
 
