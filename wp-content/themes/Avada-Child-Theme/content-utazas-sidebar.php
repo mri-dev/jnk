@@ -33,4 +33,12 @@ $price_comment = $travel->getPriceComment();
       <a href="javascript:void(0);" data-scrollTarget="getoffer"><?php echo __('Ajánlatot kérek', TD); ?> <i class="far fa-arrow-alt-circle-right"></i></a>
     </div>
   </div>
+  <div class="sidebar-group">
+    <h3><?php echo __('Ajánlott utazások', TD); ?></h3>
+    Hamarosan...
+  </div>
+  <div class="sidebar-group">
+    <h3><?php echo __('Címkék', TD); ?></h3>
+    Hamarosan...
+  </div>
 </div>

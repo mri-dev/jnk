@@ -102,7 +102,7 @@
     </div>
     <div class="wrapper">
       <div class="page-width">
-        Tartalom
+        <?php echo get_template_part('templates/travelcalc'); ?>        
       </div>
     </div>
   </div>
@@ -148,7 +148,7 @@
       $('.sidebar-header').animate({
         height: $('.travel-header').height() + 60
       }, function(){
-        var sidebaroffset = $('.sidebar-fix-holder').height()+35;
+        var sidebaroffset = 35 + $('#fixnav').height() + $('.travel-header').height() + 60 + $('.sidebar-fix-holder .discount').height();
         $('.sidebar-fix-holder').css({
           top: (sidebaroffset * -1)
         });
