@@ -26,6 +26,32 @@ input[type=checkbox]:checked + label {
     color: #000000;
   }
 }
+input[type=radio]{
+  display: none;
+}
+input[type=radio] + label {
+  cursor: pointer;
+  position: relative;
+  padding-left: 24px;
+
+  &:before {
+    content: "\f1db";
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    color: #a7a7a7;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+  }
+}
+input[type=radio]:checked + label {
+  &:before {
+    content: "\f05d";
+    color: #000000;
+  }
+}
 input[type=checkbox].fake-radio + label {
   &:before {
     background: #ffffff;
@@ -1217,6 +1243,26 @@ body.single-utazas{
             }
             tr td.tetel{
               text-align: left;
+              position: relative;
+              .label{
+                background: #8f8f8f;
+                color: white;
+                padding: 2px 5px;
+                line-height: 1;
+                font-size: 0.7em;
+                border-radius: 7px;
+
+                &.info{
+                  float:right;
+                  background: $color-orange;
+                  cursor: help;
+                }
+              }
+              &.opcio {
+                font-size: 0.9em;
+                padding-left: 30px;
+                box-shadow: inset 20px 0 0 #f1f1f1;
+              }
             }
             tr td.price-group{
               text-align: center;

@@ -72,12 +72,48 @@
         <tbody>
           <tr>
             <td class="tetel">
-              <strong>Egyágyas szoba 1 felnőtt részére</strong>
+              <strong>1. szoba: 1 felnőtt</strong>
             </td>
+            <td>12 840 Ft</td>
+            <td>/fő/éjszaka</td>
+            <td>x7</td>
             <td>89 990 Ft</td>
-            <td>/ fő</td>
-            <td>x1</td>
-            <td>89 990 Ft</td>
+          </tr>
+          <tr>
+            <td class="tetel">
+              <strong>2. szoba: 2 felnőtt + 1 gyerek</strong>
+            </td>
+            <td>12 840 Ft</td>
+            <td>/fő/éjszaka</td>
+            <td>x14</td>
+            <td>179 800 Ft</td>
+          </tr>
+          <tr>
+            <td class="tetel opcio">
+              <strong>-> 1 gyerek</strong>
+            </td>
+            <td>8 000 Ft</td>
+            <td>/fő/éjszaka</td>
+            <td>x7</td>
+            <td>56 000 Ft</td>
+          </tr>
+          <tr>
+            <td class="tetel">
+              Foglalási díj
+            </td>
+            <td>1000 Ft</td>
+            <td>/fő</td>
+            <td>x3</td>
+            <td>3 000 Ft</td>
+          </tr>
+          <tr>
+            <td class="tetel">
+              Repülőjegy
+            </td>
+            <td>24 990 Ft</td>
+            <td>/fő</td>
+            <td>x3</td>
+            <td>74 970 Ft</td>
           </tr>
           <tr>
             <td colspan="5" class="price-group">
@@ -90,13 +126,29 @@
             </td>
           </tr>
           <tr>
+            <td class="tetel">
+              <input type="checkbox" id="program_0" checked="checked" disabled="disabled"> <label for="program_0"><?=__('Városnéző túra', TD)?> <span class="label required">kötelező</span> </label>
+            </td>
+            <td colspan="4">Benne van az árban</td>
+          </tr>
+          <tr>
+            <td class="tetel">
+              <input type="checkbox" id="program_1"> <label for="program_1"><?=__('Borkóstoló est', TD)?></label>
+              <span class="label info">infó</span>
+            </td>
+            <td>1 890 Ft</td>
+            <td>/ fő</td>
+            <td>x1</td>
+            <td>1 890 Ft</td>
+          </tr>
+          <tr>
             <td colspan="5" class="price-group">
               <?=__('Utasbiztosítás', TD)?>
             </td>
           </tr>
           <tr>
             <td class="tetel">
-              <input type="radio" id="utasbizt_no"> <label for="utasbizt_no"><?=__('Nem kérek biztosítást', TD)?></label>
+              <input type="radio" name="utasbiztositas" checked="checked" id="utasbizt_no"> <label for="utasbizt_no"><?=__('Nem kérek biztosítást', TD)?></label>
             </td>
             <td></td>
             <td></td>
@@ -105,7 +157,7 @@
           </tr>
           <tr>
             <td class="tetel">
-              <input type="radio" id="utasbizt_yes"> <label for="utasbizt_yes"><?=__('Kérek biztosítást', TD)?></label>
+              <input type="radio" name="utasbiztositas" id="utasbizt_yes"> <label for="utasbizt_yes"><?=__('Kérek biztosítást', TD)?></label>
             </td>
             <td>890 Ft</td>
             <td>/ fő / nap</td>
