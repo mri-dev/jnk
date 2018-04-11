@@ -26,6 +26,14 @@
     </td>
   </tr>
   <tr>
+    <td>
+      <?php $metakey = METAKEY_PREFIX . 'nights'; ?>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Éjszakák száma', TD); ?></strong></label></p>
+      <?php $nights = get_post_meta($post->ID, $metakey, true); ?>
+      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$nights?>">
+    </td>
+  </tr>
+  <tr>
     <td colspan="10">
       <?php $metakey = METAKEY_PREFIX . 'ar_magyarazat'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Meghirdetett ár magyarázó szövege (*)', TD); ?></strong></label></p>
