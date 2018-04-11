@@ -34,12 +34,19 @@ function theme_enqueue_styles() {
     wp_enqueue_script( 'jquery-ui-loc-hu', IFROOT . '/assets/js/jquery-ui-loc-hu.js');
     wp_enqueue_script( 'fontasesome', '//use.fontawesome.com/releases/v5.0.6/js/all.js');
     //wp_enqueue_script( 'google-maps', '//maps.googleapis.com/maps/api/js?language=hu&region=hu&key='.GOOGLE_API_KEY);
-    //wp_enqueue_script( 'angularjs', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js');
+    wp_enqueue_script( 'angularjs', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js');
     wp_enqueue_script( 'mocjax', IFROOT . '/assets/vendor/autocomplete/scripts/jquery.mockjax.js');
     wp_enqueue_script( 'autocomplete', IFROOT . '/assets/vendor/autocomplete/dist/jquery.autocomplete.min.js');
-
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
+function jnk_load_scripts($hook) {
+
+	if( $hook != 'edit.php' && $hook != 'post.php' && $hook != 'post-new.php' ) return;
+  wp_enqueue_script( 'angularjs', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js');
+	wp_enqueue_script( 'angualarjnk', IFROOT . '/assets/js/app.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
+}
+add_action('admin_enqueue_scripts', 'jnk_load_scripts');
 
 function custom_theme_enqueue_styles() {
     wp_enqueue_style( 'krakko-base', IFROOT . '/assets/css/base.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
@@ -164,9 +171,16 @@ function create_custom_posttypes()
 
   $utak_metabox = new CustomMetabox(
     'utazas',
-    __('Utazás beállítások', TD),
+    __('Utazás alapadatok', TD),
     new UtazasMetaboxSave(),
     'utazas'
+  );
+
+  $editor_metabox = new CustomMetabox(
+    'utazas',
+    __('Utazás beállításai', TD),
+    new TravelCalcEditorMetaboxSave(),
+    'utazaseditor'
   );
 
 	$utak->create();

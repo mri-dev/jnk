@@ -36,7 +36,7 @@ class CustomMetabox
 
   public function add_metabox() {
     add_meta_box(
-      $this->tag.'-meta-box',
+      $this->tag.'-meta-box'.uniqid(),
       $this->metabox_title,
       array( $this, 'render_metabox' ),
       $this->tag,
