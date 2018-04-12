@@ -113,7 +113,7 @@ if ( 'modern' == Avada()->settings->get( 'mobile_menu_design' ) ) {
 }
 
 ?>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> ng-app="jonapotnagyvilag">
 	<?php do_action( 'avada_before_body_content' ); ?>
 	<?php $boxed_side_header_right = false; ?>
 	<?php if ( ( ( 'Boxed' == Avada()->settings->get( 'layout' ) && ( 'default' == get_post_meta( $c_pageID, 'pyre_page_bg_layout', true ) || '' == get_post_meta( $c_pageID, 'pyre_page_bg_layout', true ) ) ) || 'boxed' == get_post_meta( $c_pageID, 'pyre_page_bg_layout', true ) ) && 'Top' != Avada()->settings->get( 'header_position' ) ) : ?>

@@ -6,6 +6,7 @@ class CustomMetabox
   private $tag = null;
   private $metabox_title = null;
   private $save_fnc = null;
+  private $settings = array();
 
   public $nonce_key = 'custom_nonce';
 
@@ -13,13 +14,15 @@ class CustomMetabox
     $tag,
     $metabox_title = 'Empty',
     $save_function,
-    $template_file = 'standard'
+    $template_file = 'standard',
+    $settings = array()
   )
   {
     $this->tag = $tag;
     $this->template_file = $template_file;
     $this->metabox_title = $metabox_title;
     $this->nonce_key = $this->tag.'-mb-nonce';
+    $this->settings = $settings;
 
     $this->save_fnc = $save_function;
 
@@ -35,14 +38,26 @@ class CustomMetabox
   }
 
   public function add_metabox() {
+    $uid = $this->tag.'-meta-box'.uniqid();
     add_meta_box(
-      $this->tag.'-meta-box'.uniqid(),
+      $uid,
       $this->metabox_title,
       array( $this, 'render_metabox' ),
       $this->tag,
       'normal',
       'high'
     );
+
+    if (isset($this->settings['class'])) {
+      add_filter( 'postbox_classes_'.$this->tag.'_'.$uid, array($this, 'meta_box_classes') );
+    }
+
+  }
+
+  public function meta_box_classes( $classes = array() )
+  {
+    $classes[] = $this->settings['class'];
+    return $classes;
   }
 
   public function render_metabox( $post ) {

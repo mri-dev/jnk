@@ -1,0 +1,33 @@
+/* line 3, sass/admin.scss */
+.postbox-container .utazasalap-postbox h2.hndle {
+  font-size: 1.2em !important;
+  background: #F8BE38;
+  color: white;
+}
+/* line 10, sass/admin.scss */
+.postbox-container .utazaseditor-postbox h2.hndle {
+  font-size: 1.2em !important;
+  background: #1185D3;
+  color: white;
+}
+/* line 15, sass/admin.scss */
+.postbox-container .utazaseditor-postbox .inside {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* line 24, sass/admin.scss */
+.travel-editor > .group .ghead {
+  background: #f1f1f1;
+  padding: 10px 15px !important;
+  margin: 0 0 15px 0 !important;
+}
+/* line 29, sass/admin.scss */
+.travel-editor > .group h2 {
+  padding: 0 !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+  font-size: 0.8em !important;
+}

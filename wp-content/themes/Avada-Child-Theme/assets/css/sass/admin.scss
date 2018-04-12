@@ -1,0 +1,38 @@
+.postbox-container{
+  .utazasalap-postbox{
+    h2.hndle{
+      font-size: 1.2em !important;
+      background: #F8BE38;
+      color: white;
+    }
+  }
+  .utazaseditor-postbox{
+    h2.hndle{
+      font-size: 1.2em !important;
+      background: #1185D3;
+      color: white;
+    }
+    .inside{
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+.travel-editor{
+  & > .group {
+    .ghead{
+      background: #f1f1f1;
+      padding: 10px 15px !important;
+      margin: 0 0 15px 0 !important;      
+    }
+    h2{
+      padding: 0 !important;
+      margin: 0 !important;
+      text-transform: uppercase;
+      color: black;
+      font-weight: bold;
+      font-size: 0.8em !important;
+    }
+  }
+}
