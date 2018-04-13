@@ -19,6 +19,27 @@ class AjaxRequests
     add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'ContactFormRequest'));
   }
 
+  public function travel_api()
+  {
+    add_action( 'wp_ajax_'.__FUNCTION__, array( $this, 'TravelAPIRequest'));
+    add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'TravelAPIRequest'));
+  }
+
+  public function TravelAPIRequest()
+  {
+    extract($_POST);
+    $return = array(
+      'error' => 0,
+      'msg' => '',
+      'data' => array()
+    );
+
+    $travels = new TravelModul();
+
+    echo json_encode($return);
+    die();
+  }
+
   public function ContactFormRequest()
   {
     extract($_POST);

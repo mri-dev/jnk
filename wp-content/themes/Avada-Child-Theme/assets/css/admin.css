@@ -21,8 +21,34 @@
   background: #f1f1f1;
   padding: 10px 15px !important;
   margin: 0 0 15px 0 !important;
+  position: relative;
 }
-/* line 29, sass/admin.scss */
+/* line 30, sass/admin.scss */
+.travel-editor > .group .ghead .add {
+  float: right;
+  background: #6fbf6f;
+  color: white;
+  padding: 7px;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 0.8em;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 45, sass/admin.scss */
+.travel-editor > .group .ghead .add:hover {
+  background: #000000;
+}
+/* line 50, sass/admin.scss */
+.travel-editor > .group .cont {
+  padding: 0 15px 15px 15px;
+}
+/* line 53, sass/admin.scss */
 .travel-editor > .group h2 {
   padding: 0 !important;
   margin: 0 !important;

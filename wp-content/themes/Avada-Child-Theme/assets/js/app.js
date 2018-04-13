@@ -1,10 +1,49 @@
 var jnk = angular.module('jonapotnagyvilag', []);
 
-jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http){
+jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
+{
+  // Vars
+  $scope.postid = 0;
 
-}]);
+  // Datas
+  $scope.dates = [];
 
-// Utazás időpont beállítások
-jnk.controller('TravelDatesEditor', ['$scope', '$http', function($scope, $http){
+  // Flags
+  $scope.loading = false;
+  $scope.loaded = false;
+  $scope.dates_loaded = false;
+
+  $scope.init = function( postid )
+  {
+    $scope.postid = postid;
+    $scope.loadDatas();
+  }
+
+  $scope.loadDatas = function( callback )
+  {
+    $scope.loadDates();
+
+    if (typeof callback !== 'undefined') {
+      callback();
+    }
+  }
+
+  $scope.loadDates = function( callback )
+  {
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=travel_api',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid
+      })
+    }).success(function(r){
+      console.log(r);
+    });
+
+    if (typeof callback !== 'undefined') {
+      callback();
+    }
+  }
 
 }]);
