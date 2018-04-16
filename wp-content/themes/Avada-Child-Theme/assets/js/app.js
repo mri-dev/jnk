@@ -30,6 +30,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
 
   $scope.loadDates = function( callback )
   {
+    $scope.dates_loaded = false;
     $http({
       method: 'POST',
       url: '/wp-admin/admin-ajax.php?action=travel_api',
@@ -38,6 +39,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
         postid: $scope.postid
       })
     }).success(function(r){
+      $scope.dates_loaded = true;
+      $scope.dates = r.data;
       console.log(r);
     });
 

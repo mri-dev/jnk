@@ -58,5 +58,24 @@
       font-weight: bold;
       font-size: 0.8em !important;
     }
+
+    .datas {
+      .data-line{
+        & > .wrapper{
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          font-size: 1.1em;
+          padding: 5px 0;
+          border-bottom: 1px solid #f1f1f1;
+
+          & > div {
+            flex: 1;
+          }
+        }
+      }
+    }
   }
 }

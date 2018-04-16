@@ -31,10 +31,15 @@ class AjaxRequests
     $return = array(
       'error' => 0,
       'msg' => '',
-      'data' => array()
+      'data' => array(),
+      'params' => $_POST
     );
 
-    $travels = new TravelModul();
+    $travels = new TravelModul((int)$_POST['postid']);
+
+    $dates = $travels->loadDates();
+    $return['data'] = $dates;
+    $return['t'] = $travels->getTermValuById('utazas_duration', 3);
 
     echo json_encode($return);
     die();

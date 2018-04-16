@@ -57,3 +57,18 @@
   font-weight: bold;
   font-size: 0.8em !important;
 }
+/* line 64, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 1.1em;
+  padding: 5px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+/* line 74, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div {
+  flex: 1;
+}

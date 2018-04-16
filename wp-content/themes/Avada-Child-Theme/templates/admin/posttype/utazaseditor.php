@@ -9,8 +9,27 @@
     </div>
     <div class="cont">
       <div class="no-data">
-        {{dates}}
-        Nincs időpont meghatározva ehhez az utazáshoz.
+        <div class="loading-data" ng-hide="dates_loaded">
+          <i class="fa fa-spin fa-spinner"></i> <?php echo __('Időpontok betöltése folyamatban', TD); ?>
+        </div>
+        <div class="no-data" ng-show="(dates_loaded && dates.length == 0)">
+          Nincs időpont meghatározva ehhez az utazáshoz.
+        </div>
+        <div class="datas data-dates" ng-show="(dates_loaded && dates)">
+          <div class="data-line" ng-repeat="(i, d) in dates">
+            <div class="wrapper">
+              <div class="date">
+                {{d.travel_year}} / {{d.travel_month}} / {{d.travel_day}}
+              </div>
+              <div class="durration">
+                {{d.durration.name}}
+              </div>
+              <div class="price">
+                {{d.price_from}} Ft
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
