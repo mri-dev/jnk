@@ -1,29 +1,32 @@
-/* line 3, sass/admin.scss */
+/* line 3, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .postbox-container .utazasalap-postbox h2.hndle {
   font-size: 1.2em !important;
   background: #F8BE38;
   color: white;
 }
-/* line 10, sass/admin.scss */
+
+/* line 10, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .postbox-container .utazaseditor-postbox h2.hndle {
   font-size: 1.2em !important;
   background: #1185D3;
   color: white;
 }
-/* line 15, sass/admin.scss */
+
+/* line 15, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .postbox-container .utazaseditor-postbox .inside {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* line 24, sass/admin.scss */
+/* line 24, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .travel-editor > .group .ghead {
   background: #f1f1f1;
   padding: 10px 15px !important;
   margin: 0 0 15px 0 !important;
   position: relative;
 }
-/* line 30, sass/admin.scss */
+
+/* line 30, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .travel-editor > .group .ghead .add {
   float: right;
   background: #6fbf6f;
@@ -40,15 +43,18 @@
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 45, sass/admin.scss */
+
+/* line 45, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .travel-editor > .group .ghead .add:hover {
   background: #000000;
 }
-/* line 50, sass/admin.scss */
+
+/* line 50, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .travel-editor > .group .cont {
   padding: 0 15px 15px 15px;
 }
-/* line 53, sass/admin.scss */
+
+/* line 53, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
 .travel-editor > .group h2 {
   padding: 0 !important;
   margin: 0 !important;
@@ -57,8 +63,12 @@
   font-weight: bold;
   font-size: 0.8em !important;
 }
-/* line 64, sass/admin.scss */
-.travel-editor > .group .datas .data-line > .wrapper {
+
+/* line 66, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper,
+.travel-editor > .group .datas .new-line > .wrapper,
+.travel-editor > .group .create-line .data-line > .wrapper,
+.travel-editor > .group .create-line .new-line > .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,7 +78,53 @@
   padding: 5px 0;
   border-bottom: 1px solid #f1f1f1;
 }
-/* line 74, sass/admin.scss */
-.travel-editor > .group .datas .data-line > .wrapper > div {
+
+/* line 76, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper input.fullw,
+.travel-editor > .group .datas .new-line > .wrapper input.fullw,
+.travel-editor > .group .create-line .data-line > .wrapper input.fullw,
+.travel-editor > .group .create-line .new-line > .wrapper input.fullw {
+  width: 100%;
+}
+
+/* line 80, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.action,
+.travel-editor > .group .datas .new-line > .wrapper > div.action,
+.travel-editor > .group .create-line .data-line > .wrapper > div.action,
+.travel-editor > .group .create-line .new-line > .wrapper > div.action {
+  flex-basis: 80px;
+}
+
+/* line 83, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.price,
+.travel-editor > .group .datas .new-line > .wrapper > div.price,
+.travel-editor > .group .create-line .data-line > .wrapper > div.price,
+.travel-editor > .group .create-line .new-line > .wrapper > div.price {
+  flex-basis: 100px;
+}
+
+/* line 86, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.durration,
+.travel-editor > .group .datas .new-line > .wrapper > div.durration,
+.travel-editor > .group .create-line .data-line > .wrapper > div.durration,
+.travel-editor > .group .create-line .new-line > .wrapper > div.durration {
+  flex-basis: 120px;
+}
+
+/* line 89, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.date,
+.travel-editor > .group .datas .new-line > .wrapper > div.date,
+.travel-editor > .group .create-line .data-line > .wrapper > div.date,
+.travel-editor > .group .create-line .new-line > .wrapper > div.date {
   flex: 1;
 }
+
+/* line 96, /Users/MolnarIstvan/Documents/Munka/Jo Napot Nagyvilag/jnk/wp-content/themes/Avada-Child-Theme/assets/css/sass/admin.scss */
+.travel-editor > .group .create-line .header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+/*# sourceMappingURL=../admin.map */

@@ -25,6 +25,31 @@ class AjaxRequests
     add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'TravelAPIRequest'));
   }
 
+  public function getterms()
+  {
+    add_action( 'wp_ajax_'.__FUNCTION__, array( $this, 'GetTermsRequest'));
+    add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'GetTermsRequest'));
+  }
+
+  public function GetTermsRequest()
+  {
+    extract($_POST);
+    $return = array(
+      'error' => 0,
+      'msg' => '',
+      'data' => array(),
+      'params' => $_POST
+    );
+
+    foreach ((array)$terms as $term) {
+      $data = wp_get_post_terms($postid, $term);
+      $return['data'][$term] = $data;
+    }
+
+    echo json_encode($return);
+    die();
+  }
+
   public function TravelAPIRequest()
   {
     extract($_POST);

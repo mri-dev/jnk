@@ -205,6 +205,7 @@ function ajax_requests()
   $ajax->city_autocomplete();
   $ajax->contact_form();
   $ajax->travel_api();
+  $ajax->getterms();
 }
 add_action( 'init', 'ajax_requests' );
 

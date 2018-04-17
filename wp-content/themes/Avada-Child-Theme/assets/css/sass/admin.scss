@@ -59,8 +59,10 @@
       font-size: 0.8em !important;
     }
 
-    .datas {
-      .data-line{
+    .datas,
+    .create-line {
+      .data-line,
+      .new-line{
         & > .wrapper{
           display: -webkit-box;
           display: -ms-flexbox;
@@ -71,10 +73,31 @@
           padding: 5px 0;
           border-bottom: 1px solid #f1f1f1;
 
-          & > div {
-            flex: 1;
+          input.fullw{
+            width: 100%;
+          }
+
+          & > div.action {
+            flex-basis: 80px;
+          }
+          & > div.price {
+            flex-basis: 100px;
+          }
+          & > div.durration {
+            flex-basis: 120px;
+          }
+          & > div.date {
+            flex:1;
           }
         }
+      }
+    }
+    .create-line{
+      .header{
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin: 10px 0;
       }
     }
   }
