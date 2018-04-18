@@ -17,13 +17,44 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
   $scope.loading = false;
   $scope.loaded = false;
   $scope.dates_loaded = false;
+  $scope.dates_saving = false;
 
   $scope.init = function( postid )
   {
     $scope.postid = postid;
     $scope.prepareRanges();
+    $scope.loadAll();
+  }
+
+  $scope.loadAll = function(){
+    $scope.loading = true;
     $scope.loadTerms(function(){
-      $scope.loadDatas();
+      $scope.finishLoad();
+      $scope.loadDatas(function(){});
+    });
+  }
+
+  $scope.finishLoad = function(){
+    $scope.loading = false;
+    $scope.loaded = true;
+  }
+
+  $scope.saveDates = function() {
+    $scope.dates_saving = true;
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=travel_saver',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'saveDates',
+        data: $scope.dates_create
+      })
+    }).success(function(r){
+      console.log(r);
+      $scope.dates_saving = false;
+      $scope.dates_create = [];
+      $scope.loadAll();
     });
   }
 
@@ -42,7 +73,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
       angular.forEach(r.data, function(e,i){
         $scope.terms[i] = e;
       });
-      console.log($scope.terms);
       if (typeof callback !== 'undefined') {
         callback();
       }
@@ -60,10 +90,10 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
 
   $scope.addDate = function() {
     $scope.dates_create.push({
-      'travel_year': '',
-      'travel_month': '',
-      'travel_day': '',
-      'durration_id': '',
+      'travel_year': $scope.date.getFullYear(),
+      'travel_month': ($scope.date.getMonth()+1),
+      'travel_day': $scope.date.getUTCDate(),
+      'utazas_duration_id': 0,
       'price_from': 10000
     });
   }
@@ -75,10 +105,16 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
   $scope.loadDatas = function( callback )
   {
     $scope.loadDates();
+    $scope.loadConfigTerms();
 
     if (typeof callback !== 'undefined') {
       callback();
     }
+  }
+
+  $scope.loadConfigTerms = function()
+  {
+
   }
 
   $scope.loadDates = function( callback )
@@ -94,12 +130,10 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
     }).success(function(r){
       $scope.dates_loaded = true;
       $scope.dates = r.data;
-      console.log(r);
     });
 
     if (typeof callback !== 'undefined') {
       callback();
     }
   }
-
 }]);

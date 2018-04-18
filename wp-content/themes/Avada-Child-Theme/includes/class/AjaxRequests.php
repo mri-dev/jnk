@@ -31,6 +31,42 @@ class AjaxRequests
     add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'GetTermsRequest'));
   }
 
+  public function travel_saver()
+  {
+    add_action( 'wp_ajax_'.__FUNCTION__, array( $this, 'TravelSaverRequest'));
+    add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'TravelSaverRequest'));
+  }
+
+  public function TravelSaverRequest()
+  {
+    extract($_POST);
+    $return = array(
+      'error' => 0,
+      'msg' => '',
+      'data' => array(),
+      'params' => $_POST
+    );
+
+    $travels = new TravelModul((int)$_POST['postid']);
+
+    switch ($mode)
+    {
+      // Időpontok mentése
+      case 'saveDates':
+        try {
+          $re = $travels->saveDates( $data );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+    }
+
+    echo json_encode($return);
+    die();
+  }
+
   public function GetTermsRequest()
   {
     extract($_POST);

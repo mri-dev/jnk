@@ -206,6 +206,7 @@ function ajax_requests()
   $ajax->contact_form();
   $ajax->travel_api();
   $ajax->getterms();
+  $ajax->travel_saver();
 }
 add_action( 'init', 'ajax_requests' );
 

@@ -20,6 +20,10 @@
 }
 
 .travel-editor{
+  &.loading{
+    opacity: 0.2;
+    filtar:alpha(opacity=20);
+  }
   & > .group {
     .ghead{
       background: #f1f1f1;
@@ -50,6 +54,16 @@
     .cont{
       padding: 0 15px 15px 15px;
     }
+
+    .loading-data{
+      background: #ffedb9;
+      color: #58450b;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #e8d8a9;
+    }
+
     h2{
       padding: 0 !important;
       margin: 0 !important;
@@ -60,6 +74,7 @@
     }
 
     .datas,
+    .datas-header,
     .create-line {
       .data-line,
       .new-line{
@@ -79,6 +94,8 @@
 
           & > div.action {
             flex-basis: 80px;
+            font-size: 0.8em;
+            text-align: right;
           }
           & > div.price {
             flex-basis: 100px;
@@ -92,12 +109,35 @@
         }
       }
     }
+
+    .datas-header{
+      .wrapper{
+        border-bottom: 2px solid #c7c7c7 !important;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.8em !important;
+        margin: 0 0 8px 0;
+        color: #545454;
+      }
+    }
+
     .create-line{
       .header{
         text-align: center;
         font-weight: bold;
-        font-size: 1.2em;
+        font-size: 1.1em;
         margin: 10px 0;
+        text-transform: uppercase;
+        color: orange;
+      }
+      .footer{
+        .saving{
+          background: #57bb37;
+          margin: 10px 0;
+          color: white;
+          padding: 10px;
+          border-radius: 5px;
+        }
       }
     }
   }
