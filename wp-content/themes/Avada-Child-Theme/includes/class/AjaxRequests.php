@@ -31,13 +31,13 @@ class AjaxRequests
     add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'GetTermsRequest'));
   }
 
-  public function travel_saver()
+  public function traveler()
   {
-    add_action( 'wp_ajax_'.__FUNCTION__, array( $this, 'TravelSaverRequest'));
-    add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'TravelSaverRequest'));
+    add_action( 'wp_ajax_'.__FUNCTION__, array( $this, 'TravelerRequest'));
+    add_action( 'wp_ajax_nopriv_'.__FUNCTION__, array( $this, 'TravelerRequest'));
   }
 
-  public function TravelSaverRequest()
+  public function TravelerRequest()
   {
     extract($_POST);
     $return = array(
@@ -60,6 +60,17 @@ class AjaxRequests
           $return['error'] = 1;
           $return['msg'] = $e->getMessage();
         }
+      break;
+
+      // Az egyes csoportok konfigurációi
+      case 'getConfigTerms':
+      try {
+        $re = $travels->getTermsConfigs();
+        $return['data'] = $re;
+      } catch (\Exception $e) {
+        $return['error'] = 1;
+        $return['msg'] = $e->getMessage();
+      }
       break;
     }
 

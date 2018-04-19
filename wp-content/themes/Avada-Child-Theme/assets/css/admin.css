@@ -96,7 +96,16 @@
 .travel-editor > .group .create-line .new-line > .wrapper input.fullw {
   width: 100%;
 }
-/* line 95, sass/admin.scss */
+/* line 94, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div,
+.travel-editor > .group .datas .new-line > .wrapper > div,
+.travel-editor > .group .datas-header .data-line > .wrapper > div,
+.travel-editor > .group .datas-header .new-line > .wrapper > div,
+.travel-editor > .group .create-line .data-line > .wrapper > div,
+.travel-editor > .group .create-line .new-line > .wrapper > div {
+  padding: 5px;
+}
+/* line 98, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.action,
 .travel-editor > .group .datas .new-line > .wrapper > div.action,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.action,
@@ -107,7 +116,7 @@
   font-size: 0.8em;
   text-align: right;
 }
-/* line 100, sass/admin.scss */
+/* line 103, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.price,
 .travel-editor > .group .datas .new-line > .wrapper > div.price,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.price,
@@ -116,7 +125,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.price {
   flex-basis: 100px;
 }
-/* line 103, sass/admin.scss */
+/* line 106, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.durration,
 .travel-editor > .group .datas .new-line > .wrapper > div.durration,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.durration,
@@ -125,7 +134,16 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.durration {
   flex-basis: 120px;
 }
-/* line 106, sass/admin.scss */
+/* line 109, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.req,
+.travel-editor > .group .datas .new-line > .wrapper > div.req,
+.travel-editor > .group .datas-header .data-line > .wrapper > div.req,
+.travel-editor > .group .datas-header .new-line > .wrapper > div.req,
+.travel-editor > .group .create-line .data-line > .wrapper > div.req,
+.travel-editor > .group .create-line .new-line > .wrapper > div.req {
+  flex-basis: 60px;
+}
+/* line 112, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.date,
 .travel-editor > .group .datas .new-line > .wrapper > div.date,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.date,
@@ -134,7 +152,36 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.date {
   flex: 1;
 }
-/* line 114, sass/admin.scss */
+/* line 115, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.title,
+.travel-editor > .group .datas .new-line > .wrapper > div.title,
+.travel-editor > .group .datas-header .data-line > .wrapper > div.title,
+.travel-editor > .group .datas-header .new-line > .wrapper > div.title,
+.travel-editor > .group .create-line .data-line > .wrapper > div.title,
+.travel-editor > .group .create-line .new-line > .wrapper > div.title {
+  flex: 1;
+}
+/* line 119, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper .center,
+.travel-editor > .group .datas .new-line > .wrapper .center,
+.travel-editor > .group .datas-header .data-line > .wrapper .center,
+.travel-editor > .group .datas-header .new-line > .wrapper .center,
+.travel-editor > .group .create-line .data-line > .wrapper .center,
+.travel-editor > .group .create-line .new-line > .wrapper .center {
+  text-align: center;
+}
+/* line 123, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper .desc,
+.travel-editor > .group .datas .new-line > .wrapper .desc,
+.travel-editor > .group .datas-header .data-line > .wrapper .desc,
+.travel-editor > .group .datas-header .new-line > .wrapper .desc,
+.travel-editor > .group .create-line .data-line > .wrapper .desc,
+.travel-editor > .group .create-line .new-line > .wrapper .desc {
+  font-size: 0.8em;
+  margin: 5px 0 0 0;
+  color: #888888;
+}
+/* line 133, sass/admin.scss */
 .travel-editor > .group .datas-header .wrapper {
   border-bottom: 2px solid #c7c7c7 !important;
   text-transform: uppercase;
@@ -143,7 +190,7 @@
   margin: 0 0 8px 0;
   color: #545454;
 }
-/* line 125, sass/admin.scss */
+/* line 144, sass/admin.scss */
 .travel-editor > .group .create-line .header {
   text-align: center;
   font-weight: bold;
@@ -152,7 +199,7 @@
   text-transform: uppercase;
   color: orange;
 }
-/* line 134, sass/admin.scss */
+/* line 153, sass/admin.scss */
 .travel-editor > .group .create-line .footer .saving {
   background: #57bb37;
   margin: 10px 0;

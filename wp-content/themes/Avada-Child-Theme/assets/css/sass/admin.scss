@@ -91,6 +91,9 @@
           input.fullw{
             width: 100%;
           }
+          & > div {
+            padding: 5px;
+          }
 
           & > div.action {
             flex-basis: 80px;
@@ -103,8 +106,24 @@
           & > div.durration {
             flex-basis: 120px;
           }
+          & > div.req {
+            flex-basis: 60px;
+          }
           & > div.date {
             flex:1;
+          }
+          & > div.title {
+            flex:1;
+          }
+
+          .center {
+            text-align: center;
+          }
+
+          .desc{
+            font-size: 0.8em;
+            margin: 5px 0 0 0;
+            color: #888888;
           }
         }
       }

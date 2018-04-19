@@ -3,8 +3,8 @@ class TravelModul
 {
   private $db = null;
   private $postid = 0;
-  private $termgroups = array('szolgaltatasok', 'programok', 'szobak');
-  private $calcmode = array('once_person', 'day_person');
+  private $termgroups = array('szolgaltatas', 'programok', 'szobak');
+  private $calcmode = array('once', 'daily', 'once_person', 'day_person');
 
   public function __construct( $postid )
   {
@@ -13,6 +13,61 @@ class TravelModul
     $this->postid = $postid;
 
     return $this;
+  }
+
+  public function getTermsConfigs()
+  {
+    $back = array();
+
+    foreach ( $this->termgroups as $tg )
+    {
+      $q = "SELECT
+        c.*
+      FROM travel_term_config as c
+      WHERE 1=1 and
+      c.termgroup = %s
+      ORDER BY c.title ASC
+      ";
+      $data = $this->db->get_results( $this->db->prepare($q, $tg) );
+      $data = $this->prepareTermConfigs( $tg, $data );
+      $back[$tg] = $data;
+    }
+
+    return $back;
+  }
+
+  private function prepareTermConfigs( $group, $set )
+  {
+    switch ($group) {
+      case 'szolgaltatas':
+        $reset = array();
+        foreach ($set as $s) {
+          $s->price_after = ' Ft'.$this->priceTypeText($s->price_calc_mode);
+          $reset[] = $s;
+        }
+        $set = $reset;
+        unset($reset);
+      break;
+    }
+    return $set;
+  }
+
+  private function priceTypeText( $type )
+  {
+    switch ($type) {
+      case 'daily':
+        return '/nap';
+      break;
+      case 'once':
+        return '';
+      break;
+      case 'once_person':
+        return '/fő';
+      break;
+      case 'day_person':
+        return '/fő/nap';
+      break;
+    }
   }
 
   public function saveDates( $data = array() )

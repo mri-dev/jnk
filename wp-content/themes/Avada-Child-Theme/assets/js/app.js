@@ -8,6 +8,24 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
   $scope.range_days = [];
   $scope.date = new Date();
   $scope.terms = {};
+  $scope.config_groups = ['szolgaltatas', 'szobak', 'programok'];
+  $scope.price_calc_modes = {
+    'once': 'Egyszeri díj',
+    'daily': '/nap',
+    'once_person': '/fő',
+    'day_person': '/fő/nap'
+  };
+  $scope.configs = {};
+  $scope.config_creator = {
+    'szolgaltatas': [],
+    'szobak': [],
+    'programok': []
+  };
+  $scope.config_saving = {
+    'szolgaltatas': false,
+    'szobak': false,
+    'programok': false
+  };
 
   // Datas
   $scope.dates = [];
@@ -43,7 +61,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
     $scope.dates_saving = true;
     $http({
       method: 'POST',
-      url: '/wp-admin/admin-ajax.php?action=travel_saver',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
         postid: $scope.postid,
@@ -98,8 +116,20 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
     });
   }
 
+  $scope.addConfig = function( group ) {
+    $scope.config_creator[group].push({
+      'title': '',
+      'description': '',
+      'price': 0
+    });
+  }
+
   $scope.removeEditorDate = function(index) {
     $scope.dates_create.splice(index, 1);
+  }
+
+  $scope.removeConfigEditorDate = function( group, index ){
+    $scope.config_creator[group].splice(index, 1);
   }
 
   $scope.loadDatas = function( callback )
@@ -114,7 +144,21 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
 
   $scope.loadConfigTerms = function()
   {
+    $scope.configs = {};
 
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'getConfigTerms'
+      })
+    }).success(function(r){
+      angular.forEach($scope.config_groups, function(c,i){
+        $scope.configs[c] = r.data[c];
+      });
+    });
   }
 
   $scope.loadDates = function( callback )

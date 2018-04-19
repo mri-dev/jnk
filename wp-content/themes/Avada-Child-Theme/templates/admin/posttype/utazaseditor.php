@@ -27,9 +27,7 @@
               <div class="price">
                 Alapár
               </div>
-              <div class="action">
-
-              </div>
+              <div class="action"></div>
             </div>
           </div>
         </div>
@@ -91,20 +89,100 @@
       <h2>Szobák</h2>
     </div>
     <div class="cont">
-      <div class="no-data">
+      <div class="loading-data" ng-hide="configs.szobak">
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szobák betöltése folyamatban', TD); ?>
+      </div>
+      <div class="no-data" ng-show="(configs.szobak && configs.szobak.length == 0)">
         Nincs szoba meghatározva ehhez az utazáshoz.
       </div>
     </div>
   </div>
   <div class="group">
     <div class="ghead">
-      <span class="add">új szolgáltatás</span>
+      <span class="add" ng-click="addConfig('szolgaltatas')">új szolgáltatás</span>
       <h2>Szolgáltatások</h2>
     </div>
     <div class="cont">
-      <div class="no-data">
+      <div class="loading-data" ng-hide="configs.szolgaltatas">
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szolgáltatások betöltése folyamatban', TD); ?>
+      </div>
+      <div class="no-data" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length == 0)">
         Nincsenek szolgáltatások meghatározva ehhez az utazáshoz.
       </div>
+      <div class="datas-header" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length != 0)">
+        <div class="data-line">
+          <div class="wrapper">
+            <div class="title">
+              Megnevezés
+            </div>
+            <div class="req center">
+              Kötelező
+            </div>
+            <div class="price">
+              Ár
+            </div>
+            <div class="action"></div>
+          </div>
+        </div>
+      </div>
+      <div class="datas data-dates" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length != 0)">
+        <div class="data-line" ng-repeat="(i, d) in configs.szolgaltatas">
+          <div class="wrapper">
+            <div class="title">
+              {{d.title}}
+              <div class="desc" ng-show="d.description">
+                {{d.description}}
+              </div>
+            </div>
+            <div class="req center">
+              <i ng-show="(d.requireditem=='1')" class="fa fa-check-circle"></i>
+              <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
+            </div>
+            <div class="price">
+              {{d.price}} {{d.price_after}}
+            </div>
+            <div class="action">
+              <span ng-click="">szerkeszt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="create-line" ng-show="(config_creator.szolgaltatas.length!=0)">
+        <div class="header">
+          Új szolgáltatás hozzáadása
+        </div>
+        <div class="new-line" ng-repeat="(i,n) in config_creator.szolgaltatas">
+          <div class="wrapper">
+            <div class="title">
+              <input type="text" class="fullw" ng-model="config_creator.szolgaltatas[i].title">
+              <div class="desc">
+                <input type="text" class="fullw" ng-model="config_creator.szolgaltatas[i].description">
+              </div>
+            </div>
+            <div class="req center">
+              <input type="checkbox" ng-model="config_creator.szolgaltatas[i].requireditem">
+            </div>
+            <div class="price">
+              <input type="number" class="fullw" ng-model="config_creator.szolgaltatas[i].price">
+              <select class="" ng-model="config_creator.szolgaltatas[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
+                <option value="">-- válasszon --</option>
+              </select>
+            </div>
+            <div class="action">
+              <span ng-click="removeConfigEditorDate('szolgaltatas', i)">töröl</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="saving" ng-show="config_saving.szolgaltatas">
+            <i class="fa fa-spin fa-spinner"></i> Szolgáltatás hozzáadás folyamatban.
+          </div>
+          <button type="button" ng-hide="config_saving.szolgaltatas" ng-click="saveConfig('szolgaltatas')">Változások mentése</button>
+        </div>
+      </div>
+
+
     </div>
   </div>
   <div class="group">
