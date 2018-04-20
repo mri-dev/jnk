@@ -1,6 +1,6 @@
-var jnk = angular.module('jonapotnagyvilag', []);
+var jnk = angular.module('jonapotnagyvilag', ['ngMaterial', 'ngMessages']);
 
-jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
+jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog)
 {
   // Vars
   $scope.postid = 0;
@@ -8,7 +8,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
   $scope.range_days = [];
   $scope.date = new Date();
   $scope.terms = {};
-  $scope.config_groups = ['szolgaltatas', 'szobak', 'programok'];
+  $scope.config_groups = ['szolgaltatas', 'programok'];
   $scope.price_calc_modes = {
     'once': 'Egyszeri díj',
     'daily': '/nap',
@@ -57,6 +57,33 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
     $scope.loaded = true;
   }
 
+  $scope.saveConfig = function( group ) {
+    $scope.config_saving[group] = true;
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'saveConfigTerm',
+        group: group,
+        data: $scope.config_creator[group]
+      })
+    }).success(function(r){
+      $scope.config_saving[group] = false;
+
+      console.log(r);
+
+      if (r.error == 1) {
+        $scope.alertDialog('Hiba történt', r.msg);
+      } else {
+        $scope.config_creator[group] = [];
+        $scope.loadAll();
+      }
+    });
+  }
+
   $scope.saveDates = function() {
     $scope.dates_saving = true;
     $http({
@@ -69,10 +96,13 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
         data: $scope.dates_create
       })
     }).success(function(r){
-      console.log(r);
       $scope.dates_saving = false;
-      $scope.dates_create = [];
-      $scope.loadAll();
+      if (r.error == 1) {
+        $scope.alertDialog('Hiba történt', r.msg);
+      } else {
+        $scope.dates_create = [];
+        $scope.loadAll();
+      }
     });
   }
 
@@ -120,7 +150,9 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
     $scope.config_creator[group].push({
       'title': '',
       'description': '',
-      'price': 0
+      'price': 0,
+      'requireditem': false,
+      'price_calc_mode': 0
     });
   }
 
@@ -159,6 +191,19 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
         $scope.configs[c] = r.data[c];
       });
     });
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'getRooms'
+      })
+    }).success(function(r){
+      console.log(r);
+      $scope.configs.szobak = r.data;
+    });
   }
 
   $scope.loadDates = function( callback )
@@ -180,4 +225,30 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', function($scope, $http)
       callback();
     }
   }
+
+  $scope.alertDialog = function(title, desc) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .clickOutsideToClose(true)
+        .title(title)
+        .textContent(desc)
+        .ariaLabel('Hibaüzenet')
+        .ok('Rendben')
+    );
+  }
+
+  $scope.toast = function( text, mode, delay ){
+		mode = (typeof mode === 'undefined') ? 'simple' : mode;
+    delay = (typeof delay === 'undefined') ? 5000 : delay;
+
+		if (typeof text !== 'undefined') {
+			$mdToast.show(
+				$mdToast.simple()
+				.textContent(text)
+				.position('top')
+				.toastClass('alert-toast mode-'+mode)
+				.hideDelay(delay)
+			);
+		}
+	}
 }]);

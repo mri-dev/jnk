@@ -102,6 +102,10 @@
           }
           & > div.price {
             flex-basis: 100px;
+
+            span.ba {
+              font-size: 0.8em;
+            }
           }
           & > div.durration {
             flex-basis: 120px;

@@ -45,9 +45,15 @@ function jnk_load_scripts($hook) {
 
 	if( $hook != 'edit.php' && $hook != 'post.php' && $hook != 'post-new.php' ) return;
   wp_enqueue_style( 'jnkadmin', IFROOT . '/assets/css/admin.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
+  wp_enqueue_style( 'angular-material','//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css');
 
+  // Angular & Material Design
   wp_enqueue_script( 'angularjs', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js');
-	wp_enqueue_script( 'angualarjnk', IFROOT . '/assets/js/app.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
+  wp_enqueue_script( 'angular-animate', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js');
+  wp_enqueue_script( 'angular-aria', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js');
+  wp_enqueue_script( 'angular-message', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js');
+  wp_enqueue_script( 'angular-material', '//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js');
+	wp_enqueue_script( 'angualarjnk', IFROOT . '/assets/js/app.js?t=' . ( (DEVMODE === true) ? time() : '' ) ); 
 }
 add_action('admin_enqueue_scripts', 'jnk_load_scripts');
 

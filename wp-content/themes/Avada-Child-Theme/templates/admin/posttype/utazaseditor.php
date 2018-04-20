@@ -95,6 +95,21 @@
       <div class="no-data" ng-show="(configs.szobak && configs.szobak.length == 0)">
         Nincs szoba meghatározva ehhez az utazáshoz.
       </div>
+      <div class="rooms">
+        <div class="date-group" ng-repeat="dategroup in configs.szobak">
+          <div class="header">
+            {{dategroup.date_on}}
+          </div>
+          <div class="ellatas-group" ng-repeat="ellatas in dategroup.ellatas">
+            <div class="header">
+              {{ellatas.ID}} ellátás
+            </div>
+            <div class="room" ng-repeat="room in ellatas.rooms">
+              {{room.title}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="group">
@@ -103,6 +118,7 @@
       <h2>Szolgáltatások</h2>
     </div>
     <div class="cont">
+
       <div class="loading-data" ng-hide="configs.szolgaltatas">
         <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szolgáltatások betöltése folyamatban', TD); ?>
       </div>
@@ -139,7 +155,8 @@
               <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
             </div>
             <div class="price">
-              {{d.price}} {{d.price_after}}
+              <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
+              <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
               <span ng-click="">szerkeszt</span>
@@ -155,9 +172,9 @@
         <div class="new-line" ng-repeat="(i,n) in config_creator.szolgaltatas">
           <div class="wrapper">
             <div class="title">
-              <input type="text" class="fullw" ng-model="config_creator.szolgaltatas[i].title">
+              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.szolgaltatas[i].title">
               <div class="desc">
-                <input type="text" class="fullw" ng-model="config_creator.szolgaltatas[i].description">
+                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.szolgaltatas[i].description">
               </div>
             </div>
             <div class="req center">
@@ -166,7 +183,7 @@
             <div class="price">
               <input type="number" class="fullw" ng-model="config_creator.szolgaltatas[i].price">
               <select class="" ng-model="config_creator.szolgaltatas[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
-                <option value="">-- válasszon --</option>
+                <option value="">-- ár jellege? --</option>
               </select>
             </div>
             <div class="action">
@@ -187,13 +204,91 @@
   </div>
   <div class="group">
     <div class="ghead">
-      <span class="add">új program</span>
+      <span class="add" ng-click="addConfig('programok')">új program</span>
       <h2>Programok</h2>
     </div>
     <div class="cont">
-      <div class="no-data">
+
+      <div class="loading-data" ng-hide="configs.programok">
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Programok betöltése folyamatban', TD); ?>
+      </div>
+      <div class="no-data" ng-show="(configs.programok && configs.programok.length == 0)">
         Nincsenek programok meghatározva ehhez az utazáshoz.
       </div>
+      <div class="datas-header" ng-show="(configs.programok && configs.programok.length != 0)">
+        <div class="data-line">
+          <div class="wrapper">
+            <div class="title">
+              Megnevezés
+            </div>
+            <div class="req center">
+              Kötelező
+            </div>
+            <div class="price">
+              Ár
+            </div>
+            <div class="action"></div>
+          </div>
+        </div>
+      </div>
+      <div class="datas data-dates" ng-show="(configs.programok && configs.programok.length != 0)">
+        <div class="data-line" ng-repeat="(i, d) in configs.programok">
+          <div class="wrapper">
+            <div class="title">
+              {{d.title}}
+              <div class="desc" ng-show="d.description">
+                {{d.description}}
+              </div>
+            </div>
+            <div class="req center">
+              <i ng-show="(d.requireditem=='1')" class="fa fa-check-circle"></i>
+              <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
+            </div>
+            <div class="price">
+              <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
+              <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
+            </div>
+            <div class="action">
+              <span ng-click="">szerkeszt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="create-line" ng-show="(config_creator.programok.length!=0)">
+        <div class="header">
+          Új program hozzáadása
+        </div>
+        <div class="new-line" ng-repeat="(i,n) in config_creator.programok">
+          <div class="wrapper">
+            <div class="title">
+              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.programok[i].title">
+              <div class="desc">
+                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.programok[i].description">
+              </div>
+            </div>
+            <div class="req center">
+              <input type="checkbox" ng-model="config_creator.programok[i].requireditem">
+            </div>
+            <div class="price">
+              <input type="number" class="fullw" ng-model="config_creator.programok[i].price">
+              <select class="" ng-model="config_creator.programok[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
+                <option value="">-- ár jellege? --</option>
+              </select>
+            </div>
+            <div class="action">
+              <span ng-click="removeConfigEditorDate('programok', i)">töröl</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="saving" ng-show="config_saving.programok">
+            <i class="fa fa-spin fa-spinner"></i> Program hozzáadás folyamatban.
+          </div>
+          <button type="button" ng-hide="config_saving.programok" ng-click="saveConfig('programok')">Változások mentése</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

@@ -62,15 +62,37 @@ class AjaxRequests
         }
       break;
 
+      // CSoport szologáltatások mentése
+      case 'saveConfigTerm':
+        try {
+          $re = $travels->saveConfigTerm( $group, $data );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // Az egyes csoportok konfigurációi
       case 'getConfigTerms':
-      try {
-        $re = $travels->getTermsConfigs();
-        $return['data'] = $re;
-      } catch (\Exception $e) {
-        $return['error'] = 1;
-        $return['msg'] = $e->getMessage();
-      }
+        try {
+          $re = $travels->getTermsConfigs();
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Szobák betöltése
+      case 'getRooms':
+        try {
+          $re = $travels->getRooms();
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
       break;
     }
 

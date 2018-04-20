@@ -126,6 +126,15 @@
   flex-basis: 100px;
 }
 /* line 106, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.price span.ba,
+.travel-editor > .group .datas .new-line > .wrapper > div.price span.ba,
+.travel-editor > .group .datas-header .data-line > .wrapper > div.price span.ba,
+.travel-editor > .group .datas-header .new-line > .wrapper > div.price span.ba,
+.travel-editor > .group .create-line .data-line > .wrapper > div.price span.ba,
+.travel-editor > .group .create-line .new-line > .wrapper > div.price span.ba {
+  font-size: 0.8em;
+}
+/* line 110, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.durration,
 .travel-editor > .group .datas .new-line > .wrapper > div.durration,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.durration,
@@ -134,7 +143,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.durration {
   flex-basis: 120px;
 }
-/* line 109, sass/admin.scss */
+/* line 113, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.req,
 .travel-editor > .group .datas .new-line > .wrapper > div.req,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.req,
@@ -143,7 +152,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.req {
   flex-basis: 60px;
 }
-/* line 112, sass/admin.scss */
+/* line 116, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.date,
 .travel-editor > .group .datas .new-line > .wrapper > div.date,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.date,
@@ -152,7 +161,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.date {
   flex: 1;
 }
-/* line 115, sass/admin.scss */
+/* line 119, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.title,
 .travel-editor > .group .datas .new-line > .wrapper > div.title,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.title,
@@ -161,7 +170,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.title {
   flex: 1;
 }
-/* line 119, sass/admin.scss */
+/* line 123, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper .center,
 .travel-editor > .group .datas .new-line > .wrapper .center,
 .travel-editor > .group .datas-header .data-line > .wrapper .center,
@@ -170,7 +179,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper .center {
   text-align: center;
 }
-/* line 123, sass/admin.scss */
+/* line 127, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper .desc,
 .travel-editor > .group .datas .new-line > .wrapper .desc,
 .travel-editor > .group .datas-header .data-line > .wrapper .desc,
@@ -181,7 +190,7 @@
   margin: 5px 0 0 0;
   color: #888888;
 }
-/* line 133, sass/admin.scss */
+/* line 137, sass/admin.scss */
 .travel-editor > .group .datas-header .wrapper {
   border-bottom: 2px solid #c7c7c7 !important;
   text-transform: uppercase;
@@ -190,7 +199,7 @@
   margin: 0 0 8px 0;
   color: #545454;
 }
-/* line 144, sass/admin.scss */
+/* line 148, sass/admin.scss */
 .travel-editor > .group .create-line .header {
   text-align: center;
   font-weight: bold;
@@ -199,7 +208,7 @@
   text-transform: uppercase;
   color: orange;
 }
-/* line 153, sass/admin.scss */
+/* line 157, sass/admin.scss */
 .travel-editor > .group .create-line .footer .saving {
   background: #57bb37;
   margin: 10px 0;
