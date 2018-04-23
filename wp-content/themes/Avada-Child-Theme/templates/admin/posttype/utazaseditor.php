@@ -27,6 +27,9 @@
               <div class="price">
                 Alapár
               </div>
+              <div class="active center">
+                Aktív
+              </div>
               <div class="action"></div>
             </div>
           </div>
@@ -42,6 +45,10 @@
               </div>
               <div class="price">
                 {{d.price_from}} Ft
+              </div>
+              <div class="active center">
+                <i ng-show="(d.active=='1')" class="fa fa-check-circle"></i>
+                <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
               </div>
               <div class="action">
                 <span ng-click="editDate(d.ID)">szerkeszt</span>
@@ -98,14 +105,56 @@
       <div class="rooms">
         <div class="date-group" ng-repeat="dategroup in configs.szobak">
           <div class="header">
-            {{dategroup.date_on}}
+            <strong>{{dategroup.date_on}}</strong>
           </div>
           <div class="ellatas-group" ng-repeat="ellatas in dategroup.ellatas">
             <div class="header">
-              {{ellatas.ID}} ellátás
+              <div class="n">
+                {{ellatas.rooms.length}}
+              </div>
+              <strong>{{ellatas.ellatas.name}}</strong> esetén
+            </div>
+            <div class="room-header">
+              <div class="wrapper">
+                <div class="title">
+                  <strong>Szoba</strong> / Leírás
+                </div>
+                <div class="capacity">
+                  Kapacitás
+                </div>
+                <div class="price price-adult center">
+                  Felnőtt ár
+                </div>
+                <div class="price price-adult center">
+                  Gyermek ár
+                </div>
+                <div class="active center">
+                  Aktív
+                </div>
+              </div>
             </div>
             <div class="room" ng-repeat="room in ellatas.rooms">
-              {{room.title}}
+              <div class="wrapper">
+                <div class="title">
+                  <strong>{{room.title}}</strong>
+                  <div class="desc">
+                    {{room.description}}
+                  </div>
+                </div>
+                <div class="capacity">
+                  {{room.adult_capacity+room.child_capacity}} fő ({{room.adult_capacity}} felnőtt + {{room.child_capacity}} gyermek)
+                </div>
+                <div class="price price-adult center">
+                  {{room.adult_price}} Ft / fő
+                </div>
+                <div class="price price-adult center">
+                  {{room.child_price}} Ft / fő
+                </div>
+                <div class="active center">
+                  <i ng-show="(room.active=='1')" class="fa fa-check-circle"></i>
+                  <i ng-show="(room.requireditem=='0')" class="fa fa-times"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -118,7 +167,6 @@
       <h2>Szolgáltatások</h2>
     </div>
     <div class="cont">
-
       <div class="loading-data" ng-hide="configs.szolgaltatas">
         <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szolgáltatások betöltése folyamatban', TD); ?>
       </div>

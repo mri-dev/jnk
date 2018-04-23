@@ -1,3 +1,5 @@
+@import "settings";
+
 .postbox-container{
   .utazasalap-postbox{
     h2.hndle{
@@ -116,6 +118,9 @@
           & > div.date {
             flex:1;
           }
+          & > div.active {
+            flex-basis: 40px;
+          }
           & > div.title {
             flex:1;
           }
@@ -130,6 +135,112 @@
             color: #888888;
           }
         }
+      }
+    }
+
+    .rooms{
+      .date-group{
+        & > .header{
+          background: #dadada;
+          padding: 10px 15px;
+          border-radius: 20px;
+          color: black;
+          margin: 0 0 5px 0;
+          text-align: center;
+          font-size: 1.2em;
+        }
+      }
+
+      .ellatas-group{
+        padding-left: 8px;
+        & > .header{
+          background: #ececec;
+          padding: 8px 10px 8px 8px;
+          border-radius: 20px;
+          color: black;
+
+          .n{
+            float: left;
+            background: #656565;
+            color: white;
+            margin: 0 5px 0 0;
+            width: 19px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.7em;
+            line-height: 19px;
+          }
+        }
+
+        .room {
+          padding: 0 5px;
+          margin: 0 0 5px 14px;
+          border-left: 5px solid #f5f5f5;
+        }
+
+        .room-header{
+          padding: 2px 5px 0 14px;
+          font-size: 0.8em;
+          line-height: 1;
+          & > .wrapper{
+            border-radius: 0 5px 5px 0;
+            background: #f5f5f5;
+          }
+        }
+
+        .room,
+        .room-header{
+          & > .wrapper{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            font-size: 1.1em;
+            padding: 5px 0;
+
+            input.fullw{
+              width: 100%;
+            }
+            & > div {
+              padding: 5px;
+            }
+            & > div.action {
+              flex-basis: 80px;
+              font-size: 0.8em;
+              text-align: right;
+            }
+
+            & > div.capacity{
+              flex: 1;
+            }
+
+            & > div.price {
+              flex-basis: 100px;
+
+              span.ba {
+                font-size: 0.8em;
+              }
+            }
+            & > div.title {
+              flex:1;
+            }
+            & > div.active {
+              flex-basis: 40px;
+            }
+
+            .center {
+              text-align: center;
+            }
+
+            .desc{
+              font-size: 0.8em;
+              margin: 5px 0 0 0;
+              color: #888888;
+            }
+          }
+        }
+
       }
     }
 
