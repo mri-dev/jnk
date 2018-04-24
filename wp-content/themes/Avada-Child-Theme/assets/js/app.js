@@ -114,9 +114,11 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
         postid: $scope.postid,
-        terms: ['utazas_duration']
+        terms: ['utazas_duration', 'utazas_ellatas']
       })
     }).success(function(r){
+
+      console.log(r);
 
       angular.forEach(r.data, function(e,i){
         $scope.terms[i] = e;

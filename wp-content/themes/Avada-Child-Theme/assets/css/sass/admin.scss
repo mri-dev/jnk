@@ -98,7 +98,7 @@
           }
 
           & > div.action {
-            flex-basis: 80px;
+            flex-basis: 60px;
             font-size: 0.8em;
             text-align: right;
           }
@@ -240,7 +240,58 @@
             }
           }
         }
+      }
 
+      .create-line{
+        .new-line{
+          & > .wrapper{
+            flex-wrap: wrap;
+            & > .datas{
+              flex: 1;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: flex-start;
+              margin: -5px;
+
+              label {
+                margin: 0 0 5px 0;
+                display: block;
+                line-height: 1;
+                font-size: 0.8em;
+              }
+
+              select.fullw{
+                width: 100%;
+              }
+
+              & > div {
+
+              }
+              .w {
+                padding: 5px;
+              }
+              & > .avdate,
+              & > .ellatas{
+                flex-basis: 50%;
+              }
+              & > .title{
+                flex: 1;
+              }
+              & > .price{
+                flex-basis: 110px;
+              }
+              & > .capacity{
+                flex-basis: 140px;
+              }
+              & > .active{
+                flex-basis: 20px;
+              }
+
+            }
+          }
+        }
       }
     }
 

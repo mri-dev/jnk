@@ -57,7 +57,7 @@ class TravelModul
       $back[$d->date_id]['date_on'] = $d->travel_year.' / '.$d->travel_month.' / '.$d->travel_day;
       $back[$d->date_id]['ID'] = (int)$d->date_id;
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['ID'] = (int)$d->ellatas_id;
-      $back[$d->date_id]['ellatas'][$d->ellatas_id]['ellatas'] = $this->getTermValuById('utazas_ellatas', (int)$d->ellatas_id);      
+      $back[$d->date_id]['ellatas'][$d->ellatas_id]['ellatas'] = $this->getTermValuById('utazas_ellatas', (int)$d->ellatas_id);
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['rooms'][] = $this->prepareRoomValues($d);
     }
     unset($data);
@@ -205,6 +205,7 @@ class TravelModul
 
   private function prepareDateRow( $rowdata )
   {
+    $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day;
     $rowdata->durration= $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
     return $rowdata;
   }

@@ -92,7 +92,7 @@
   </div>
   <div class="group">
     <div class="ghead">
-      <span class="add">új szoba</span>
+      <span class="add" ng-click="addConfig('szobak')">új szoba</span>
       <h2>Szobák</h2>
     </div>
     <div class="cont">
@@ -131,6 +131,7 @@
                 <div class="active center">
                   Aktív
                 </div>
+                <div class="action center"></div>
               </div>
             </div>
             <div class="room" ng-repeat="room in ellatas.rooms">
@@ -154,11 +155,87 @@
                   <i ng-show="(room.active=='1')" class="fa fa-check-circle"></i>
                   <i ng-show="(room.requireditem=='0')" class="fa fa-times"></i>
                 </div>
+                <div class="action">
+                  <span ng-click="editRoom(room.ID)">szerkeszt</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="create-line" ng-show="(config_creator.szobak.length!=0)">
+          <div class="header">
+            Új szoba hozzáadása
+          </div>
+          <div class="new-line" ng-repeat="(i,n) in config_creator.szobak">
+            <div class="wrapper">
+              <div class="datas">
+                <div class="avdate">
+                  <div class="w">
+                    <label for="">Időpont kiválasztása</label>
+                    <select class="fullw" ng-model="config_creator[i].szobak.date_id" ng-options="item as day.onday for day in dates track by day.ID"></select>
+                  </div>
+                </div>
+                <div class="ellatas">
+                  <div class="w">
+                    <label for="">Ellátás kiválasztása</label>
+                    <select class="fullw" ng-model="dates_create[i].szobak.ellatas_id" ng-options="item as term.name for term in terms.utazas_ellatas track by term.term_id"></select>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="w">
+                    <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.szobak[i].title">
+                    <div class="desc">
+                      <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.szobak[i].description">
+                    </div>
+                  </div>
+                </div>
+                <div class="capacity">
+                  <div class="w">
+                    <label for="">Felnőtt kapacitás (fő)</label>
+                    <input type="number" ng-value="1" min="1" step="1" class="fullw" ng-model="config_creator.szobak[i].adult_capacity">
+                  </div>
+                </div>
+                <div class="capacity">
+                  <div class="w">
+                    <label for="">Gyermek kapacitás (fő)</label>
+                    <input type="number" ng-value="0" min="0" step="1" class="fullw" ng-model="config_creator.szobak[i].child_capacity">
+                  </div>
+                </div>
+                <div class="price">
+                  <div class="w">
+                    <label for="">Felnőtt ár (Ft /fő)</label>
+                    <input type="number" class="fullw" ng-model="config_creator.szobak[i].adult_price">
+                  </div>
+                </div>
+                <div class="price">
+                  <div class="w">
+                    <label for="">Gyermek ár (Ft /fő)</label>
+                    <input type="number" class="fullw" ng-model="config_creator.szobak[i].child_price">
+                  </div>
+                </div>
+                <div class="active">
+                  <div class="w">
+                    <label for="">Aktív</label>
+                    <input type="checkbox" ng-model="config_creator.szobak[i].active">
+                  </div>
+                </div>
+              </div>
+              <div class="action">
+                <span ng-click="removeConfigEditorDate('szobak', i)">töröl</span>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="saving" ng-show="config_saving.szobak">
+              <i class="fa fa-spin fa-spinner"></i> Szoba hozzáadás folyamatban.
+            </div>
+            <button type="button" ng-hide="config_saving.szobak" ng-click="saveConfig('szobak')">Változások mentése</button>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
   <div class="group">
