@@ -114,10 +114,57 @@ class TravelModul
     }
   }
 
+  public function saveRooms( $data = array() )
+  {
+    $back = array();
+
+    // check item
+    foreach ( (array)$data as $d ) {
+      if ( $d['title'] == '' ) {
+        throw new \Exception("Hiba: a szoba megnevezése kötelező.");
+      }
+      if ( $d['date_id'] == 0 ) {
+        throw new \Exception("Hiba: a szobához az elérhető időpont kiválasztása kötelező.");
+      }
+      if ( $d['ellatas_id'] == 0 ) {
+        throw new \Exception("Hiba: a szobához az elérhető ellátás kiválasztása kötelező.");
+      }
+    }
+
+    foreach ( (array)$data as $d ) {
+      $this->db->insert(
+        'travel_rooms',
+        array(
+          'post_id' => $this->postid,
+          'title' => $d['title'],
+          'description' => ($d['description'] == '') ? NULL : $d['description'],
+          'date_id' => (int)$d['date_id']['ID'],
+          'ellatas_id' => (int)$d['ellatas_id']['term_id'],
+          'adult_price' => (int)$d['adult_price'],
+          'child_price' => (int)$d['child_price'],
+          'adult_capacity' => (int)$d['adult_capacity'],
+          'child_capacity' => (int)$d['child_capacity'],
+          'active' => ($d['active'] == 'true') ? 1 : 0,
+        ),
+        array('%d', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d')
+      );
+
+      $back['inserted_id'][] = $this->db->insert_id;
+    }
+
+    return $back;
+  }
+
   public function saveConfigTerm( $group = false, $data = array() )
   {
+    $back = array();
+
     if ( !$group ) {
       throw new \Exception("Hiba: hiányzik a csoportazonosító kulcs az elem mentéséhez.");
+    }
+
+    if ( $group == 'szobak' ) {
+      return $this->saveRooms( $data );
     }
 
     // check item

@@ -173,13 +173,13 @@
                 <div class="avdate">
                   <div class="w">
                     <label for="">Időpont kiválasztása</label>
-                    <select class="fullw" ng-model="config_creator[i].szobak.date_id" ng-options="item as day.onday for day in dates track by day.ID"></select>
+                    <select class="fullw" ng-model="config_creator.szobak[i].date_id" ng-options="day.onday for day in dates"></select>
                   </div>
                 </div>
                 <div class="ellatas">
                   <div class="w">
                     <label for="">Ellátás kiválasztása</label>
-                    <select class="fullw" ng-model="dates_create[i].szobak.ellatas_id" ng-options="item as term.name for term in terms.utazas_ellatas track by term.term_id"></select>
+                    <select class="fullw" ng-model="config_creator.szobak[i].ellatas_id" ng-options="term.name for term in terms.utazas_ellatas"></select>
                   </div>
                 </div>
                 <div class="title">

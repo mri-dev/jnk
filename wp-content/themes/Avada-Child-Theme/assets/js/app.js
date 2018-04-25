@@ -73,8 +73,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     }).success(function(r){
       $scope.config_saving[group] = false;
 
-      console.log(r);
-
       if (r.error == 1) {
         $scope.alertDialog('Hiba történt', r.msg);
       } else {
@@ -117,9 +115,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         terms: ['utazas_duration', 'utazas_ellatas']
       })
     }).success(function(r){
-
-      console.log(r);
-
       angular.forEach(r.data, function(e,i){
         $scope.terms[i] = e;
       });
@@ -149,13 +144,27 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
   }
 
   $scope.addConfig = function( group ) {
-    $scope.config_creator[group].push({
-      'title': '',
-      'description': '',
-      'price': 0,
-      'requireditem': false,
-      'price_calc_mode': 0
-    });
+    if ( group == 'szobak' ) {
+      $scope.config_creator[group].push({
+        'title': '',
+        'description': '',
+        'adult_price': 0,
+        'child_price': 0,
+        'ellatas_id': 0,
+        'date_id': 0,
+        'adult_capacity': 1,
+        'child_capacity': 0,
+        'active': true
+      });
+    } else {
+      $scope.config_creator[group].push({
+        'title': '',
+        'description': '',
+        'price': 0,
+        'requireditem': false,
+        'price_calc_mode': 0
+      });
+    }
   }
 
   $scope.removeEditorDate = function(index) {
@@ -203,7 +212,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         mode: 'getRooms'
       })
     }).success(function(r){
-      console.log(r);
       $scope.configs.szobak = r.data;
     });
   }
