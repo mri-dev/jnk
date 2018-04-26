@@ -43,7 +43,8 @@ class TravelModul
       r.*,
       td.travel_year,
       td.travel_month,
-      td.travel_day
+      td.travel_day,
+      td.utazas_duration_id
     FROM travel_rooms as r
     LEFT OUTER JOIN travel_dates as td ON td.ID = r.date_id
     WHERE 1=1 and
@@ -54,8 +55,10 @@ class TravelModul
     $data = $this->db->get_results( $this->db->prepare($q, $this->postid) );
 
     foreach ( (array)$data as $d ) {
+      $duration = $this->getTermValuById('utazas_duration', (int)$d->utazas_duration_id);
       $back[$d->date_id]['date_on'] = $d->travel_year.' / '.$d->travel_month.' / '.$d->travel_day;
       $back[$d->date_id]['ID'] = (int)$d->date_id;
+      $back[$d->date_id]['day'] = $duration;
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['ID'] = (int)$d->ellatas_id;
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['ellatas'] = $this->getTermValuById('utazas_ellatas', (int)$d->ellatas_id);
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['rooms'][] = $this->prepareRoomValues($d);
@@ -252,8 +255,9 @@ class TravelModul
 
   private function prepareDateRow( $rowdata )
   {
-    $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day;
     $rowdata->durration= $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
+    $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day.' ('.$rowdata->durration->name.')';
+
     return $rowdata;
   }
 

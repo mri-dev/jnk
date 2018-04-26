@@ -139,7 +139,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       'travel_month': ($scope.date.getMonth()+1),
       'travel_day': $scope.date.getUTCDate(),
       'utazas_duration_id': 0,
-      'price_from': 10000
+      'active': true
     });
   }
 
@@ -173,6 +173,15 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
 
   $scope.removeConfigEditorDate = function( group, index ){
     $scope.config_creator[group].splice(index, 1);
+  }
+
+  $scope.editConfigRecord = function( group, id ) {
+    console.log(group+': '+id);
+    $scope.editorConfigModal(group, id);
+  }
+
+  $scope.editRoom = function( id ) {
+    console.log(id);
   }
 
   $scope.loadDatas = function( callback )
@@ -212,6 +221,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         mode: 'getRooms'
       })
     }).success(function(r){
+      console.log(r);
       $scope.configs.szobak = r.data;
     });
   }
@@ -245,6 +255,34 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         .ariaLabel('Hibaüzenet')
         .ok('Rendben')
     );
+  }
+
+  $scope.editorConfigModal = function( group, id ) {
+    $mdDialog.show({
+      controller: ConfigModalController,
+      templateUrl: '/travelmodalconfig',
+      parent: angular.element(document.body),
+      clickOutsideToClose:true,
+    })
+    .then(function(answer) {
+      console.log('You said the information was');
+    }, function() {
+      console.log('You cancelled the dialog.');
+    });
+  }
+
+  function ConfigModalController( $scope, $mdDialog ) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
   }
 
   $scope.toast = function( text, mode, delay ){

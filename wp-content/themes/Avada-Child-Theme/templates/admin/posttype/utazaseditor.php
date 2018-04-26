@@ -15,6 +15,40 @@
         <div class="no-data" ng-show="(dates_loaded && dates.length == 0)">
           Nincs időpont meghatározva ehhez az utazáshoz.
         </div>
+
+        <div class="create-line" ng-show="(dates_create.length!=0)">
+          <div class="header">
+            Új időpontok hozzáadása
+          </div>
+          <div class="new-line" ng-repeat="(i,n) in dates_create">
+            <div class="wrapper">
+              <div class="date">
+                <input type="number" ng-model="dates_create[i].travel_year">
+                <select class="" ng-model="dates_create[i].travel_month" ng-options="month for month in range_months"></select>
+                <select class="" ng-model="dates_create[i].travel_day" ng-options="day for day in range_days"></select>
+              </div>
+              <div class="durration">
+                <select class="fullw" ng-model="dates_create[i].utazas_duration_id" ng-options="term.name for term in terms.utazas_duration"></select>
+              </div>
+              <div class="active">
+                <div>
+                  <label for="">Aktív</label>
+                  <input type="checkbox" ng-model="dates_create[i].active">
+                </div>
+              </div>
+              <div class="action">
+                <i class="fa fa-times" title="Töröl" ng-click="removeEditorDate(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="saving" ng-show="dates_saving">
+              <i class="fa fa-spin fa-spinner"></i> Időpontok mentése folyamatban.
+            </div>
+            <button type="button" ng-hide="dates_saving" ng-click="saveDates()">Változások mentése</button>
+          </div>
+        </div>
+
         <div class="datas-header" ng-show="(dates_loaded && dates)">
           <div class="data-line">
             <div class="wrapper">
@@ -23,9 +57,6 @@
               </div>
               <div class="durration">
                 Utazás hossza
-              </div>
-              <div class="price">
-                Alapár
               </div>
               <div class="active center">
                 Aktív
@@ -43,47 +74,14 @@
               <div class="durration">
                 {{d.durration.name}}
               </div>
-              <div class="price">
-                {{d.price_from}} Ft
-              </div>
               <div class="active center">
                 <i ng-show="(d.active=='1')" class="fa fa-check-circle"></i>
                 <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
               </div>
               <div class="action">
-                <span ng-click="editDate(d.ID)">szerkeszt</span>
+                <span ng-click="editDate(d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="create-line" ng-show="(dates_create.length!=0)">
-          <div class="header">
-            Új időpontok hozzáadása
-          </div>
-          <div class="new-line" ng-repeat="(i,n) in dates_create">
-            <div class="wrapper">
-              <div class="date">
-                <input type="number" ng-model="dates_create[i].travel_year">
-                <select class="" ng-model="dates_create[i].travel_month" ng-options="month for month in range_months"></select>
-                <select class="" ng-model="dates_create[i].travel_day" ng-options="day for day in range_days"></select>
-              </div>
-              <div class="durration">
-                <select class="fullw" ng-model="dates_create[i].utazas_duration_id" ng-options="term.name for term in terms.utazas_duration"></select>
-              </div>
-              <div class="price">
-                <input type="number" class="fullw" ng-model="dates_create[i].price_from">
-              </div>
-              <div class="action">
-                <span ng-click="removeEditorDate(i)">töröl</span>
-              </div>
-            </div>
-          </div>
-          <div class="footer">
-            <div class="saving" ng-show="dates_saving">
-              <i class="fa fa-spin fa-spinner"></i> Időpontok mentése folyamatban.
-            </div>
-            <button type="button" ng-hide="dates_saving" ng-click="saveDates()">Változások mentése</button>
           </div>
         </div>
 
@@ -103,65 +101,6 @@
         Nincs szoba meghatározva ehhez az utazáshoz.
       </div>
       <div class="rooms">
-        <div class="date-group" ng-repeat="dategroup in configs.szobak">
-          <div class="header">
-            <strong>{{dategroup.date_on}}</strong>
-          </div>
-          <div class="ellatas-group" ng-repeat="ellatas in dategroup.ellatas">
-            <div class="header">
-              <div class="n">
-                {{ellatas.rooms.length}}
-              </div>
-              <strong>{{ellatas.ellatas.name}}</strong> esetén
-            </div>
-            <div class="room-header">
-              <div class="wrapper">
-                <div class="title">
-                  <strong>Szoba</strong> / Leírás
-                </div>
-                <div class="capacity">
-                  Kapacitás
-                </div>
-                <div class="price price-adult center">
-                  Felnőtt ár
-                </div>
-                <div class="price price-adult center">
-                  Gyermek ár
-                </div>
-                <div class="active center">
-                  Aktív
-                </div>
-                <div class="action center"></div>
-              </div>
-            </div>
-            <div class="room" ng-repeat="room in ellatas.rooms">
-              <div class="wrapper">
-                <div class="title">
-                  <strong>{{room.title}}</strong>
-                  <div class="desc">
-                    {{room.description}}
-                  </div>
-                </div>
-                <div class="capacity">
-                  {{room.adult_capacity+room.child_capacity}} fő ({{room.adult_capacity}} felnőtt + {{room.child_capacity}} gyermek)
-                </div>
-                <div class="price price-adult center">
-                  {{room.adult_price}} Ft / fő
-                </div>
-                <div class="price price-adult center">
-                  {{room.child_price}} Ft / fő
-                </div>
-                <div class="active center">
-                  <i ng-show="(room.active=='1')" class="fa fa-check-circle"></i>
-                  <i ng-show="(room.requireditem=='0')" class="fa fa-times"></i>
-                </div>
-                <div class="action">
-                  <span ng-click="editRoom(room.ID)">szerkeszt</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="create-line" ng-show="(config_creator.szobak.length!=0)">
           <div class="header">
@@ -222,7 +161,7 @@
                 </div>
               </div>
               <div class="action">
-                <span ng-click="removeConfigEditorDate('szobak', i)">töröl</span>
+                <i class="fa fa-times" title="Töröl" ng-click="removeConfigEditorDate('szobak', i)"></i>
               </div>
             </div>
           </div>
@@ -231,6 +170,66 @@
               <i class="fa fa-spin fa-spinner"></i> Szoba hozzáadás folyamatban.
             </div>
             <button type="button" ng-hide="config_saving.szobak" ng-click="saveConfig('szobak')">Változások mentése</button>
+          </div>
+        </div>
+
+        <div class="date-group" ng-repeat="dategroup in configs.szobak">
+          <div class="header">
+            <strong>{{dategroup.date_on}}</strong> ({{dategroup.day.name}})
+          </div>
+          <div class="ellatas-group" ng-repeat="ellatas in dategroup.ellatas">
+            <div class="header">
+              <div class="n">
+                {{ellatas.rooms.length}}
+              </div>
+              <strong>{{ellatas.ellatas.name}}</strong> esetén
+            </div>
+            <div class="room-header">
+              <div class="wrapper">
+                <div class="title">
+                  <strong>Szoba</strong> / Leírás
+                </div>
+                <div class="capacity">
+                  Kapacitás
+                </div>
+                <div class="price price-adult center">
+                  Felnőtt ár
+                </div>
+                <div class="price price-adult center">
+                  Gyermek ár
+                </div>
+                <div class="active center">
+                  Aktív
+                </div>
+                <div class="action center"></div>
+              </div>
+            </div>
+            <div class="room" ng-class="(room.active=='0')?'inactive':''" ng-repeat="room in ellatas.rooms">
+              <div class="wrapper">
+                <div class="title">
+                  <strong>{{room.title}}</strong>
+                  <div class="desc">
+                    {{room.description}}
+                  </div>
+                </div>
+                <div class="capacity">
+                  {{room.adult_capacity+room.child_capacity}} fő ({{room.adult_capacity}} felnőtt + {{room.child_capacity}} gyermek)
+                </div>
+                <div class="price price-adult center">
+                  {{room.adult_price}} Ft / fő
+                </div>
+                <div class="price price-adult center">
+                  {{room.child_price}} Ft / fő
+                </div>
+                <div class="active center">
+                  <i ng-show="(room.active=='1')" class="fa fa-check-circle"></i>
+                  <i ng-show="(room.active=='0')" class="fa fa-ban"></i>
+                </div>
+                <div class="action">
+                  <span ng-click="editRoom(room.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -250,6 +249,41 @@
       <div class="no-data" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length == 0)">
         Nincsenek szolgáltatások meghatározva ehhez az utazáshoz.
       </div>
+
+      <div class="create-line" ng-show="(config_creator.szolgaltatas.length!=0)">
+        <div class="header">
+          Új szolgáltatás hozzáadása
+        </div>
+        <div class="new-line" ng-repeat="(i,n) in config_creator.szolgaltatas">
+          <div class="wrapper">
+            <div class="title">
+              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.szolgaltatas[i].title">
+              <div class="desc">
+                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.szolgaltatas[i].description">
+              </div>
+            </div>
+            <div class="req center">
+              <input type="checkbox" ng-model="config_creator.szolgaltatas[i].requireditem">
+            </div>
+            <div class="price">
+              <input type="number" class="fullw" ng-model="config_creator.szolgaltatas[i].price">
+              <select class="" ng-model="config_creator.szolgaltatas[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
+                <option value="">-- ár jellege? --</option>
+              </select>
+            </div>
+            <div class="action">
+              <i class="fa fa-times" title="Töröl" ng-click="removeConfigEditorDate('szolgaltatas', i)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="saving" ng-show="config_saving.szolgaltatas">
+            <i class="fa fa-spin fa-spinner"></i> Szolgáltatás hozzáadás folyamatban.
+          </div>
+          <button type="button" ng-hide="config_saving.szolgaltatas" ng-click="saveConfig('szolgaltatas')">Változások mentése</button>
+        </div>
+      </div>
+
       <div class="datas-header" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length != 0)">
         <div class="data-line">
           <div class="wrapper">
@@ -277,53 +311,18 @@
             </div>
             <div class="req center">
               <i ng-show="(d.requireditem=='1')" class="fa fa-check-circle"></i>
-              <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
+              <i ng-show="(d.requireditem=='0')" class="fa fa-ban"></i>
             </div>
             <div class="price">
               <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
-              <span ng-click="">szerkeszt</span>
+              <span ng-click="editConfigRecord('szolgaltatas', d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="create-line" ng-show="(config_creator.szolgaltatas.length!=0)">
-        <div class="header">
-          Új szolgáltatás hozzáadása
-        </div>
-        <div class="new-line" ng-repeat="(i,n) in config_creator.szolgaltatas">
-          <div class="wrapper">
-            <div class="title">
-              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.szolgaltatas[i].title">
-              <div class="desc">
-                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.szolgaltatas[i].description">
-              </div>
-            </div>
-            <div class="req center">
-              <input type="checkbox" ng-model="config_creator.szolgaltatas[i].requireditem">
-            </div>
-            <div class="price">
-              <input type="number" class="fullw" ng-model="config_creator.szolgaltatas[i].price">
-              <select class="" ng-model="config_creator.szolgaltatas[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
-                <option value="">-- ár jellege? --</option>
-              </select>
-            </div>
-            <div class="action">
-              <span ng-click="removeConfigEditorDate('szolgaltatas', i)">töröl</span>
-            </div>
-          </div>
-        </div>
-        <div class="footer">
-          <div class="saving" ng-show="config_saving.szolgaltatas">
-            <i class="fa fa-spin fa-spinner"></i> Szolgáltatás hozzáadás folyamatban.
-          </div>
-          <button type="button" ng-hide="config_saving.szolgaltatas" ng-click="saveConfig('szolgaltatas')">Változások mentése</button>
-        </div>
-      </div>
-
 
     </div>
   </div>
@@ -340,6 +339,41 @@
       <div class="no-data" ng-show="(configs.programok && configs.programok.length == 0)">
         Nincsenek programok meghatározva ehhez az utazáshoz.
       </div>
+
+      <div class="create-line" ng-show="(config_creator.programok.length!=0)">
+        <div class="header">
+          Új program hozzáadása
+        </div>
+        <div class="new-line" ng-repeat="(i,n) in config_creator.programok">
+          <div class="wrapper">
+            <div class="title">
+              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.programok[i].title">
+              <div class="desc">
+                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.programok[i].description">
+              </div>
+            </div>
+            <div class="req center">
+              <input type="checkbox" ng-model="config_creator.programok[i].requireditem">
+            </div>
+            <div class="price">
+              <input type="number" class="fullw" ng-model="config_creator.programok[i].price">
+              <select class="" ng-model="config_creator.programok[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
+                <option value="">-- ár jellege? --</option>
+              </select>
+            </div>
+            <div class="action">
+              <i class="fa fa-times" title="Töröl" ng-click="removeConfigEditorDate('programok', i)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="saving" ng-show="config_saving.programok">
+            <i class="fa fa-spin fa-spinner"></i> Program hozzáadás folyamatban.
+          </div>
+          <button type="button" ng-hide="config_saving.programok" ng-click="saveConfig('programok')">Változások mentése</button>
+        </div>
+      </div>
+
       <div class="datas-header" ng-show="(configs.programok && configs.programok.length != 0)">
         <div class="data-line">
           <div class="wrapper">
@@ -367,50 +401,16 @@
             </div>
             <div class="req center">
               <i ng-show="(d.requireditem=='1')" class="fa fa-check-circle"></i>
-              <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
+              <i ng-show="(d.requireditem=='0')" class="fa fa-ban"></i>
             </div>
             <div class="price">
               <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
-              <span ng-click="">szerkeszt</span>
+              <span ng-click="editConfigRecord('programok', d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="create-line" ng-show="(config_creator.programok.length!=0)">
-        <div class="header">
-          Új program hozzáadása
-        </div>
-        <div class="new-line" ng-repeat="(i,n) in config_creator.programok">
-          <div class="wrapper">
-            <div class="title">
-              <input type="text" class="fullw" placeholder="* Megnevezés" ng-model="config_creator.programok[i].title">
-              <div class="desc">
-                <input type="text" class="fullw" placeholder="Rövid leírás (nem kötelező)"  ng-model="config_creator.programok[i].description">
-              </div>
-            </div>
-            <div class="req center">
-              <input type="checkbox" ng-model="config_creator.programok[i].requireditem">
-            </div>
-            <div class="price">
-              <input type="number" class="fullw" ng-model="config_creator.programok[i].price">
-              <select class="" ng-model="config_creator.programok[i].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
-                <option value="">-- ár jellege? --</option>
-              </select>
-            </div>
-            <div class="action">
-              <span ng-click="removeConfigEditorDate('programok', i)">töröl</span>
-            </div>
-          </div>
-        </div>
-        <div class="footer">
-          <div class="saving" ng-show="config_saving.programok">
-            <i class="fa fa-spin fa-spinner"></i> Program hozzáadás folyamatban.
-          </div>
-          <button type="button" ng-hide="config_saving.programok" ng-click="saveConfig('programok')">Változások mentése</button>
         </div>
       </div>
 

@@ -112,7 +112,7 @@
 .travel-editor > .group .datas-header .new-line > .wrapper > div.action,
 .travel-editor > .group .create-line .data-line > .wrapper > div.action,
 .travel-editor > .group .create-line .new-line > .wrapper > div.action {
-  flex-basis: 60px;
+  flex-basis: 30px;
   font-size: 0.8em;
   text-align: right;
 }
@@ -152,7 +152,25 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.req {
   flex-basis: 60px;
 }
-/* line 118, sass/admin.scss */
+/* line 117, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.req i[class*=fa-ban],
+.travel-editor > .group .datas .new-line > .wrapper > div.req i[class*=fa-ban],
+.travel-editor > .group .datas-header .data-line > .wrapper > div.req i[class*=fa-ban],
+.travel-editor > .group .datas-header .new-line > .wrapper > div.req i[class*=fa-ban],
+.travel-editor > .group .create-line .data-line > .wrapper > div.req i[class*=fa-ban],
+.travel-editor > .group .create-line .new-line > .wrapper > div.req i[class*=fa-ban] {
+  color: #fcc57b;
+}
+/* line 120, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.req i[class*=check-circle],
+.travel-editor > .group .datas .new-line > .wrapper > div.req i[class*=check-circle],
+.travel-editor > .group .datas-header .data-line > .wrapper > div.req i[class*=check-circle],
+.travel-editor > .group .datas-header .new-line > .wrapper > div.req i[class*=check-circle],
+.travel-editor > .group .create-line .data-line > .wrapper > div.req i[class*=check-circle],
+.travel-editor > .group .create-line .new-line > .wrapper > div.req i[class*=check-circle] {
+  color: #00bced;
+}
+/* line 124, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.date,
 .travel-editor > .group .datas .new-line > .wrapper > div.date,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.date,
@@ -161,7 +179,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.date {
   flex: 1;
 }
-/* line 121, sass/admin.scss */
+/* line 127, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.active,
 .travel-editor > .group .datas .new-line > .wrapper > div.active,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.active,
@@ -170,7 +188,25 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.active {
   flex-basis: 40px;
 }
-/* line 124, sass/admin.scss */
+/* line 130, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.active i[class*=fa-times],
+.travel-editor > .group .datas .new-line > .wrapper > div.active i[class*=fa-times],
+.travel-editor > .group .datas-header .data-line > .wrapper > div.active i[class*=fa-times],
+.travel-editor > .group .datas-header .new-line > .wrapper > div.active i[class*=fa-times],
+.travel-editor > .group .create-line .data-line > .wrapper > div.active i[class*=fa-times],
+.travel-editor > .group .create-line .new-line > .wrapper > div.active i[class*=fa-times] {
+  color: #fcc57b;
+}
+/* line 133, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .datas .new-line > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .datas-header .data-line > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .datas-header .new-line > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .create-line .data-line > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .create-line .new-line > .wrapper > div.active i[class*=check-circle] {
+  color: #00bced;
+}
+/* line 137, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper > div.title,
 .travel-editor > .group .datas .new-line > .wrapper > div.title,
 .travel-editor > .group .datas-header .data-line > .wrapper > div.title,
@@ -179,7 +215,27 @@
 .travel-editor > .group .create-line .new-line > .wrapper > div.title {
   flex: 1;
 }
-/* line 128, sass/admin.scss */
+/* line 142, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .datas .new-line > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .datas-header .data-line > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .datas-header .new-line > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .create-line .data-line > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .create-line .new-line > .wrapper > .action i[class*=fa-times] {
+  color: #ff8484;
+  cursor: pointer;
+}
+/* line 146, sass/admin.scss */
+.travel-editor > .group .datas .data-line > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .datas .new-line > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .datas-header .data-line > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .datas-header .new-line > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .create-line .data-line > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .create-line .new-line > .wrapper > .action i[class*=fa-pencil] {
+  color: #69db6a;
+  cursor: pointer;
+}
+/* line 152, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper .center,
 .travel-editor > .group .datas .new-line > .wrapper .center,
 .travel-editor > .group .datas-header .data-line > .wrapper .center,
@@ -188,7 +244,7 @@
 .travel-editor > .group .create-line .new-line > .wrapper .center {
   text-align: center;
 }
-/* line 132, sass/admin.scss */
+/* line 156, sass/admin.scss */
 .travel-editor > .group .datas .data-line > .wrapper .desc,
 .travel-editor > .group .datas .new-line > .wrapper .desc,
 .travel-editor > .group .datas-header .data-line > .wrapper .desc,
@@ -199,7 +255,7 @@
   margin: 5px 0 0 0;
   color: #888888;
 }
-/* line 143, sass/admin.scss */
+/* line 167, sass/admin.scss */
 .travel-editor > .group .rooms .date-group > .header {
   background: #0b85d5;
   padding: 10px 15px;
@@ -209,18 +265,18 @@
   text-align: center;
   font-size: 1.2em;
 }
-/* line 154, sass/admin.scss */
+/* line 178, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group {
   padding-left: 8px;
 }
-/* line 156, sass/admin.scss */
+/* line 180, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group > .header {
   background: #fbb03b;
   padding: 8px 10px 8px 8px;
   border-radius: 20px;
   color: white;
 }
-/* line 162, sass/admin.scss */
+/* line 186, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group > .header .n {
   float: left;
   background: #656565;
@@ -232,24 +288,30 @@
   font-size: 0.7em;
   line-height: 19px;
 }
-/* line 175, sass/admin.scss */
+/* line 199, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room {
   padding: 0 5px;
   margin: 0 0 5px 14px;
   border-left: 5px solid #f5f5f5;
 }
-/* line 181, sass/admin.scss */
+/* line 204, sass/admin.scss */
+.travel-editor > .group .rooms .ellatas-group .room.inactive {
+  border-left: 5px solid #df6e6e;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+/* line 211, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room-header {
   padding: 2px 5px 0 14px;
   font-size: 0.8em;
   line-height: 1;
 }
-/* line 185, sass/admin.scss */
+/* line 215, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper {
   border-radius: 0 5px 5px 0;
   background: #f5f5f5;
 }
-/* line 193, sass/admin.scss */
+/* line 223, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper {
   display: -webkit-box;
@@ -260,65 +322,87 @@
   font-size: 1.1em;
   padding: 5px 0;
 }
-/* line 202, sass/admin.scss */
+/* line 232, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper input.fullw,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper input.fullw {
   width: 100%;
 }
-/* line 205, sass/admin.scss */
+/* line 235, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div {
   padding: 5px;
 }
-/* line 208, sass/admin.scss */
+/* line 238, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.action,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.action {
-  flex-basis: 80px;
+  flex-basis: 30px;
   font-size: 0.8em;
   text-align: right;
 }
-/* line 214, sass/admin.scss */
+/* line 245, sass/admin.scss */
+.travel-editor > .group .rooms .ellatas-group .room > .wrapper > .action i[class*=fa-times],
+.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > .action i[class*=fa-times] {
+  color: #ff8484;
+  cursor: pointer;
+}
+/* line 249, sass/admin.scss */
+.travel-editor > .group .rooms .ellatas-group .room > .wrapper > .action i[class*=fa-pencil],
+.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > .action i[class*=fa-pencil] {
+  color: #69db6a;
+  cursor: pointer;
+}
+/* line 255, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.capacity,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.capacity {
   flex: 1;
 }
-/* line 218, sass/admin.scss */
+/* line 259, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.price,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.price {
   flex-basis: 100px;
 }
-/* line 221, sass/admin.scss */
+/* line 262, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.price span.ba,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.price span.ba {
   font-size: 0.8em;
 }
-/* line 225, sass/admin.scss */
+/* line 266, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.title,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.title {
   flex: 1;
 }
-/* line 228, sass/admin.scss */
+/* line 269, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active {
   flex-basis: 40px;
 }
-/* line 232, sass/admin.scss */
+/* line 271, sass/admin.scss */
+.travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active i[class*=fa-ban],
+.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active i[class*=fa-ban] {
+  color: #fcc57b;
+}
+/* line 274, sass/admin.scss */
+.travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active i[class*=check-circle],
+.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active i[class*=check-circle] {
+  color: #00bced;
+}
+/* line 279, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper .center,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper .center {
   text-align: center;
 }
-/* line 236, sass/admin.scss */
+/* line 283, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper .desc,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper .desc {
   font-size: 0.8em;
   margin: 5px 0 0 0;
   color: #888888;
 }
-/* line 247, sass/admin.scss */
+/* line 294, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper {
   flex-wrap: wrap;
 }
-/* line 249, sass/admin.scss */
+/* line 296, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas {
   flex: 1;
   display: -webkit-box;
@@ -328,42 +412,42 @@
   align-items: flex-start;
   margin: -5px;
 }
-/* line 258, sass/admin.scss */
+/* line 305, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas label {
   margin: 0 0 5px 0;
   display: block;
   line-height: 1;
   font-size: 0.8em;
 }
-/* line 265, sass/admin.scss */
+/* line 312, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas select.fullw {
   width: 100%;
 }
-/* line 272, sass/admin.scss */
+/* line 319, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas .w {
   padding: 5px;
 }
-/* line 276, sass/admin.scss */
+/* line 323, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .avdate, .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .ellatas {
   flex-basis: 50%;
 }
-/* line 279, sass/admin.scss */
+/* line 326, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .title {
   flex: 1;
 }
-/* line 282, sass/admin.scss */
+/* line 329, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .price {
   flex-basis: 110px;
 }
-/* line 285, sass/admin.scss */
+/* line 332, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .capacity {
   flex-basis: 140px;
 }
-/* line 288, sass/admin.scss */
+/* line 335, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .active {
   flex-basis: 20px;
 }
-/* line 299, sass/admin.scss */
+/* line 345, sass/admin.scss */
 .travel-editor > .group .datas-header .wrapper {
   border-bottom: 2px solid #c7c7c7 !important;
   text-transform: uppercase;
@@ -372,7 +456,7 @@
   margin: 0 0 8px 0;
   color: #545454;
 }
-/* line 310, sass/admin.scss */
+/* line 356, sass/admin.scss */
 .travel-editor > .group .create-line .header {
   text-align: center;
   font-weight: bold;
@@ -381,11 +465,27 @@
   text-transform: uppercase;
   color: orange;
 }
-/* line 319, sass/admin.scss */
+/* line 364, sass/admin.scss */
+.travel-editor > .group .create-line .footer {
+  padding: 10px 0;
+  text-align: right;
+  margin: 0 0 40px 0;
+}
+/* line 369, sass/admin.scss */
 .travel-editor > .group .create-line .footer .saving {
   background: #57bb37;
   margin: 10px 0;
   color: white;
   padding: 10px;
   border-radius: 5px;
+  text-align: center;
+}
+/* line 378, sass/admin.scss */
+.travel-editor > .group .create-line .footer button {
+  background: #57bb37;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
 }
