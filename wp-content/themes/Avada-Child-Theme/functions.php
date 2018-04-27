@@ -88,6 +88,16 @@ function ucid()
   return $ucid;
 }
 
+function app_query_vars($vars){
+  $vars[] = 'custom_page';
+  $vars[] = 'postid';
+  $vars[] = 'travel_group';
+  $vars[] = 'travel_mode';
+  $vars[] = 'travel_termid';
+  return $vars;
+}
+add_filter('query_vars', 'app_query_vars', 0, 1);
+
 // Admin menü
 //add_filter( 'admin_footer_text', '__return_empty_string', 11 );
 //add_filter( 'update_footer', '__return_empty_string', 11 );
@@ -97,9 +107,26 @@ function jk_init()
   date_default_timezone_set('Europe/Budapest');
   add_post_type_support( 'page', 'excerpt' );
 
+  add_rewrite_rule(
+    '^travelmodalconfig/([0-9]+)/([^/]*)/([^/]*)/([0-9]+)?',
+    'index.php?custom_page=travelmodalconfig&postid=$matches[1]&travel_group=$matches[2]&travel_mode=$matches[3]&travel_termid=$matches[4]',
+    'top'
+  );
+
   create_custom_posttypes();
 }
 add_action('init', 'jk_init');
+
+function app_custom_template($template) {
+  global $post, $wp_query;
+
+  if(isset($wp_query->query_vars['custom_page'])) {
+    return get_stylesheet_directory() . '/'.$wp_query->query_vars['custom_page'].'.php';
+  } else {
+    return $template;
+  }
+}
+add_filter( 'template_include', 'app_custom_template' );
 
 function create_custom_posttypes()
 {

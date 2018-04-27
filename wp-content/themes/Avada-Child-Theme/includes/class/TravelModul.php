@@ -36,6 +36,24 @@ class TravelModul
     return $back;
   }
 
+  public function getTermData( $id )
+  {
+    $q = "SELECT
+      c.*
+    FROM travel_term_config as c
+    WHERE 1=1 and
+    c.post_id = %d and
+    c.ID = %d
+    LIMIT 0,1
+    ";
+
+    $data = $this->db->get_results( $this->db->prepare($q, $this->postid, $id) );
+    $data = $this->prepareTermConfigs( $data[0]->termgroup, $data );
+    $back = $data[0];
+
+    return $back;
+  }
+
   public function getRooms()
   {
     $back = array();

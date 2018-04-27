@@ -257,12 +257,14 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     );
   }
 
-  $scope.editorConfigModal = function( group, id ) {
+  $scope.editorConfigModal = function( group, id )
+  {
     $mdDialog.show({
       controller: ConfigModalController,
-      templateUrl: '/travelmodalconfig',
+      templateUrl: '/travelmodalconfig/'+$scope.postid+'/termconfig/'+group+'/'+id,
       parent: angular.element(document.body),
-      clickOutsideToClose:true,
+      clickOutsideToClose: false,
+      scope: $scope
     })
     .then(function(answer) {
       console.log('You said the information was');
