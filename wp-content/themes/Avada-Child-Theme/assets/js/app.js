@@ -82,6 +82,24 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     });
   }
 
+  $scope.saveConfigData = function( id, data, callback ){
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'saveConfigData',
+        id: id,
+        datas: data
+      })
+    }).success(function(r){
+      if (typeof callback !== 'undefined') {
+        callback( id, r );
+      }
+    });
+  }
+
   $scope.saveDates = function() {
     $scope.dates_saving = true;
     $http({
@@ -221,7 +239,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         mode: 'getRooms'
       })
     }).success(function(r){
-      console.log(r);
       $scope.configs.szobak = r.data;
     });
   }
@@ -257,19 +274,45 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     );
   }
 
-  $scope.editorConfigModal = function( group, id )
+  $scope.editorConfigModal = function( group, id, index )
   {
+    $scope.modalEditorData = {};
+
+    // Preloader dialog
     $mdDialog.show({
-      controller: ConfigModalController,
-      templateUrl: '/travelmodalconfig/'+$scope.postid+'/termconfig/'+group+'/'+id,
-      parent: angular.element(document.body),
-      clickOutsideToClose: false,
-      scope: $scope
-    })
-    .then(function(answer) {
-      console.log('You said the information was');
-    }, function() {
-      console.log('You cancelled the dialog.');
+      template: '<div class="preloader-text"><i class="fa fa-spin fa-spinner"></i><br><h2>Betöltés folyamatban!</h2>Kis türelmét kérjük.</div>',
+      clickOutsideToClose: false
+    });
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        id: id,
+        group: group,
+        mode: 'getConfigData'
+      })
+    }).success(function(r){
+      $scope.modalEditorData = r.data;
+      $mdDialog.show({
+        multiple: true,
+        controller: ConfigModalController,
+        templateUrl: '/travelmodalconfig/'+$scope.postid+'/termconfig/'+group+'/'+id,
+        clickOutsideToClose: false,
+        scope: $scope,
+        preserveScope: true,
+        onShowing: function(){
+          // Preloader dialog close
+          $mdDialog.hide();
+        }
+      })
+      .then(function(answer) {
+        console.log('You said the information was');
+      }, function() {
+        console.log('You cancelled the dialog.');
+      });
     });
   }
 
@@ -284,6 +327,16 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
 
     $scope.answer = function(answer) {
       $mdDialog.hide(answer);
+    };
+
+    $scope.saveConfig = function(){
+      $scope.saving_dialog = true;
+      $scope.saveConfigData($scope.modalEditorData.ID, $scope.modalEditorData, function(){
+        $mdDialog.hide();
+        $scope.modalEditorData = {};
+        $scope.saving_dialog = false;
+        $scope.loadAll();
+      });
     };
   }
 

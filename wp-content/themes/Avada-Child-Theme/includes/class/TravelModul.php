@@ -54,6 +54,27 @@ class TravelModul
     return $back;
   }
 
+  public function getConfigData( $group, $id )
+  {
+    $back = array();
+
+    $q = "SELECT
+      c.*
+    FROM travel_term_config as c
+    WHERE 1=1 and
+    c.termgroup = '%s' and
+    c.post_id = %d and
+    c.ID = %d
+    LIMIT 0,1
+    ";
+
+    $data = $this->db->get_results( $this->db->prepare($q, $group, $this->postid, (int)$id) );
+    $data = $this->prepareTermConfigs( $data[0]->termgroup, $data );
+    $back = $data[0];
+
+    return $back;
+  }
+
   public function getRooms()
   {
     $back = array();
@@ -108,6 +129,7 @@ class TravelModul
         $reset = array();
         foreach ($set as $s) {
           $s->price_after = ' Ft'.$this->priceTypeText($s->price_calc_mode);
+          $s->requireditem = ($s->requireditem == '0') ? false : true;
           $reset[] = $s;
         }
         $set = $reset;
@@ -174,6 +196,31 @@ class TravelModul
     }
 
     return $back;
+  }
+
+  public function saveConfigData( $id, $datas )
+  {
+    $this->db->update(
+    	'travel_term_config',
+    	array(
+    		'title' => $datas['title'],
+    		'description' => $datas['description'],
+        'price' => (float)$datas['price'],
+        'price_calc_mode' => $datas['price_calc_mode'],
+        'requireditem' => ($datas['requireditem'] == 'false') ? 0 : 1
+    	),
+    	array( 'ID' => (int)$id ),
+    	array(
+    		'%s',
+    		'%s',
+        '%d',
+        '%s',
+        '%d',
+    	),
+    	array( '%d' )
+    );
+
+    return true;
   }
 
   public function saveConfigTerm( $group = false, $data = array() )

@@ -84,10 +84,32 @@ class AjaxRequests
         }
       break;
 
+      // Term konfig adat mentése
+      case 'saveConfigData':
+        try {
+          $re = $travels->saveConfigData( $id, $datas);
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // Szobák betöltése
       case 'getRooms':
         try {
           $re = $travels->getRooms();
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Konfig csoportok adatai
+      case 'getConfigData':
+        try {
+          $re = $travels->getConfigData($group, $id);
           $return['data'] = $re;
         } catch (\Exception $e) {
           $return['error'] = 1;
