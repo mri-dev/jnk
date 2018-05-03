@@ -226,6 +226,7 @@
                   <i ng-show="(room.active=='0')" class="fa fa-ban"></i>
                 </div>
                 <div class="action">
+                  <span ng-click="deleteRoom(room.ID)" title="Törlés"><i class="fa fa-trash"></i></span>
                   <span ng-click="editRoom(room.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
                 </div>
               </div>
@@ -318,6 +319,7 @@
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
+              <span ng-click="deleteConfigRecord('szolgaltatas', d.title, d.ID)" title="Törlés"><i class="fa fa-trash"></i></span>
               <span ng-click="editConfigRecord('szolgaltatas', d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
             </div>
           </div>
@@ -408,6 +410,7 @@
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
+              <span ng-click="deleteConfigRecord('programok', d.title, d.ID)" title="Törlés"><i class="fa fa-trash"></i></span>
               <span ng-click="editConfigRecord('programok', d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
             </div>
           </div>

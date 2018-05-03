@@ -107,6 +107,28 @@ class TravelModul
     return $back;
   }
 
+  public function getRoomData( $id )
+  {
+    $back = array();
+    $q = "SELECT
+      r.*,
+      td.travel_year,
+      td.travel_month,
+      td.travel_day,
+      td.utazas_duration_id
+    FROM travel_rooms as r
+    LEFT OUTER JOIN travel_dates as td ON td.ID = r.date_id
+    WHERE 1=1 and
+    r.post_id = %d and r.ID = %d
+    ";
+
+    $data = $this->db->get_results( $this->db->prepare($q, $this->postid, $id) );
+    $back = $this->prepareRoomValues($data[0]);
+    unset($data);
+
+    return $back;
+  }
+
   private function prepareRoomValues( $data )
   {
     $back = array();
@@ -115,6 +137,11 @@ class TravelModul
       if (is_numeric($value)) {
         $value = (int)$value;
       }
+
+      if( $key == 'active') {
+        $value = ($value == 1) ? true : false;
+      }
+
       $back[$key] = $value;
     }
     unset($data);
@@ -221,6 +248,15 @@ class TravelModul
     );
 
     return true;
+  }
+
+  public function deleteConfigData( $id )
+  {
+    $this->db->delete(
+      'travel_term_config',
+      array( 'ID' => $id ),
+      array( '%d' )
+    );
   }
 
   public function saveConfigTerm( $group = false, $data = array() )

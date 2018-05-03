@@ -194,8 +194,31 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
   }
 
   $scope.editConfigRecord = function( group, id ) {
-    console.log(group+': '+id);
     $scope.editorConfigModal(group, id);
+  }
+
+  $scope.deleteConfigRecord = function( group, elem, id){
+    var del = $mdDialog.confirm()
+          .title('Biztos, hogy törölni szeretné?')
+          .textContent('Törli a(z) "'+elem+'" elemet? A művelet nem visszavonható.')
+          .ariaLabel('Elem törlése')
+          .ok('Végleges törlés')
+          .cancel('Mégse');
+
+    $mdDialog.show(del).then(function() {
+      $http({
+        method: 'POST',
+        url: '/wp-admin/admin-ajax.php?action=traveler',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: $.param({
+          postid: $scope.postid,
+          mode: 'deleteConfigData',
+          id: id
+        })
+      }).success(function(r){
+        $scope.loadAll();
+      });
+    }, function() {});
   }
 
   $scope.editRoom = function( id ) {
@@ -274,6 +297,48 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     );
   }
 
+  $scope.editRoom = function( id )
+  {
+    $scope.modalEditorData = {};
+
+    // Preloader dialog
+    $mdDialog.show({
+      template: '<div class="preloader-text"><i class="fa fa-spin fa-spinner"></i><br><h2>Betöltés folyamatban!</h2>Kis türelmét kérjük.</div>',
+      clickOutsideToClose: false
+    });
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        id: id,
+        mode: 'getRoomData'
+      })
+    }).success(function(r){
+      $scope.modalEditorData = r.data;
+      console.log(r.data);
+      $mdDialog.show({
+        multiple: true,
+        controller: RoomConfigModalController,
+        templateUrl: '/travelmodalconfig/'+$scope.postid+'/roomedit/edit/'+id,
+        clickOutsideToClose: false,
+        scope: $scope,
+        preserveScope: true,
+        onShowing: function(){
+          // Preloader dialog close
+          $mdDialog.hide();
+        }
+      })
+      .then(function(answer) {
+        console.log('You said the information was');
+      }, function() {
+        console.log('You cancelled the dialog.');
+      });
+    });
+  }
+
   $scope.editorConfigModal = function( group, id, index )
   {
     $scope.modalEditorData = {};
@@ -314,6 +379,30 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         console.log('You cancelled the dialog.');
       });
     });
+  }
+
+  function RoomConfigModalController( $scope, $mdDialog ) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+
+    $scope.saveConfig = function(){
+      $scope.saving_dialog = true;
+      /*$scope.saveConfigData($scope.modalEditorData.ID, $scope.modalEditorData, function(){
+        $mdDialog.hide();
+        $scope.modalEditorData = {};
+        $scope.saving_dialog = false;
+        $scope.loadAll();
+      });*/
+    };
   }
 
   function ConfigModalController( $scope, $mdDialog ) {

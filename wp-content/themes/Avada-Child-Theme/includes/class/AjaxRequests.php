@@ -95,6 +95,17 @@ class AjaxRequests
         }
       break;
 
+      // Term konfig adat törlése
+      case 'deleteConfigData':
+        try {
+          $re = $travels->deleteConfigData( $id );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // Szobák betöltése
       case 'getRooms':
         try {
@@ -110,6 +121,17 @@ class AjaxRequests
       case 'getConfigData':
         try {
           $re = $travels->getConfigData($group, $id);
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Szoba adatok
+      case 'getRoomData':
+        try {
+          $re = $travels->getRoomData($id);
           $return['data'] = $re;
         } catch (\Exception $e) {
           $return['error'] = 1;
