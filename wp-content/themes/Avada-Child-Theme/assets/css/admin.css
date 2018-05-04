@@ -18,7 +18,7 @@
 
 /* line 24, sass/admin.scss */
 md-input-container {
-  margin: 0 !important;
+  margin: 0 0 15px 0 !important;
 }
 
 /* line 27, sass/admin.scss */
@@ -386,69 +386,71 @@ md-dialog .preloader-text i {
   text-align: right;
 }
 /* line 286, sass/admin.scss */
-.travel-editor > .group .rooms .ellatas-group .room > .wrapper > .action i[class*=fa-times],
-.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > .action i[class*=fa-times] {
+.travel-editor > .group .rooms .ellatas-group .room > .wrapper > .action i[class*=fa-trash],
+.travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > .action i[class*=fa-trash] {
   color: #ff8484;
   cursor: pointer;
+  margin: 0 2px;
 }
-/* line 290, sass/admin.scss */
+/* line 291, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > .action i[class*=fa-pencil],
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > .action i[class*=fa-pencil] {
   color: #69db6a;
   cursor: pointer;
+  margin: 0 2px;
 }
-/* line 296, sass/admin.scss */
+/* line 298, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.capacity,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.capacity {
   flex: 1;
 }
-/* line 300, sass/admin.scss */
+/* line 302, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.price,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.price {
   flex-basis: 100px;
 }
-/* line 303, sass/admin.scss */
+/* line 305, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.price span.ba,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.price span.ba {
   font-size: 0.8em;
 }
-/* line 307, sass/admin.scss */
+/* line 309, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.title,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.title {
   flex: 1;
 }
-/* line 310, sass/admin.scss */
+/* line 312, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active {
   flex-basis: 40px;
 }
-/* line 312, sass/admin.scss */
+/* line 314, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active i[class*=fa-ban],
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active i[class*=fa-ban] {
   color: #fcc57b;
 }
-/* line 315, sass/admin.scss */
+/* line 317, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper > div.active i[class*=check-circle],
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper > div.active i[class*=check-circle] {
   color: #00bced;
 }
-/* line 320, sass/admin.scss */
+/* line 322, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper .center,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper .center {
   text-align: center;
 }
-/* line 324, sass/admin.scss */
+/* line 326, sass/admin.scss */
 .travel-editor > .group .rooms .ellatas-group .room > .wrapper .desc,
 .travel-editor > .group .rooms .ellatas-group .room-header > .wrapper .desc {
   font-size: 0.8em;
   margin: 5px 0 0 0;
   color: #888888;
 }
-/* line 335, sass/admin.scss */
+/* line 337, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper {
   flex-wrap: wrap;
 }
-/* line 337, sass/admin.scss */
+/* line 339, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas {
   flex: 1;
   display: -webkit-box;
@@ -458,42 +460,42 @@ md-dialog .preloader-text i {
   align-items: flex-start;
   margin: -5px;
 }
-/* line 346, sass/admin.scss */
+/* line 348, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas label {
   margin: 0 0 5px 0;
   display: block;
   line-height: 1;
   font-size: 0.8em;
 }
-/* line 353, sass/admin.scss */
+/* line 355, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas select.fullw {
   width: 100%;
 }
-/* line 360, sass/admin.scss */
+/* line 362, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas .w {
   padding: 5px;
 }
-/* line 364, sass/admin.scss */
+/* line 366, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .avdate, .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .ellatas {
   flex-basis: 50%;
 }
-/* line 367, sass/admin.scss */
+/* line 369, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .title {
   flex: 1;
 }
-/* line 370, sass/admin.scss */
+/* line 372, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .price {
   flex-basis: 110px;
 }
-/* line 373, sass/admin.scss */
+/* line 375, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .capacity {
   flex-basis: 140px;
 }
-/* line 376, sass/admin.scss */
+/* line 378, sass/admin.scss */
 .travel-editor > .group .rooms .create-line .new-line > .wrapper > .datas > .active {
   flex-basis: 20px;
 }
-/* line 386, sass/admin.scss */
+/* line 388, sass/admin.scss */
 .travel-editor > .group .datas-header .wrapper {
   border-bottom: 2px solid #c7c7c7 !important;
   text-transform: uppercase;
@@ -502,7 +504,7 @@ md-dialog .preloader-text i {
   margin: 0 0 8px 0;
   color: #545454;
 }
-/* line 397, sass/admin.scss */
+/* line 399, sass/admin.scss */
 .travel-editor > .group .create-line .header {
   text-align: center;
   font-weight: bold;
@@ -511,13 +513,13 @@ md-dialog .preloader-text i {
   text-transform: uppercase;
   color: orange;
 }
-/* line 405, sass/admin.scss */
+/* line 407, sass/admin.scss */
 .travel-editor > .group .create-line .footer {
   padding: 10px 0;
   text-align: right;
   margin: 0 0 40px 0;
 }
-/* line 410, sass/admin.scss */
+/* line 412, sass/admin.scss */
 .travel-editor > .group .create-line .footer .saving {
   background: #57bb37;
   margin: 10px 0;
@@ -526,7 +528,7 @@ md-dialog .preloader-text i {
   border-radius: 5px;
   text-align: center;
 }
-/* line 419, sass/admin.scss */
+/* line 421, sass/admin.scss */
 .travel-editor > .group .create-line .footer button {
   background: #57bb37;
   color: white;

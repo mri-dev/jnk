@@ -18,16 +18,16 @@ global $traveler, $config_group, $mode, $termid;
       <div class="md-dialog-content">
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Év</label>
-            <input ng-model="modalEditorData.travel_year">
+            <label>Időpont</label>
+            <md-select class="" ng-model="modalEditorData.date_id">
+              <md-option ng-value="date.ID" ng-repeat="date in dates">{{date.onday}}</md-option>
+            </md-select>
           </md-input-container>
           <md-input-container class="md-block" flex-gt-sm>
-            <label>Hó</label>
-            <input ng-model="modalEditorData.travel_month">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Nap</label>
-            <input ng-model="modalEditorData.travel_day">
+            <label>Ellátás</label>
+            <md-select class="" ng-model="modalEditorData.ellatas_id">
+              <md-option ng-value="term.term_id" ng-repeat="term in terms.utazas_ellatas">{{term.name}}</md-option>
+            </md-select>
           </md-input-container>
         </div>
         <div layout-gt-sm="row">

@@ -62,6 +62,38 @@ class AjaxRequests
         }
       break;
 
+      case 'getDateData':
+        try {
+          $re = $travels->getDateData( $id );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Dátum adatok mentése
+      case 'saveDateData':
+        try {
+          $re = $travels->saveDateData( $id, $datas );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Dátum törlése
+      case 'deleteDate':
+        try {
+          $re = $travels->deleteDate( $id );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // CSoport szologáltatások mentése
       case 'saveConfigTerm':
         try {
@@ -138,6 +170,30 @@ class AjaxRequests
           $return['msg'] = $e->getMessage();
         }
       break;
+
+      // Szöba adatok mentése
+      case 'saveRoomData':
+        try {
+          $re = $travels->saveRoomData( $id, $datas);
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+      // Szoba konfig törlése
+      case 'deleteRoomData':
+        try {
+          $re = $travels->deleteRoomData( $id );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
+
     }
 
     echo json_encode($return);

@@ -100,6 +100,43 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     });
   }
 
+  $scope.saveRoomData = function( id, data, callback ){
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'saveRoomData',
+        id: id,
+        datas: data
+      })
+    }).success(function(r){
+      if (typeof callback !== 'undefined') {
+        callback( id, r );
+      }
+    });
+  }
+
+  $scope.saveDateData = function( id, data, callback ){
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        mode: 'saveDateData',
+        id: id,
+        datas: data
+      })
+    }).success(function(r){
+      if (typeof callback !== 'undefined') {
+        callback( id, r );
+      }
+    });
+  }
+
+
   $scope.saveDates = function() {
     $scope.dates_saving = true;
     $http({
@@ -113,6 +150,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       })
     }).success(function(r){
       $scope.dates_saving = false;
+      console.log(r);
       if (r.error == 1) {
         $scope.alertDialog('Hiba történt', r.msg);
       } else {
@@ -200,6 +238,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
   $scope.deleteConfigRecord = function( group, elem, id){
     var del = $mdDialog.confirm()
           .title('Biztos, hogy törölni szeretné?')
+          .parent(angular.element(document.body))
           .textContent('Törli a(z) "'+elem+'" elemet? A művelet nem visszavonható.')
           .ariaLabel('Elem törlése')
           .ok('Végleges törlés')
@@ -221,8 +260,54 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     }, function() {});
   }
 
-  $scope.editRoom = function( id ) {
-    console.log(id);
+  $scope.deleteDate = function( id, elem){
+    var del = $mdDialog.confirm()
+          .title('Biztos, hogy törölni szeretné?')
+          .parent(angular.element(document.body))
+          .textContent('Törli a(z) "'+elem+'" elemet? A művelet nem visszavonható.')
+          .ariaLabel('Elem törlése')
+          .ok('Végleges törlés')
+          .cancel('Mégse');
+
+    $mdDialog.show(del).then(function() {
+      $http({
+        method: 'POST',
+        url: '/wp-admin/admin-ajax.php?action=traveler',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: $.param({
+          postid: $scope.postid,
+          mode: 'deleteDate',
+          id: id
+        })
+      }).success(function(r){
+        $scope.loadAll();
+      });
+    }, function() {});
+  }
+
+  $scope.deleteRoom = function( id, elem){
+    var del = $mdDialog.confirm()
+      .title('Biztos, hogy törölni szeretné?')
+      .parent(angular.element(document.body))
+      .textContent('Törli a(z) "'+elem+'" szoba konfigurációt? A művelet nem visszavonható.')
+      .ariaLabel('Elem törlése')
+      .ok('Végleges törlés')
+      .cancel('Mégse');
+
+    $mdDialog.show(del).then(function() {
+      $http({
+        method: 'POST',
+        url: '/wp-admin/admin-ajax.php?action=traveler',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: $.param({
+          postid: $scope.postid,
+          mode: 'deleteRoomData',
+          id: id
+        })
+      }).success(function(r){
+        $scope.loadAll();
+      });
+    }, function() {});
   }
 
   $scope.loadDatas = function( callback )
@@ -297,6 +382,50 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     );
   }
 
+  $scope.editDate = function( id )
+  {
+    $scope.modalEditorData = {};
+
+    // Preloader dialog
+    $mdDialog.show({
+      template: '<div class="preloader-text"><i class="fa fa-spin fa-spinner"></i><br><h2>Betöltés folyamatban!</h2>Kis türelmét kérjük.</div>',
+      clickOutsideToClose: false,
+      parent: angular.element(document.body)
+    });
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $.param({
+        postid: $scope.postid,
+        id: id,
+        mode: 'getDateData'
+      })
+    }).success(function(r){
+      console.log(r);
+      $scope.modalEditorData = r.data;
+      $mdDialog.show({
+        parent: angular.element(document.body),
+        multiple: true,
+        controller: DateConfigModalController,
+        templateUrl: '/travelmodalconfig/'+$scope.postid+'/dateeditor/edit/'+id,
+        clickOutsideToClose: false,
+        scope: $scope,
+        preserveScope: true,
+        onShowing: function(){
+          // Preloader dialog close
+          $mdDialog.hide();
+        }
+      })
+      .then(function(answer) {
+        console.log('You said the information was');
+      }, function() {
+        console.log('You cancelled the dialog.');
+      });
+    });
+  }
+
   $scope.editRoom = function( id )
   {
     $scope.modalEditorData = {};
@@ -304,7 +433,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     // Preloader dialog
     $mdDialog.show({
       template: '<div class="preloader-text"><i class="fa fa-spin fa-spinner"></i><br><h2>Betöltés folyamatban!</h2>Kis türelmét kérjük.</div>',
-      clickOutsideToClose: false
+      clickOutsideToClose: false,
+      parent: angular.element(document.body)
     });
 
     $http({
@@ -318,8 +448,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       })
     }).success(function(r){
       $scope.modalEditorData = r.data;
-      console.log(r.data);
       $mdDialog.show({
+        parent: angular.element(document.body),
         multiple: true,
         controller: RoomConfigModalController,
         templateUrl: '/travelmodalconfig/'+$scope.postid+'/roomedit/edit/'+id,
@@ -345,6 +475,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
 
     // Preloader dialog
     $mdDialog.show({
+      parent: angular.element(document.body),
       template: '<div class="preloader-text"><i class="fa fa-spin fa-spinner"></i><br><h2>Betöltés folyamatban!</h2>Kis türelmét kérjük.</div>',
       clickOutsideToClose: false
     });
@@ -362,6 +493,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     }).success(function(r){
       $scope.modalEditorData = r.data;
       $mdDialog.show({
+        parent: angular.element(document.body),
         multiple: true,
         controller: ConfigModalController,
         templateUrl: '/travelmodalconfig/'+$scope.postid+'/termconfig/'+group+'/'+id,
@@ -381,6 +513,33 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     });
   }
 
+
+
+  function DateConfigModalController( $scope, $mdDialog ) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
+
+    $scope.saveConfig = function(){
+      $scope.saving_dialog = true;
+      $scope.saveDateData($scope.modalEditorData.ID, $scope.modalEditorData, function(id, back){
+        console.log(back);
+        $mdDialog.hide();
+        $scope.modalEditorData = {};
+        $scope.saving_dialog = false;
+        $scope.loadAll();
+      });
+    };
+  }
+
   function RoomConfigModalController( $scope, $mdDialog ) {
     $scope.hide = function() {
       $mdDialog.hide();
@@ -396,12 +555,12 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
 
     $scope.saveConfig = function(){
       $scope.saving_dialog = true;
-      /*$scope.saveConfigData($scope.modalEditorData.ID, $scope.modalEditorData, function(){
+      $scope.saveRoomData($scope.modalEditorData.ID, $scope.modalEditorData, function(){
         $mdDialog.hide();
         $scope.modalEditorData = {};
         $scope.saving_dialog = false;
         $scope.loadAll();
-      });*/
+      });
     };
   }
 

@@ -129,6 +129,22 @@ class TravelModul
     return $back;
   }
 
+  public function getDateData( $id )
+  {
+    $q = "SELECT
+      td.*
+    FROM travel_dates as td
+    WHERE 1=1 and
+    td.post_id = {$this->postid} and
+    td.ID = {$id}
+    ";
+
+    $data = $this->db->get_results( $q );
+    $back = $this->prepareDateRow($data[0]);
+
+    return $back;
+  }
+
   private function prepareRoomValues( $data )
   {
     $back = array();
@@ -225,6 +241,64 @@ class TravelModul
     return $back;
   }
 
+  public function saveDateData( $id, $datas )
+  {
+    $this->db->update(
+    	'travel_dates',
+    	array(
+    		'utazas_duration_id' => (int)$datas['utazas_duration_id'],
+        'travel_year' => (int)$datas['travel_year'],
+        'travel_month' => (int)$datas['travel_month'],
+        'travel_day' => (int)$datas['travel_day'],
+        'active' => ($datas['active'] == 'true') ? 1 : 0
+    	),
+    	array( 'ID' => (int)$id ),
+    	array(
+    		'%d',
+        '%d',
+        '%d',
+        '%d',
+        '%d'
+    	),
+    	array( '%d' )
+    );
+
+    return $datas;
+  }
+
+  public function saveRoomData( $id, $datas )
+  {
+    $this->db->update(
+    	'travel_rooms',
+    	array(
+    		'title' => $datas['title'],
+    		'description' => $datas['description'],
+        'date_id' => (int)$datas['date_id'],
+        'ellatas_id' => (int)$datas['ellatas_id'],
+        'adult_price' => (float)$datas['adult_price'],
+        'child_price' => (float)$datas['child_price'],
+        'adult_capacity' => (int)$datas['adult_capacity'],
+        'child_capacity' => (int)$datas['child_capacity'],
+        'active' => ($datas['active']) ? 1 : 0
+    	),
+    	array( 'ID' => (int)$id ),
+    	array(
+    		'%s',
+        '%s',
+        '%d',
+        '%d',
+        '%d',
+        '%d',
+        '%d',
+        '%d',
+        '%d',
+    	),
+    	array( '%d' )
+    );
+
+    return true;
+  }
+
   public function saveConfigData( $id, $datas )
   {
     $this->db->update(
@@ -254,6 +328,24 @@ class TravelModul
   {
     $this->db->delete(
       'travel_term_config',
+      array( 'ID' => $id ),
+      array( '%d' )
+    );
+  }
+
+  public function deleteRoomData( $id )
+  {
+    $this->db->delete(
+      'travel_rooms',
+      array( 'ID' => $id ),
+      array( '%d' )
+    );
+  }
+
+  public function deleteDate( $id )
+  {
+    $this->db->delete(
+      'travel_dates',
       array( 'ID' => $id ),
       array( '%d' )
     );
@@ -320,7 +412,7 @@ class TravelModul
           'travel_year' => (int)$d['travel_year'],
           'travel_month' => (int)$d['travel_month'],
           'travel_day' => (int)$d['travel_day'],
-          'price_from' => (int)$d['price_from']
+          'active' => ($d['active'] == 'true') ? 1 : 0,
         ),
         array('%d','%d','%d','%d','%d','%d')
       );
@@ -358,6 +450,7 @@ class TravelModul
   {
     $rowdata->durration= $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
     $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day.' ('.$rowdata->durration->name.')';
+    $rowdata->active = ($rowdata->active == '1') ? true : false;
 
     return $rowdata;
   }

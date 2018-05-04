@@ -75,10 +75,11 @@
                 {{d.durration.name}}
               </div>
               <div class="active center">
-                <i ng-show="(d.active=='1')" class="fa fa-check-circle"></i>
-                <i ng-show="(d.requireditem=='0')" class="fa fa-times"></i>
+                <i ng-show="(d.active)" class="fa fa-check-circle"></i>
+                <i ng-show="(!d.active)" class="fa fa-times"></i>
               </div>
               <div class="action">
+                <span ng-click="deleteDate(d.ID, d.onday)" title="Szerkesztés"><i class="fa fa-trash"></i></span>
                 <span ng-click="editDate(d.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
               </div>
             </div>
@@ -226,7 +227,7 @@
                   <i ng-show="(room.active=='0')" class="fa fa-ban"></i>
                 </div>
                 <div class="action">
-                  <span ng-click="deleteRoom(room.ID)" title="Törlés"><i class="fa fa-trash"></i></span>
+                  <span ng-click="deleteRoom(room.ID, room.title)" title="Törlés"><i class="fa fa-trash"></i></span>
                   <span ng-click="editRoom(room.ID)" title="Szerkesztés"><i class="fa fa-pencil"></i></span>
                 </div>
               </div>
