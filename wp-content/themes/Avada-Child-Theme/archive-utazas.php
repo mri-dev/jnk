@@ -32,21 +32,28 @@
 						<?php endif; ?>
 						</div>
 						<div class="image">
-							<a href="<?=$travel->Url()?>"><img src="<?=$travel->Image()?>" alt="<?=$travel->Title()?>"></a>
+							<?php $image = $travel->Image(); ?>
+							<a href="<?=$travel->Url()?>"><img src="<?=($image) ? $image : IMG.'/no-travel-img.jpg'?>" alt="<?=$travel->Title()?>"></a>
 						</div>
 						<div class="datas">
 							<div class="title">
 								<h3><a href="<?=$travel->Url()?>"><?=$travel->Title()?></a></h3>
 							</div>
 							<div class="price">
-								<?php if ($discount): ?>
-								<div class="old">
-									<?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
-								</div>
+								<?php if ((int)$travel->getPrice() !== 0): ?>
+									<?php if ($discount): ?>
+									<div class="old">
+										<?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+									</div>
+									<?php endif; ?>
+									<div class="current">
+										<?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
+									</div>
+								<?php else: ?>
+									<div class="current">
+										Egyedi árazás
+									</div>
 								<?php endif; ?>
-								<div class="current">
-									<?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
-								</div>
 							</div>
 							<?php
 								$destionations = $travel->showDestinations();

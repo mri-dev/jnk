@@ -25,10 +25,11 @@ class TravelModul
         c.*
       FROM travel_term_config as c
       WHERE 1=1 and
+      c.post_id = %d and
       c.termgroup = %s
       ORDER BY c.title ASC
       ";
-      $data = $this->db->get_results( $this->db->prepare($q, $tg) );
+      $data = $this->db->get_results( $this->db->prepare($q, $this->postid, $tg) );
       $data = $this->prepareTermConfigs( $tg, $data );
       $back[$tg] = $data;
     }

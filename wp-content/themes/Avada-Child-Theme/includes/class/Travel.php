@@ -26,7 +26,13 @@ class Travel
 
   public function Image()
   {
-    return get_the_post_thumbnail_url( $this->tpost );
+    $image = get_the_post_thumbnail_url( $this->tpost );
+
+    if ( $image ) {
+      return $image;
+    } else {
+      return false;
+    }
   }
 
   public function Url()

@@ -1,5 +1,153 @@
 var jnk = angular.module('jonapotnagyvilag', ['ngMaterial', 'ngMessages']);
 
+jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', '$httpParamSerializerJQLike', function($scope, $http, $mdToast, $mdDialog, $httpParamSerializerJQLike)
+{
+  // Vars
+  $scope.postid = 0;
+  $scope.loading = false;
+  $scope.loaded = false;
+  $scope.dates_loaded = false;
+  $scope.config_loaded = false;
+
+  // Datas
+  $scope.passengers = {
+    adults: 2,
+    children: 0
+  };
+  $scope.dates = [];
+  $scope.terms = {};
+  $scope.configs = {};
+
+  // Flags
+  $scope.step = 1;
+  $scope.max_step = 6;
+  $scope.step_done = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false
+  };
+
+  $scope.init = function( postid )
+  {
+    $scope.postid = postid;
+    $scope.loadAll();
+  }
+
+  $scope.loadAll = function(){
+    $scope.loading = true;
+    $scope.loaded = false;
+    $scope.loadTerms(function(){
+      $scope.loadDatas();
+    });
+  }
+
+  $scope.loadTerms = function( callback )
+  {
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=getterms',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid,
+        terms: ['utazas_duration', 'utazas_ellatas']
+      })
+    }).success(function(r){
+      angular.forEach(r.data, function(e,i){
+        $scope.terms[i] = e;
+      });
+      if (typeof callback !== 'undefined') {
+        callback();
+      }
+    });
+  }
+
+  $scope.loadDatas = function( callback )
+  {
+    $scope.loadDates(function(){
+      $scope.loadConfigTerms(function(){
+        $scope.finishLoad();
+        if (typeof callback !== 'undefined') {
+          callback();
+        }
+      });
+    });
+  }
+
+  $scope.loadDates = function( callback )
+  {
+    $scope.dates_loaded = false;
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=travel_api',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid
+      })
+    }).success(function(r){
+      $scope.dates_loaded = true;
+      $scope.dates = r.data;
+    });
+
+    if (typeof callback !== 'undefined') {
+      callback();
+    }
+  }
+
+  $scope.loadConfigTerms = function( callback )
+  {
+    $scope.configs = {};
+    $scope.config_loaded = false;
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid,
+        mode: 'getConfigTerms'
+      })
+    }).success(function(r){
+      $scope.config_loaded = true;
+      angular.forEach($scope.config_groups, function(c,i){
+        $scope.configs[c] = r.data[c];
+      });
+
+      $http({
+        method: 'POST',
+        url: '/wp-admin/admin-ajax.php?action=traveler',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: $httpParamSerializerJQLike({
+          postid: $scope.postid,
+          mode: 'getRooms'
+        })
+      }).success(function(r){
+        $scope.configs.szobak = r.data;
+        if (typeof callback !== 'undefined') {
+          callback();
+        }
+      });
+    });
+  }
+
+  $scope.finishLoad = function(){
+    $scope.loading = false;
+    $scope.loaded = true;
+  }
+
+  $scope.setStepDone = function( step ) {
+    $scope.step_done[step] = true;
+  }
+
+  $scope.nextStep = function( current ){
+    $scope.step = current+1;
+    $scope.setStepDone(current);
+  }
+
+}]);
+
 jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog)
 {
   // Vars

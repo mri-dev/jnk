@@ -17,15 +17,25 @@ $price_comment = $travel->getPriceComment();
     <div class="sidebar-header">
       <div class="swrapper">
         <div class="price">
-          <div class="c">
-            <?php echo __('Legkedvezőbb alapár', TD); ?>:
-          </div>
-          <?php if ($discount): ?>
-          <span class="old">
-            <?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
-          </span>
+          <?php if ( (int)$travel->getPrice() !== 0): ?>
+            <div class="c">
+              <?php echo __('Legkedvezőbb alapár', TD); ?>:
+            </div>
+            <?php if ($discount): ?>
+            <span class="old">
+              <?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+            </span>
+            <?php endif; ?>
+            <span class="current"><?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?><?=($price_comment)?'<sup>*</sup>':''?></span>
+          <?php else: ?>
+            <div class="c">
+              <?php echo __('Utazás ára', TD); ?>:
+            </div>
+            <span class="current">Egyedi árazás</span>
+            <div class="f">
+              <?php echo __('Kérje egyedi ajánlatunkat!', TD); ?>
+            </div>
           <?php endif; ?>
-          <span class="current"><?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?><?=($price_comment)?'<sup>*</sup>':''?></span>
         </div>
       </div>
     </div>

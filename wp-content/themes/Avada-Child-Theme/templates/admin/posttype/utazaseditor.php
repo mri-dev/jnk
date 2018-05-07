@@ -48,8 +48,7 @@
             <button type="button" ng-hide="dates_saving" ng-click="saveDates()">Változások mentése</button>
           </div>
         </div>
-
-        <div class="datas-header" ng-show="(dates_loaded && dates)">
+        <div class="datas-header" ng-show="(dates_loaded && dates.length!==0)">
           <div class="data-line">
             <div class="wrapper">
               <div class="date">

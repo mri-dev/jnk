@@ -1144,6 +1144,17 @@ body.single-utazas{
     }
   }
 
+  .calc-loader{
+    text-align: center;
+    padding: 40px;
+    font-size: 1.4em;
+
+    .svg-inline--fa{
+      font-size: 48px;
+      color: $color-orange;
+    }
+  }
+
   & > .wrapper{
     padding: 25px 0;
     color: #202020;
@@ -1170,6 +1181,7 @@ body.single-utazas{
         bottom: 0%;
         left: 22px;
         background: #6e6e6e;
+        display: none;
       }
     }
 
@@ -1274,6 +1286,19 @@ body.single-utazas{
           }
         }
       }
+      & > .next{
+        button {
+          display: block;
+          width: 100%;
+          padding: 10px;
+          text-align: right;
+          border: none;
+          background: #222222;
+          color: white;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
     }
 
     &.done{
@@ -1286,6 +1311,12 @@ body.single-utazas{
       }
       & > div.cholder{
         padding: 5px;
+      }
+
+      & > div.progline{
+        &:after{
+          display: block;
+        }
       }
     }
 
@@ -1310,6 +1341,62 @@ body.single-utazas{
           .c{
             background: $color-orange;
           }
+        }
+      }
+    }
+
+    div.form{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+
+      & > div{
+        flex: 1;
+
+        label {
+          display: block;
+          font-weight: bold;
+          margin: 0 0 5px 0;
+        }
+
+        .w{
+          padding: 15px;
+        }
+
+        input {
+          display: block;
+          width: 100%;
+          padding: 15px;
+          font-size: 1.2em;
+        }
+      }
+    }
+
+    // Utasok száma
+    &.passengers{
+      .wrapper{
+        padding: 15px !important;
+
+        .form {
+          label {
+            text-align: center;
+          }
+          input[type=number]{
+            color: $color-blue;
+            font-size: 1.6em;
+            font-weight: bold;
+          }
+        }
+
+        .header{
+          font-weight: bold;
+          text-transform: uppercase;
+          color: black;
+          text-align: center;
+          font-size: 1.4em;
+          margin: 0 0 15px 0;
         }
       }
     }
@@ -1359,6 +1446,11 @@ body.admin-bar{
         text-transform: uppercase;
         font-weight: bold;
         font-size: 0.75em;
+      }
+
+      .f{
+        font-size: 0.6em;
+        color: #d2d7db;
       }
 
       .current {
