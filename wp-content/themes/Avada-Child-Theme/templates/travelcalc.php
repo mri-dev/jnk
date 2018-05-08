@@ -4,7 +4,7 @@
 <div class="calc-holder" ng-app="jonapotnagyvilag" ng-controller="TravelCalculator" ng-init="init(<?=$post->ID?>)">
   <div class="calc-loader" ng-show="!loaded">
     <i class="fab fa-telegram-plane"></i><br>
-    Utazás kalkulátor betöltése folyamatban...
+    <?=__('Utazás kalkulátor betöltése folyamatban...', TD)?>
   </div>
   <div class="steps" ng-show="loaded">
     <div class="offer-group passengers" ng-show="(step>=1)" ng-class="(step>1)?'done':''">
@@ -18,19 +18,32 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
+          <div class="selected-item-holder" ng-show="(step_done[1])">
+            <div class="holder">
+              <div class="header">
+                <i class="far fa-check-circle"></i>
+              </div>
+              <div class="v">
+                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              </div>
+              <div class="be">
+                <button type="button" ng-click="backToEdit(1)"><?=__('Módosít', TD)?></button>
+              </div>
+            </div>
+          </div>
           <div class="header">
-            Hányan szeretnének utazni?
+            <?=__('Hányan szeretnének utazni?', TD)?>
           </div>
           <div class="form">
             <div class="adults">
               <div class="w">
-                <label for="passengers_adults">Felnőttek száma</label>
+                <label for="passengers_adults"><?=__('Felnőttek száma', TD)?></label>
                 <input type="number" id="passengers_adults" ng-model="passengers.adults">
               </div>
             </div>
             <div class="children">
               <div class="w">
-                <label for="passengers_children">Gyermekek száma</label>
+                <label for="passengers_children"><?=__('Gyermekek száma', TD)?></label>
                 <input type="number" id="passengers_children" ng-model="passengers.children">
               </div>
             </div>
@@ -52,10 +65,29 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
-          Tartalom
-          <br><br><br><br><br><br><br><br><br>
+          <div class="selected-item-holder" ng-show="(step_done[2])">
+            <div class="holder">
+              <div class="header">
+                <i class="far fa-check-circle"></i>
+              </div>
+              <div class="v">
+                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              </div>
+              <div class="be">
+                <button type="button" ng-click="backToEdit(2)"><?=__('Módosít', TD)?></button>
+              </div>
+            </div>
+          </div>
+          <div class="step-loader" ng-show="(step_loading==1)">
+            <?=__('Adatok betöltése folyamatban', TD)?> <i class="fas fa-spinner fa-spin fa-pulse"></i>
+          </div>
+          <div class="form" ng-show="!step_loading">
+            TARTALOM
+            {{step_loading}}
+            <br><br><br><br><br><br><br><br><br>
+          </div>
         </div>
-        <div class="next" ng-class="(step_done[2])?'done':''">
+        <div class="next" ng-show="!step_loading" ng-class="(step_done[2])?'done':''">
           <button type="button" ng-hide="step_done[2]" ng-click="nextStep(2)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
@@ -71,8 +103,24 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
+          <div class="selected-item-holder" ng-show="(step_done[3])">
+            <div class="holder">
+              <div class="header">
+                <i class="far fa-check-circle"></i>
+              </div>
+              <div class="v">
+                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              </div>
+              <div class="be">
+                <button type="button" ng-click="backToEdit(3)"><?=__('Módosít', TD)?></button>
+              </div>
+            </div>
+          </div>
           Tartalom
           <br><br><br>
+        </div>
+        <div class="next" ng-class="(step_done[3])?'done':''">
+          <button type="button" ng-hide="step_done[3]" ng-click="nextStep(3)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>
@@ -87,8 +135,24 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
+          <div class="selected-item-holder" ng-show="(step_done[4])">
+            <div class="holder">
+              <div class="header">
+                <i class="far fa-check-circle"></i>
+              </div>
+              <div class="v">
+                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              </div>
+              <div class="be">
+                <button type="button" ng-click="backToEdit(4)"><?=__('Módosít', TD)?></button>
+              </div>
+            </div>
+          </div>
           Tartalom
           <br><br><br>
+        </div>
+        <div class="next" ng-class="(step_done[4])?'done':''">
+          <button type="button" ng-hide="step_done[4]" ng-click="nextStep(4)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>
@@ -213,6 +277,9 @@
             </tbody>
           </table>
         </div>
+        <div class="next" ng-class="(step_done[5])?'done':''">
+          <button type="button" ng-hide="step_done[5]" ng-click="nextStep(5)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
+        </div>
       </div>
     </div>
     <div class="offer-group last-item" ng-show="(step>=6)" ng-class="(step>6)?'done':''">
@@ -226,8 +293,24 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
+          <div class="selected-item-holder" ng-show="(step_done[6])">
+            <div class="holder">
+              <div class="header">
+                <i class="far fa-check-circle"></i>
+              </div>
+              <div class="v">
+                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              </div>
+              <div class="be">
+                <button type="button" ng-click="backToEdit(6)"><?=__('Módosít', TD)?></button>
+              </div>
+            </div>
+          </div>
           Tartalom
           <br><br><br>
+        </div>
+        <div class="next" ng-class="(step_done[6])?'done':''">
+          <button type="button" ng-hide="step_done[6]" ng-click="nextStep(6)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>

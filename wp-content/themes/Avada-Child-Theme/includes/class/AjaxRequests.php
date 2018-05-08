@@ -229,11 +229,19 @@ class AjaxRequests
       'params' => $_POST
     );
 
+    $arg = array();
+
     $travels = new TravelModul((int)$_POST['postid']);
 
-    $dates = $travels->loadDates();
+    if (isset($_POST['passengers'])) {
+      $arg['passengers'] = array(
+        'adult' => (int)$_POST['passengers']['adults'],
+        'child' => (int)$_POST['passengers']['children']
+      );
+    }
+
+    $dates = $travels->loadDates( $arg );
     $return['data'] = $dates;
-    $return['t'] = $travels->getTermValuById('utazas_duration', 3);
 
     echo json_encode($return);
     die();

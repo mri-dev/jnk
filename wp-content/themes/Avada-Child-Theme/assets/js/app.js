@@ -29,6 +29,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     5: false,
     6: false
   };
+  $scope.step_loading = false;
 
   $scope.init = function( postid )
   {
@@ -66,13 +67,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
   $scope.loadDatas = function( callback )
   {
-    $scope.loadDates(function(){
-      $scope.loadConfigTerms(function(){
-        $scope.finishLoad();
-        if (typeof callback !== 'undefined') {
-          callback();
-        }
-      });
+    $scope.loadConfigTerms(function(){
+      $scope.finishLoad();
+      if (typeof callback !== 'undefined') {
+        callback();
+      }
     });
   }
 
@@ -84,16 +83,17 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       url: '/wp-admin/admin-ajax.php?action=travel_api',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
-        postid: $scope.postid
+        postid: $scope.postid,
+        passengers: $scope.passengers
       })
     }).success(function(r){
       $scope.dates_loaded = true;
       $scope.dates = r.data;
+      if (typeof callback !== 'undefined') {
+        callback();
+      }
+      console.log(r);
     });
-
-    if (typeof callback !== 'undefined') {
-      callback();
-    }
   }
 
   $scope.loadConfigTerms = function( callback )
@@ -141,9 +141,36 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     $scope.step_done[step] = true;
   }
 
-  $scope.nextStep = function( current ){
+  $scope.backToEdit = function( step ){
+    $scope.step = step;
+
+    // Reset steps fo false
+    angular.forEach($scope.step_done, function(v,i){
+      if ( i < step ) {
+        $scope.step_done[i] = true;
+      } else {
+        $scope.step_done[i] = false;
+      }
+    });
+  }
+
+  $scope.nextStep = function( current )
+  {
+    $scope.step_loading = current;
     $scope.step = current+1;
     $scope.setStepDone(current);
+
+    switch ( current ) {
+      // Utasok megadása - Dátumok betöltése
+      case 1:
+        $scope.loadDates(function(){
+          $scope.step_loading = false;
+        });
+      break;
+      default:
+        $scope.step_loading = false;
+      break;
+    }
   }
 
 }]);
@@ -512,11 +539,11 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     }).success(function(r){
       $scope.dates_loaded = true;
       $scope.dates = r.data;
+      if (typeof callback !== 'undefined') {
+        callback();
+      }
     });
 
-    if (typeof callback !== 'undefined') {
-      callback();
-    }
   }
 
   $scope.alertDialog = function(title, desc) {

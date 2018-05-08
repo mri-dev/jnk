@@ -424,15 +424,31 @@ class TravelModul
     return $back;
   }
 
-  public function loadDates( )
+  public function loadDates( $arg = array() )
   {
+
     $q = "SELECT
       td.*
     FROM travel_dates as td
     WHERE 1=1 and
-    td.post_id = {$this->postid}
-    ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC
-    ";
+    td.post_id = {$this->postid}";
+
+    if (isset($arg['passengers'])) {
+      $adults = $arg['passengers']['adult'];
+      $child =  $arg['passengers']['child'];
+      $data_arr = array();
+      $pq = "SELECT date_id FROM `travel_rooms` WHERE post_id = {$this->postid} and active = 1 and adult_capacity >= {$adults} and child_capacity >= {$child} GROUP BY date_id";
+      $pqry = $this->db->get_results($pq, ARRAY_N);
+      if($pqry){
+        foreach ($pqry as $di) {
+          $data_arr[] = (int)$di[0];
+        }
+        $q .= " and td.ID IN (".implode(",", $data_arr).")";
+      }
+
+    }
+
+    $q .= " ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC ";
 
     $data = $this->db->get_results( $q );
 
