@@ -1475,6 +1475,92 @@ body.single-utazas{
       }
     }
   }
+
+  .date-selectors{
+    .selector-wrapper{
+      & > div{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        & > div {
+          margin: 0;
+          text-align: center;
+
+          &.selected{
+            background: $color-blue;
+            color: white;
+          }
+        }
+      }
+
+      .durrations{
+        .durration{
+          font-size: 1.2em;
+          .v{
+            padding: 25px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .travel-years{
+        background: #353535;
+        color: white;
+
+        .travel-year{
+          background: #4a4a4a;
+          .v{
+            padding: 15px;
+            cursor: pointer;
+
+            .month{
+              font-size: 0.9em;
+              text-transform: uppercase;
+              font-weight: bold;
+            }
+          }
+          margin: 0 2px;
+
+          &.selected{
+            background: #f9bf34;
+            color: black;
+          }
+        }
+      }
+
+      .dates{
+        background: $color-orange;
+        color: black;
+        margin: 5px 0 0 0;
+        font-size: 0.9em;
+
+        .date{
+          border-right: 1px solid white;
+          .v{
+            padding: 10px 15px;
+            cursor: pointer;
+
+            .datemonth{
+              font-size: 0.9em;
+            }
+
+            .day {
+              font-size: 1.1em;
+              font-weight: bold;
+            }
+          }
+
+          &.selected{
+            background: $color-green;
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
 
 body.admin-bar{
@@ -1552,7 +1638,7 @@ body.admin-bar{
     }
   }
   .sidebar-content{
-    background: rgba(255, 255, 255, 0.91);
+    background: rgba(255, 255, 255, 0.9);
   }
 }
 

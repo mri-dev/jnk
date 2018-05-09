@@ -238,6 +238,7 @@ class AjaxRequests
         'adult' => (int)$_POST['passengers']['adults'],
         'child' => (int)$_POST['passengers']['children']
       );
+      $arg['structured'] = true;
     }
 
     $dates = $travels->loadDates( $arg );

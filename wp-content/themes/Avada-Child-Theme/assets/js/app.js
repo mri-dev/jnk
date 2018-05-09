@@ -15,8 +15,14 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     children: 0
   };
   $scope.dates = [];
+  $scope.datelist = {};
   $scope.terms = {};
   $scope.configs = {};
+  $scope.dateselect = {
+    durration: false,
+    year: false,
+    date: false
+  };
 
   // Flags
   $scope.step = 1;
@@ -78,6 +84,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.loadDates = function( callback )
   {
     $scope.dates_loaded = false;
+    $scope.datelist = {};
     $http({
       method: 'POST',
       url: '/wp-admin/admin-ajax.php?action=travel_api',
@@ -89,10 +96,19 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     }).success(function(r){
       $scope.dates_loaded = true;
       $scope.dates = r.data;
+
+      // list
+      angular.forEach(r.data, function(a,i){
+        angular.forEach(a.data, function(b,i){
+          angular.forEach(b.data, function(date,i){
+            $scope.datelist[date.ID] = date;
+          });
+        });
+      });
+
       if (typeof callback !== 'undefined') {
         callback();
       }
-      console.log(r);
     });
   }
 
@@ -130,6 +146,30 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         }
       });
     });
+  }
+
+  $scope.dateselectInfo = function() {
+    var text = '';
+    if ($scope.dateselect.durration && $scope.dateselect.year && $scope.dateselect.date) {
+      var seldate = $scope.datelist[$scope.dateselect.date];
+      text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name;
+    }
+    return text;
+  }
+
+  $scope.selectCalcDurr = function( v ) {
+    $scope.dateselect.durration = v;
+    $scope.dateselect.year = false;
+    $scope.dateselect.date = false;
+  }
+
+  $scope.selectCalcYearmonth = function( v ) {
+    $scope.dateselect.year = v;
+    $scope.dateselect.date = false;
+  }
+
+  $scope.selectCalcDate = function( dateid ) {
+    $scope.dateselect.date = dateid;
   }
 
   $scope.finishLoad = function(){

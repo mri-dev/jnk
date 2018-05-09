@@ -71,7 +71,7 @@
                 <i class="far fa-check-circle"></i>
               </div>
               <div class="v">
-                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+                {{dateselectInfo()}}
               </div>
               <div class="be">
                 <button type="button" ng-click="backToEdit(2)"><?=__('Módosít', TD)?></button>
@@ -81,10 +81,41 @@
           <div class="step-loader" ng-show="(step_loading==1)">
             <?=__('Adatok betöltése folyamatban', TD)?> <i class="fas fa-spinner fa-spin fa-pulse"></i>
           </div>
-          <div class="form" ng-show="!step_loading">
-            TARTALOM
-            {{step_loading}}
-            <br><br><br><br><br><br><br><br><br>
+          <div class="date-selectors" ng-show="!step_loading">
+            <div class="selector-wrapper">
+              <div class="durrations">
+                <div class="durration" ng-repeat="(durrid, durr) in dates" ng-class="(dateselect.durration==durrid)?'selected':''">
+                  <div class="v" ng-click="selectCalcDurr(durrid)">{{durr.name}}</div>
+                </div>
+              </div>
+              <div class="travel-years">
+                <div class="travel-year" ng-repeat="(year, yeardata) in dates[dateselect.durration].data" ng-class="(dateselect.year==year)?'selected':''">
+                  <div class="v" ng-click="selectCalcYearmonth(year)">
+                    <div class="year">
+                      {{yeardata.year}}
+                    </div>
+                    <div class="month">
+                      {{yeardata.month_name}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dates">
+                <div class="date" ng-repeat="sdate in dates[dateselect.durration].data[dateselect.year].data" ng-class="(dateselect.date==sdate.ID)?'selected':''">
+                  <div class="v" ng-click="selectCalcDate(sdate.ID)">
+                    <div class="yearmonth">
+                      {{sdate.travel_year}}.{{sdate.travel_month}}.
+                    </div>
+                    <div class="day">
+                      {{sdate.travel_day}}.
+                    </div>
+                    <div class="weekday">
+                      {{sdate.travel_weekday}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="next" ng-show="!step_loading" ng-class="(step_done[2])?'done':''">

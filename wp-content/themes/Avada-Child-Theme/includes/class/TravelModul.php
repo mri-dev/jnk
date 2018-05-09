@@ -454,13 +454,41 @@ class TravelModul
 
     $back = array();
 
-    if ($data) {
-      foreach ($data as $d) {
-        $back[] = $this->prepareDateRow($d);
+    if ( isset($arg['structured']) && $arg['structured'] === true ) {
+      if ( $data ) {
+        foreach ($data as $d) {
+          $row = $this->prepareDateRow($d);
+
+          $back[$row->utazas_duration_id]['name'] = $row->durration->name;
+          $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['year'] = (int)$row->travel_year;
+          $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['month'] = (int)$row->travel_month;
+          $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['month_name'] = $this->monthName($row->travel_month);
+          $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['data'][] = $row;
+        }
+      }
+    } else {
+      if ($data) {
+        foreach ($data as $d) {
+          $back[] = $this->prepareDateRow($d);
+        }
       }
     }
 
     return $back;
+  }
+
+  private function monthName( $month )
+  {
+    $month = (int)$month;
+    $names = array('január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december');
+    return $names[$month];
+  }
+
+  private function getWeekdayByNum( $num )
+  {
+    $weekdays = array('Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat');
+
+    return $weekdays[$num];
   }
 
   private function prepareDateRow( $rowdata )
@@ -468,6 +496,7 @@ class TravelModul
     $rowdata->durration= $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
     $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day.' ('.$rowdata->durration->name.')';
     $rowdata->active = ($rowdata->active == '1') ? true : false;
+    $rowdata->travel_weekday = $this->getWeekdayByNum(date('w', strtotime($rowdata->travel_year.'-'.$rowdata->travel_month.'-'.$rowdata->travel_day)));
 
     return $rowdata;
   }
