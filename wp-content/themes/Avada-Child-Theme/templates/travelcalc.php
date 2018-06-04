@@ -140,7 +140,7 @@
                 <i class="far fa-check-circle"></i>
               </div>
               <div class="v">
-                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+                <span>{{selected_ellatas_data.ellatas.name}}</span>
               </div>
               <div class="be">
                 <button type="button" ng-click="backToEdit(3)"><?=__('Módosít', TD)?></button>
@@ -184,15 +184,42 @@
                 <i class="far fa-check-circle"></i>
               </div>
               <div class="v">
-                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+                <span>{{selected_room_data.title}}</span>
               </div>
               <div class="be">
                 <button type="button" ng-click="backToEdit(4)"><?=__('Módosít', TD)?></button>
               </div>
             </div>
           </div>
-          Tartalom
-          <br><br><br>
+          <div class="szoba-selectors">
+            <div class="selector-wrapper">
+              <div class="szobak">
+                <div class="header">
+                  <div class="datas">Típus</div>
+                  <div class="price-adult">Ár - Felnőttek</div>
+                  <div class="price-children">Ár - Gyermekek</div>
+                  <div class="total-prices">Ár összesen</div>
+                </div>
+                <div class="szoba" ng-repeat="szoba in selected_ellatas_data.rooms" ng-class="(selected_room_id==szoba.ID)?'selected':''" ng-click="selectRoom(szoba.ID)">
+                  <div class="datas">
+                    <div class="title">{{szoba.title}}</div>
+                    <div class="desc">
+                      {{szoba.description}}
+                    </div>
+                  </div>
+                  <div class="price-adult">
+                    {{calced_room_price[szoba.ID].adults}} Ft
+                  </div>
+                  <div class="price-children">
+                    {{calced_room_price[szoba.ID].children}} Ft
+                  </div>
+                  <div class="total-prices">
+                    {{calced_room_price[szoba.ID].all}} Ft
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="next" ng-class="(step_done[4])?'done':''">
           <button type="button" ng-hide="step_done[4]" ng-click="nextStep(4)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>

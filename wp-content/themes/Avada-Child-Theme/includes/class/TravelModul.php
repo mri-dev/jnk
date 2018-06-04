@@ -101,7 +101,8 @@ class TravelModul
       $back[$d->date_id]['day'] = $duration;
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['ID'] = (int)$d->ellatas_id;
       $back[$d->date_id]['ellatas'][$d->ellatas_id]['ellatas'] = $this->getTermValuById('utazas_ellatas', (int)$d->ellatas_id);
-      $back[$d->date_id]['ellatas'][$d->ellatas_id]['rooms'][] = $this->prepareRoomValues($d);
+      $room = $this->prepareRoomValues($d);
+      $back[$d->date_id]['ellatas'][$d->ellatas_id]['rooms'][$room['ID']] = $room;
     }
     unset($data);
 

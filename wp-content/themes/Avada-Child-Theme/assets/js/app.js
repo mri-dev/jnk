@@ -14,6 +14,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     adults: 2,
     children: 0
   };
+  $scope.calced_room_price = {};
   $scope.dates = [];
   $scope.datelist = {};
   $scope.terms = {};
@@ -23,6 +24,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     year: false,
     date: false
   };
+  $scope.selected_room_id = 0;
+  $scope.selected_room_data = {};
   $scope.selected_ellatas = false;
   $scope.selected_ellatas_data = false;
 
@@ -114,11 +117,38 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     });
   }
 
+  $scope.selectRoom = function( id )
+  {
+    $scope.selected_room_id = id;
+    $scope.selected_room_data = $scope.selected_ellatas_data.rooms[id];
+    console.log($scope.selected_room_data);
+  }
+
   $scope.selectEllatas = function( id )
   {
     $scope.selected_ellatas = id;
     $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
-    console.log($scope.selected_ellatas_data);
+
+    angular.forEach( $scope.selected_ellatas_data.rooms, function(e,i) {
+      var calc = 0;
+      $scope.calced_room_price[e.ID] = {};
+
+      if ($scope.passengers.adults > 0) {
+        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * e.adult_price;
+        calc += $scope.passengers.adults * e.adult_price;
+      } else {
+        $scope.calced_room_price[e.ID].adults = 0;
+      }
+
+      if ($scope.passengers.children > 0) {
+        $scope.calced_room_price[e.ID].children = $scope.passengers.children * e.child_price;
+        calc += $scope.passengers.children * e.child_price;
+      } else {
+        $scope.calced_room_price[e.ID].children = 0;
+      }
+
+      $scope.calced_room_price[e.ID].all = calc;
+    });
   }
 
   $scope.getEllatasInfo = function( id ){

@@ -1552,6 +1552,82 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   color: white;
 }
 /* line 1515, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak {
+  padding: 10px;
+}
+/* line 1517, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.7em;
+  color: #919191;
+  padding: 0 15px 10px 15px;
+}
+/* line 1527, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header > div {
+  text-align: center;
+}
+/* line 1531, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba {
+  margin-bottom: 10px;
+  background: #f1f1f1;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* line 1542, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .title {
+  font-weight: bold;
+  color: black;
+  margin: 0 0 5px 0;
+}
+/* line 1548, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .desc {
+  font-size: 0.8em;
+  color: #7a7a7a;
+}
+/* line 1554, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+/* line 1560, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected {
+  background: #0b85d5;
+  color: white;
+  cursor: pointer;
+}
+/* line 1566, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover .datas .title, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected .datas .title {
+  color: white;
+}
+/* line 1570, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover .datas .desc, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected .datas .desc {
+  color: #c2e0f3;
+}
+/* line 1578, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas {
+  flex: 1;
+}
+/* line 1582, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult,
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult,
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children {
+  flex-basis: 100px;
+  text-align: center;
+}
+/* line 1586, sass/base.scss */
+.gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
+  flex-basis: 120px;
+  text-align: center;
+}
+/* line 1597, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1559,22 +1635,22 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   align-items: center;
   flex-wrap: wrap;
 }
-/* line 1522, sass/base.scss */
+/* line 1604, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div {
   margin: 0;
   text-align: center;
   position: relative;
 }
-/* line 1527, sass/base.scss */
+/* line 1609, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div .v:focus {
   outline: none !important;
 }
-/* line 1531, sass/base.scss */
+/* line 1613, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div.selected {
   background: #0b85d5;
   color: white;
 }
-/* line 1535, sass/base.scss */
+/* line 1617, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div.selected:after {
   content: "";
   height: 10px;
@@ -1584,69 +1660,69 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   right: 0;
   position: absolute;
 }
-/* line 1548, sass/base.scss */
+/* line 1630, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations {
   padding: 10px;
 }
-/* line 1550, sass/base.scss */
+/* line 1632, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration {
   font-size: 0.9em;
   background: #eaeaea;
   border-right: 1px solid white;
 }
-/* line 1555, sass/base.scss */
+/* line 1637, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v {
   padding: 25px;
   cursor: pointer;
 }
-/* line 1559, sass/base.scss */
+/* line 1641, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v strong {
   font-size: 1.2em;
   text-transform: uppercase;
 }
-/* line 1564, sass/base.scss */
+/* line 1646, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration:hover {
   background: #e3e3e3;
 }
-/* line 1567, sass/base.scss */
+/* line 1649, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration.selected {
   background: #0b85d5;
   color: white;
 }
-/* line 1570, sass/base.scss */
+/* line 1652, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration.selected:after {
   content: "";
   background: #0b85d5;
   border-right: 1px solid white;
 }
-/* line 1579, sass/base.scss */
+/* line 1661, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years {
   background: #353535;
   color: white;
   border-top: 5px solid #0b85d5;
 }
-/* line 1584, sass/base.scss */
+/* line 1666, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year {
   background: #4a4a4a;
   margin: 0 2px;
 }
-/* line 1586, sass/base.scss */
+/* line 1668, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year .v {
   padding: 15px;
   cursor: pointer;
 }
-/* line 1590, sass/base.scss */
+/* line 1672, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year .v .month {
   font-size: 0.9em;
   text-transform: uppercase;
   font-weight: bold;
 }
-/* line 1598, sass/base.scss */
+/* line 1680, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year.selected {
   background: #fa9c09;
   color: black;
 }
-/* line 1601, sass/base.scss */
+/* line 1683, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year.selected:after {
   content: "";
   bottom: -5px;
@@ -1654,7 +1730,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: #fa9c09;
   border-right: 1px solid white;
 }
-/* line 1612, sass/base.scss */
+/* line 1694, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates {
   background: #fbb03b;
   border-top: 5px solid #fa9c09;
@@ -1662,47 +1738,47 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 5px 0 0 0;
   font-size: 0.9em;
 }
-/* line 1619, sass/base.scss */
+/* line 1701, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date {
   border-right: 1px solid white;
 }
-/* line 1621, sass/base.scss */
+/* line 1703, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v {
   padding: 10px 15px;
   cursor: pointer;
 }
-/* line 1625, sass/base.scss */
+/* line 1707, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v .datemonth {
   font-size: 0.9em;
 }
-/* line 1629, sass/base.scss */
+/* line 1711, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v .day {
   font-size: 1.1em;
   font-weight: bold;
 }
-/* line 1635, sass/base.scss */
+/* line 1717, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date.selected {
   background: #3ace8b;
   color: white;
 }
 
-/* line 1646, sass/base.scss */
+/* line 1728, sass/base.scss */
 body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   top: 97px;
 }
 
-/* line 1651, sass/base.scss */
+/* line 1733, sass/base.scss */
 .utazas-sidebar {
   color: #545454;
   font-size: 0.9em;
 }
-/* line 1655, sass/base.scss */
+/* line 1737, sass/base.scss */
 .utazas-sidebar .swrapper {
   padding: 0;
   height: 100%;
   position: relative;
 }
-/* line 1661, sass/base.scss */
+/* line 1743, sass/base.scss */
 .utazas-sidebar .discount {
   background: rgba(213, 25, 25, 0.9);
   font-weight: bold;
@@ -1711,12 +1787,12 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   padding: 0;
   line-height: 3;
 }
-/* line 1670, sass/base.scss */
+/* line 1752, sass/base.scss */
 .utazas-sidebar .sidebar-header {
   color: white;
   background: rgba(11, 133, 213, 0.9);
 }
-/* line 1674, sass/base.scss */
+/* line 1756, sass/base.scss */
 .utazas-sidebar .sidebar-header .price {
   text-align: center;
   font-size: 1.2em;
@@ -1727,30 +1803,30 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 1684, sass/base.scss */
+/* line 1766, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .c {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.75em;
 }
-/* line 1690, sass/base.scss */
+/* line 1772, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .f {
   font-size: 0.6em;
   color: #d2d7db;
 }
-/* line 1695, sass/base.scss */
+/* line 1777, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .current {
   font-weight: bold;
   font-size: 1.5em;
 }
-/* line 1699, sass/base.scss */
+/* line 1781, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .old {
   margin-right: 10px;
   font-size: 0.9em;
   color: #a8cce4;
   text-decoration: line-through;
 }
-/* line 1708, sass/base.scss */
+/* line 1790, sass/base.scss */
 .utazas-sidebar .getoffer a {
   display: block;
   background: #064874;
@@ -1761,17 +1837,17 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 1719, sass/base.scss */
+/* line 1801, sass/base.scss */
 .utazas-sidebar .sidebar-content {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* line 1725, sass/base.scss */
+/* line 1807, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 1729, sass/base.scss */
+/* line 1811, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -1781,22 +1857,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 1739, sass/base.scss */
+/* line 1821, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 1743, sass/base.scss */
+/* line 1825, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 1748, sass/base.scss */
+/* line 1830, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 1755, sass/base.scss */
+/* line 1837, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -1805,32 +1881,32 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 1763, sass/base.scss */
+/* line 1845, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 1766, sass/base.scss */
+/* line 1848, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 1772, sass/base.scss */
+/* line 1854, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 1778, sass/base.scss */
+/* line 1860, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 1781, sass/base.scss */
+/* line 1863, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 1784, sass/base.scss */
+/* line 1866, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -1839,22 +1915,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 1792, sass/base.scss */
+/* line 1874, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 1798, sass/base.scss */
+/* line 1880, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 1801, sass/base.scss */
+/* line 1883, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 1803, sass/base.scss */
+/* line 1885, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -1865,12 +1941,12 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-weight: bold;
 }
 
-/* line 1815, sass/base.scss */
+/* line 1897, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 1818, sass/base.scss */
+/* line 1900, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1879,7 +1955,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 1826, sass/base.scss */
+/* line 1908, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -1890,18 +1966,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 1836, sass/base.scss */
+/* line 1918, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 1842, sass/base.scss */
+/* line 1924, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 1846, sass/base.scss */
+/* line 1928, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1911,30 +1987,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 1855, sass/base.scss */
+/* line 1937, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 1860, sass/base.scss */
+/* line 1942, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 1863, sass/base.scss */
+/* line 1945, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 1868, sass/base.scss */
+/* line 1950, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 1877, sass/base.scss */
+/* line 1959, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 1881, sass/base.scss */
+/* line 1963, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1943,11 +2019,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 1888, sass/base.scss */
+/* line 1970, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 1891, sass/base.scss */
+/* line 1973, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -1957,44 +2033,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 1899, sass/base.scss */
+/* line 1981, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 1902, sass/base.scss */
+/* line 1984, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 1905, sass/base.scss */
+/* line 1987, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 1908, sass/base.scss */
+/* line 1990, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 1911, sass/base.scss */
+/* line 1993, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 1917, sass/base.scss */
+/* line 1999, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 1921, sass/base.scss */
+/* line 2003, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 1927, sass/base.scss */
+/* line 2009, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -2009,28 +2085,28 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 1941, sass/base.scss */
+/* line 2023, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 1944, sass/base.scss */
+/* line 2026, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 1953, sass/base.scss */
+/* line 2035, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 1958, sass/base.scss */
+/* line 2040, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 1px solid #2e2e2e;
 }
-/* line 1961, sass/base.scss */
+/* line 2043, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 1965, sass/base.scss */
+/* line 2047, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;
