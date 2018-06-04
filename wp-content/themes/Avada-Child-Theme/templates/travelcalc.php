@@ -81,14 +81,14 @@
           <div class="step-loader" ng-show="(step_loading==1)">
             <?=__('Adatok betöltése folyamatban', TD)?> <i class="fas fa-spinner fa-spin fa-pulse"></i>
           </div>
-          <div class="date-selectors" ng-show="!step_loading">
+          <div class="date-selectors" ng-show="(!step_loading || step_loading!=1)">
             <div class="selector-wrapper">
               <div class="durrations">
                 <div class="durration" ng-repeat="(durrid, durr) in dates" ng-class="(dateselect.durration==durrid)?'selected':''">
-                  <div class="v" ng-click="selectCalcDurr(durrid)">{{durr.name}}</div>
+                  <div class="v" ng-click="selectCalcDurr(durrid)"><strong>{{durr.name}}</strong><br><?=__('időtartam', TD)?></div>
                 </div>
               </div>
-              <div class="travel-years">
+              <div class="travel-years" ng-show="(dateselect.durration)">
                 <div class="travel-year" ng-repeat="(year, yeardata) in dates[dateselect.durration].data" ng-class="(dateselect.year==year)?'selected':''">
                   <div class="v" ng-click="selectCalcYearmonth(year)">
                     <div class="year">
@@ -100,7 +100,7 @@
                   </div>
                 </div>
               </div>
-              <div class="dates">
+              <div class="dates" ng-show="(dateselect.year)">
                 <div class="date" ng-repeat="sdate in dates[dateselect.durration].data[dateselect.year].data" ng-class="(dateselect.date==sdate.ID)?'selected':''">
                   <div class="v" ng-click="selectCalcDate(sdate.ID)">
                     <div class="yearmonth">
@@ -118,7 +118,7 @@
             </div>
           </div>
         </div>
-        <div class="next" ng-show="!step_loading" ng-class="(step_done[2])?'done':''">
+        <div class="next" ng-show="!step_loading && (dateselect.year && dateselect.durration && dateselect.date)" ng-class="(step_done[2])?'done':''">
           <button type="button" ng-hide="step_done[2]" ng-click="nextStep(2)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
@@ -147,10 +147,22 @@
               </div>
             </div>
           </div>
-          Tartalom
-          <br><br><br>
+          <div class="step-loader" ng-show="(step_loading==2)">
+            <?=__('Adatok betöltése folyamatban', TD)?> <i class="fas fa-spinner fa-spin fa-pulse"></i>
+          </div>
+          <div class="ellatas-selectors" ng-show="(!step_loading || step_loading!=2)">
+            <div class="selector-wrapper">
+              <div class="ellatasok">
+                <div class="ellatas" ng-repeat="ellatas in configs.ellatas" ng-class="(selected_ellatas==ellatas.term_id)?'selected':''" ng-show="configs.szobak[dateselect.date].ellatas[ellatas.term_id]">
+                  <div class="wrapper" ng-click="selectEllatas(ellatas.term_id)">
+                    {{ellatas.name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="next" ng-class="(step_done[3])?'done':''">
+        <div class="next" ng-class="(step_done[3])?'done':''" ng-show="(selected_ellatas)">
           <button type="button" ng-hide="step_done[3]" ng-click="nextStep(3)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>

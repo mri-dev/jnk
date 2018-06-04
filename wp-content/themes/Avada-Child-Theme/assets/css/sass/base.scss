@@ -1245,7 +1245,7 @@ body.single-utazas{
           bottom: 0;
           top: 0;
           font-size: 1.1em;
-          z-index: 10;
+          z-index: 1;
           width: 100%;
 
           & > .holder{
@@ -1476,6 +1476,40 @@ body.single-utazas{
     }
   }
 
+  .ellatas-selectors{
+    .selector-wrapper{
+      .ellatasok{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+         padding: 5px;
+
+        & > div {
+          flex: 1;
+          padding: 5px;
+
+          .wrapper{
+            background: #f1f1f1;
+            padding: 10px;
+            cursor: pointer;
+            &:focus{
+              outline: none !important;
+            }
+          }
+
+          &.selected{
+            .wrapper{
+              background: $color-blue;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .date-selectors{
     .selector-wrapper{
       & > div{
@@ -1488,20 +1522,56 @@ body.single-utazas{
         & > div {
           margin: 0;
           text-align: center;
+          position: relative;
+
+          .v:focus{
+            outline: none !important;
+          }
 
           &.selected{
             background: $color-blue;
             color: white;
+
+            &:after{
+              content:"";
+              height: 10px;
+              bottom: -10px;
+              width: 100%;
+              left: 0;
+              right: 0;
+              position: absolute;
+            }
           }
         }
       }
 
       .durrations{
+        padding: 10px;
         .durration{
-          font-size: 1.2em;
+          font-size: 0.9em;
+          background: #eaeaea;
+          border-right: 1px solid white;
+
           .v{
             padding: 25px;
             cursor: pointer;
+
+            strong {
+              font-size: 1.2em;
+              text-transform: uppercase;
+            }
+          }
+          &:hover{
+            background: #e3e3e3;
+          }
+          &.selected{
+            background: $color-blue;
+            color: white;
+            &:after{
+              content: "";
+              background: $color-blue;
+              border-right: 1px solid white;
+            }
           }
         }
       }
@@ -1509,6 +1579,7 @@ body.single-utazas{
       .travel-years{
         background: #353535;
         color: white;
+        border-top: 5px solid $color-blue;
 
         .travel-year{
           background: #4a4a4a;
@@ -1525,14 +1596,22 @@ body.single-utazas{
           margin: 0 2px;
 
           &.selected{
-            background: #f9bf34;
+            background: darken($color-orange, 10%);
             color: black;
+            &:after{
+              content: "";
+              bottom: -5px;
+              height: 5px;
+              background: darken($color-orange, 10%);
+              border-right: 1px solid white;
+            }
           }
         }
       }
 
       .dates{
         background: $color-orange;
+        border-top: 5px solid darken($color-orange, 10%);
         color: black;
         margin: 5px 0 0 0;
         font-size: 0.9em;

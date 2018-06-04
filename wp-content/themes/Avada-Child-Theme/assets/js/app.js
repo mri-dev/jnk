@@ -23,6 +23,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     year: false,
     date: false
   };
+  $scope.selected_ellatas = false;
+  $scope.selected_ellatas_data = false;
 
   // Flags
   $scope.step = 1;
@@ -106,6 +108,36 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         });
       });
 
+      if (typeof callback !== 'undefined') {
+        callback();
+      }
+    });
+  }
+
+  $scope.selectEllatas = function( id )
+  {
+    $scope.selected_ellatas = id;
+    $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
+    console.log($scope.selected_ellatas_data);
+  }
+
+  $scope.getEllatasInfo = function( id ){
+    return $scope.configs.szobak[$scope.dateselect.date].ellatas[id];
+  }
+
+  $scope.loadEllatas = function( callback )
+  {
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=getterms',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid,
+        terms: ['utazas_ellatas']
+      })
+    }).success(function(r){
+      $scope.configs.ellatas = {};
+      $scope.configs.ellatas = r.data.utazas_ellatas;
       if (typeof callback !== 'undefined') {
         callback();
       }
@@ -204,6 +236,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       // Utasok megadása - Dátumok betöltése
       case 1:
         $scope.loadDates(function(){
+          $scope.step_loading = false;
+        });
+      break;
+      case 2:
+        $scope.loadEllatas(function(){
           $scope.step_loading = false;
         });
       break;
