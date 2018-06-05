@@ -62,6 +62,62 @@ function jnk_load_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'jnk_load_scripts');
 
+function utazas_durration_tax_metas()
+{
+  ?>
+  	<div class="form-field">
+  		<label for="nights"><?php _e( 'Éjszakák száma' ); ?></label>
+  		<input type="number" min="1" step="1" name="nights" id="nights" value="">
+  	</div>
+  <?php
+}
+add_action( 'utazas_duration_add_form_fields', 'utazas_durration_tax_metas', 10, 2 );
+
+function utazas_durration_tax_metas_edit($term)
+{
+  $t_id = $term->term_id;
+	$term_meta = get_option( "taxonomy_$t_id" );
+  ?>
+  	<tr class="form-field">
+	    <th scope="row" valign="top"><label for="nights"><?php _e( 'Éjszakák száma', TD ); ?></label></th>
+  		<td>
+  			<input type="number" min="1" step="1" name="nights" id="nights" value="<?php echo esc_attr( $term_meta['nights'] ) ? esc_attr( $term_meta['nights'] ) : ''; ?>">
+  		</td>
+  	</tr>
+  <?php
+}
+add_action( 'utazas_duration_edit_form_fields', 'utazas_durration_tax_metas_edit', 10, 2 );
+
+function save_taxonomy_custom_meta( $term_id )
+{
+  if (isset($_POST['nights'])) {
+    $t_id = $term_id;
+		$term_meta = get_option( "taxonomy_$t_id" );
+    $term_meta['nights'] = $_POST['nights'];
+    update_option( "taxonomy_$t_id", $term_meta );
+  }
+}
+add_action( 'edited_utazas_duration', 'save_taxonomy_custom_meta', 10, 2 );
+add_action( 'create_utazas_duration', 'save_taxonomy_custom_meta', 10, 2 );
+
+function utazas_duration_taxonomy_columns( $columns )
+{
+	$columns['nights'] = __('Éjszakák száma', TD);
+
+	return $columns;
+}
+add_filter('manage_edit-utazas_duration_columns' , 'utazas_duration_taxonomy_columns');
+
+function utazas_duration_taxonomy_columns_content( $content, $column_name, $term_id )
+{
+    if ( 'nights' == $column_name ) {
+      $term_meta = get_option( "taxonomy_$term_id" );
+      $content = $term_meta['nights'];
+    }
+	return $content;
+}
+add_filter( 'manage_utazas_duration_custom_column', 'utazas_duration_taxonomy_columns_content', 10, 3 );
+
 function custom_theme_enqueue_styles() {
     wp_enqueue_style( 'krakko-base', IFROOT . '/assets/css/base.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
     //wp_enqueue_script( 'krakko', IFROOT . '/assets/js/master.js?t=' . ( (DEVMODE === true) ? time() : '' ), array('jquery'), '', 999 );

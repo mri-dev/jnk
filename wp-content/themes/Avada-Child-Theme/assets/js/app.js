@@ -8,17 +8,23 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.loaded = false;
   $scope.dates_loaded = false;
   $scope.config_loaded = false;
+  $scope.config_groups = ['szolgaltatas', 'programok'];
 
   // Datas
   $scope.passengers = {
     adults: 2,
     children: 0
   };
+  $scope.final_calc_price = 0;
   $scope.calced_room_price = {};
   $scope.dates = [];
   $scope.datelist = {};
   $scope.terms = {};
   $scope.configs = {};
+  $scope.configs_selected = {
+    programok: [],
+    szolgaltatas: []
+  };
   $scope.dateselect = {
     durration: false,
     year: false,
@@ -28,6 +34,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.selected_room_data = {};
   $scope.selected_ellatas = false;
   $scope.selected_ellatas_data = false;
+  $scope.selected_date_data = {};
+  $scope.config_szolgaltatas_prices = 0;
+  $scope.config_programok_prices = 0;
+  $scope.travel_prices = 0;
 
   // Flags
   $scope.step = 1;
@@ -54,6 +64,45 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     $scope.loadTerms(function(){
       $scope.loadDatas();
     });
+  }
+
+  $scope.recalcFinalPrice = function(){
+    var price = 0;
+
+    // Utasok szobaárai
+    price += $scope.calced_room_price[$scope.selected_room_data.ID].adults;
+    price += $scope.calced_room_price[$scope.selected_room_data.ID].children;
+
+    // Egyéb utazási költségek
+    // TODO: utazási költség lista
+
+    $scope.travel_prices = price;
+
+    // Kötelező szolgálatások
+    $scope.config_szolgaltatas_prices = 0;
+    angular.forEach( $scope.configs.szolgaltatas, function(e,i) {
+      if (e.requireditem) {
+        var p = $scope.priceCalcSum(e);
+        if ( p > 0 ) {
+          price += p;
+          $scope.config_szolgaltatas_prices += p;
+        }
+      }
+    });
+
+    // Kötelező programok
+    $scope.config_programok_prices = 0;
+    angular.forEach( $scope.configs.programok, function(e,i) {
+      if (e.requireditem) {
+        var p = $scope.priceCalcSum(e);
+        if ( p > 0 ) {
+          price += p;
+          $scope.config_programok_prices += p;
+        }
+      }
+    });
+
+    $scope.final_calc_price = price;
   }
 
   $scope.loadTerms = function( callback )
@@ -121,7 +170,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   {
     $scope.selected_room_id = id;
     $scope.selected_room_data = $scope.selected_ellatas_data.rooms[id];
-    console.log($scope.selected_room_data);
   }
 
   $scope.selectEllatas = function( id )
@@ -134,15 +182,15 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       $scope.calced_room_price[e.ID] = {};
 
       if ($scope.passengers.adults > 0) {
-        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * e.adult_price;
-        calc += $scope.passengers.adults * e.adult_price;
+        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * (e.adult_price * $scope.selected_date_data.durration.nights);
+        calc += $scope.passengers.adults * (e.adult_price * $scope.selected_date_data.durration.nights);
       } else {
         $scope.calced_room_price[e.ID].adults = 0;
       }
 
       if ($scope.passengers.children > 0) {
-        $scope.calced_room_price[e.ID].children = $scope.passengers.children * e.child_price;
-        calc += $scope.passengers.children * e.child_price;
+        $scope.calced_room_price[e.ID].children = $scope.passengers.children * (e.child_price * $scope.selected_date_data.durration.nights);
+        calc += $scope.passengers.children * (e.child_price * $scope.selected_date_data.durration.nights);
       } else {
         $scope.calced_room_price[e.ID].children = 0;
       }
@@ -193,6 +241,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         $scope.configs[c] = r.data[c];
       });
 
+      console.log(r.data);
+
       $http({
         method: 'POST',
         url: '/wp-admin/admin-ajax.php?action=traveler',
@@ -213,10 +263,43 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.dateselectInfo = function() {
     var text = '';
     if ($scope.dateselect.durration && $scope.dateselect.year && $scope.dateselect.date) {
-      var seldate = $scope.datelist[$scope.dateselect.date];
-      text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name;
+      $scope.selected_date_data = $scope.datelist[$scope.dateselect.date];
+      var seldate = $scope.selected_date_data;
+      text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name+', '+seldate.durration.nights+' '+ 'éjszaka';
     }
     return text;
+  }
+
+  $scope.priceCalcSum = function( item ){
+    var me = $scope.priceCalcMe( item );
+
+    return parseFloat(item.price) * me;
+  }
+
+  $scope.priceCalcMe = function( item )
+  {
+    switch( item.price_calc_mode ) {
+      case 'once':
+        return 1;
+      break;
+      case 'daily':
+      if ($scope.selected_date_data.durration) {
+        var n = ($scope.selected_date_data) ? parseInt($scope.selected_date_data.durration.nights) : 0;
+      }
+        return n+1;
+      break;
+      case 'day_person':
+        var fo = $scope.passengers.adults + $scope.passengers.children;
+        if ($scope.selected_date_data.durration) {
+          var n = ($scope.selected_date_data) ? parseInt($scope.selected_date_data.durration.nights) : 0;
+        }
+        return (n+1) * fo;
+      break;
+      case 'once_person':
+        var fo = $scope.passengers.adults + $scope.passengers.children;
+        return fo;
+      break;
+    }
   }
 
   $scope.selectCalcDurr = function( v ) {
@@ -273,6 +356,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         $scope.loadEllatas(function(){
           $scope.step_loading = false;
         });
+      break;
+      case 4:
+        $scope.recalcFinalPrice();
       break;
       default:
         $scope.step_loading = false;

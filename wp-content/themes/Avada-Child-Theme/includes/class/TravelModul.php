@@ -461,6 +461,7 @@ class TravelModul
           $row = $this->prepareDateRow($d);
 
           $back[$row->utazas_duration_id]['name'] = $row->durration->name;
+          $back[$row->utazas_duration_id]['nights'] = $row->durration->nights;
           $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['year'] = (int)$row->travel_year;
           $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['month'] = (int)$row->travel_month;
           $back[$row->utazas_duration_id]['data'][$row->travel_year.'-'.$row->travel_month]['month_name'] = $this->monthName($row->travel_month);
@@ -494,7 +495,7 @@ class TravelModul
 
   private function prepareDateRow( $rowdata )
   {
-    $rowdata->durration= $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
+    $rowdata->durration = $this->getTermValuById('utazas_duration', $rowdata->utazas_duration_id );
     $rowdata->onday= $rowdata->travel_year.' / '.$rowdata->travel_month.' / '.$rowdata->travel_day.' ('.$rowdata->durration->name.')';
     $rowdata->active = ($rowdata->active == '1') ? true : false;
     $rowdata->travel_weekday = $this->getWeekdayByNum(date('w', strtotime($rowdata->travel_year.'-'.$rowdata->travel_month.'-'.$rowdata->travel_day)));
@@ -508,7 +509,11 @@ class TravelModul
 
     if($data) {
       foreach ($data as $d) {
+        $meta = get_option('taxonomy_'.$d->term_id);
         if($d->term_id == (int)$id){
+          if ($term == 'utazas_duration') {
+            $d->nights = (int)$meta['nights'];
+          }
           return $d;
         } else continue;
       }

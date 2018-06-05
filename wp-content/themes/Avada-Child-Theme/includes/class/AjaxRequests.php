@@ -212,7 +212,18 @@ class AjaxRequests
 
     foreach ((array)$terms as $term) {
       $data = wp_get_post_terms($postid, $term);
-      $return['data'][$term] = $data;
+
+      $td = array();
+      foreach ((array)$data as $termkey => $termdata) {
+        $termdata->metas = get_option("taxonomy_".$termdata->term_id);
+        if ($term == 'utazas_duration') {          
+          $termdata->nights = (int)$termdata->metas['nights'];
+        }
+        $td[$termkey] = $termdata;
+      }
+      unset($data);
+
+      $return['data'][$term] = $td;
     }
 
     echo json_encode($return);

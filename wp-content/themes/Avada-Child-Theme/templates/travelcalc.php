@@ -85,7 +85,7 @@
             <div class="selector-wrapper">
               <div class="durrations">
                 <div class="durration" ng-repeat="(durrid, durr) in dates" ng-class="(dateselect.durration==durrid)?'selected':''">
-                  <div class="v" ng-click="selectCalcDurr(durrid)"><strong>{{durr.name}}</strong><br><?=__('időtartam', TD)?></div>
+                  <div class="v" ng-click="selectCalcDurr(durrid)"><strong>{{durr.name}}</strong><br><span class="nights">{{durr.nights}} <?=__('éjszaka', TD)?></span><br><?=__('időtartam', TD)?></div>
                 </div>
               </div>
               <div class="travel-years" ng-show="(dateselect.durration)">
@@ -184,7 +184,7 @@
                 <i class="far fa-check-circle"></i>
               </div>
               <div class="v">
-                <span>{{selected_room_data.title}}</span>
+                <span>{{selected_room_data.title}}<br><small>{{selected_room_data.description}}</small></span>
               </div>
               <div class="be">
                 <button type="button" ng-click="backToEdit(4)"><?=__('Módosít', TD)?></button>
@@ -208,13 +208,13 @@
                     </div>
                   </div>
                   <div class="price-adult">
-                    {{calced_room_price[szoba.ID].adults}} Ft
+                    {{calced_room_price[szoba.ID].adults|number:0}} Ft
                   </div>
                   <div class="price-children">
-                    {{calced_room_price[szoba.ID].children}} Ft
+                    {{calced_room_price[szoba.ID].children|number:0}} Ft
                   </div>
                   <div class="total-prices">
-                    {{calced_room_price[szoba.ID].all}} Ft
+                    {{calced_room_price[szoba.ID].all|number:0}} Ft
                   </div>
                 </div>
               </div>
@@ -252,74 +252,63 @@
             <tbody>
               <tr>
                 <td class="tetel">
-                  <strong>1. szoba: 1 felnőtt</strong>
+                  <strong>{{selected_room_data.title}}</strong>
                 </td>
-                <td>12 840 Ft</td>
+                <td>{{selected_room_data.adult_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x7</td>
-                <td>89 990 Ft</td>
+                <td>x{{selected_date_data.durration.nights}}</td>
+                <td>{{(calced_room_price[selected_room_data.ID].adults)|number:0}} Ft</td>
               </tr>
-              <tr>
-                <td class="tetel">
-                  <strong>2. szoba: 2 felnőtt + 1 gyerek</strong>
-                </td>
-                <td>12 840 Ft</td>
-                <td>/fő/éjszaka</td>
-                <td>x14</td>
-                <td>179 800 Ft</td>
-              </tr>
-              <tr>
+              <tr ng-show="(passengers.children!=0)">
                 <td class="tetel opcio">
-                  <strong>-> 1 gyerek</strong>
+                  <strong>-> {{passengers.children}} gyerek</strong>
                 </td>
-                <td>8 000 Ft</td>
+                <td>{{selected_room_data.child_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x7</td>
-                <td>56 000 Ft</td>
+                <td>x{{selected_date_data.durration.nights}}</td>
+                <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
               </tr>
-              <tr>
-                <td class="tetel">
-                  Foglalási díj
-                </td>
-                <td>1000 Ft</td>
-                <td>/fő</td>
-                <td>x3</td>
-                <td>3 000 Ft</td>
+              <tr class="priceev" ng-show="configs.programok.length!=0">
+                <td colspan="4" class="ev">Szállás és utazás összesen:</td>
+                <td class="price">{{travel_prices|number:0}} Ft</td>
               </tr>
-              <tr>
-                <td class="tetel">
-                  Repülőjegy
-                </td>
-                <td>24 990 Ft</td>
-                <td>/fő</td>
-                <td>x3</td>
-                <td>74 970 Ft</td>
-              </tr>
-              <tr>
+              <tr ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="5" class="price-group">
-                  <?=__('Választható opcionális szolgáltatások', TD)?>
+                  <?=__('Elérhető szolgáltatások', TD)?>
                 </td>
               </tr>
-              <tr>
+              <tr ng-repeat="item in configs.szolgaltatas">
+                <td class="tetel">
+                  <input type="checkbox" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
+                  <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
+                </td>
+                <td>{{item.price|number:0}}</td>
+                <td>{{item.price_after}}</td>
+                <td>x {{priceCalcMe(item)}}</td>
+                <td>{{priceCalcSum(item)|number:0}} Ft</td>
+              </tr>
+              <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
+                <td colspan="4" class="ev">Szolgáltatások összesen:</td>
+                <td class="price">{{config_szolgaltatas_prices|number:0}} Ft</td>
+              </tr>
+              <tr ng-show="configs.programok.length!=0">
                 <td colspan="5" class="price-group">
                   <?=__('Fakultatív programok', TD)?>
                 </td>
               </tr>
-              <tr>
+              <tr ng-repeat="item in configs.programok">
                 <td class="tetel">
-                  <input type="checkbox" id="program_0" checked="checked" disabled="disabled"> <label for="program_0"><?=__('Városnéző túra', TD)?> <span class="label required">kötelező</span> </label>
+                  <input type="checkbox" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
+                  <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
                 </td>
-                <td colspan="4">Benne van az árban</td>
+                <td>{{item.price|number:0}}</td>
+                <td>{{item.price_after}}</td>
+                <td>x {{priceCalcMe(item)}}</td>
+                <td>{{priceCalcSum(item)|number:0}} Ft</td>
               </tr>
-              <tr>
-                <td class="tetel">
-                  <input type="checkbox" id="program_1"> <label for="program_1"><?=__('Borkóstoló est', TD)?></label>
-                  <span class="label info">infó</span>
-                </td>
-                <td>1 890 Ft</td>
-                <td>/ fő</td>
-                <td>x1</td>
-                <td>1 890 Ft</td>
+              <tr class="priceev" ng-show="configs.programok.length!=0">
+                <td colspan="4" class="ev">Programok összesen:</td>
+                <td class="price">{{config_programok_prices|number:0}} Ft</td>
               </tr>
               <tr>
                 <td colspan="5" class="price-group">
@@ -348,7 +337,17 @@
           </table>
         </div>
         <div class="next" ng-class="(step_done[5])?'done':''">
-          <button type="button" ng-hide="step_done[5]" ng-click="nextStep(5)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
+          <button type="button" ng-hide="step_done[5]" ng-click="nextStep(5)"><?=__('Tovább az adatok megadásához',TD)?> <i class="fas fa-angle-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="price-overview" ng-show="(step>=5)">
+      <div class="wrapper">
+        <div class="head">
+          <?php echo __('Kalkulált ár',TD); ?>
+        </div>
+        <div class="value">
+          {{final_calc_price|number:0}} Ft
         </div>
       </div>
     </div>

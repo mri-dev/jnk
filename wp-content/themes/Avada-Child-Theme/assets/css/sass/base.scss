@@ -1476,6 +1476,38 @@ body.single-utazas{
     }
   }
 
+  .priceev{
+    font-size: 1.2em;
+    .ev{
+      text-align: right !important;
+    }
+    .price{
+      text-align: center;
+      font-weight: bold;
+      color: $color-green;
+    }
+  }
+
+  .price-overview{
+    background: $color-green;
+    padding: 15px;
+    .wrapper{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      color: white;
+      justify-content: space-between;
+      font-size: 1.2em;
+
+      .value {
+        font-size: 1.4em;
+        font-weight: bold;
+      }
+    }
+  }
+
   .ellatas-selectors{
     .selector-wrapper{
       .ellatasok{
