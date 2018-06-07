@@ -72,13 +72,13 @@
       <div class="programs">
         <a name="programs"></a>
         <h2><i class="fas fa-tasks"></i> <?php echo __('Programok', TD); ?></h2>
-        <?php the_content(); ?>
+        ...
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <div class="gallery">
         <a name="gallery"></a>
         <h2><i class="far fa-images"></i> <?php echo __('Képek', TD); ?></h2>
-        <?php the_content(); ?>
+        ...
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <div class="reviews">
@@ -102,7 +102,7 @@
     </div>
     <div class="wrapper">
       <div class="page-width">
-        <?php echo get_template_part('templates/travelcalc'); ?>        
+        <?php echo get_template_part('templates/travelcalc'); ?>
       </div>
     </div>
   </div>

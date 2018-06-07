@@ -38,7 +38,7 @@
             <div class="adults">
               <div class="w">
                 <label for="passengers_adults"><?=__('Felnőttek száma', TD)?></label>
-                <input type="number" id="passengers_adults" ng-model="passengers.adults">
+                <input type="number" ng-change="(passengers.adults<1)?passengers.adults=1:passengers.adults" id="passengers_adults" ng-model="passengers.adults">
               </div>
             </div>
             <div class="children">
@@ -268,7 +268,7 @@
                 <td>x{{selected_date_data.durration.nights}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
               </tr>
-              <tr class="priceev" ng-show="configs.programok.length!=0">
+              <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="4" class="ev">Szállás és utazás összesen:</td>
                 <td class="price">{{travel_prices|number:0}} Ft</td>
               </tr>
@@ -279,7 +279,7 @@
               </tr>
               <tr ng-repeat="item in configs.szolgaltatas">
                 <td class="tetel">
-                  <input type="checkbox" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
+                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['szolgaltatas'][item.ID]" ng-value="item.ID" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
                   <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
                 </td>
                 <td>{{item.price|number:0}}</td>
@@ -287,7 +287,7 @@
                 <td>x {{priceCalcMe(item)}}</td>
                 <td>{{priceCalcSum(item)|number:0}} Ft</td>
               </tr>
-              <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
+              <tr class="priceev" ng-show="configs.programok.length!=0">
                 <td colspan="4" class="ev">Szolgáltatások összesen:</td>
                 <td class="price">{{config_szolgaltatas_prices|number:0}} Ft</td>
               </tr>
@@ -298,7 +298,7 @@
               </tr>
               <tr ng-repeat="item in configs.programok">
                 <td class="tetel">
-                  <input type="checkbox" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
+                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['programok'][item.ID]" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
                   <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
                 </td>
                 <td>{{item.price|number:0}}</td>
@@ -344,12 +344,15 @@
     <div class="price-overview" ng-show="(step>=5)">
       <div class="wrapper">
         <div class="head">
-          <?php echo __('Kalkulált ár',TD); ?>
+          <?php echo __('Kalkulált ár',TD); ?>*
         </div>
         <div class="value">
           {{final_calc_price|number:0}} Ft
         </div>
       </div>
+    </div>
+    <div class="price-overview-info" ng-show="(step>=5)">
+      <em>* <?=__('a kalkulált ár tájékoztató jellegű, nem minősül konkrét ajánlatnak. Adatai megadása után kollégáink felveszik Önnel a kapcsolatot és részletes tájékoztatást adnak a kiválasztott utazásról. Az árváltozás jogát fenntartjuk.', TD)?></em>
     </div>
     <div class="offer-group last-item" ng-show="(step>=6)" ng-class="(step>6)?'done':''">
       <div class="progline"></div>
@@ -362,24 +365,106 @@
       </div>
       <div class="cholder">
         <div class="wrapper">
-          <div class="selected-item-holder" ng-show="(step_done[6])">
-            <div class="holder">
-              <div class="header">
-                <i class="far fa-check-circle"></i>
+          <div class="orderder-details">
+            <div class="wrapper">
+              <div class="orderer">
+                <h3><?=__('Kapcsolattartó adatai', TD)?></h3>
+                <div class="flex">
+                  <div class="name">
+                    <div class="w">
+                      <label for="orderer_name"><?=__('Név', TD)?></label>
+                      <input type="text" id="orderer_name" ng-model="order.contact.name">
+                    </div>
+                  </div>
+                  <div class="email">
+                    <div class="w">
+                      <label for="orderer_email"><?=__('E-mail cím', TD)?></label>
+                      <input type="text" id="orderer_email" ng-model="order.contact.email">
+                    </div>
+                  </div>
+                  <div class="phone">
+                    <div class="w">
+                      <label for="orderer_phone"><?=__('Telefonszám', TD)?></label>
+                      <input type="text" id="orderer_phone" ng-model="order.contact.phone">
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="v">
-                <span>{{passengers.adults}} <?=__('felnőtt', TD)?></span><span ng-hide="passengers.children==0"> + {{passengers.children}} <?=__('gyermek', TD)?></span>
+              <div class="passengers-details">
+                <h3><?=__('Utasok adatai', TD)?></h3>
+                <div class="flex">
+                  <div class="adult" ng-repeat="ix in passengerArray('adults') track by $index">
+                    <div class="wrapper">
+                      <h4>#{{($index+1)}} <?=__('felnőtt adatai', TD)?></h4>
+                      <div class="iwrapper">
+                        <div class="flex">
+                          <div class="name">
+                            <div class="w">
+                              <label for="pass_adult{{$index}}_name"><?=__('Név', TD)?></label>
+                              <input type="text" id="pass_adult{{$index}}_name" ng-model="passengers_detail.adults[$index].name">
+                            </div>
+                          </div>
+                          <div class="dob">
+                            <div class="w">
+                              <label for="pass_adult{{$index}}_dob"><?=__('Születési idő', TD)?></label>
+                              <input type="text" id="pass_adult{{$index}}_dob" ng-model="passengers_detail.adults[$index].dob">
+                              <span class="inf"><?=__('Minta: 1990.01.01',TD)?></span>
+                            </div>
+                          </div>
+                          <div class="address">
+                            <div class="w">
+                              <label for="pass_adult{{$index}}_address"><?=__('Lakcím', TD)?></label>
+                              <input type="text" id="pass_adult{{$index}}_address" ng-model="passengers_detail.adults[$index].address">
+                              <span class="inf"><?=__('Pl.: 1067 Budapest, Szondi utca 30.',TD)?></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="child" ng-repeat="ix in passengerArray('children') track by $index">
+                    <div class="wrapper">
+                      <h4>#{{($index+1)}} <?=__('gyermek adatai', TD)?></h4>
+                      <div class="iwrapper">
+                        <div class="flex">
+                          <div class="name">
+                            <div class="w">
+                              <label for="pass_child{{$index}}_name"><?=__('Név', TD)?></label>
+                              <input type="text" id="pass_child{{$index}}_name" ng-model="passengers_detail.children[$index].name">
+                            </div>
+                          </div>
+                          <div class="dob">
+                            <div class="w">
+                              <label for="pass_child{{$index}}_dob"><?=__('Születési idő', TD)?></label>
+                              <input type="text" id="pass_child{{$index}}_dob" ng-model="passengers_detail.children[$index].dob">
+                              <span class="inf"><?=__('Minta: 1990.01.01',TD)?></span>
+                            </div>
+                          </div>
+                          <div class="address">
+                            <div class="w">
+                              <label for="pass_child{{$index}}_address"><?=__('Lakcím', TD)?></label>
+                              <input type="text" id="pass_child{{$index}}_address" ng-model="passengers_detail.children[$index].address">
+                              <span class="inf"><?=__('Pl.: 1067 Budapest, Szondi utca 30.',TD)?></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="be">
-                <button type="button" ng-click="backToEdit(6)"><?=__('Módosít', TD)?></button>
+              <div class="comment">
+                <label for="order_comment"><?=__('Megjegyzés az ajánlatkéréshez', TD)?></label>
+                <textarea ng-model="order.comment" id="order_comment" placeholder="<?=__('Amennyiben speciális igényei merülnek fel, azt itt leírhatja...', TD)?>"></textarea>
+              </div>
+              <div class="accepts">
+                <input type="checkbox" class="cb" id="order_accept_term" ng-model="order.accept.term"> <label for="order_accept_term"><?php printf(__('Az ajánlatkérés elküldésével elfogadom az <a target="_blank" href="%s">Általános Szerződési Feltételekben</a> és <a target="_blank" href="%s">Adatvédelmi Tájékoztatóban</a> foglaltakat, melyekkel elolvastam, tudomásul vettem.', TD), '/aszf', '/adatvedelmi-tajekoztato'); ?></label>
               </div>
             </div>
           </div>
-          Tartalom
-          <br><br><br>
         </div>
         <div class="next" ng-class="(step_done[6])?'done':''">
-          <button type="button" ng-hide="step_done[6]" ng-click="nextStep(6)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
+          <button type="button" ng-hide="step_done[6]" ng-click="nextStep(6)"><?=__('Ajánlatkérés elküldése',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>

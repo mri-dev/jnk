@@ -15,6 +15,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     adults: 2,
     children: 0
   };
+  $scope.passengers_detail = {
+    adults: [],
+    children: []
+  };
   $scope.final_calc_price = 0;
   $scope.calced_room_price = {};
   $scope.dates = [];
@@ -66,6 +70,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     });
   }
 
+  $scope.passengerArray = function( g ) {
+    return new Array( parseInt($scope.passengers[g]) );
+  }
+
   $scope.recalcFinalPrice = function(){
     var price = 0;
 
@@ -101,6 +109,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         }
       }
     });
+
+    // Extra konfig itemek kalkulációja
+    var extraprices = $scope.calcExtraItemPrices();
+    price += extraprices;
 
     $scope.final_calc_price = price;
   }
@@ -164,6 +176,47 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         callback();
       }
     });
+  }
+
+  $scope.calcExtraItemPrices = function(){
+    var price = 0;
+    angular.forEach($scope.configs_selected, function(item, group){
+      angular.forEach(item, function(e, i){
+        if (e === true) {
+          var item = $scope.findConfigItemByID( group, i );
+          var p = $scope.priceCalcSum(item);
+          if(group == 'programok') {
+            $scope.config_programok_prices += p;
+          }
+          if(group == 'szolgaltatas') {
+            $scope.config_szolgaltatas_prices += p;
+          }
+
+          price += p;
+        }
+      })
+    });
+
+    return price;
+  }
+
+  $scope.pickExtraItem = function()
+  {
+    $scope.recalcFinalPrice();
+  }
+
+  $scope.findConfigItemByID = function( what, id )
+  {
+    var list = $scope.configs[what];
+    var item = null;
+
+    angular.forEach( list, function(e, i){
+      if( id == parseInt(e.ID) ) {
+       item = e;
+      }
+    });
+
+    return item;
   }
 
   $scope.selectRoom = function( id )
