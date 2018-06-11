@@ -3,7 +3,7 @@ class TravelModul
 {
   private $db = null;
   private $postid = 0;
-  private $termgroups = array('szolgaltatas', 'programok');
+  private $termgroups = array('szolgaltatas', 'programok', 'biztositas');
   private $calcmode = array('once', 'daily', 'once_person', 'day_person');
 
   public function __construct( $postid )

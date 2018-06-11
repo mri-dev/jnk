@@ -280,7 +280,7 @@
               <tr ng-repeat="item in configs.szolgaltatas">
                 <td class="tetel">
                   <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['szolgaltatas'][item.ID]" ng-value="item.ID" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
-                  <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
+                  <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
                 </td>
                 <td>{{item.price|number:0}}</td>
                 <td>{{item.price_after}}</td>
@@ -299,7 +299,7 @@
               <tr ng-repeat="item in configs.programok">
                 <td class="tetel">
                   <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['programok'][item.ID]" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
-                  <span class="label info" ng-show="(item.description!='')" title="{{item.description}}">infó</span>
+                  <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
                 </td>
                 <td>{{item.price|number:0}}</td>
                 <td>{{item.price_after}}</td>
@@ -372,20 +372,20 @@
                 <div class="flex">
                   <div class="name">
                     <div class="w">
-                      <label for="orderer_name"><?=__('Név', TD)?></label>
-                      <input type="text" id="orderer_name" ng-model="order.contact.name">
+                      <label for="orderer_name"><?=__('Név', TD)?> *</label>
+                      <input type="text" id="orderer_name" ng-model="order.contact.name" required>
                     </div>
                   </div>
                   <div class="email">
                     <div class="w">
-                      <label for="orderer_email"><?=__('E-mail cím', TD)?></label>
-                      <input type="text" id="orderer_email" ng-model="order.contact.email">
+                      <label for="orderer_email"><?=__('E-mail cím', TD)?> *</label>
+                      <input type="email" id="orderer_email" ng-model="order.contact.email" required>
                     </div>
                   </div>
                   <div class="phone">
                     <div class="w">
-                      <label for="orderer_phone"><?=__('Telefonszám', TD)?></label>
-                      <input type="text" id="orderer_phone" ng-model="order.contact.phone">
+                      <label for="orderer_phone"><?=__('Telefonszám', TD)?> *</label>
+                      <input type="text" id="orderer_phone" ng-model="order.contact.phone" required>
                     </div>
                   </div>
                 </div>
@@ -458,12 +458,29 @@
                 <textarea ng-model="order.comment" id="order_comment" placeholder="<?=__('Amennyiben speciális igényei merülnek fel, azt itt leírhatja...', TD)?>"></textarea>
               </div>
               <div class="accepts">
-                <input type="checkbox" class="cb" id="order_accept_term" ng-model="order.accept.term"> <label for="order_accept_term"><?php printf(__('Az ajánlatkérés elküldésével elfogadom az <a target="_blank" href="%s">Általános Szerződési Feltételekben</a> és <a target="_blank" href="%s">Adatvédelmi Tájékoztatóban</a> foglaltakat, melyekkel elolvastam, tudomásul vettem.', TD), '/aszf', '/adatvedelmi-tajekoztato'); ?></label>
+                <input type="checkbox" class="cb" id="order_accept_term" ng-model="order.accept.term"> <label for="order_accept_term">* <?php printf(__('Az ajánlatkérés elküldésével elfogadom az <a target="_blank" href="%s">Általános Szerződési Feltételekben</a> és <a target="_blank" href="%s">Adatvédelmi Tájékoztatóban</a> foglaltakat, melyekkel elolvastam, tudomásul vettem.', TD), '/aszf', '/adatvedelmi-tajekoztato'); ?></label>
               </div>
             </div>
           </div>
         </div>
-        <div class="next" ng-class="(step_done[6])?'done':''">
+        <div class="missing-form-data" ng-hide="canSendPreOrder()">
+          <div class="" ng-show="(order.contact.name==null || order.contact.name == '')">
+            <?=__('A kapcsolattartó nevét kötelezően meg kell adni! Kérjük, pótolja!', TD)?>
+          </div>
+          <div class="" ng-show="(order.contact.email==null || order.contact.email == '')">
+            <?=__('A kapcsolattartó e-mail címét kötelezően meg kell adni! Kérjük, pótolja!', TD)?>
+          </div>
+          <div class="" ng-show="(order.contact.phone==null || order.contact.phone == '')">
+            <?=__('A kapcsolattartó telefonszámát kötelezően meg kell adni! Kérjük, pótolja!', TD)?>
+          </div>
+          <div class="" ng-hide="passengersDetailsCheck()">
+            <?=__('Kérjük, hogy adja meg valamennyi utas adatát!', TD)?>
+          </div>
+          <div class="" ng-show="order.accept.term==false">
+            <?=__('Az ajánlatkérés elküldéséhez el kell fogadnia az Általános Szerződési Feltételeket és az Adatvédelmi Tájékoztatót!', TD)?>
+          </div>
+        </div>
+        <div class="next" ng-class="(step_done[6])?'done':''" ng-show="canSendPreOrder()">
           <button type="button" ng-hide="step_done[6]" ng-click="nextStep(6)"><?=__('Ajánlatkérés elküldése',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>

@@ -537,3 +537,11 @@ md-dialog .preloader-text i {
   border-radius: 4px;
   border: none;
 }
+/* line 434, sass/admin.scss */
+.travel-editor > .group.biztositas .wrapper label {
+  display: block !important;
+}
+/* line 437, sass/admin.scss */
+.travel-editor > .group.biztositas .wrapper > .price {
+  flex-basis: 250px !important;
+}

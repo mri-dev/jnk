@@ -419,4 +419,31 @@
 
     </div>
   </div>
+  <div class="group biztositas">
+    <div class="ghead">
+      <h2>Urasbiztosítás beállítások</h2>
+    </div>
+    <div class="cont">
+      Biztosítási költségnek adjunk meg 0 (nulla) értéket, ha nem szeretnénk kalkulálni árat, de igényelhetnek biztosítás opciót. -1 érték esetén a biztosítás opció kikapcsolásra kerül.
+      <div class="create-line">
+        <div class="new-line">
+          <div class="wrapper">
+            <div class="price">
+              <label for="bizt_price">Biztosítás költsége</label>
+              <input type="number" min="-1" step="1" id="bizt_price" class="fullw" ng-model="config_creator.biztositas[0].price">
+            </div>
+            <div class="calc-mode">
+              <label for="bizt_calcmode">Árszámítás módja</label>
+              <select class="" id="bizt_calcmode" ng-model="config_creator.biztositas[0].price_calc_mode" ng-options="key as value for (key, value) in price_calc_modes">
+                <option value="">-- ár jellege? --</option>
+              </select>
+            </div>
+            <div class="save">
+              <button type="button" ng-hide="config_saving.programok" ng-click="saveConfig('biztositas')">Változások mentése</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

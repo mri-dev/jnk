@@ -8,7 +8,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.loaded = false;
   $scope.dates_loaded = false;
   $scope.config_loaded = false;
-  $scope.config_groups = ['szolgaltatas', 'programok'];
+  $scope.config_groups = ['szolgaltatas', 'programok', 'biztositas'];
 
   // Datas
   $scope.passengers = {
@@ -33,6 +33,16 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     durration: false,
     year: false,
     date: false
+  };
+  $scope.order = {
+    contact: {
+      name: null,
+      email: null,
+      phone: null
+    },
+    accept: {
+      term: false
+    }
   };
   $scope.selected_room_id = 0;
   $scope.selected_room_data = {};
@@ -60,6 +70,58 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   {
     $scope.postid = postid;
     $scope.loadAll();
+  }
+
+  $scope.canSendPreOrder = function(){
+    var can = true;
+
+    if ( !$scope.order.accept.term ) {
+      can = false;
+    }
+
+    if ( $scope.order.contact.name == null || $scope.order.contact.name == '' ) {
+      can = false;
+    }
+
+    if ( $scope.order.contact.email == null || $scope.order.contact.email == '' ) {
+      can = false;
+    }
+
+    if ( $scope.order.contact.phone == null || $scope.order.contact.phone == '' ) {
+      can = false;
+    }
+
+    return can;
+  }
+
+  $scope.passengersDetailsCheck = function()
+  {
+    var ok = true;
+
+    var adults = parseInt($scope.passengers.adults);
+    var children = parseInt($scope.passengers.children);
+
+    if ( adults !== 0 ) {
+      for (var i = adults; i > 0; i--) {
+        var ai = i-1;
+        var co = $scope.passengers_detail.adults[ai];
+        if(typeof co == 'undefined' || typeof co.name === 'undefined' || co.name == '') { ok = false; }
+        if(typeof co == 'undefined' || typeof co.dob === 'undefined' || co.dob == '') { ok = false; }
+        if(typeof co == 'undefined' || typeof co.address === 'undefined' || co.address == '') { ok = false; }
+      }
+    }
+
+    if ( children !== 0 ) {
+      for (var i = children; i > 0; i--) {
+        var ai = i-1;
+        var co = $scope.passengers_detail.children[ai];
+        if(typeof co == 'undefined' || typeof co.name === 'undefined' || co.name == '') { ok = false; }
+        if(typeof co == 'undefined' || typeof co.dob === 'undefined' || co.dob == '') { ok = false; }
+        if(typeof co == 'undefined' || typeof co.address === 'undefined' || co.address == '') { ok = false; }
+      }
+    }
+
+    return ok;
   }
 
   $scope.loadAll = function(){

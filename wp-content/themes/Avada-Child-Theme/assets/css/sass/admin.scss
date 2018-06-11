@@ -428,5 +428,16 @@ md-dialog{
         }
       }
     }
+
+    &.biztositas{
+      .wrapper{
+        label {
+          display: block !important;
+        }
+        & > .price {
+          flex-basis: 250px !important;
+        }
+      }
+    }
   }
 }
