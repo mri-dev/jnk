@@ -537,11 +537,23 @@ md-dialog .preloader-text i {
   border-radius: 4px;
   border: none;
 }
-/* line 434, sass/admin.scss */
-.travel-editor > .group.biztositas .wrapper label {
-  display: block !important;
+/* line 433, sass/admin.scss */
+.travel-editor > .group.biztositas .wrapper {
+  align-items: flex-end !important;
+  margin: 0 -5px !important;
 }
 /* line 437, sass/admin.scss */
+.travel-editor > .group.biztositas .wrapper input, .travel-editor > .group.biztositas .wrapper select {
+  height: 30px !important;
+  line-height: 30px !important;
+}
+/* line 441, sass/admin.scss */
+.travel-editor > .group.biztositas .wrapper label {
+  display: block !important;
+  margin: 0 0 5px 0 !important;
+  font-weight: bold !important;
+}
+/* line 446, sass/admin.scss */
 .travel-editor > .group.biztositas .wrapper > .price {
   flex-basis: 250px !important;
 }

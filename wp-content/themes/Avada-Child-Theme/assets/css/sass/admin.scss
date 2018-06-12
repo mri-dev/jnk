@@ -431,8 +431,17 @@ md-dialog{
 
     &.biztositas{
       .wrapper{
+        align-items: flex-end !important;
+        margin: 0 -5px !important;
+
+        input, select{
+          height: 30px !important;
+          line-height: 30px !important;
+        }
         label {
           display: block !important;
+          margin: 0 0 5px 0 !important;
+          font-weight: bold !important;
         }
         & > .price {
           flex-basis: 250px !important;

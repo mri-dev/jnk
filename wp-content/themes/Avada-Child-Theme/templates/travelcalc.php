@@ -256,7 +256,7 @@
                 </td>
                 <td>{{selected_room_data.adult_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x{{selected_date_data.durration.nights}}</td>
+                <td>x{{selected_date_data.durration.nights*passengers.adults}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].adults)|number:0}} Ft</td>
               </tr>
               <tr ng-show="(passengers.children!=0)">
@@ -265,7 +265,7 @@
                 </td>
                 <td>{{selected_room_data.child_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x{{selected_date_data.durration.nights}}</td>
+                <td>x{{selected_date_data.durration.nights*passengers.children}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
               </tr>
               <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
@@ -310,28 +310,29 @@
                 <td colspan="4" class="ev">Programok összesen:</td>
                 <td class="price">{{config_programok_prices|number:0}} Ft</td>
               </tr>
-              <tr>
+              <tr ng-hide="biztositas.price===-1">
                 <td colspan="5" class="price-group">
                   <?=__('Utasbiztosítás', TD)?>
                 </td>
               </tr>
-              <tr>
+              <tr ng-hide="biztositas.price===-1">
                 <td class="tetel">
-                  <input type="radio" name="utasbiztositas" checked="checked" id="utasbizt_no"> <label for="utasbizt_no"><?=__('Nem kérek biztosítást', TD)?></label>
+                  <input type="radio" ng-change="pickExtraItem()" name="utasbiztositas" ng-model="configs_selected['biztositas']" ng-value="0" checked="checked" id="utasbizt_no"> <label for="utasbizt_no"><?=__('Nem kérek biztosítást', TD)?></label>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
+              <tr ng-hide="biztositas.price===-1">
                 <td class="tetel">
-                  <input type="radio" name="utasbiztositas" id="utasbizt_yes"> <label for="utasbizt_yes"><?=__('Kérek biztosítást', TD)?></label>
+                  <input type="radio" ng-change="pickExtraItem()" name="utasbiztositas" ng-model="configs_selected['biztositas']" ng-value="biztositas" id="utasbizt_yes"> <label for="utasbizt_yes"><?=__('Kérek biztosítást', TD)?></label>
                 </td>
-                <td>890 Ft</td>
-                <td>/ fő / nap</td>
-                <td>x8</td>
-                <td>7 120 Ft</td>
+                <td ng-hide="biztositas.price===0">{{biztositas.price}}</td>
+                <td ng-hide="biztositas.price===0">{{biztositas.price_after}}</td>
+                <td ng-hide="biztositas.price===0">x {{priceCalcMe(biztositas)}}</td>
+                <td ng-hide="biztositas.price===0">{{priceCalcSum(biztositas)|number:0}} Ft</td>
+                <td colspan="4" ng-show="biztositas.price===0"><?=__('Egyedi ajánlat', TD)?></td>
               </tr>
             </tbody>
           </table>

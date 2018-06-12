@@ -25,9 +25,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.datelist = {};
   $scope.terms = {};
   $scope.configs = {};
+  $scope.biztositas = {};
   $scope.configs_selected = {
     programok: [],
-    szolgaltatas: []
+    szolgaltatas: [],
+    biztositas: 0
   };
   $scope.dateselect = {
     durration: false,
@@ -243,20 +245,26 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.calcExtraItemPrices = function(){
     var price = 0;
     angular.forEach($scope.configs_selected, function(item, group){
-      angular.forEach(item, function(e, i){
-        if (e === true) {
-          var item = $scope.findConfigItemByID( group, i );
-          var p = $scope.priceCalcSum(item);
-          if(group == 'programok') {
-            $scope.config_programok_prices += p;
-          }
-          if(group == 'szolgaltatas') {
-            $scope.config_szolgaltatas_prices += p;
-          }
-
-          price += p;
+      if (group == 'biztositas') {
+        if( item !== 0) {
+          price += $scope.priceCalcSum(item);
         }
-      })
+      } else {
+        angular.forEach(item, function(e, i){
+          if (e === true) {
+            var item = $scope.findConfigItemByID( group, i );
+            var p = $scope.priceCalcSum(item);
+            if(group == 'programok') {
+              $scope.config_programok_prices += p;
+            }
+            if(group == 'szolgaltatas') {
+              $scope.config_szolgaltatas_prices += p;
+            }
+
+            price += p;
+          }
+        });
+      }
     });
 
     return price;
@@ -356,7 +364,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         $scope.configs[c] = r.data[c];
       });
 
-      console.log(r.data);
+      if ( r.data.biztositas && typeof r.data.biztositas[0] !== 'undefined' ) {
+        $scope.biztositas = r.data.biztositas[0];
+      }
 
       $http({
         method: 'POST',
@@ -502,12 +512,14 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
   $scope.config_creator = {
     'szolgaltatas': [],
     'szobak': [],
-    'programok': []
+    'programok': [],
+    'biztositas': []
   };
   $scope.config_saving = {
     'szolgaltatas': false,
     'szobak': false,
-    'programok': false
+    'programok': false,
+    'biztositas': false
   };
 
   // Datas
@@ -819,6 +831,10 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       angular.forEach($scope.config_groups, function(c,i){
         $scope.configs[c] = r.data[c];
       });
+
+      if ( r.data.biztositas && typeof r.data.biztositas[0] !== 'undefined' ) {
+        $scope.config_creator.biztositas[0] = r.data.biztositas[0];
+      }
     });
 
     $http({

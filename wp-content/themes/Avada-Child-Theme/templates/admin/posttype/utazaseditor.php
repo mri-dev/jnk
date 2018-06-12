@@ -439,7 +439,7 @@
               </select>
             </div>
             <div class="save">
-              <button type="button" ng-hide="config_saving.programok" ng-click="saveConfig('biztositas')">Változások mentése</button>
+              <button type="button" class="button button-primary button-large" ng-hide="config_saving.programok" ng-click="saveConfig('biztositas')">Változások mentése</button>
             </div>
           </div>
         </div>

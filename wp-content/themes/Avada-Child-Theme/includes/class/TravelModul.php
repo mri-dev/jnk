@@ -180,6 +180,16 @@ class TravelModul
         $set = $reset;
         unset($reset);
       break;
+      case 'biztositas':
+        $reset = array();
+        foreach ($set as $s) {
+          $s->price_after = ' Ft'.$this->priceTypeText($s->price_calc_mode);
+          $s->price = (float)$s->price;
+          $reset[] = $s;
+        }
+        $set = $reset;
+        unset($reset);
+      break;
     }
     return $set;
   }
@@ -361,22 +371,32 @@ class TravelModul
       throw new \Exception("Hiba: hiányzik a csoportazonosító kulcs az elem mentéséhez.");
     }
 
+    // Szokák mentése
     if ( $group == 'szobak' ) {
       return $this->saveRooms( $data );
     }
 
     // check item
     foreach ( (array)$data as $d ) {
-      if ( $d['title'] == '' ) {
+      if ( $d['title'] == '' && $group != 'biztositas' ) {
         throw new \Exception("Hiba: az elem(ek) megnevezése kötelező.");
       }
+
 
       if ( $d['price_calc_mode'] == '0' ) {
         throw new \Exception("Hiba: az elem(ek)nél kötelezően ki kell választani az ár jellegét.");
       }
     }
 
-    foreach ( (array)$data as $d ) {
+    foreach ( (array)$data as $d )
+    {
+      if ( $group == 'biztositas' && isset($data[0]['ID'])) {
+        continue;
+      }
+      if ($group == 'biztositas') {
+        $d['title'] = 'Utasbiztosítás';
+      }
+
       $this->db->insert(
         'travel_term_config',
         array(
@@ -392,6 +412,23 @@ class TravelModul
       );
 
       $back['inserted_id'][] = $this->db->insert_id;
+    }
+
+    if ( $group == 'biztositas' && isset($data[0]['ID']) ) {
+      $this->db->update(
+        'travel_term_config',
+        array(
+          'price' => (float)$data[0]['price'],
+          'price_calc_mode' => $data[0]['price_calc_mode']
+        ),
+        array(
+          'ID' => (int)$data[0]['ID']
+        ),
+        array(
+          '%d', '%s'
+        ),
+        array( '%d' )
+      );
     }
 
     return $back;
