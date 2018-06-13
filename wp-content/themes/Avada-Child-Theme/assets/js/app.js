@@ -68,6 +68,36 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   };
   $scope.step_loading = false;
 
+  $scope.doPreOrder = function()
+  {
+    var prepare = {};
+
+    prepare.passengers = $scope.passengers;
+    prepare.configs = $scope.configs_selected;
+    prepare.configs = $scope.configs_selected;
+    prepare.biztositas = $scope.biztositas;
+    prepare.roomprice = $scope.calced_room_price;
+    prepare.passengers_details = $scope.passengers_detail;
+    prepare.final_calc_price = $scope.final_calc_price;
+    prepare.order = $scope.order;
+    prepare.selected_date = $scope.selected_date_data;
+    prepare.selected_room = $scope.selected_room_data;
+    prepare.selected_ellatas = $scope.selected_ellatas_data;
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid,
+        mode: 'sendPreOrder',
+        calculator: prepare
+      })
+    }).success(function(r){
+      console.log(r);
+    });
+  }
+
   $scope.init = function( postid )
   {
     $scope.postid = postid;

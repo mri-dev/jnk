@@ -51,6 +51,17 @@ class AjaxRequests
 
     switch ($mode)
     {
+      // Ajánlatkérés elküldése
+      case 'sendPreOrder':
+        try {
+          $re = $travels->sendPreOrder( $calculator );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // Időpontok mentése
       case 'saveDates':
         try {
@@ -216,7 +227,7 @@ class AjaxRequests
       $td = array();
       foreach ((array)$data as $termkey => $termdata) {
         $termdata->metas = get_option("taxonomy_".$termdata->term_id);
-        if ($term == 'utazas_duration') {          
+        if ($term == 'utazas_duration') {
           $termdata->nights = (int)$termdata->metas['nights'];
         }
         $td[$termkey] = $termdata;

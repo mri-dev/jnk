@@ -167,6 +167,37 @@ class TravelModul
     return $back;
   }
 
+  public function sendPreOrder( $calculator )
+  {
+    $can_send = true;
+
+    if ( $can_send ) {
+      // Admin értesítés
+      $name = 'MI';
+      $email = 'mistvan2014@gmail.com';
+      $to = get_option('admin_email');
+      $mail_subject  = sprintf(__('Új ajnálatkérés: %s'), $name);
+
+      ob_start();
+    	  include(locate_template('templates/mails/utazascalculator.php'));
+        $message = ob_get_contents();
+  		ob_end_clean();
+
+      add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+      add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+      add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+
+      $headers  = array();
+      if (!empty($email)) {
+        $headers[]  = 'Reply-To: '.$name.' <'.$email.'>';
+      }
+
+      $alert = wp_mail( $to, $mail_subject, $message, $headers );
+    }
+
+    return $alert;
+  }
+
   private function prepareTermConfigs( $group, $set )
   {
     switch ($group) {
@@ -555,6 +586,20 @@ class TravelModul
         } else continue;
       }
     }
+  }
+
+  public function getMailFormat(){
+      return "text/html";
+  }
+
+  public function getMailSender($default)
+  {
+    return get_option('admin_email');
+  }
+
+  public function getMailSenderName($default)
+  {
+    return get_option('blogname', 'Wordpress');
   }
 
   public function __destruct()

@@ -269,7 +269,7 @@
                 <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
               </tr>
               <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
-                <td colspan="4" class="ev">Szállás és utazás összesen:</td>
+                <td colspan="4" class="ev">Szállás összesen:</td>
                 <td class="price">{{travel_prices|number:0}} Ft</td>
               </tr>
               <tr ng-show="configs.szolgaltatas.length!=0">
@@ -481,8 +481,8 @@
             <?=__('Az ajánlatkérés elküldéséhez el kell fogadnia az Általános Szerződési Feltételeket és az Adatvédelmi Tájékoztatót!', TD)?>
           </div>
         </div>
-        <div class="next" ng-class="(step_done[6])?'done':''" ng-show="canSendPreOrder()">
-          <button type="button" ng-hide="step_done[6]" ng-click="nextStep(6)"><?=__('Ajánlatkérés elküldése',TD)?> <i class="fas fa-angle-right"></i></button>
+        <div class="next" ng-class="(step_done[6])?'done':''" ng-hide="canSendPreOrder()">
+          <button type="button" ng-hide="step_done[6]" ng-click="doPreOrder()"><?=__('Ajánlatkérés elküldése',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>
