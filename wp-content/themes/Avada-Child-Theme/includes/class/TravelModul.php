@@ -171,12 +171,19 @@ class TravelModul
   {
     $can_send = true;
 
+    $spost = get_post( $this->postid, \ARRAY_A );
+    $spost_url = get_permalink( $this->postid );
+    $spost_sdesc = get_the_excerpt( $this->postid );
+    $spost_img = get_the_post_thumbnail_url( $this->postid );
+    $is_user_alert = false;
+
     if ( $can_send ) {
       // Admin értesítés
-      $name = 'MI';
-      $email = 'mistvan2014@gmail.com';
+      $name = $calculator['order']['contact']['name'];
+      $email = $calculator['order']['contact']['email'];
       $to = get_option('admin_email');
-      $mail_subject  = sprintf(__('Új ajnálatkérés: %s'), $name);
+      $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
+      $mail_subject  = sprintf(__('Új ajnálatkérés: %s (%s)'), $name, $pa_text);
 
       ob_start();
     	  include(locate_template('templates/mails/utazascalculator.php'));
@@ -193,9 +200,70 @@ class TravelModul
       }
 
       $alert = wp_mail( $to, $mail_subject, $message, $headers );
+
+      // User értesítés
+      $is_user_alert = true;
+      $name = $calculator['order']['contact']['name'];
+      $email = $calculator['order']['contact']['email'];
+      $to = $email;
+      $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
+      $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)'), $pa_text);
+
+      ob_start();
+    	  include(locate_template('templates/mails/utazascalculator.php'));
+        $message = ob_get_contents();
+  		ob_end_clean();
+
+      add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+      add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+      add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+
+      $headers  = array();
+      if (!empty($email)) {
+        $headers[]  = 'Reply-To: '.get_option('blogname', 'Wordpress').' <'.get_option('admin_email').'>';
+      }
+
+      wp_mail( $to, $mail_subject, $message, $headers );
     }
 
     return $alert;
+  }
+
+  public function priceCalcMe( $item, $date_data, $passengers )
+  {
+    switch ( $item['price_calc_mode'] )
+    {
+      case 'once':
+        return 1;
+      break;
+
+      case 'daily':
+        if ($date_data['durration']) {
+          $n = ($date_data) ? (int)($date_data['durration']['nights']) : 0;
+        }
+        return $n+1;
+      break;
+
+      case 'day_person':
+        $fo = (int)$passengers['adults'] + (int)$passengers['children'];
+        if ($date_data['durration']) {
+          $n = ($date_data) ? (int)$date_data['durration']['nights'] : 0;
+        }
+        return ($n+1) * $fo;
+      break;
+
+      case 'once_person':
+        $fo = (int)$passengers['adults'] + (int)$passengers['children'];
+        return $fo;
+      break;
+    }
+  }
+
+  public function priceCalcSum( $item, $date_data, $passengers )
+  {
+    $me = $this->priceCalcMe( $item, $date_data, $passengers );
+
+    return (float)$item['price'] * $me;
   }
 
   private function prepareTermConfigs( $group, $set )

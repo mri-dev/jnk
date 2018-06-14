@@ -9,6 +9,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.dates_loaded = false;
   $scope.config_loaded = false;
   $scope.config_groups = ['szolgaltatas', 'programok', 'biztositas'];
+  $scope.preorder_sending = false;
 
   // Datas
   $scope.passengers = {
@@ -26,6 +27,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.terms = {};
   $scope.configs = {};
   $scope.biztositas = {};
+  $scope.preorder_msg = {
+    error: 1,
+    msg: null
+  };
   $scope.configs_selected = {
     programok: [],
     szolgaltatas: [],
@@ -46,11 +51,14 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       term: false
     }
   };
+
   $scope.selected_room_id = 0;
   $scope.selected_room_data = {};
   $scope.selected_ellatas = false;
   $scope.selected_ellatas_data = false;
   $scope.selected_date_data = {};
+  $scope.selected_programs = {};
+  $scope.selected_szolgaltatas = {};
   $scope.config_szolgaltatas_prices = 0;
   $scope.config_programok_prices = 0;
   $scope.travel_prices = 0;
@@ -70,6 +78,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
   $scope.doPreOrder = function()
   {
+    $scope.preorder_sending = true;
     var prepare = {};
 
     prepare.passengers = $scope.passengers;
@@ -83,6 +92,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     prepare.selected_date = $scope.selected_date_data;
     prepare.selected_room = $scope.selected_room_data;
     prepare.selected_ellatas = $scope.selected_ellatas_data;
+    prepare.selected_programs = $scope.selected_programs;
+    prepare.selected_szolgaltatas = $scope.selected_szolgaltatas;
+    prepare.config_szolgaltatas_prices = $scope.config_szolgaltatas_prices;
+    prepare.config_programok_prices = $scope.config_programok_prices;
+    prepare.travel_prices = $scope.travel_prices;
 
     $http({
       method: 'POST',
@@ -94,6 +108,17 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         calculator: prepare
       })
     }).success(function(r){
+      $scope.preorder_sending = false;
+      if (r.data) {
+        // Reset
+        $scope.backToEdit(1);
+        $scope.preorder_msg.error = 0;
+        $scope.preorder_msg.msg = 'Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!';
+      } else {
+        // Nem küldte el a levelet.
+        $scope.preorder_msg.error = 1;
+        $scope.preorder_msg.msg = 'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!';
+      }
       console.log(r);
     });
   }
@@ -171,9 +196,15 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.recalcFinalPrice = function(){
     var price = 0;
 
+    // Reset
+    $scope.selected_programs = {};
+    $scope.selected_szolgaltatas = {};
+
     // Utasok szobaárai
-    price += $scope.calced_room_price[$scope.selected_room_data.ID].adults;
-    price += $scope.calced_room_price[$scope.selected_room_data.ID].children;
+    if (typeof $scope.calced_room_price[$scope.selected_room_data.ID] !== 'undefined') {
+      price += $scope.calced_room_price[$scope.selected_room_data.ID].adults;
+      price += $scope.calced_room_price[$scope.selected_room_data.ID].children;
+    }
 
     // Egyéb utazási költségek
     // TODO: utazási költség lista
@@ -186,6 +217,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       if (e.requireditem) {
         var p = $scope.priceCalcSum(e);
         if ( p > 0 ) {
+          if (typeof $scope.selected_szolgaltatas[e.ID] === 'undefined') {
+            $scope.selected_szolgaltatas[e.ID] = e;
+          }
           price += p;
           $scope.config_szolgaltatas_prices += p;
         }
@@ -199,6 +233,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         var p = $scope.priceCalcSum(e);
         if ( p > 0 ) {
           price += p;
+          if (typeof $scope.selected_programs[e.ID] === 'undefined') {
+            $scope.selected_programs[e.ID] = e;
+          }
           $scope.config_programok_prices += p;
         }
       }
@@ -285,9 +322,15 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
             var item = $scope.findConfigItemByID( group, i );
             var p = $scope.priceCalcSum(item);
             if(group == 'programok') {
+              if (typeof $scope.selected_programs[item.ID] === 'undefined') {
+                $scope.selected_programs[item.ID] = item;
+              }
               $scope.config_programok_prices += p;
             }
             if(group == 'szolgaltatas') {
+              if (typeof $scope.selected_programs[item.ID] === 'undefined') {
+                $scope.selected_szolgaltatas[item.ID] = item;
+              }
               $scope.config_szolgaltatas_prices += p;
             }
 
@@ -484,7 +527,156 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.backToEdit = function( step ){
     $scope.step = step;
 
-    // Reset steps fo false
+    // Utasok megadása
+    if ( step == 1 )
+    {
+      $scope.dateselect = {
+        durration: false,
+        year: false,
+        date: false
+      };
+      $scope.selected_date_data = {};
+      $scope.selected_ellatas = false;
+      $scope.selected_ellatas_data = false;
+      $scope.selected_room_id = 0;
+      $scope.selected_room_data = {};
+      $scope.configs_selected = {
+        programok: [],
+        szolgaltatas: [],
+        biztositas: 0
+      };
+      $scope.selected_programs = {};
+      $scope.selected_szolgaltatas = {};
+      $scope.config_szolgaltatas_prices = 0;
+      $scope.config_programok_prices = 0;
+      $scope.travel_prices = 0;
+      $scope.passengers_detail = {
+        adults: [],
+        children: []
+      };
+      $scope.order = {
+        contact: {
+          name: null,
+          email: null,
+          phone: null
+        },
+        accept: {
+          term: false
+        }
+      };
+    }
+    // Időpont kiválasztása
+    else if( step == 2 )
+    {
+      $scope.selected_ellatas = false;
+      $scope.selected_ellatas_data = false;
+      $scope.selected_room_id = 0;
+      $scope.selected_room_data = {};
+      $scope.configs_selected = {
+        programok: [],
+        szolgaltatas: [],
+        biztositas: 0
+      };
+      $scope.selected_programs = {};
+      $scope.selected_szolgaltatas = {};
+      $scope.config_szolgaltatas_prices = 0;
+      $scope.config_programok_prices = 0;
+      $scope.travel_prices = 0;
+      $scope.passengers_detail = {
+        adults: [],
+        children: []
+      };
+      $scope.order = {
+        contact: {
+          name: null,
+          email: null,
+          phone: null
+        },
+        accept: {
+          term: false
+        }
+      };
+    }
+    // Ellátások
+    else if( step == 3 )
+    {
+      $scope.selected_room_id = 0;
+      $scope.selected_room_data = {};
+      $scope.configs_selected = {
+        programok: [],
+        szolgaltatas: [],
+        biztositas: 0
+      };
+      $scope.selected_programs = {};
+      $scope.selected_szolgaltatas = {};
+      $scope.config_szolgaltatas_prices = 0;
+      $scope.config_programok_prices = 0;
+      $scope.travel_prices = 0;
+      $scope.passengers_detail = {
+        adults: [],
+        children: []
+      };
+      $scope.order = {
+        contact: {
+          name: null,
+          email: null,
+          phone: null
+        },
+        accept: {
+          term: false
+        }
+      };
+    }
+    // Szobatípus
+    else if( step == 4 )
+    {
+      $scope.configs_selected = {
+        programok: [],
+        szolgaltatas: [],
+        biztositas: 0
+      };
+      $scope.selected_programs = {};
+      $scope.selected_szolgaltatas = {};
+      $scope.config_szolgaltatas_prices = 0;
+      $scope.config_programok_prices = 0;
+      $scope.travel_prices = 0;
+      $scope.passengers_detail = {
+        adults: [],
+        children: []
+      };
+      $scope.order = {
+        contact: {
+          name: null,
+          email: null,
+          phone: null
+        },
+        accept: {
+          term: false
+        }
+      };
+    }
+    // Ár összesítő
+    else if( step == 5 )
+    {
+      $scope.passengers_detail = {
+        adults: [],
+        children: []
+      };
+      $scope.order = {
+        contact: {
+          name: null,
+          email: null,
+          phone: null
+        },
+        accept: {
+          term: false
+        }
+      };
+    }
+
+    $scope.recalcFinalPrice();
+
+    // Reset steps to false
     angular.forEach($scope.step_done, function(v,i){
       if ( i < step ) {
         $scope.step_done[i] = true;
@@ -503,6 +695,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     switch ( current ) {
       // Utasok megadása - Dátumok betöltése
       case 1:
+        $scope.preorder_msg = {
+          error: 0,
+          msg: null
+        };
         $scope.loadDates(function(){
           $scope.step_loading = false;
         });

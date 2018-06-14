@@ -1119,7 +1119,7 @@ body.single-utazas{
       top: 65px;
       left: 0;
       right: 0;
-      box-shadow: 0 5px 10px -2px rgba(187, 187, 187, 0.88);
+      box-shadow: 0 5px 10px -2px rgba(187, 187, 187, 0.85);
     }
     .base-content-holder{
       padding-top: 115px;
@@ -1129,6 +1129,17 @@ body.single-utazas{
 
 .gettraveloffer{
   background: #eaeaea;
+
+  .preorder-sending{
+    font-size: 1.3em;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background: darken($color-green, 10%);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
   & > .header{
     background: $color-blue;
     padding: 20px;
@@ -1512,6 +1523,28 @@ body.single-utazas{
       & > div.cholder > .next button{
         background: $color-green;
         text-align: center;
+      }
+    }
+
+    &.preorder-msg{
+      margin: 0 0 25px 0;
+      color: white;
+      padding: 20px;
+      font-size: 1.4em;
+      font-weight: bold;
+
+      .svg-inline--fa {
+        margin: 4px 15px 10px 0;
+        float: left;
+        font-size: 22px;
+        color: white;
+      }
+
+      &.success{
+        background: $color-green;
+      }
+      &.error{
+        background: $color-red;
       }
     }
   }

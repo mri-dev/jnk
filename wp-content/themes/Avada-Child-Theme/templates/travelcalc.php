@@ -221,7 +221,7 @@
             </div>
           </div>
         </div>
-        <div class="next" ng-class="(step_done[4])?'done':''">
+        <div class="next" ng-class="(step_done[4])?'done':''" ng-show="selected_room_id">
           <button type="button" ng-hide="step_done[4]" ng-click="nextStep(4)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
@@ -481,10 +481,18 @@
             <?=__('Az ajánlatkérés elküldéséhez el kell fogadnia az Általános Szerződési Feltételeket és az Adatvédelmi Tájékoztatót!', TD)?>
           </div>
         </div>
-        <div class="next" ng-class="(step_done[6])?'done':''" ng-hide="canSendPreOrder()">
+        <div class="next" ng-class="(step_done[6])?'done':''" ng-show="canSendPreOrder() && !preorder_sending">
           <button type="button" ng-hide="step_done[6]" ng-click="doPreOrder()"><?=__('Ajánlatkérés elküldése',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
+        <div class="preorder-sending" ng-show="preorder_sending">
+          Ajánlatkérés küldése folyamatban <i class="fa fa-spin fa-spinner"></i>
+        </div>
       </div>
+    </div>
+    <div class="offer-group preorder-msg" ng-show="preorder_msg.msg" ng-class="(preorder_msg.error==0)?'success':'error'">
+      <i class="fa fa-check-circle" ng-show="preorder_msg.error==0"></i>
+      <i class="fa fa-times-circle" ng-show="preorder_msg.error==1"></i>
+      {{preorder_msg.msg}}
     </div>
   </div>
 </div>
