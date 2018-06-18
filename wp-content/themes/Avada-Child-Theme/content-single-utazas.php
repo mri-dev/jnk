@@ -5,6 +5,8 @@
   $utazas_mod = $travel->showUtazasMod();
   $travel_from = $travel->getTravelFrom();
   $travel_to = $travel->getTravelTo();
+  $gallery_id = $travel->getGalleryID();
+  $programs = $travel->getPrograms();
 ?>
 <a name="datas"></a>
 <div class="travel-base-wrapper">
@@ -54,7 +56,9 @@
             <li class="active datas"><a href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('Adatok', TD); ?></a></li>
             <li class="description"><a href="javascript:void(0);" data-scrollTarget="description"><?php echo __('Ismertető', TD); ?></a></li>
             <li class="programs"><a href="javascript:void(0);" data-scrollTarget="programs"><?php echo __('Programok', TD); ?></a></li>
+            <?php if ($gallery_id): ?>
             <li class="gallery"><a href="javascript:void(0);" data-scrollTarget="gallery"><?php echo __('Képek', TD); ?></a></li>
+            <?php endif; ?>
             <li class="reviews"><a href="javascript:void(0);" data-scrollTarget="reviews"><?php echo sprintf(__('Értékelések (%d)', TD), 0); ?></a></li>
           </ul>
         </div>
@@ -69,18 +73,43 @@
         <?php the_content(); ?>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
+      <?php if ($programs): ?>
       <div class="programs">
         <a name="programs"></a>
         <h2><i class="fas fa-tasks"></i> <?php echo __('Programok', TD); ?></h2>
-        ...
+        <div class="program-list">
+          <?php foreach ($programs as $program): ?>
+          <?php
+            $img = get_the_post_thumbnail_url($program->ID);
+          ?>
+          <div class="program">
+            <div class="wrapper">
+              <div class="image">
+                <img src="<?=$img?>" alt="">
+              </div>
+              <div class="data">
+                <div class="title">
+                  <h3><a href="<?=get_permalink($program->ID)?>" target="_blank"><?=$program->post_title?></a></h3>
+                </div>
+                <div class="sdesc">
+                  <?php echo get_the_excerpt($program->ID); ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+        </div>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
+      <?php endif; ?>
+      <?php if ($gallery_id): ?>
       <div class="gallery">
         <a name="gallery"></a>
         <h2><i class="far fa-images"></i> <?php echo __('Képek', TD); ?></h2>
-        ...
+        <?php photo_gallery(1); ?>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
+      <?php endif; ?>
       <div class="reviews">
         <a name="reviews"></a>
         <h2><i class="far fa-star"></i> <?php echo __('Értékelések', TD); ?></h2>
@@ -121,11 +150,13 @@
 
 
       $.each(contentGroups, function(i,e){
-        var topp = $('a[name='+e+']').offset().top;
-        topp = topp - $('#fixnav').height() - 65 - 40 - $('#wpadminbar').height();
+        if (typeof $('a[name='+e+']').offset() !== 'undefined') {
+          var topp = $('a[name='+e+']').offset().top;
+          topp = topp - $('#fixnav').height() - 65 - 40 - $('#wpadminbar').height();
 
-        if( sc >= topp) {
-          currentelem = e;
+          if( sc >= topp) {
+            currentelem = e;
+          }
         }
       });
 

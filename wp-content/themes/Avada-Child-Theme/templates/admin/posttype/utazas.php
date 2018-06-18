@@ -1,3 +1,9 @@
+<?php
+  global $wpdb;
+  $programok = get_posts(array(
+    'post_type' => 'programok'
+  ));
+?>
 <table class="jnk">
   <tr>
     <td>
@@ -26,11 +32,58 @@
     </td>
   </tr>
   <tr>
-    <td colspan="10">
+    <td colspan="2">
       <?php $metakey = METAKEY_PREFIX . 'ar_magyarazat'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Meghirdetett ár magyarázó szövege (*)', TD); ?></strong></label></p>
       <?php $ar_magyarazat = get_post_meta($post->ID, $metakey, true); ?>
       <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_magyarazat?>">
+    </td>
+    <td colspan="2">
+      <?php
+        $metakey = METAKEY_PREFIX . 'photo_gallery_id';
+        $selected_gallery_id = get_post_meta($post->ID, $metakey, true);
+        $galleries = $wpdb->get_results($ig = "SELECT id, name FROM ".$wpdb->prefix."bwg_gallery WHERE published = 1 and autogallery_image_number != 0 ORDER BY `order` ASC, `name` ASC");
+      ?>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Képgaléria kiválasztása', TD); ?></strong></label></p>
+      <?php if ( count($galleries) == 0 ): ?>
+        Nincs galéria létrehozva! <a href="/wp-admin/admin.php?page=galleries_bwg">Új galéria létrehozása >></a>
+      <?php else: ?>
+        <select class="" id="<?=$metakey?>" name="<?=$metakey?>">
+          <option value="" selected="selected">-- nincs galéria kiválaszt: válasszon --</option>
+          <option value="" disabled="disabled"></option>
+          <?php foreach ($galleries as $gallery): ?>
+          <option value="<?=$gallery->id?>" <?=($gallery->id == $selected_gallery_id)?'selected="selected"':''?>><?=$gallery->name?></option>
+          <?php endforeach; ?>
+        </select>
+      <?php endif; ?>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <p><label class="post-attributes-label" for=""><strong><?php echo __('Program ajánlók', TD); ?></strong></label></p>
+      <div class="categorydiv">
+        <div class="tabs-panel">
+          <ul class="categorychecklist ">
+            <?php
+            $metakey = METAKEY_PREFIX . 'programok';
+            $program_ids = explode(",",get_post_meta($post->ID, $metakey, true));
+            ?>
+            <?php foreach ($programok as $program): ?>
+            <li>
+              <label for="program_aj_<?=$program->ID?>"><input id="program_aj_<?=$program->ID?>" type="checkbox" <?=(in_array($program->ID, $program_ids))?'checked="checked"':''?> name="programok[]" value="<?=$program->ID?>"> <?=$program->post_title?></label>
+            </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      </div>
+    </td>
+    <td colspan="2">
+      <p><label class="post-attributes-label" for=""><strong><?php echo __('Ajánlott utazások', TD); ?></strong></label></p>
+      <div class="categorydiv">
+        <div class="tabs-panel">
+
+        </div>
+      </div>
     </td>
   </tr>
 </table>

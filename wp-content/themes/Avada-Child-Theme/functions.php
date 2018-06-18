@@ -288,6 +288,20 @@ function create_custom_posttypes()
 
 	$utak->create();
   add_post_type_support( 'utazas', 'excerpt' );
+
+  // Programok
+  $programok = new PostTypeFactory( 'programok' );
+	$programok->set_textdomain( TD );
+	$programok->set_icon('tag');
+	$programok->set_name( 'Program', 'Programok' );
+	$programok->set_labels( array(
+		'add_new' => 'Új %s',
+		'not_found_in_trash' => 'Nincsenek %s a lomtárban.',
+		'not_found' => 'Nincsenek %s a listában.',
+		'add_new_item' => 'Új %s létrehozása',
+	) );
+  $programok->create();
+  add_post_type_support( 'programok', 'excerpt' );
 }
 
 /**
@@ -380,10 +394,13 @@ function custom_admin_css() {
   }
   table.jnk td{
     padding: 10px;
+    vertical-align: top;
   }
-  table.jnk input[type=text]{
+  table.jnk input[type=text],
+  table.jnk select{
     width: 100%;
     padding: 8px;
+    height: auto;
   }
   </style>';
 }

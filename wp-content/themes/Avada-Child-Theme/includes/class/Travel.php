@@ -35,6 +35,19 @@ class Travel
     }
   }
 
+  public function getPrograms()
+  {
+    $programs = array();
+    $ids = explode(",",get_post_meta($this->id, METAKEY_PREFIX . 'programok', true));
+
+    $programs = get_posts(array(
+      'post_type' => 'programok',
+      'post__in' => $ids
+    ));
+
+    return $programs;
+  }
+
   public function Url()
   {
     return get_post_permalink( $this->tpost );
@@ -49,6 +62,20 @@ class Travel
     } else {
       return true;
     }
+  }
+
+  public function getGalleryID()
+  {
+    $v = (int)get_post_meta($this->id, METAKEY_PREFIX . 'photo_gallery_id', true);
+
+    return ($v == 0) ? false : $v;
+  }
+
+  public function getTags()
+  {
+    $v = wp_get_post_tags($this->id);
+
+    return $v;
   }
 
   public function getOriginalPrice()

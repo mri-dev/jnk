@@ -13,6 +13,11 @@
       auto_update_post_meta( $post_id, METAKEY_PREFIX . 'ar_magyarazat', $_POST[METAKEY_PREFIX . 'ar_magyarazat'] );
       $kiemelt = ($_POST[METAKEY_PREFIX . 'kiemelt'] == 'on') ? 1 : false;
       auto_update_post_meta( $post_id, METAKEY_PREFIX . 'kiemelt', $kiemelt );
+      auto_update_post_meta( $post_id, METAKEY_PREFIX . 'photo_gallery_id', $_POST[METAKEY_PREFIX . 'photo_gallery_id'] );
+
+      // Programok
+      $programids = implode(",", $_POST['programok']);
+      auto_update_post_meta( $post_id, METAKEY_PREFIX . 'programok', $programids );
     }
   }
 ?>

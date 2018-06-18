@@ -6,6 +6,7 @@ $durations = $travel->showDuration();
 $discount = $travel->getDiscount();
 $kiemelt = $travel->isKiemelt();
 $price_comment = $travel->getPriceComment();
+$tags = $travel->getTags();
 ?>
 <div class="sidebar-fix-holder">
   <div class="utazas-sidebar">
@@ -47,8 +48,16 @@ $price_comment = $travel->getPriceComment();
     <h3><?php echo __('Ajánlott utazások', TD); ?></h3>
     Hamarosan...
   </div>
-  <div class="sidebar-group">
+  <?php if ($tags): ?>
+  <div class="sidebar-group tag-sidebar">
     <h3><?php echo __('Címkék', TD); ?></h3>
-    Hamarosan...
+    <div class="tags">
+    <?php foreach ($tags as $tag): ?>
+      <div class="tag">
+        <a href="/utazas/?search=&tag=<?=$tag->slug?>"><?php echo $tag->name; ?></a>
+      </div>
+    <?php endforeach; ?>
+    </div>
   </div>
+  <?php endif; ?>
 </div>

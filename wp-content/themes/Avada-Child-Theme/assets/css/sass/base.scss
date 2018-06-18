@@ -384,6 +384,87 @@ body.single{
   }
 }
 
+.sidebar{
+  .tags{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -5px;
+
+    .tag {
+      padding: 5px;
+      a{
+        background: #ffffff;
+        display: block;
+        color: #4c4c4c;
+        font-size: 0.8em;
+        padding: 10px;
+        line-height: 1;
+        text-transform: capitalize;
+        border: 1px solid #eaeaea;
+
+        &:hover{
+          background: $color-blue;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.program-list{
+  .program{
+    margin: 0 0 10px 0;
+    background: white;
+    box-shadow: 3px 5px 20px -10px black;
+    overflow: hidden;
+    border-radius: 4px;
+    min-height: 100px;
+
+    & > .wrapper{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+
+      .image{
+        flex-basis: 150px;
+        position: relative;
+        img {
+          max-width: 110%;
+          width: 110%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+      .data{
+        font-size: 0.9em;
+        flex: 1;
+        padding: 15px 15px 15px 25px;
+
+        h3{
+          margin: 0 0 8px 0;
+          color: $color-orange;
+        }
+
+        .desc{
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+
+.bwg-container{
+  width: 100% !important;
+}
+
 .sidebar {
   .sidebar-group{
     position: relative;
@@ -399,29 +480,6 @@ body.single{
     h3 {
       color: black;
       margin: 0 0 15px 0;
-    }
-
-    .tags{
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: -5px;
-
-      .tag {
-        padding: 5px;
-        a{
-          background: #ffffff;
-          display: block;
-          color: #4c4c4c;
-          font-size: 0.8em;
-          padding: 10px;
-          line-height: 1;
-          text-transform: capitalize;
-          border: 1px solid #eaeaea;
-        }
-      }
     }
   }
   .recent-post{

@@ -19,9 +19,14 @@ class Searcher
     $back = array();
     $filters = (array)$arg['filters'];
 
-    $datas = new WP_Query(array(
-      'post_type' => 'utazas'
-    ));
+    $src = array();
+    $src['post_type'] = 'utazas';
+
+    if ($filters['tag'] && !empty($filters['tag'])) {
+        $src['tag_slug__in'] = $filters['tag'];
+    }
+
+    $datas = new WP_Query( $src );
 
     if ( $datas->have_posts() ) {
       while( $datas->have_posts() ) {

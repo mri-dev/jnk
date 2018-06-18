@@ -94,7 +94,8 @@ class PostTypeFactory
 		      'menu_icon' => 'dashicons-'.$this->post_icon,
 		      'has_archive' => true,
 		      'hierarchical' => false,
-		      'rewrite' => array( 'slug' => $this->post_name_tag )
+		      'rewrite' => array( 'slug' => $this->post_name_tag ),
+					'taxonomies' => array('post_tag')
 		     )
 		);
 
