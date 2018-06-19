@@ -26,6 +26,17 @@ class Searcher
         $src['tag_slug__in'] = $filters['tag'];
     }
 
+    if ($arg['ids'] && !empty($arg['ids'])) {
+      $src['post__in'] = (array)$arg['ids'];
+    }
+
+    if ($arg['limit'] && !empty($arg['limit'])) {
+      $src['posts_per_page'] = (int)$arg['limit'];
+    }
+    if ($arg['orderby'] && !empty($arg['orderby'])) {
+      $src['orderby'] = $arg['orderby'];
+    }
+
     $datas = new WP_Query( $src );
 
     if ( $datas->have_posts() ) {

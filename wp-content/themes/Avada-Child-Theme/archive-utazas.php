@@ -55,9 +55,6 @@
 									</div>
 								<?php endif; ?>
 							</div>
-							<?php
-								$destionations = $travel->showDestinations();
-							?>
 							<div class="position">
 								<i class="fa fa-map-pin"></i>
 								<?php if (count($destionations) > 5): ?>

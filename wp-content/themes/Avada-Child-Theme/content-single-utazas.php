@@ -85,7 +85,7 @@
           <div class="program">
             <div class="wrapper">
               <div class="image">
-                <img src="<?=$img?>" alt="">
+                <img src="<?=$img?>" alt="<?=$program->post_title?>">
               </div>
               <div class="data">
                 <div class="title">
@@ -106,7 +106,7 @@
       <div class="gallery">
         <a name="gallery"></a>
         <h2><i class="far fa-images"></i> <?php echo __('Képek', TD); ?></h2>
-        <?php photo_gallery(1); ?>
+        <?php photo_gallery($gallery_id); ?>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <?php endif; ?>

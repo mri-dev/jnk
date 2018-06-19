@@ -1,7 +1,17 @@
 <?php
-  global $wpdb;
+  global $wpdb, $post;
   $programok = get_posts(array(
-    'post_type' => 'programok'
+    'post_type' => 'programok',
+    'posts_per_page' => -1,
+    'orderby' => 'name',
+    'order' => 'ASC'
+  ));
+  $ajanlatok = get_posts(array(
+    'post_type' => UTAZAS_SLUG,
+    'posts_per_page' => -1,
+    'orderby' => 'name',
+    'order' => 'ASC',
+    'post__not_in' => array($post->ID)
   ));
 ?>
 <table class="jnk">
@@ -81,14 +91,30 @@
       <p><label class="post-attributes-label" for=""><strong><?php echo __('Ajánlott utazások', TD); ?></strong></label></p>
       <div class="categorydiv">
         <div class="tabs-panel">
-
+          <ul class="categorychecklist ">
+          <?php
+          $metakey = METAKEY_PREFIX . 'ajanlatok';
+          $ajanlat_ids = explode(",",get_post_meta($post->ID, $metakey, true));
+          ?>
+          <?php foreach ($ajanlatok as $ajanlat): ?>
+          <li>
+            <label for="ajanlat_aj_<?=$ajanlat->ID?>"><input id="ajanlat_aj_<?=$ajanlat->ID?>" type="checkbox" <?=(in_array($ajanlat->ID, $ajanlat_ids))?'checked="checked"':''?> name="ajanlatok[]" value="<?=$ajanlat->ID?>"> <?=$ajanlat->post_title?></label>
+          </li>
+          <?php endforeach; ?>
+          </ul>
         </div>
       </div>
     </td>
   </tr>
 </table>
-<table>
+<table class="jnk">
   <tr>
+    <td>
+      <?php $metakey = METAKEY_PREFIX . 'egyeni_utazas'; ?>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Egyéni utazás', TD); ?></strong></label></p>
+        <?php $kiemelt = get_post_meta($post->ID, $metakey, true); ?>
+      <input id="<?=$metakey?>" type="checkbox" name="<?=$metakey?>" <?=($kiemelt=='1')?'checked="checked"':''?>>
+    </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'kiemelt'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Kiemelt ajánlat', TD); ?></strong></label></p>

@@ -35,6 +35,14 @@ class Travel
     }
   }
 
+  public function getRecommendedTravelIDS()
+  {
+    $ajanlatok = array();
+    $ids = explode(",",get_post_meta($this->id, METAKEY_PREFIX . 'ajanlatok', true));
+
+    return $ids;
+  }
+
   public function getPrograms()
   {
     $programs = array();
@@ -102,6 +110,13 @@ class Travel
   public function getTravelTo()
   {
     $v = get_post_meta($this->id, METAKEY_PREFIX . 'travel_to', true);
+
+    return $v;
+  }
+
+  public function getExcerpt()
+  {
+    $v = get_the_excerpt($this->id);
 
     return $v;
   }

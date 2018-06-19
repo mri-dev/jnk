@@ -464,13 +464,107 @@ body.single{
 .bwg-container{
   width: 100% !important;
 }
+.recommended-travels{
+  .travel{
+    margin: 0 0 10px 0;
+    & > .wrapper{
+      background: #efefef;
+      border: 0.5px solid #d9d9d9;
+
+      .image{
+        position: relative;
+
+
+        .kiemelt{
+          position: absolute;
+          pointer-events: none;
+          top: 15px;
+          left: 0;
+          text-transform: uppercase;
+          color: white;
+          font-weight: bold;
+          font-size: 1.15em;
+          background: $color-red;
+          font-size: 0.65em;
+          padding: 4px 6px;
+        }
+      }
+
+      .title{
+        padding: 10px;
+        h3{
+          margin: 0;
+          font-size: 1.1em;
+          line-height: 1.2;
+        }
+      }
+      .position{
+        padding: 0 10px 10px 10px;
+        font-size: 0.8em;
+        color: $color-orange;
+        .svg-inline--fa{
+          color: #f75119;
+        }
+      }
+      .keys{
+        padding: 0 10px 10px 10px;
+        font-size: 0.7em;
+        a{
+          margin: 0 4px 0 0;
+          color: #aeaeae;
+
+          &:hover{
+            color: $color-blue;
+          }
+        }
+      }
+      .sdesc{
+        padding: 0 10px 10px 10px;
+        font-size: 0.8em;
+        line-height: 1.4;
+        color: #777777;
+      }
+
+      .price {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 10px 10px 10px;
+        font-size: 1em;
+        font-weight: bold;
+        color: black;
+        text-align: right;
+
+        & > div {
+          margin: 0 0 0 10px;
+        }
+
+        .old{
+          font-style: italic;
+          text-decoration: line-through;
+          font-weight: normal;
+          color: #989898;
+        }
+      }
+    }
+
+    &.discounted{
+      .price .current{
+        color: $color-red;
+      }
+    }
+  }
+}
 
 .sidebar {
   .sidebar-group{
     position: relative;
     z-index: 1;
     margin: 0;
-    padding: 15px;
+    padding: 15px 0;
     h3{
       color: black;
       margin: 0 0 15px 0;
@@ -1114,7 +1208,7 @@ body.single-utazas{
         a{
           display: block;
           font-weight: bold;
-          color: #b3b3b3;
+          color: #959595;
           padding: 25px 20px;
           font-size: 0.9em;
           border-bottom: 3px solid transparent;
@@ -1157,13 +1251,16 @@ body.single-utazas{
         margin: 5px 0;
         display: block;
       }
+
+      .description{
+        color: #4c4c4c;
+      }
     }
 
     .sidebar{
       flex-basis: 350px;
 
-      .sidebar-fix-holder{
-        background: #f7f7f7;
+      .sidebar-fix-holder {
         position: relative;
         top: 0;
         z-index: 20;
