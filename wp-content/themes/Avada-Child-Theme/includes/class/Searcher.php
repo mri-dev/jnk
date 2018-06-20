@@ -19,11 +19,20 @@ class Searcher
     $back = array();
     $filters = (array)$arg['filters'];
 
+    $meta_query = array();
+
     $src = array();
     $src['post_type'] = 'utazas';
 
     if ($filters['tag'] && !empty($filters['tag'])) {
-        $src['tag_slug__in'] = $filters['tag'];
+      $src['tag_slug__in'] = $filters['tag'];
+    }
+
+    if ($filters['kiemelt'] && !empty($filters['kiemelt'])) {
+      $meta_query[] = array(
+  			'key' => METAKEY_PREFIX.'kiemelt',
+  			'value' => 1
+  		);
     }
 
     if ($arg['ids'] && !empty($arg['ids'])) {
@@ -35,6 +44,11 @@ class Searcher
     }
     if ($arg['orderby'] && !empty($arg['orderby'])) {
       $src['orderby'] = $arg['orderby'];
+    }
+
+    if ( !empty($meta_query) )
+    {
+      $src['meta_query'] = $meta_query;
     }
 
     $datas = new WP_Query( $src );
