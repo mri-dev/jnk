@@ -10,7 +10,6 @@
       <?php if ($single): ?>
         <?php get_template_part('templates/titlebars/'.$post_type); ?>
       <?php else: ?>
-
         <div class="fusion-page-title-captions">
           <?php if ( $title ) : ?>
             <?php // Add entry-title for rich snippets ?>

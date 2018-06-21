@@ -112,12 +112,12 @@ input[type=checkbox].fake-radio:checked + label {
     right: 0;
     position: absolute;
     top: 0;
-    background: #5f6c77;
+    background: #e6e6e6;
     height: 34px;
     width: 20px;
     text-align: center;
     line-height: 34px;
-    color: #adb5bb;
+    color: #9a9a9a;
   }
 
   &.tgl-def {
@@ -180,7 +180,18 @@ body.single{
   margin-right: auto;
 }
 .fusion-page-title-bar{
-  background-color: #262626;
+  background-color: #dddddd;
+}
+body.utazas-template-default,
+body.programok-template-default{
+  .fusion-page-title-bar{
+    background-size: cover !important;
+    background-color: black;
+
+    h1, h2, h3{
+      color: white !important;
+    }
+  }
 }
 .fusion-contact-info{
   font-size: 1.1em;
@@ -464,8 +475,10 @@ body.single{
 .bwg-container{
   width: 100% !important;
 }
-.recommended-travels{
-  .travel{
+.recommended-travels,
+.sidebar-programs{
+  .travel,
+  .program{
     margin: 0 0 10px 0;
     & > .wrapper{
       background: #efefef;
@@ -883,7 +896,7 @@ body.single{
         padding: 10px;
 
         & > label {
-          color: white;
+          color: black;
           font-weight: bold;
           font-size: 0.9em;
           margin: 0 0 15px 0;
@@ -891,8 +904,8 @@ body.single{
         }
 
         .input-wrapper{
-          background: rgba(126, 168, 195, 0.28);
-          border: 1px solid #616f79;
+          background: rgba(218, 218, 218, 0.28);
+          border: 0.5px solid #cbcbcb;
           position: relative;
           .ico {
             pointer-events: none;
@@ -909,6 +922,8 @@ body.single{
             border:none;
             padding: 0 25px 0 10px;
             height: 34px;
+            color: black;
+            font-size: 1.1em;
             line-height: 34px;
           }
         }
@@ -951,10 +966,7 @@ body.single{
   }
 
   &.manual-insert{
-    background-color: #343434;
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-color: #ffffff;
 
     .wrapper{
       width: $page-width;
@@ -975,13 +987,13 @@ body.single{
   }
 
   .selector-wrapper {
-    background: rgba(56, 56, 56, 0.9);
-    border: 1px solid #5d6b75;
-    border-top: 1px dashed #5d6b75;
+    background: rgba(255, 255, 255, 0.9);
+    border: 0.5px solid #dbdbdb;
+    border-top: 0.5px dashed #afafaf;
     margin-top: -1px;
-    -webkit-box-shadow: 0 10px 26px -9px #000000;
-    -moz-box-shadow: 0 10px 26px -9px #000000;
-    box-shadow: 0 10px 26px -9px #000000;
+    -webkit-box-shadow: 0 10px 26px -9px #a9a9a9;
+    -moz-box-shadow: 0 10px 26px -9px #a9a9a9;
+    box-shadow: 0 10px 26px -9px #a9a9a9;
 
     .selector-row {
       input[type=checkbox] + label{
@@ -1029,7 +1041,7 @@ body.single{
 .front-home-testimonials{
   .testimonial-content{
     text-align: center;
-    color: #c8bdbb;
+    color: #606060;
     font-style: italic;
   }
   .testimonial-client{
@@ -1037,7 +1049,7 @@ body.single{
     .testimonial-name{
       font-weight: bold;
       font-size: 1em;
-      color: white;
+      color: $color-orange;
       text-transform: uppercase;
     }
     .testimonial-destination{
@@ -1191,7 +1203,6 @@ body.single{
 }
 body.archive.post-type-archive-utazas{
   #main {
-    background: #e7edf1 !important;
     padding: 0 !important;
   }
 }
@@ -1392,7 +1403,7 @@ body.single-utazas{
 }
 
 .gettraveloffer{
-  background: #eaeaea;
+  background: #d2d2d2;
 
   .preorder-sending{
     font-size: 1.3em;
@@ -2538,7 +2549,7 @@ footer {
   }
   .fusion-widget-area{
     & > div.fusion-column{
-      border-right: 1px solid #2e2e2e;
+      border-right: 0.5px solid #cecece;
     }
     & > div.fusion-column-last{
       border-right: none;

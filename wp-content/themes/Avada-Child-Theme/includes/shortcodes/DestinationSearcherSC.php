@@ -28,7 +28,7 @@ class DestinationSearcherSc
         /* Parse the arguments. */
         $attr = shortcode_atts( $defaults, $attr );
 
-        $output = '<div class="'.self::SCTAG.'-holder '.$attr['class'].'"'. ( ($attr['class'] == 'manual-insert') ? 'style="background-image:url(\''.IFROOT.'/images/searcher-bg-vw.jpg\');"':'') .'>';
+        $output = '<div class="'.self::SCTAG.'-holder '.$attr['class'].'"'. ( ($attr['class'] == 'manual-insert') ? '':'') .'>';
         $output .= $t->load_template($attr);
         $output .= '</div>';
 
