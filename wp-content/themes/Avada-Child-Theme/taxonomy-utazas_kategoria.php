@@ -4,8 +4,10 @@
 	$searcher = new Searcher();
 	$template = new ShortcodeTemplates('SearcherSc/standard');
 
+  $tax_id = get_queried_object()->term_id;
 	$arg = array();
 	$arg['filters'] = $_GET;
+  $arg['tax_id'] = $tax_id;
 	$list = $searcher->Listing( $arg );
 ?>
 <div class="listing-utazasok">

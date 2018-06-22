@@ -633,6 +633,22 @@ body.programok-template-default{
   }
 }
 
+.no-item{
+  text-align: center;
+  color: black;
+  font-size: 1.1em;
+  margin: 0 0 40px 0;
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  .svg-inline--fa {
+    color: $color-orange;
+    font-size: 50px;
+  }
+}
+
 .travels{
   margin: -20px;
   display: -webkit-box;
@@ -889,6 +905,17 @@ body.programok-template-default{
     align-items: flex-end;
     flex-wrap: wrap;
     margin: -10px;
+
+    .srcbutton{
+      position: relative;
+
+      .research{
+        position: absolute;
+        font-size: 0.7em;
+        right: 10px;
+        bottom: -15px;
+      }
+    }
 
     & > div {
       flex-basis: calc(100%/5);
@@ -1201,9 +1228,15 @@ body.programok-template-default{
     }
   }
 }
-body.archive.post-type-archive-utazas{
+body.archive.post-type-archive-utazas,
+body.archive.tax-utazas_kategoria{
   #main {
     padding: 0 !important;
+
+    & > .fusion-row{
+      width: 100% !important;
+      max-width: initial !important;
+    }
   }
 }
 
@@ -1237,6 +1270,17 @@ body.single-post {
     }
   }
 }
+
+body.page-template-default
+{
+  .fusion-breadcrumbs, .fusion-breadcrumbs a{
+    color: white !important;
+  }
+  .fusion-page-title-bar h1{
+    color: white !important;
+  }
+}
+
 
 body.single-utazas{
   #wrapper{

@@ -20,6 +20,7 @@ class Searcher
     $filters = (array)$arg['filters'];
 
     $meta_query = array();
+    $tax_query = array();
 
     $src = array();
     $src['post_type'] = 'utazas';
@@ -46,11 +47,24 @@ class Searcher
       $src['orderby'] = $arg['orderby'];
     }
 
+    if ($arg['tax_id'] && !empty($arg['tax_id'])) {
+      $tax_query[] = array(
+        'taxonomy' => 'utazas_kategoria',
+        'field' => 'term_id',
+        'terms' => $arg['tax_id']
+      );
+    }
+
     if ( !empty($meta_query) )
     {
       $src['meta_query'] = $meta_query;
     }
 
+    if ( !empty($tax_query) )
+    {
+      $src['tax_query'] = $tax_query;
+    }
+    
     $datas = new WP_Query( $src );
 
     if ( $datas->have_posts() ) {
