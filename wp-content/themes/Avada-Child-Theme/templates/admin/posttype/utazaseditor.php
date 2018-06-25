@@ -1,7 +1,9 @@
 <?php
   global $post;
+  $egyeni_utazas = get_post_meta($post->ID, METAKEY_PREFIX . 'egyeni_utazas', true);
 ?>
 <div class="travel-editor" ng-class="(loading)?'loading':''" ng-app="jonapotnagyvilag" ng-controller="TravelConfigEditor" ng-init="init(<?=$post->ID?>)">
+  <?php if ( empty($egyeni_utazas) ): ?>
   <div class="group">
     <div class="ghead">
       <span class="add" ng-click="addDate()">új időpont</span>
@@ -88,6 +90,8 @@
       </div>
     </div>
   </div>
+  <?php endif; ?>
+
   <div class="group">
     <div class="ghead">
       <span class="add" ng-click="addConfig('szobak')">új szoba</span>
@@ -112,7 +116,11 @@
                 <div class="avdate">
                   <div class="w">
                     <label for="">Időpont kiválasztása</label>
+                    <?php if (empty($egyeni_utazas)): ?>
                     <select class="fullw" ng-model="config_creator.szobak[i].date_id" ng-options="day.onday for day in dates"></select>
+                    <?php else: ?>
+                      (i) Csak csoportos utazásoknál választható.
+                    <?php endif; ?>
                   </div>
                 </div>
                 <div class="ellatas">
@@ -174,8 +182,11 @@
         </div>
 
         <div class="date-group" ng-repeat="dategroup in configs.szobak">
-          <div class="header">
+          <div class="header" ng-show="dategroup.day.name">
             <strong>{{dategroup.date_on}}</strong> ({{dategroup.day.name}})
+          </div>
+          <div class="header" ng-hide="dategroup.day.name">
+            Választott időpontban
           </div>
           <div class="ellatas-group" ng-repeat="ellatas in dategroup.ellatas">
             <div class="header">

@@ -20,11 +20,11 @@ $kiemelt = $travel->isKiemelt();
     </div>
     <div class="image">
       <?php $image = $travel->Image(); ?>
-      <a href="<?=$travel->Url()?>"><img src="<?=($image) ? $image : IMG.'/no-travel-img.jpg'?>" alt="<?=$travel->Title()?>"></a>
+      <a title="<?=$travel->Title()?>" href="<?=$travel->Url()?>"><img src="<?=($image) ? $image : IMG.'/no-travel-img.jpg'?>" alt="<?=$travel->Title()?>"></a>
     </div>
     <div class="datas">
       <div class="title">
-        <h3><a href="<?=$travel->Url()?>"><?=$travel->Title()?></a></h3>
+        <h3><a title="<?=$travel->Title()?>" href="<?=$travel->Url()?>"><?=$travel->Title()?></a></h3>
       </div>
       <div class="price">
         <?php if ((int)$travel->getPrice() !== 0): ?>

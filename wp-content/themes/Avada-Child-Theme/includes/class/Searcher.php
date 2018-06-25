@@ -55,6 +55,79 @@ class Searcher
       );
     }
 
+    // Úti cél
+    if ( isset($filters['cities']) && !empty($filters['cities']) )
+    {
+      $city = trim($filters['cities']);
+      $cityterm = get_term_by('name', $city, 'utazas_uticel');
+
+      if ($cityterm) {
+        $tax_query[] = array(
+          'taxonomy' => 'utazas_uticel',
+          'field' => 'term_id',
+          'terms' => array($cityterm->term_id)
+        );
+      }
+    }
+
+    // Keresés - tag
+    if ( isset($filters['search']) && !empty($filters['search']) )
+    {
+      $src['s'] = trim($filters['search']);
+    }
+
+    // Ellátás
+    if ( isset($filters['el']) && !empty($filters['el']) )
+    {
+      $tax = explode(",", $filters['el']);
+      if (!empty($tax)) {
+        $tax_query[] = array(
+          'taxonomy' => 'utazas_ellatas',
+          'field' => 'term_id',
+          'terms' => $tax
+        );
+      }
+    }
+
+    // Utazás hossza
+    if ( isset($filters['dur']) && !empty($filters['dur']) )
+    {
+      $tax = explode(",", $filters['dur']);
+      if (!empty($tax)) {
+        $tax_query[] = array(
+          'taxonomy' => 'utazas_duration',
+          'field' => 'term_id',
+          'terms' => $tax
+        );
+      }
+    }
+
+    // Utazás módja
+    if ( isset($filters['um']) && !empty($filters['um']) )
+    {
+      $tax = explode(",", $filters['um']);
+      if (!empty($tax)) {
+        $tax_query[] = array(
+          'taxonomy' => 'utazas_mod',
+          'field' => 'term_id',
+          'terms' => $tax
+        );
+      }
+    }
+
+    // Szolgáltatások
+    if ( isset($filters['szolg']) && !empty($filters['szolg']) )
+    {
+      $tax = explode(",", $filters['szolg']);
+      if (!empty($tax)) {
+        $tax_query[] = array(
+          'taxonomy' => 'utazas_szolgaltatasok',
+          'field' => 'term_id',
+          'terms' => $tax
+        );
+      }
+    }
+
     if ( !empty($meta_query) )
     {
       $src['meta_query'] = $meta_query;
@@ -64,7 +137,7 @@ class Searcher
     {
       $src['tax_query'] = $tax_query;
     }
-    
+
     $datas = new WP_Query( $src );
 
     if ( $datas->have_posts() ) {

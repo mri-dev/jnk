@@ -315,12 +315,14 @@ class TravelModul
   {
     $back = array();
 
+    $egyeni_utazas = get_post_meta($this->postid, METAKEY_PREFIX . 'egyeni_utazas', true);
+
     // check item
     foreach ( (array)$data as $d ) {
       if ( $d['title'] == '' ) {
         throw new \Exception("Hiba: a szoba megnevezése kötelező.");
       }
-      if ( $d['date_id'] == 0 ) {
+      if ( $d['date_id'] == 0 && empty($egyeni_utazas) ) {
         throw new \Exception("Hiba: a szobához az elérhető időpont kiválasztása kötelező.");
       }
       if ( $d['ellatas_id'] == 0 ) {
