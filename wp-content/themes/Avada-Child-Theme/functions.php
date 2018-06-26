@@ -43,7 +43,7 @@ function theme_enqueue_styles() {
     wp_enqueue_script( 'angular-material', '//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js');
     wp_enqueue_script( 'mocjax', IFROOT . '/assets/vendor/autocomplete/scripts/jquery.mockjax.js');
     wp_enqueue_script( 'autocomplete', IFROOT . '/assets/vendor/autocomplete/dist/jquery.autocomplete.min.js');
-    wp_enqueue_script( 'angualardatepick', IFROOT . '/assets/vendor/md-date-range-picker/md-date-range-picker.min.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
+    wp_enqueue_script( 'angualardatepick', IFROOT . '/assets/vendor/md-date-range-picker/md-date-range-picker.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
     wp_enqueue_script( 'angualarjnk', IFROOT . '/assets/js/app.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );

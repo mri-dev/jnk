@@ -84,8 +84,23 @@
           <div class="date-selectors" ng-show="(!step_loading || step_loading!=1)">
             <div class="selector-wrapper">
               <div class="date-picker" ng-show="(dates.length==0)">
-                <md-date-range-picker ng-model="advancedModel"></md-date-range-picker>
+                <div class="selected-date-text">
+                  {{calendarModel.selectedTemplateName}}
+                </div>
+                <md-date-range-picker
+                  first-day-of-week="1"
+                  localization-map="localizationMap"
+                  selected-template="calendarModel.selectedTemplate"
+                  selected-template-name="calendarModel.selectedTemplateName"
+                  show-template="true"
+                  is-disabled-date="isDisabledDate($date)"
+                  custom-templates="customPickerTemplates"
+                  disable-templates="TD YD TW LW TM LM LY TY"
+                  date-start="calendarModel.dateStart"
+                  date-end="calendarModel.dateEnd">
+                </md-date-range-picker>
               </div>
+              {{calendarModel}}
               <div class="durrations">
                 <div class="durration" ng-repeat="(durrid, durr) in dates" ng-class="(dateselect.durration==durrid)?'selected':''">
                   <div class="v" ng-click="selectCalcDurr(durrid)"><strong>{{durr.name}}</strong><br><span class="nights">{{durr.nights}} <?=__('éjszaka', TD)?></span><br><?=__('időtartam', TD)?></div>

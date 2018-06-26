@@ -1,8 +1,10 @@
 var jnk = angular.module('jonapotnagyvilag', ['ngMaterial', 'ngMessages', 'ngMaterialDateRangePicker']);
 
-jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', '$httpParamSerializerJQLike', function($scope, $http, $mdToast, $mdDialog, $httpParamSerializerJQLike)
+jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', '$httpParamSerializerJQLike', '$mdDateRangePicker', function($scope, $http, $mdToast, $mdDialog, $httpParamSerializerJQLike, $mdDateRangePicker)
 {
   // Vars
+  var date = new Date();
+
   $scope.postid = 0;
   $scope.loading = false;
   $scope.loaded = false;
@@ -76,24 +78,59 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   };
   $scope.step_loading = false;
 
-  $scope.serviceModel = {
+  // datepicker
+  $scope.customPickerTemplates = [
+    {
+      name: 'Ma + 7 nap',
+      startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
+      endDate: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7)
+    }
+  ];
 
+  $scope.localizationMap = {
+    'Mon': 'H',
+    'Tue': 'K',
+    'Wed': 'Sz',
+    'Thu': 'Cs',
+    'Fri': 'P',
+    'Sat': 'Szo',
+    'Sun': 'V',
+    'Today': 'Ma',
+    'Yesterday': 'Tegnap',
+    'This week': 'Ez a hét',
+    'Last week': 'Utolsó hét',
+    'This month': 'Ez a hónap',
+    'Last month': 'Utolsó hónap',
+    'This year': 'Ez az év',
+    'Last year': 'Utolsó év',
+    'January': 'Január',
+    'February': 'Február',
+    'March': 'Március',
+    'April': 'Április',
+    'May': 'Május',
+    'June': 'Június',
+    'July': 'Július',
+    'August': 'Augusztus',
+    'September': 'Szeptember',
+    'October': 'Október',
+    'November': 'November',
+    'December': 'December'
   };
 
-  $scope.selectedTemplate = function( a ){
-    console.log('selectedTemplate');
-  }
+  $scope.isDisabledDate = function( d ) {
+    if (
+      d < date
+    ) {
+      return true;
+    } else return false;
+  };
 
-  $scope.selectDateRange = function () {
-    console.log('selectDateRange');
-    $mdDateRangePicker.show({
-      model: $scope.serviceModel,
-    }).then(function (result) {
-      $scope.serviceModel = result;
-    }).catch(function () {
-      console.log('Cancelled');
-    });
-  }
+  $scope.calendarModel = {
+    selectedTemplate: null,
+    selectedTemplateName: null,
+    dateStart: null,
+    dateEnd: null
+  };
 
   $scope.doPreOrder = function()
   {
