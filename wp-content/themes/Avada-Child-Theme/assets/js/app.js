@@ -1,4 +1,4 @@
-var jnk = angular.module('jonapotnagyvilag', ['ngMaterial', 'ngMessages']);
+var jnk = angular.module('jonapotnagyvilag', ['ngMaterial', 'ngMessages', 'ngMaterialDateRangePicker']);
 
 jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', '$httpParamSerializerJQLike', function($scope, $http, $mdToast, $mdDialog, $httpParamSerializerJQLike)
 {
@@ -51,7 +51,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       term: false
     }
   };
-
+  $scope.selectedUniqueDate = false;
   $scope.selected_room_id = 0;
   $scope.selected_room_data = {};
   $scope.selected_ellatas = false;
@@ -75,6 +75,25 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     6: false
   };
   $scope.step_loading = false;
+
+  $scope.serviceModel = {
+
+  };
+
+  $scope.selectedTemplate = function( a ){
+    console.log('selectedTemplate');
+  }
+
+  $scope.selectDateRange = function () {
+    console.log('selectDateRange');
+    $mdDateRangePicker.show({
+      model: $scope.serviceModel,
+    }).then(function (result) {
+      $scope.serviceModel = result;
+    }).catch(function () {
+      console.log('Cancelled');
+    });
+  }
 
   $scope.doPreOrder = function()
   {
