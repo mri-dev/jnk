@@ -60,6 +60,7 @@ function jnk_load_scripts($hook) {
   wp_enqueue_script( 'angular-aria', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js');
   wp_enqueue_script( 'angular-message', '//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js');
   wp_enqueue_script( 'angular-material', '//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js');
+  wp_enqueue_script( 'angualardatepick', IFROOT . '/assets/vendor/md-date-range-picker/md-date-range-picker.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
 	wp_enqueue_script( 'angualarjnk', IFROOT . '/assets/js/app.js?t=' . ( (DEVMODE === true) ? time() : '' ) );
 }
 add_action('admin_enqueue_scripts', 'jnk_load_scripts');
