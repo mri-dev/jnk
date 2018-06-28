@@ -14,6 +14,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.preorder_sending = false;
 
   // Datas
+  $scope.nights = 0;
   $scope.passengers = {
     adults: 2,
     children: 0
@@ -81,9 +82,19 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   // datepicker
   $scope.customPickerTemplates = [
     {
-      name: 'Ma + 7 nap',
-      startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
-      endDate: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7)
+      name: '3 nap',
+      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5)
+    },
+    {
+      name: '5 nap',
+      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7)
+    },
+    {
+      name: '1  hét',
+      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 9)
     }
   ];
 
@@ -126,10 +137,10 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   };
 
   $scope.calendarModel = {
-    selectedTemplate: null,
+    selectedTemplate: '3 nap',
     selectedTemplateName: null,
-    dateStart: null,
-    dateEnd: null
+    dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+    dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5)
   };
 
   $scope.doPreOrder = function()
@@ -424,25 +435,42 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     $scope.selected_room_data = $scope.selected_ellatas_data.rooms[id];
   }
 
+  $scope.getNightsByDateDiff = function( end, start ){
+    var d_end = new Date(end);
+    var d_start = new Date(start);
+    var diff = Math.round((d_end-d_start)/(1000*60*60*24));
+
+    return diff - 1;
+  }
+
   $scope.selectEllatas = function( id )
   {
     $scope.selected_ellatas = id;
     $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
+
+    var nights = 1;
+    if ($scope.dates.length == 0) {
+      // Egyéni utazás esetén az éjszaka kiszámítása
+      nights = $scope.getNightsByDateDiff($scope.calendarModel.dateEnd, $scope.calendarModel.dateStart);
+    } else {
+      // Csoportos utazás esetén
+      nights = parseInt($scope.selected_date_data.durration.nights);
+    }
 
     angular.forEach( $scope.selected_ellatas_data.rooms, function(e,i) {
       var calc = 0;
       $scope.calced_room_price[e.ID] = {};
 
       if ($scope.passengers.adults > 0) {
-        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * (e.adult_price * $scope.selected_date_data.durration.nights);
-        calc += $scope.passengers.adults * (e.adult_price * $scope.selected_date_data.durration.nights);
+        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * (e.adult_price * nights);
+        calc += $scope.passengers.adults * (e.adult_price * nights);
       } else {
         $scope.calced_room_price[e.ID].adults = 0;
       }
 
       if ($scope.passengers.children > 0) {
-        $scope.calced_room_price[e.ID].children = $scope.passengers.children * (e.child_price * $scope.selected_date_data.durration.nights);
-        calc += $scope.passengers.children * (e.child_price * $scope.selected_date_data.durration.nights);
+        $scope.calced_room_price[e.ID].children = $scope.passengers.children * (e.child_price * nights);
+        calc += $scope.passengers.children * (e.child_price * nights);
       } else {
         $scope.calced_room_price[e.ID].children = 0;
       }
@@ -451,8 +479,15 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     });
   }
 
-  $scope.getEllatasInfo = function( id ){
-    return $scope.configs.szobak[$scope.dateselect.date].ellatas[id];
+  $scope.getEllatasInfo = function( id )
+  {
+    if ($scope.dates.length == 0) {
+      // Egyéni utazások
+        return $scope.configs.szobak[0].ellatas[id];
+    } else {
+      // Csoportos utazások
+      return $scope.configs.szobak[$scope.dateselect.date].ellatas[id];
+    }
   }
 
   $scope.loadEllatas = function( callback )
@@ -514,13 +549,21 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     });
   }
 
-  $scope.dateselectInfo = function() {
+  $scope.dateselectInfo = function()
+  {
     var text = '';
-    if ($scope.dateselect.durration && $scope.dateselect.year && $scope.dateselect.date) {
-      $scope.selected_date_data = $scope.datelist[$scope.dateselect.date];
-      var seldate = $scope.selected_date_data;
-      text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name+', '+seldate.durration.nights+' '+ 'éjszaka';
+    // Csoportos utazások
+    if ($scope.dates.length != 0) {
+      if ($scope.dateselect.durration && $scope.dateselect.year && $scope.dateselect.date) {
+        $scope.selected_date_data = $scope.datelist[$scope.dateselect.date];
+        var seldate = $scope.selected_date_data;
+        text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name+', '+seldate.durration.nights+' '+ 'éjszaka';
+      }
+    } else {
+      //Egyéni utazások
+      text += $scope.calendarModel.selectedTemplateName+', '+ $scope.nights + ' éjszaka';
     }
+
     return text;
   }
 
@@ -532,20 +575,35 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
   $scope.priceCalcMe = function( item )
   {
+    var nights = 1;
+    if ($scope.dates.length == 0) {
+      // Egyéni utazás esetén az éjszaka kiszámítása
+      nights = $scope.getNightsByDateDiff($scope.calendarModel.dateEnd, $scope.calendarModel.dateStart);
+    } else {
+      // Csoportos utazás esetén
+      nights = ($scope.selected_date_data && $scope.selected_date_data.durration) ? parseInt($scope.selected_date_data.durration.nights) : 0;
+    }
+
+    $scope.nights = nights;
+
     switch( item.price_calc_mode ) {
       case 'once':
         return 1;
       break;
       case 'daily':
-      if ($scope.selected_date_data.durration) {
-        var n = ($scope.selected_date_data) ? parseInt($scope.selected_date_data.durration.nights) : 0;
-      }
+        if ($scope.selected_date_data.durration) {
+          var n = ($scope.selected_date_data) ? parseInt(nights) : 0;
+        } else if($scope.dates.length == 0){
+          var n = nights;
+        }
         return n+1;
       break;
       case 'day_person':
         var fo = $scope.passengers.adults + $scope.passengers.children;
         if ($scope.selected_date_data.durration) {
-          var n = ($scope.selected_date_data) ? parseInt($scope.selected_date_data.durration.nights) : 0;
+          var n = ($scope.selected_date_data) ? parseInt(nights) : 0;
+        } else if($scope.dates.length == 0){
+          var n = nights;
         }
         return (n+1) * fo;
       break;

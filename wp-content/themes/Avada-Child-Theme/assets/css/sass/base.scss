@@ -627,6 +627,10 @@ body.programok-template-default{
   }
 }
 
+.md-date-range-picker__calendar__selected{
+  background: $color-blue;
+}
+
 .listing-utazasok{
   .list-wrapper{
     padding: 30px 0;
@@ -2279,6 +2283,30 @@ body.single-utazas{
       }
     }
   }
+
+  .date-picker{
+    .selected-date-text,
+    md-date-range-picker{
+      flex-basis: 100%;
+    }
+    .selected-date-text{
+      & > .wrapper{
+        font-size: 1.5em;
+        padding: 10px;
+        font-weight: bold;
+        color: $color-blue;
+
+        .head{
+          font-size: 0.6em;
+          font-weight: normal;
+          color: #333333;
+        }
+      }
+    }
+    md-date-range-picker{
+      margin: 0 auto;
+    }
+  }
 }
 
 body.admin-bar{
@@ -2585,6 +2613,14 @@ body.single .fusion-page-title-bar{
       }
     }
   }
+}
+
+.md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover{
+  background: darken($color-orange, 10%);
+}
+
+.md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised{
+  background: $color-orange;
 }
 
 footer {

@@ -85,7 +85,10 @@
             <div class="selector-wrapper">
               <div class="date-picker" ng-show="(dates.length==0)">
                 <div class="selected-date-text">
-                  {{calendarModel.selectedTemplateName}}
+                  <div class="wrapper">
+                    <div class="head" ng-show="calendarModel.selectedTemplateName"><?php echo __('Kiválasztott időtartam', TD); ?>:</div>
+                    {{calendarModel.selectedTemplateName}}
+                  </div>
                 </div>
                 <md-date-range-picker
                   first-day-of-week="1"
@@ -100,7 +103,6 @@
                   date-end="calendarModel.dateEnd">
                 </md-date-range-picker>
               </div>
-              {{calendarModel}}
               <div class="durrations">
                 <div class="durration" ng-repeat="(durrid, durr) in dates" ng-class="(dateselect.durration==durrid)?'selected':''">
                   <div class="v" ng-click="selectCalcDurr(durrid)"><strong>{{durr.name}}</strong><br><span class="nights">{{durr.nights}} <?=__('éjszaka', TD)?></span><br><?=__('időtartam', TD)?></div>
@@ -136,7 +138,7 @@
             </div>
           </div>
         </div>
-        <div class="next" ng-show="!step_loading && (dateselect.year && dateselect.durration && dateselect.date)" ng-class="(step_done[2])?'done':''">
+        <div class="next" ng-show="!step_loading && ( (dateselect.year && dateselect.durration && dateselect.date) || (calendarModel.dateStart && calendarModel.dateEnd) )" ng-class="(step_done[2])?'done':''">
           <button type="button" ng-hide="step_done[2]" ng-click="nextStep(2)"><?=__('Tovább',TD)?> <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
@@ -171,7 +173,7 @@
           <div class="ellatas-selectors" ng-show="(!step_loading || step_loading!=2)">
             <div class="selector-wrapper">
               <div class="ellatasok">
-                <div class="ellatas" ng-repeat="ellatas in configs.ellatas" ng-class="(selected_ellatas==ellatas.term_id)?'selected':''" ng-show="configs.szobak[dateselect.date].ellatas[ellatas.term_id]">
+                <div class="ellatas" ng-repeat="ellatas in configs.ellatas" ng-class="(selected_ellatas==ellatas.term_id)?'selected':''" ng-show="(configs.szobak[dateselect.date].ellatas[ellatas.term_id] || dates.length == 0)">
                   <div class="wrapper" ng-click="selectEllatas(ellatas.term_id)">
                     {{ellatas.name}}
                   </div>
@@ -274,7 +276,7 @@
                 </td>
                 <td>{{selected_room_data.adult_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x{{selected_date_data.durration.nights*passengers.adults}}</td>
+                <td>x{{nights*passengers.adults}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].adults)|number:0}} Ft</td>
               </tr>
               <tr ng-show="(passengers.children!=0)">
@@ -283,7 +285,7 @@
                 </td>
                 <td>{{selected_room_data.child_price|number:0}} Ft</td>
                 <td>/fő/éjszaka</td>
-                <td>x{{selected_date_data.durration.nights*passengers.children}}</td>
+                <td>x{{nights*passengers.children}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
               </tr>
               <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
