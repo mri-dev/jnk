@@ -176,6 +176,7 @@ class TravelModul
     $spost_sdesc = get_the_excerpt( $this->postid );
     $spost_img = get_the_post_thumbnail_url( $this->postid );
     $is_user_alert = false;
+    $utazas_tipus = ($calculator['egyeni'] == 1) ? __('egyéni utazás', TD) : __('csoportos utazás', TD);
 
     if ( $can_send ) {
       // Admin értesítés
@@ -183,7 +184,7 @@ class TravelModul
       $email = $calculator['order']['contact']['email'];
       $to = get_option('admin_email');
       $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
-      $mail_subject  = sprintf(__('Új ajnálatkérés: %s (%s)'), $name, $pa_text);
+      $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)'), $utazas_tipus, $name, $pa_text);
 
       ob_start();
     	  include(locate_template('templates/mails/utazascalculator.php'));

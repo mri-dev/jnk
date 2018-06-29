@@ -1,3 +1,6 @@
+<?php
+  $nights = (int)$calculator['nights'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -273,7 +276,11 @@
     <div class="group">
       <h3>Kiválasztott időpont</h3>
       <div class="option-select">
-        <?=$calculator['selected_date']['onday']?>, <?=$calculator['selected_date']['travel_weekday']?> - <?=$calculator['selected_date']['durration']['nights']?> éjszaka.
+        <?php if ($calculator['egyeni'] == 0): ?>
+          <?=$calculator['selected_date']['onday']?>, <?=$calculator['selected_date']['travel_weekday']?> - <?=$nights?> éjszaka.
+        <?php else: ?>
+          Egyéni utazás: <?=$calculator['datepicker']['selectedTemplateName']?>, <?=$nights?> éjszaka.
+        <?php endif; ?>
       </div>
     </div>
     <div class="group">
@@ -309,7 +316,7 @@
               </td>
               <td><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?> Ft</td>
               <td>/fő/éjszaka</td>
-              <td>x<?=($calculator['selected_date']['durration']['nights'] * $calculator['passengers']['adults'])?></td>
+              <td>x<?=($nights * $calculator['passengers']['adults'])?></td>
               <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?> Ft</td>
             </tr>
             <?php if ($calculator['passengers']['children'] != 0): ?>
@@ -319,7 +326,7 @@
               </td>
               <td><?=number_format((float)$calculator['selected_room']['child_price'], 0, '', ',')?> Ft</td>
               <td>/fő/éjszaka</td>
-              <td>x<?=($calculator['selected_date']['durration']['nights'] * $calculator['passengers']['children'])?></td>
+              <td>x<?=($nights * $calculator['passengers']['children'])?></td>
               <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['children'], 0, '', ',')?> Ft</td>
             </tr>
             <?php endif; ?>

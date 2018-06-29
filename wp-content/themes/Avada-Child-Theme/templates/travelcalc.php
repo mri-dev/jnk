@@ -307,7 +307,7 @@
                 <td>x {{priceCalcMe(item)}}</td>
                 <td>{{priceCalcSum(item)|number:0}} Ft</td>
               </tr>
-              <tr class="priceev" ng-show="configs.programok.length!=0">
+              <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="4" class="ev">Szolgáltatások összesen:</td>
                 <td class="price">{{config_szolgaltatas_prices|number:0}} Ft</td>
               </tr>
@@ -510,8 +510,8 @@
       </div>
     </div>
     <div class="offer-group preorder-msg" ng-show="preorder_msg.msg" ng-class="(preorder_msg.error==0)?'success':'error'">
-      <i class="fa fa-check-circle" ng-show="preorder_msg.error==0"></i>
-      <i class="fa fa-times-circle" ng-show="preorder_msg.error==1"></i>
+      <i class="fa fa-check-circle" ng-show="(preorder_msg.error==0)"></i>
+      <i class="fa fa-times-circle" ng-show="(preorder_msg.error==1)"></i>
       {{preorder_msg.msg}}
     </div>
   </div>

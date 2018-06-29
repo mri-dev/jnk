@@ -1,8 +1,16 @@
 <?php get_header(); ?>
 <?php echo do_shortcode("[destination-searcher class='manual-insert']"); ?>
 <?php
+	global $post;
+	$cats = get_the_terms( $post, 'utazas_kategoria' );
 	$searcher = new Searcher();
 	$template = new ShortcodeTemplates('SearcherSc/standard');
+
+	/*
+	echo '<pre>';
+	print_r($cats);
+	echo '</pre>';
+	*/
 
   $tax_id = get_queried_object()->term_id;
 	$arg = array();

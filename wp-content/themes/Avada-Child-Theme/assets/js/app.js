@@ -164,6 +164,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     prepare.config_szolgaltatas_prices = $scope.config_szolgaltatas_prices;
     prepare.config_programok_prices = $scope.config_programok_prices;
     prepare.travel_prices = $scope.travel_prices;
+    prepare.egyeni = ($scope.dates.length == 0) ? 1 : 0;
+    prepare.datepicker = $scope.calendarModel;
+    prepare.nights = $scope.nights;
 
     $http({
       method: 'POST',
@@ -186,7 +189,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         $scope.preorder_msg.error = 1;
         $scope.preorder_msg.msg = 'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!';
       }
-      console.log(r);
     });
   }
 
@@ -440,7 +442,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     var d_start = new Date(start);
     var diff = Math.round((d_end-d_start)/(1000*60*60*24));
 
-    return diff - 1;
+    return diff;
   }
 
   $scope.selectEllatas = function( id )
