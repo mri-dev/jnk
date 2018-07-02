@@ -318,6 +318,14 @@ class Travel
     return $list;
   }
 
+  public function getTestimonials()
+  {
+    $qry = new WP_Query(array(
+      'post_type' => 'wpm-testimonial'
+    ));
+
+  }
+
   public function __destruct()
   {
     $this->arg = null;

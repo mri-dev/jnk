@@ -7,6 +7,7 @@
   $travel_to = $travel->getTravelTo();
   $gallery_id = $travel->getGalleryID();
   $programs = $travel->getPrograms();
+  $testimonials = $travel->getTestimonials();
 ?>
 <a name="datas"></a>
 <div class="travel-base-wrapper">

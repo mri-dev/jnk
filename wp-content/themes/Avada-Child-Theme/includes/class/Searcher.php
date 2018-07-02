@@ -5,6 +5,10 @@
 class Searcher
 {
   public $arg = array();
+  public $pages = array(
+    'current' => 1,
+    'max' => 1
+  );
 
   public function __construct( $arg = array() )
   {
@@ -16,6 +20,7 @@ class Searcher
   public function Listing( $arg = array() )
   {
     global $post;
+    $current_page = 1;
     $back = array();
     $filters = (array)$arg['filters'];
 
@@ -24,6 +29,8 @@ class Searcher
 
     $src = array();
     $src['post_type'] = 'utazas';
+
+    $current_page = (!empty($arg['page'])) ? (int)$arg['page'] : $current_page;
 
     if ($filters['tag'] && !empty($filters['tag'])) {
       $src['tag_slug__in'] = $filters['tag'];
@@ -138,7 +145,12 @@ class Searcher
       $src['tax_query'] = $tax_query;
     }
 
+    $src['paged'] = $current_page;
+
     $datas = new WP_Query( $src );
+
+    $this->pages['current'] = $current_page;
+    $this->pages['max'] = (int)$datas->max_num_pages;
 
     if ( $datas->have_posts() ) {
       while( $datas->have_posts() ) {
@@ -197,6 +209,30 @@ class Searcher
         $topCat->children = array();
         $this->sort_hiearchical_order_term($cats, $topCat->children, $topCat->term_id);
     }
+  }
+
+  public function pagination()
+  {
+    $href = '/utazas/';
+    $param = array();
+    unset($_GET['page']);
+    $param = $_GET;
+    $qry = build_query($param);
+    if ( $qry == '') {
+      $href .= '?';
+    } else {
+      $href .= '?'.$qry.'&';
+    }
+
+    $t = '<div class="pagination">';
+      $t .= '<ul>';
+      for( $p = 1; $p <= $this->pages[max]; $p++ ){
+        $t .= '<li class="'. ( ($p == $this->pages[current])?'active':'' ) .'"><a href="'.$href.'page='.$p.'">'.$p.'</a></li>';
+      }
+      $t .= '</ul>';
+    $t .= '</div>';
+
+    return $t;
   }
 }
 

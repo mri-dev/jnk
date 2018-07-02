@@ -6,7 +6,10 @@
 
 	$arg = array();
 	$arg['filters'] = $_GET;
+	$arg['limit'] = 12;
+	$arg['page'] = (isset($_GET['page'])) ? $_GET['page'] : 1;
 	$list = $searcher->Listing( $arg );
+	$pages = $searcher->pages;
 ?>
 <div class="listing-utazasok">
 	<div class="page-width">
@@ -23,6 +26,9 @@
 					echo $template->load_template(array('travel' => $travel));
 				 endforeach; ?>
          </div>
+				 <?php if ($pages && $pages['max'] > 1): ?>
+				 	<?php echo $searcher->pagination(); ?>
+				 <?php endif; ?>
          <?php echo (new ShortcodeTemplates('SearcherSc/js'))->load_template(); ?>
       <?php endif; ?>
 		</div>
