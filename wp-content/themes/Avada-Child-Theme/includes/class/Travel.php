@@ -320,10 +320,37 @@ class Travel
 
   public function getTestimonials()
   {
-    $qry = new WP_Query(array(
-      'post_type' => 'wpm-testimonial'
+    $data = array();
+    $meta_query = array();
+    $tax_query = array();
+
+    $meta_query[] = array(
+      'key' => 'travel_id',
+      'value' => $this->id
+    );
+
+    $tax_query[] = array(
+      'taxonomy' => 'wpm-testimonial-category',
+      'field' => 'term_id',
+      'terms' => 22
+    );
+
+    $qry = get_posts(array(
+      'post_type' => 'wpm-testimonial',
+      'posts_per_page' => -1,
+      'orderby' => 'rand',
+      'meta_query' => $meta_query,
+      'tax_query' => $tax_query
     ));
 
+    foreach ((array)$qry as $d) {
+      $d->client_name = get_post_meta( $d->ID, 'client_name', true);
+      $d->destination = get_post_meta( $d->ID, 'destination', true);
+      $data[] = $d;
+    }
+
+
+    return $data;
   }
 
   public function __destruct()

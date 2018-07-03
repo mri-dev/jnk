@@ -147,6 +147,26 @@ class TravelModul
     return $back;
   }
 
+  public function createTestimonial( $content )
+  {
+    $insert = array();
+    $insert['post_type'] = 'wpm-testimonial';
+    $insert['post_title'] = $content['client_name'];
+    $insert['post_content'] = $content['msg'];
+    $insert['post_status'] = 'pending';
+    $insert['meta_input'] = array(
+      'client_name' => $content['client_name'],
+      'destination' => $content['destination'],
+      'travel_id' => $this->postid
+    );
+
+    $post_id = wp_insert_post($insert);
+
+    wp_set_object_terms( $post_id, 22, 'wpm-testimonial-category' );
+
+    return $post_id;
+  }
+
   private function prepareRoomValues( $data )
   {
     $back = array();

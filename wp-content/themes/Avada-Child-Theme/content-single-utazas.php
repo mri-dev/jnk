@@ -60,7 +60,7 @@
             <?php if ($gallery_id): ?>
             <li class="gallery"><a href="javascript:void(0);" data-scrollTarget="gallery"><?php echo __('Képek', TD); ?></a></li>
             <?php endif; ?>
-            <li class="reviews"><a href="javascript:void(0);" data-scrollTarget="reviews"><?php echo sprintf(__('Értékelések (%d)', TD), 0); ?></a></li>
+            <li class="reviews"><a href="javascript:void(0);" data-scrollTarget="reviews"><?php echo sprintf(__('Értékelések (%d)', TD), count($testimonials)); ?></a></li>
           </ul>
         </div>
       </div>
@@ -111,12 +111,88 @@
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <?php endif; ?>
-      <div class="reviews">
+      <div class="reviews" ng-controller="TestimonialMaker">
         <a name="reviews"></a>
-        <h2><i class="far fa-star"></i> <?php echo __('Értékelések', TD); ?></h2>
-        <div class="no-item">
-          <?php echo __('Még senki nem értékelte ezt az utazást.', TD); ?><br>
-          <a href="#"><?php echo __('Értékelem az utazást', TD); ?></a>
+        <h2><i class="far fa-star"></i> <?php echo __('Értékelések', TD); ?> (<?=count($testimonials)?>)</h2>
+        <?php if ( count($testimonials) == 0 ): ?>
+          <div class="no-item">
+            <?php echo __('Még senki nem értékelte ezt az utazást.', TD); ?><br>
+            <a href="javascript:void(0);" ng-click="tglCreator()"><?php echo __('Értékelem az utazást', TD); ?></a>
+          </div>
+        <?php else: ?>
+          <div class="testimonial-content">
+            <div class="wrapper">
+              <?php foreach ($testimonials as $test): ?>
+              <div class="comment">
+                <div class="wrapper">
+                  <div class="desc">
+                    <?php echo $test->post_content; ?>
+                  </div>
+                  <div class="author">
+                    <div class="name">
+                      <i class="far fa-user-circle"></i> <?php echo $test->client_name; ?>
+                    </div>
+                    <div class="destination">
+                      <i class="fas fa-map-marker-alt"></i> <?php echo $test->destination; ?>
+                    </div>
+                    <div class="posteddate">
+                      <?php echo get_the_date('Y. m. d.',$test); ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php endforeach; ?>
+              <a href="javascript:void(0);" class="adder" ng-click="tglCreator()"><i class="fas fa-pencil-alt"></i> <?php echo __('Új értékelés beküldése', TD); ?></a>
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <?php //print_r($testimonials); ?>
+        <div class="testimonial-creator" ng-show="creatorshowed" ng-init="init(<?=$post->ID?>)">
+          <div class="wrapper">
+            <div class="header">
+              <h3><?php echo __('Új értékelés beküldése', TD); ?></h3>
+            </div>
+            <div class="cont">
+              <div class="name">
+                <div class="w">
+                  <label for="testi_name"><?php echo __('Az Ön neve', TD); ?> *</label>
+                  <input type="text" id="testi_name" ng-model="content.client_name">
+                </div>
+              </div>
+              <div class="city">
+                <div class="w">
+                  <label for="testi_destination"><?php echo __('Város / Úti cél', TD); ?> *</label>
+                  <input type="text" id="testi_destination" ng-model="content.destination">
+                </div>
+              </div>
+              <div class="msg">
+                <div class="w">
+                  <label for="testi_msg"><?php echo __('Vélemény', TD); ?> *</label>
+                  <textarea ng-model="content.msg" maxlength="250" placeholder="<?php echo __('Itt írhatja le véleményét az utazással kapcsolatban...', TD); ?>"></textarea>
+                  <div class="avb" ng-class="(content.msg.length >= 240)?'nomore':''">
+                    250 / <strong>{{(250-content.msg.length)| number:0}}</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="send">
+                <div class="w">
+                  <div class="input-ast" ng-hide="(content.client_name && content.destination && content.msg)">
+                    <?php echo __('Az értékelés beküldéséhez töltse ki a form csillagozott (*) mezőit.', TD); ?>
+                  </div>
+                  <div class="sending" ng-show="sending">
+                      <?php echo __('Értékelés beküldése folyamatban...', TD); ?>
+                  </div>
+                  <div class="sended" ng-show="sended">
+                    <?php echo __('Köszönjük visszajelzését. Értékelését sikeresen befogadtuk, mely munkatársaink jóváhagyása után jelenhet meg az adatlapon.', TD); ?>
+                  </div>
+                  <div class="" ng-hide="sending">
+                    <button ng-click="SendTestimonial()" ng-show="(content.client_name && content.destination && content.msg)"><?php echo __('Értékelés beküldése', TD); ?></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>

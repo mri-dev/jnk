@@ -1444,3 +1444,61 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
 		}
 	}
 }]);
+
+jnk.controller('TestimonialMaker', ['$scope', '$http', '$mdToast', '$mdDialog', '$httpParamSerializerJQLike', '$window', function($scope, $http, $mdToast, $mdDialog, $httpParamSerializerJQLike, $window)
+{
+  $scope.creatorshowed = false;
+  $scope.postid = 0;
+  $scope.sending = false;
+  $scope.sended = false;
+  $scope.content = {
+    client_name: null,
+    destination: null,
+    msg: null
+  };
+
+  $scope.init = function( postid )
+  {
+    $scope.postid = postid;
+  }
+
+  $scope.tglCreator = function(){
+    if ($scope.creatorshowed) {
+      $scope.creatorshowed = false;
+      // Reset
+      $scope.content = {
+        client_name: null,
+        destination: null,
+        msg: null
+      };
+    } else {
+      $scope.creatorshowed = true;
+    }
+  }
+
+  $scope.SendTestimonial = function(){
+    $scope.sending = true;
+    $scope.sended = false;
+
+    $http({
+      method: 'POST',
+      url: '/wp-admin/admin-ajax.php?action=traveler',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: $httpParamSerializerJQLike({
+        postid: $scope.postid,
+        mode: 'createTestimonial',
+        content: $scope.content
+      })
+    }).success(function(r){
+      console.log(r);
+      $scope.content = {
+        client_name: null,
+        destination: null,
+        msg: null
+      };
+      $scope.sending = false;
+      $scope.sended = true;
+    });
+
+  }
+}]);

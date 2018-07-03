@@ -51,6 +51,17 @@ class AjaxRequests
 
     switch ($mode)
     {
+      // VÉleményés értékelés leadása
+      case 'createTestimonial':
+        try {
+          $re = $travels->createTestimonial( $content );
+          $return['data'] = $re;
+        } catch (\Exception $e) {
+          $return['error'] = 1;
+          $return['msg'] = $e->getMessage();
+        }
+      break;
+
       // Ajánlatkérés elküldése
       case 'sendPreOrder':
         try {
