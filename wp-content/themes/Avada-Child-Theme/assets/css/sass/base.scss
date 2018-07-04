@@ -718,6 +718,20 @@ body.programok-template-default{
       }
     }
   }
+
+  .load-more-comment{
+    text-align: center;
+    font-weight: bold;
+    margin: 5px 0 15px 0;
+    font-size: 0.8em;
+  }
+
+  .more-comment{
+    display: none;
+    &.show{
+      display: block;
+    }
+  }
 }
 
 .testimonial-creator{
@@ -1190,7 +1204,8 @@ body.programok-template-default{
               transform:translateY(-50%);
           }
 
-          input[type=text] {
+          input[type=text],
+          select {
             background: transparent;
             border:none;
             padding: 0 25px 0 10px;
@@ -1199,18 +1214,23 @@ body.programok-template-default{
             font-size: 1.1em;
             line-height: 34px;
           }
+          select{
+            width: 100%;
+          }
         }
       }
-
+      &.type{
+        flex-basis: 20%;
+      }
       &.keywords{
         flex-basis: 40%;
       }
       &.location{
-        flex-basis: 25%;
+        flex-basis: 20%;
       }
       &.ellatas,
       &.datetime{
-        flex-basis: calc(35%/2);
+        flex-basis: 20%;
       }
       &.durations,
       &.utazasmod{
@@ -1218,6 +1238,12 @@ body.programok-template-default{
       }
       &.szolgaltatasok{
         flex-basis: 40%;
+      }
+      &.pre-srcbutton{
+        flex-basis: 80%;
+      }
+      &.srcbutton{
+        flex-basis: 20%;
       }
     }
 
@@ -1664,6 +1690,47 @@ body.single-utazas{
 
       .description{
         color: #4c4c4c;
+      }
+
+      .price-comment{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: nowrap;
+        border: 0.5px solid #dddddd;
+        margin: 10px 0;
+        font-style: italic;
+        font-size: 0.8em;
+        background: #ffffff;
+        padding: 0.5px;
+
+        & > div {
+          padding: 5px;
+        }
+
+        & > .ico {
+          background: $color-blue;
+          flex-basis: 35px;
+          text-align: center;
+          position: relative;
+          color: white;
+
+          svg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+          }
+        }
+
+        & > .text {
+          flex: 1;
+          line-height: 1.4;
+          padding: 10px;
+          color: #000;
+        }
+
       }
     }
 

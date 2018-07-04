@@ -8,6 +8,7 @@
   $gallery_id = $travel->getGalleryID();
   $programs = $travel->getPrograms();
   $testimonials = $travel->getTestimonials();
+  $ar_comment = $travel->getPriceComment();
 ?>
 <a name="datas"></a>
 <div class="travel-base-wrapper">
@@ -72,6 +73,16 @@
         <a name="description"></a>
         <h2><i class="far fa-file-alt"></i> <?php echo __('Utazás ismertetése', TD); ?></h2>
         <?php the_content(); ?>
+        <?php if (!empty($ar_comment)): ?>
+        <div class="price-comment">
+          <div class="ico">
+            <i class="fas fa-asterisk"></i>
+          </div>
+          <div class="text">
+            <?php echo $ar_comment; ?>
+          </div>
+        </div>
+        <?php endif; ?>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <?php if ($programs): ?>
@@ -122,7 +133,9 @@
         <?php else: ?>
           <div class="testimonial-content">
             <div class="wrapper">
-              <?php foreach ($testimonials as $test): ?>
+              <?php $ti = 0; ?>
+              <div class="first5">
+              <?php foreach ($testimonials as $test): $ti++; ?>
               <div class="comment">
                 <div class="wrapper">
                   <div class="desc">
@@ -141,7 +154,15 @@
                   </div>
                 </div>
               </div>
+              <?php if ($ti == 5): ?>
+              </div>
+              <div class="load-more-comment">
+                <a href="javascript:void(0);"><?php echo sprintf(__('További %d vélemény olvasása'), (count($testimonials)-5)); ?> >></a>
+              </div>
+              <div class="more-comment">
+              <?php endif; ?>
               <?php endforeach; ?>
+              </div>
               <a href="javascript:void(0);" class="adder" ng-click="tglCreator()"><i class="fas fa-pencil-alt"></i> <?php echo __('Új értékelés beküldése', TD); ?></a>
             </div>
           </div>
@@ -218,6 +239,11 @@
     $(window).scroll(function(){
       trackFixElement();
       trackNavBars();
+    });
+
+    $('.load-more-comment > a').click(function(){
+      $('.more-comment').addClass('show');
+      $(this).hide(0);
     });
 
     function trackNavBars() {

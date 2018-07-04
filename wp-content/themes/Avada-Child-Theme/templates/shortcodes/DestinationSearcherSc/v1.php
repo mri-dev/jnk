@@ -18,18 +18,18 @@
       </div>
     </div>
   </div>
-  <div class="location">
+  <div class="type">
     <div class="iwrapper">
-      <label for="searcher_city"><?=__('Úti cél', TD)?></label>
+      <label for="src_search"><?php echo __('Típus', TD); ?></label>
       <div class="input-wrapper">
-        <div class="ico"><i class="fas fa-globe"></i></div>
-        <input type="text" id="searcher_city" name="cities" class="form-control" autocomplete="off" value="<?=$_GET['cities']?>" placeholder="<?=__('Összes város', TD)?>">
-        <div id="searcher_city_autocomplete" class="selector-wrapper"></div>
-        <input type="hidden" name="ci" id="searcher_city_ids" value="">
+        <select class="" name="type">
+          <option value="" selected="selected">Mindegy</option>
+          <option value="egyeni" <?=($_GET['type'] == 'egyeni')?'selected="selected"':''?>>Egyéni utazás</option>
+          <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':''?>>Csoportos utazás</option>
+        </select>
       </div>
     </div>
   </div>
-
   <div class="ellatas">
     <div class="iwrapper">
       <label for="ellatas_multiselect_text"><?=__('Ellátás', TD)?></label>
@@ -59,7 +59,6 @@
       </div>
     </div>
   </div>
-
   <div class="datetime">
     <div class="iwrapper">
       <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
@@ -69,7 +68,17 @@
       </div>
     </div>
   </div>
-
+  <div class="location">
+    <div class="iwrapper">
+      <label for="searcher_city"><?=__('Úti cél', TD)?></label>
+      <div class="input-wrapper">
+        <div class="ico"><i class="fas fa-globe"></i></div>
+        <input type="text" id="searcher_city" name="cities" class="form-control" autocomplete="off" value="<?=$_GET['cities']?>" placeholder="<?=__('Összes város', TD)?>">
+        <div id="searcher_city_autocomplete" class="selector-wrapper"></div>
+        <input type="hidden" name="ci" id="searcher_city_ids" value="">
+      </div>
+    </div>
+  </div>
   <div class="durations">
     <div class="iwrapper">
       <label for="duration_multiselect_text"><?=__('Utazás hossza', TD)?></label>
@@ -159,7 +168,7 @@
       </div>
     </div>
   </div>
-
+  <div class="pre-srcbutton">&nbsp;</div>
   <div class="srcbutton">
     <div class="iwrapper">
       <button type="submit"><?php echo __('Keresés',TD); ?></button>

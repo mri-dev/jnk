@@ -109,6 +109,16 @@ class Searcher
       }
     }
 
+    // Utazás kategória
+    if ( isset($filters['type']) && !empty($filters['type'])) {
+      $kat = trim($filters['type']);
+      $tax_query[] = array(
+        'taxonomy' => 'utazas_kategoria',
+        'field' => 'slug',
+        'terms' => $kat
+      );
+    }
+
     // Utazás módja
     if ( isset($filters['um']) && !empty($filters['um']) )
     {
