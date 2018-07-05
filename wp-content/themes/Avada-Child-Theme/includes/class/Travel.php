@@ -86,6 +86,13 @@ class Travel
     return $v;
   }
 
+  public function isEgyeni()
+  {
+    $egyeni_utazas = get_post_meta($this->id, METAKEY_PREFIX . 'egyeni_utazas', true);
+
+    return (empty($egyeni_utazas)) ? false : true;
+  }
+
   public function getOriginalPrice()
   {
     $v = get_post_meta($this->id, METAKEY_PREFIX . 'ar', true);
@@ -119,6 +126,31 @@ class Travel
     $v = get_the_excerpt($this->id);
 
     return $v;
+  }
+
+  public function getHotelStars()
+  {
+    $type = $this->getHotelType();
+
+    switch ($type->name) {
+      case '1 csillag': case '2 csillag': case '3 csillag': case '4 csillag': case '5 csillag':
+        $star = (int)trim(str_replace(" csillag","", $type->name));
+        return $star;
+      break;
+
+      default:
+        return false;
+      break;
+    }
+  }
+
+  public function getHotelType()
+  {
+    $terms = wp_get_post_terms($this->id, array(
+      'taxonomy' => 'hotel_kategoria'
+    ));
+
+    return $terms[0];
   }
 
   public function getDiscountPrice()

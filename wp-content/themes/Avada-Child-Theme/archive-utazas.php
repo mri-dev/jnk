@@ -10,9 +10,52 @@
 	$arg['page'] = (isset($_GET['page'])) ? $_GET['page'] : 1;
 	$list = $searcher->Listing( $arg );
 	$pages = $searcher->pages;
+	$filters = $searcher->acceptedFilters();
+
 ?>
 <div class="listing-utazasok">
 	<div class="page-width">
+		<h2><?=__('Keresési eredmény', TD)?>:</h2>
+		<div class="pages">
+			<?=sprintf(__('%d db találat &mdash; %d / <strong>%d. oldal</strong>', TD), $pages['items'], $pages['max'], $pages['current'])?>
+		</div>
+		<?php if (!empty($filters)): ?>
+		<div class="filters">
+			<div class="">
+				<i class="fa fa-filter"></i>
+			</div>
+			<?php if ( isset($filters['tag']) ): ?>
+				<div class="tag">
+					<?=__('Címke', TD)?>: <span class="opt"><?=$filters['tag']['label']?></span>
+				</div>
+			<?php endif; ?>
+			<?php if ( isset($filters['type']) ): ?>
+				<div class="type">
+					<?=__('Típus', TD)?>: <span class="opt"><?=$filters['type']['label']?></span>
+				</div>
+			<?php endif; ?>
+			<?php if ( isset($filters['el']) && count($filters['el']) != 0 ): ?>
+				<div class="el">
+					<?=__('Ellátás', TD)?>: <? foreach( $filters['el'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( isset($filters['dur']) && count($filters['dur']) != 0 ): ?>
+				<div class="dur">
+					<?=__('Utazás hossza', TD)?>: <? foreach( $filters['dur'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( isset($filters['um']) && count($filters['um']) != 0 ): ?>
+				<div class="um">
+					<?=__('Utazás módja', TD)?>: <? foreach( $filters['um'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( isset($filters['szolg']) && count($filters['szolg']) != 0 ): ?>
+				<div class="szolg">
+					<?=__('Szolgáltatás', TD)?>: <? foreach( $filters['szolg'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php endif; ?>
 		<div class="list-wrapper">
       <?php if (empty($list)): ?>
         <div class="no-item">

@@ -269,6 +269,17 @@ function create_custom_posttypes()
     )
   ) );
 
+  $utak->add_taxonomy( 'hotel_kategoria', array(
+    'rewrite' => 'hotelkategoria',
+    'name' => array('Hotel kategória', 'Hotel kategóriák'),
+    'labels' => array(
+      'menu_name' => 'Hotel kategóriák',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
   $utak_metabox = new CustomMetabox(
     'utazas',
     __('Utazás alapadatok', TD),

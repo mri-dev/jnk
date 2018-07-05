@@ -48,6 +48,12 @@
       <?php $ar_magyarazat = get_post_meta($post->ID, $metakey, true); ?>
       <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_magyarazat?>">
     </td>
+    <td>
+      <?php $metakey = METAKEY_PREFIX . 'max_befogadas'; ?>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Befogadóképesség - Csoportos utazásnál', TD); ?></strong></label></p>
+      <?php $max_befogadas = get_post_meta($post->ID, $metakey, true); ?>
+      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$max_befogadas?>" placeholder="pl.: 1 - 20 fő">
+    </td>
     <td colspan="2">
       <?php
         $metakey = METAKEY_PREFIX . 'photo_gallery_id';

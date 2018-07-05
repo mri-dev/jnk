@@ -858,6 +858,41 @@ body.programok-template-default{
 }
 
 .listing-utazasok{
+  & > .page-width{
+    & > h2 {
+      font-weight: bold !important;
+      margin: 15px 0 0 0;
+      font-size: 1.8em !important;
+    }
+
+    .pages {
+      color: black;
+      font-size: 0.85em;
+      margin: 8px 0;
+    }
+
+    .filters{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.8em;
+      margin: 20px -6px 0 -6px;
+
+      & > div {
+        margin: 6px;
+
+        span.opt {
+          background: $color-green;
+          color: white;
+          border-radius: 10px;
+          padding: 5px 10px;
+          margin: 0 5px 0 0;
+        }
+      }
+    }
+  }
   .list-wrapper{
     padding: 30px 0;
 
@@ -931,8 +966,9 @@ body.programok-template-default{
         z-index: 2;
         pointer-events: none;
 
-        & > div {
+        & > div:not(.fusion-clearfix){
           position: relative;
+          float:left;
           margin: 0 0 10px 0;
           background: rgba(74, 74, 74, 1);
           color: white;
@@ -963,6 +999,21 @@ body.programok-template-default{
             background:#e83939;
             &:after{
               border-color: transparent #e83939 transparent transparent;
+            }
+          }
+          &.egyeni{
+            font-size: 0.7em;
+            line-height: 1;
+            &:after{
+
+            }
+          }
+          &.hotel-type{
+            background: #ffab13;
+            font-size: 0.7em;
+            line-height: 1;
+            &:after{
+              border-color: transparent #ffab13 transparent transparent;
             }
           }
         }
@@ -2917,6 +2968,22 @@ body.single .fusion-page-title-bar{
       }
       &.sended{
         background: #3ace8b;
+      }
+    }
+  }
+}
+
+.post-caption-utazas{
+  .titledata{
+    h1{
+      .t{
+        float: left;
+      }
+      .stars{
+        float: left;
+        margin: 0 0 0 5px;
+        font-size: 13px !important;
+        color: $color-orange  !important;
       }
     }
   }

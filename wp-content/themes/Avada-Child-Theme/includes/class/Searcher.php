@@ -9,6 +9,7 @@ class Searcher
     'current' => 1,
     'max' => 1
   );
+  private $accepted_filters = array();
 
   public function __construct( $arg = array() )
   {
@@ -34,6 +35,10 @@ class Searcher
 
     if ($filters['tag'] && !empty($filters['tag'])) {
       $src['tag_slug__in'] = $filters['tag'];
+      $this->accepted_filters['tag'] = array(
+        'value' => $filters['tag'],
+        'label' => $this->getTermName('post_tag', $filters['tag'])
+      );
     }
 
     if ($filters['kiemelt'] && !empty($filters['kiemelt'])) {
@@ -93,6 +98,7 @@ class Searcher
           'field' => 'term_id',
           'terms' => $tax
         );
+        $this->accepted_filters['el'] = $this->prepareAcceptFilterRow($tax, 'utazas_ellatas', 'term_id');
       }
     }
 
@@ -106,6 +112,7 @@ class Searcher
           'field' => 'term_id',
           'terms' => $tax
         );
+        $this->accepted_filters['dur'] = $this->prepareAcceptFilterRow($tax, 'utazas_duration', 'term_id');
       }
     }
 
@@ -116,6 +123,10 @@ class Searcher
         'taxonomy' => 'utazas_kategoria',
         'field' => 'slug',
         'terms' => $kat
+      );
+      $this->accepted_filters['type'] = array(
+        'value' => $filters['type'],
+        'label' => $this->getTermName('utazas_kategoria', $filters['type'])
       );
     }
 
@@ -129,6 +140,7 @@ class Searcher
           'field' => 'term_id',
           'terms' => $tax
         );
+        $this->accepted_filters['um'] = $this->prepareAcceptFilterRow($tax, 'utazas_mod', 'term_id');
       }
     }
 
@@ -142,6 +154,7 @@ class Searcher
           'field' => 'term_id',
           'terms' => $tax
         );
+        $this->accepted_filters['szolg'] = $this->prepareAcceptFilterRow($tax, 'utazas_szolgaltatasok', 'term_id');
       }
     }
 
@@ -161,6 +174,7 @@ class Searcher
 
     $this->pages['current'] = $current_page;
     $this->pages['max'] = (int)$datas->max_num_pages;
+    $this->pages['items'] = (int)$datas->found_posts;
 
     if ( $datas->have_posts() ) {
       while( $datas->have_posts() ) {
@@ -172,6 +186,33 @@ class Searcher
     }
 
     return $back;
+  }
+
+  public function prepareAcceptFilterRow( $set = array(), $what, $by = 'term_id' )
+  {
+    $back = array();
+    foreach ( $set as $s ) {
+      $back[] = array(
+        'value' => $s,
+        'label' => $this->getTermName( $what, $s, $by )
+      );
+    }
+
+    return $back;
+  }
+
+  public function getTermName( $what, $val, $by = 'slug' )
+  {
+    $tag = get_term_by($by, $val, $what );
+
+    $val = ($tag) ? $tag->name : $val;
+
+    return $val;
+  }
+
+  public function acceptedFilters()
+  {
+    return $this->accepted_filters;
   }
 
   public function getSelectors( $id, $sel_values = array(), $arg = array() )

@@ -9,6 +9,15 @@
   $programs = $travel->getPrograms();
   $testimonials = $travel->getTestimonials();
   $ar_comment = $travel->getPriceComment();
+  $egyeni_utazas = $travel->isEgyeni();
+  $stars = $travel->getHotelStars();
+  $hotel_type = $travel->getHotelType();
+
+  if ($egyeni_utazas) {
+    $what = __('szállást', TD);
+  } else {
+    $what = __('utazást', TD);
+  }
 ?>
 <a name="datas"></a>
 <div class="travel-base-wrapper">
@@ -21,10 +30,17 @@
               <i class="far fa-clock"></i>
               <?php echo implode(', ', $durations); ?>
             </div>
-            <div class="people-restricts">
-              <i class="fas fa-users"></i>
-              3 - 24 fő
-            </div>
+            <?php if ($egyeni_utazas): ?>
+              <div class="hotel-type" title="<?=__('Hotel besorolása',TD)?>">
+                <i class="fas fa-star"></i>
+                <?=$hotel_type->name?>
+              </div>
+            <?php else: ?>
+              <div class="people-restricts">
+                <i class="fas fa-users"></i>
+                3 - 24 fő
+              </div>
+            <?php endif; ?>
             <?php if ($travel_from): ?>
             <div class="travel-from">
               <i class="fas fa-sign-out-alt" data-fa-transform="rotate--45"></i>
@@ -71,7 +87,12 @@
     <div class="travel-contents">
       <div class="description">
         <a name="description"></a>
-        <h2><i class="far fa-file-alt"></i> <?php echo __('Utazás ismertetése', TD); ?></h2>
+        <?php if ($egyeni_utazas): ?>
+          <h2><i class="far fa-building"></i> <?php echo __('Hotel leírása', TD); ?></h2>
+        <?php else: ?>
+          <h2><i class="far fa-file-alt"></i> <?php echo __('Utazás ismertetése', TD); ?></h2>
+        <?php endif; ?>
+
         <?php the_content(); ?>
         <?php if (!empty($ar_comment)): ?>
         <div class="price-comment">
@@ -127,8 +148,8 @@
         <h2><i class="far fa-star"></i> <?php echo __('Értékelések', TD); ?> (<?=count($testimonials)?>)</h2>
         <?php if ( count($testimonials) == 0 ): ?>
           <div class="no-item">
-            <?php echo __('Még senki nem értékelte ezt az utazást.', TD); ?><br>
-            <a href="javascript:void(0);" ng-click="tglCreator()"><?php echo __('Értékelem az utazást', TD); ?></a>
+            <?php echo __('Még senki nem írt véleményt.', TD); ?><br>
+            <a href="javascript:void(0);" ng-click="tglCreator()"><?php echo ucfirst($what).' '.__('értékelése', TD); ?></a>
           </div>
         <?php else: ?>
           <div class="testimonial-content">
@@ -190,7 +211,7 @@
               <div class="msg">
                 <div class="w">
                   <label for="testi_msg"><?php echo __('Vélemény', TD); ?> *</label>
-                  <textarea ng-model="content.msg" maxlength="250" placeholder="<?php echo __('Itt írhatja le véleményét az utazással kapcsolatban...', TD); ?>"></textarea>
+                  <textarea ng-model="content.msg" maxlength="250" placeholder="<?php echo __('Kérjük, itt fejtse ki véleményét...', TD); ?>"></textarea>
                   <div class="avb" ng-class="(content.msg.length >= 240)?'nomore':''">
                     250 / <strong>{{(250-content.msg.length)| number:0}}</strong>
                   </div>

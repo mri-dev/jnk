@@ -1490,7 +1490,6 @@ jnk.controller('TestimonialMaker', ['$scope', '$http', '$mdToast', '$mdDialog', 
         content: $scope.content
       })
     }).success(function(r){
-      console.log(r);
       $scope.content = {
         client_name: null,
         destination: null,
