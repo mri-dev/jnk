@@ -1102,6 +1102,62 @@ body.programok-template-default{
   }
 }
 
+.destinations-holder{
+  & > .wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -2px;
+
+    & > div {
+      flex-basis: calc(100% / 3);
+      padding: 2px;
+      & > .w{
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+
+        .title{
+          position: absolute;
+          background: rgba(0, 0, 0, 0.4);
+          color: white;
+          padding: 8px;
+          font-size: 0.6em;
+          text-transform: uppercase;
+          z-index: 1;
+          width: 90%;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+          pointer-events: none;
+
+          .ct {
+            text-transform: none;
+            font-size: 0.85em;
+          }
+        }
+
+        img {
+          height: 100% !important;
+          max-height: 100% !important;
+          width: auto !important;
+          max-width: initial !important;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+  }
+}
+
 .searcher-holder.style-home{
   .travels{
     justify-content: center;
