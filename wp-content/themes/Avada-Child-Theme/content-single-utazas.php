@@ -12,6 +12,9 @@
   $egyeni_utazas = $travel->isEgyeni();
   $stars = $travel->getHotelStars();
   $hotel_type = $travel->getHotelType();
+  $max_befogadas = $travel->maxBefogadas();
+
+  $travel->logView();
 
   if ($egyeni_utazas) {
     $what = __('szállást', TD);
@@ -36,9 +39,13 @@
                 <?=$hotel_type->name?>
               </div>
             <?php else: ?>
-              <div class="people-restricts">
+              <div class="people-restricts" title="<?=__('Elérhető létszám adatok: min - max',TD)?>">
                 <i class="fas fa-users"></i>
-                3 - 24 fő
+                <?php if ($max_befogadas): ?>
+                  <?php echo $max_befogadas; ?>
+                <?php else: ?>
+                  <?=__('Létszámtól független',TD)?>
+                <?php endif; ?>
               </div>
             <?php endif; ?>
             <?php if ($travel_from): ?>

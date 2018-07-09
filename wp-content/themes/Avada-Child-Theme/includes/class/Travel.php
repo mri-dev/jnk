@@ -35,6 +35,44 @@ class Travel
     }
   }
 
+  public function logView()
+  {
+    global $wpdb;
+
+    $dg = date('Y-m-d');
+    $cg = "SELECT viewcount FROM travel_term_view WHERE dategroup = '$dg' and post_id = '".$this->id."'";
+    $vc = (int)$wpdb->get_var( $cg );
+
+    if ($vc == 0) {
+      $wpdb->insert(
+      	'travel_term_view',
+      	array(
+      		'post_id' => $this->id,
+      		'dategroup' => $dg,
+          'viewcount' => 1
+      	),
+      	array(
+      		'%d',
+      		'%s',
+          '%d'
+      	)
+      );
+    } else {
+      $wpdb->update(
+        'travel_term_view',
+        array(
+          'viewcount' => $vc + 1
+        ),
+        array(
+          'post_id' => $this->id,
+          'dategroup' => $dg
+        ),
+        array('%d'),
+        array('%d', '%s')
+      );
+    }
+  }
+
   public function getRecommendedTravelIDS()
   {
     $ajanlatok = array();
@@ -70,6 +108,13 @@ class Travel
     } else {
       return true;
     }
+  }
+
+  public function maxBefogadas()
+  {
+    $v = (int)get_post_meta($this->id, METAKEY_PREFIX . 'max_befogadas', true);
+
+    return ($v == 0) ? false : $v;
   }
 
   public function getGalleryID()

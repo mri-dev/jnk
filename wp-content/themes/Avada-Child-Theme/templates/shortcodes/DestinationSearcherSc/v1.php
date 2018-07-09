@@ -23,9 +23,8 @@
       <label for="src_search"><?php echo __('Típus', TD); ?></label>
       <div class="input-wrapper">
         <select class="" name="type">
-          <option value="" selected="selected">Mindegy</option>
+          <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':'selected="selected"'?>>Csoportos utazás</option>
           <option value="egyeni" <?=($_GET['type'] == 'egyeni')?'selected="selected"':''?>>Egyéni utazás</option>
-          <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':''?>>Csoportos utazás</option>
         </select>
       </div>
     </div>

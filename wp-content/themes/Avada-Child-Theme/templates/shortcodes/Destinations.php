@@ -1,12 +1,4 @@
-<?php
-  $dest = get_terms(array(
-    'taxonomy' => 'utazas_uticel',
-    'number' => 9,
-    'hide_empty' => true,
-    'orderby' => 'name'
-  ));
-?>
-<h4 class="widget-title"><?=__('Úti célok', TD)?></h4>
+<h4 class="widget-title"><?=__('Népszerű úti célok', TD)?></h4>
 <div class="wrapper">
 <?php foreach ( (array)$dest as $d ): ?>
   <?php
