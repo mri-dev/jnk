@@ -73,10 +73,82 @@ class Travel
     }
   }
 
-  public function getRecommendedTravelIDS()
+  public function getRecommendedPostsIDSByTags( $tags = array() )
   {
-    $ajanlatok = array();
-    $ids = explode(",",get_post_meta($this->id, METAKEY_PREFIX . 'ajanlatok', true));
+    $ids = array();
+
+    if (empty($tags)) {
+      return false;
+    }
+
+    $tagids = array();
+    foreach ( (array)$tags as $tag ) {
+      $posts = new WP_Query(array(
+        'post_type' => 'post',
+        'tag__in' => $tag->term_id,
+        'posts_per_page' => -1
+      ));
+
+      if ($posts->have_posts()) {
+        while ( $posts->have_posts() ) {
+          $posts->the_post();
+          $tagids[get_the_ID()]['postid'] = get_the_ID();
+          $tagids[get_the_ID()]['tn'] += 1;
+          $tagids[get_the_ID()]['tags'][] = $tag->name;
+        }
+        wp_reset_postdata();
+      }
+    }
+    usort($tagids, function ($item1, $item2) {
+      if ($item1['tn'] == $item2['tn']) return 0;
+      return $item1['tn'] < $item2['tn'] ? 1 : -1;
+    });
+
+    foreach ( (array)$tagids as $ti ) {
+      $ids[] = $ti['postid'];
+    }
+    unset($tagids);
+    unset($posts);
+
+    return $ids;
+  }
+
+  public function getRecommendedTravelIDS( $tags = array() )
+  {
+    if ( empty($tags) )
+    {
+      $ids = explode(",",get_post_meta($this->id, METAKEY_PREFIX . 'ajanlatok', true));
+    } else {
+      $tagids = array();
+      foreach ( (array)$tags as $tag ) {
+        $posts = new WP_Query(array(
+          'post_type' => 'utazas',
+          'tag__in' => $tag->term_id,
+          'posts_per_page' => -1,
+          'post__not_in' => array($this->id)
+        ));
+
+        if ($posts->have_posts()) {
+          while ( $posts->have_posts() ) {
+            $posts->the_post();
+            $tagids[get_the_ID()]['postid'] = get_the_ID();
+            $tagids[get_the_ID()]['tn'] += 1;
+            $tagids[get_the_ID()]['tags'][] = $tag->name;
+        	}
+          wp_reset_postdata();
+        }
+      }
+      usort($tagids, function ($item1, $item2) {
+        if ($item1['tn'] == $item2['tn']) return 0;
+        return $item1['tn'] < $item2['tn'] ? 1 : -1;
+      });
+
+      foreach ( (array)$tagids as $ti ) {
+        $ids[] = $ti['postid'];
+      }
+      unset($tagids);
+      unset($posts);
+    }
 
     return $ids;
   }

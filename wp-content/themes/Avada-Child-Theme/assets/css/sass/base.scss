@@ -536,6 +536,8 @@ body.programok-template-default{
         font-size: 0.8em;
         line-height: 1.4;
         color: #777777;
+        max-height: 52px;
+        overflow: hidden;
       }
 
       .price {
@@ -580,7 +582,10 @@ body.programok-template-default{
     padding: 15px 0;
     h3{
       color: black;
-      margin: 0 0 15px 0;
+      margin: 15px 0;
+      font-size: 1.4em;
+      font-weight: bold;
+      text-transform: uppercase;
     }
   }
   &.article-sidebar{
@@ -621,6 +626,38 @@ body.programok-template-default{
         }
         &:last-child{
           border-bottom: none;
+        }
+
+        &.imaged{
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+
+          & > .img {
+            flex-basis: 45px;
+            height: 45px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+
+            img {
+              max-width: initial !important;
+              width: auto !important;
+              height: 110% !important;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              -webkit-transform:translate(-50%,-50%);
+              transform:translate(-50%,-50%);
+            }
+          }
+
+          & > .datas{
+            flex: 1;
+            padding: 0 0 0 15px;
+          }
         }
       }
     }
@@ -685,7 +722,8 @@ body.programok-template-default{
         color: #444444;
 
         .desc{
-          line-height: 1.2;
+          line-height: 1.4;
+          font-size: 1.15em;
           color: #333333;
           border-left: 5px solid #e9e9e9;
           padding: 0 0 0 15px;
@@ -698,9 +736,12 @@ body.programok-template-default{
           display: flex;
           flex-wrap: nowrap;
           align-items: center;
-          margin: 10px 0 0 0;
-          color: black;
-          font-size: 1em;
+          margin: 10px 0 0 2px;
+          font-size: 0.8em;
+
+          .svg-inline--fa{
+            color: #a5a5a5;
+          }
 
           & > div {
             margin: 0 12px 0 0;
@@ -708,6 +749,11 @@ body.programok-template-default{
 
           .name{
             font-weight: bold;
+            color: $color-orange;
+          }
+
+          .destination{
+            color: #1ab3e7;
           }
 
           .posteddate{

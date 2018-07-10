@@ -94,7 +94,7 @@
       </div>
     </td>
     <td colspan="2">
-      <p><label class="post-attributes-label" for=""><strong><?php echo __('Ajánlott utazások', TD); ?></strong></label></p>
+      <p><label class="post-attributes-label" for=""><strong><?php echo __('Érdekes lehet még (kézzel beállított ajánlat)', TD); ?></strong></label></p>
       <div class="categorydiv">
         <div class="tabs-panel">
           <ul class="categorychecklist ">
