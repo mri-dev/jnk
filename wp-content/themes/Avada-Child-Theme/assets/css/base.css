@@ -1067,41 +1067,50 @@ body.programok-template-default .fusion-page-title-bar h3 {
   font-weight: bold !important;
   font-size: 2em !important;
   margin: 0 0 8px 0;
+  color: black;
 }
 /* line 957, sass/base.scss */
+.listing-utazasok .list-wrapper .list-group .group-title h2 a {
+  color: black;
+}
+/* line 960, sass/base.scss */
+.listing-utazasok .list-wrapper .list-group .group-title h2 a:hover {
+  color: #fbb03b;
+}
+/* line 965, sass/base.scss */
 .listing-utazasok .list-wrapper .list-group .group-title .desc {
   color: #4c4c4c;
   font-size: 0.95em;
   font-style: italic;
 }
-/* line 964, sass/base.scss */
+/* line 972, sass/base.scss */
 .listing-utazasok .list-wrapper .list-group .more-travels {
   text-align: right;
   margin: 15px 0 0 0;
 }
-/* line 967, sass/base.scss */
+/* line 975, sass/base.scss */
 .listing-utazasok .list-wrapper .list-group .more-travels a {
   font-size: 0.8em;
 }
 
-/* line 975, sass/base.scss */
+/* line 983, sass/base.scss */
 .no-item {
   text-align: center;
   color: black;
   font-size: 1.1em;
   margin: 0 0 40px 0;
 }
-/* line 981, sass/base.scss */
+/* line 989, sass/base.scss */
 .no-item h3 {
   font-size: 1.2em;
 }
-/* line 985, sass/base.scss */
+/* line 993, sass/base.scss */
 .no-item .svg-inline--fa {
   color: #fbb03b;
   font-size: 50px;
 }
 
-/* line 991, sass/base.scss */
+/* line 999, sass/base.scss */
 .travels {
   margin: -20px;
   display: -webkit-box;
@@ -1110,19 +1119,19 @@ body.programok-template-default .fusion-page-title-bar h3 {
   align-items: flex-start;
   flex-wrap: wrap;
 }
-/* line 999, sass/base.scss */
+/* line 1007, sass/base.scss */
 .travels .travel {
   padding: 20px;
   flex-basis: calc(100%/3);
 }
-/* line 1002, sass/base.scss */
+/* line 1010, sass/base.scss */
 .travels .travel .wrapper {
   background: #ffffff;
   position: relative;
   box-shadow: 0 5px 20px -5px #d2d8dc;
   border-radius: 3px;
 }
-/* line 1008, sass/base.scss */
+/* line 1016, sass/base.scss */
 .travels .travel .wrapper .badges {
   position: absolute;
   top: 10px;
@@ -1130,7 +1139,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   z-index: 2;
   pointer-events: none;
 }
-/* line 1015, sass/base.scss */
+/* line 1023, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix) {
   position: relative;
   float: left;
@@ -1143,7 +1152,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   padding: 10px 10px 10px 20px;
   pointer-events: none;
 }
-/* line 1027, sass/base.scss */
+/* line 1035, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix):after {
   position: absolute;
   content: "";
@@ -1154,44 +1163,44 @@ body.programok-template-default .fusion-page-title-bar h3 {
   border-style: solid;
   border-color: transparent #4a4a4a transparent transparent;
 }
-/* line 1038, sass/base.scss */
+/* line 1046, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).discounted {
   background: #0b85d5;
 }
-/* line 1040, sass/base.scss */
+/* line 1048, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).discounted:after {
   border-color: transparent #0b85d5 transparent transparent;
 }
-/* line 1044, sass/base.scss */
+/* line 1052, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).highlighted {
   background: #e83939;
 }
-/* line 1046, sass/base.scss */
+/* line 1054, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).highlighted:after {
   border-color: transparent #e83939 transparent transparent;
 }
-/* line 1050, sass/base.scss */
+/* line 1058, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).egyeni {
   font-size: 0.7em;
   line-height: 1;
 }
-/* line 1057, sass/base.scss */
+/* line 1065, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).hotel-type {
   background: #ffab13;
   font-size: 0.7em;
   line-height: 1;
 }
-/* line 1061, sass/base.scss */
+/* line 1069, sass/base.scss */
 .travels .travel .wrapper .badges > div:not(.fusion-clearfix).hotel-type:after {
   border-color: transparent #ffab13 transparent transparent;
 }
-/* line 1068, sass/base.scss */
+/* line 1076, sass/base.scss */
 .travels .travel .wrapper .image {
   border-radius: 3px 3px 0 0;
   overflow: hidden;
   position: relative;
 }
-/* line 1073, sass/base.scss */
+/* line 1081, sass/base.scss */
 .travels .travel .wrapper .image img {
   width: auto;
   max-width: initial;
@@ -1203,7 +1212,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 1086, sass/base.scss */
+/* line 1094, sass/base.scss */
 .travels .travel .wrapper .datas {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1212,17 +1221,17 @@ body.programok-template-default .fusion-page-title-bar h3 {
   flex-wrap: wrap;
   padding: 15px;
 }
-/* line 1094, sass/base.scss */
+/* line 1102, sass/base.scss */
 .travels .travel .wrapper .datas .title {
   flex: 1;
 }
-/* line 1096, sass/base.scss */
+/* line 1104, sass/base.scss */
 .travels .travel .wrapper .datas .title h3 {
   margin: 0;
   line-height: 1.1;
   font-size: 1em;
 }
-/* line 1101, sass/base.scss */
+/* line 1109, sass/base.scss */
 .travels .travel .wrapper .datas .title h3 a {
   line-height: 1.2;
   color: black;
@@ -1231,47 +1240,47 @@ body.programok-template-default .fusion-page-title-bar h3 {
   height: 36px;
   overflow: hidden;
 }
-/* line 1111, sass/base.scss */
+/* line 1119, sass/base.scss */
 .travels .travel .wrapper .datas .price {
   flex-basis: 100px;
   text-align: right;
   line-height: 1.2;
 }
-/* line 1116, sass/base.scss */
+/* line 1124, sass/base.scss */
 .travels .travel .wrapper .datas .price .old {
   color: #c1c1c1;
   text-decoration: line-through;
 }
-/* line 1121, sass/base.scss */
+/* line 1129, sass/base.scss */
 .travels .travel .wrapper .datas .price .current {
   font-weight: bold;
   color: #0b85d5;
   font-size: 1.1em;
 }
-/* line 1128, sass/base.scss */
+/* line 1136, sass/base.scss */
 .travels .travel .wrapper .datas .position,
 .travels .travel .wrapper .datas .duration {
   flex-basis: 100%;
   margin: 10px 0 5px 0;
 }
-/* line 1132, sass/base.scss */
+/* line 1140, sass/base.scss */
 .travels .travel .wrapper .datas .position .svg-inline--fa,
 .travels .travel .wrapper .datas .duration .svg-inline--fa {
   width: 20px;
   text-align: center;
   color: #0b85d5;
 }
-/* line 1139, sass/base.scss */
+/* line 1147, sass/base.scss */
 .travels .travel .wrapper .datas .position {
   font-size: 0.9em;
   color: #fbb03b;
 }
-/* line 1142, sass/base.scss */
+/* line 1150, sass/base.scss */
 .travels .travel .wrapper .datas .position .svg-inline--fa {
   color: #f75119;
 }
 
-/* line 1152, sass/base.scss */
+/* line 1160, sass/base.scss */
 .destinations-holder > .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1281,18 +1290,18 @@ body.programok-template-default .fusion-page-title-bar h3 {
   flex-wrap: wrap;
   margin: -2px;
 }
-/* line 1161, sass/base.scss */
+/* line 1169, sass/base.scss */
 .destinations-holder > .wrapper > div {
   flex-basis: calc(100% / 3);
   padding: 2px;
 }
-/* line 1164, sass/base.scss */
+/* line 1172, sass/base.scss */
 .destinations-holder > .wrapper > div > .w {
   position: relative;
   overflow: hidden;
   border-radius: 5px;
 }
-/* line 1169, sass/base.scss */
+/* line 1177, sass/base.scss */
 .destinations-holder > .wrapper > div > .w .title {
   position: absolute;
   background: rgba(0, 0, 0, 0.4);
@@ -1309,12 +1318,12 @@ body.programok-template-default .fusion-page-title-bar h3 {
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
-/* line 1185, sass/base.scss */
+/* line 1193, sass/base.scss */
 .destinations-holder > .wrapper > div > .w .title .ct {
   text-transform: none;
   font-size: 0.85em;
 }
-/* line 1191, sass/base.scss */
+/* line 1199, sass/base.scss */
 .destinations-holder > .wrapper > div > .w img {
   height: 100% !important;
   max-height: 100% !important;
@@ -1327,17 +1336,17 @@ body.programok-template-default .fusion-page-title-bar h3 {
   transform: translate(-50%, -50%);
 }
 
-/* line 1208, sass/base.scss */
+/* line 1216, sass/base.scss */
 .searcher-holder.style-home .travels {
   justify-content: center;
 }
 
-/* line 1213, sass/base.scss */
+/* line 1221, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed {
   height: 300px;
   background: rgba(21, 37, 47, 0.77);
 }
-/* line 1217, sass/base.scss */
+/* line 1225, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1347,25 +1356,25 @@ body.programok-template-default .fusion-page-title-bar h3 {
   flex-wrap: wrap;
   height: 100%;
 }
-/* line 1225, sass/base.scss */
+/* line 1233, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program {
   flex-basis: calc(100% / 5);
   height: 100%;
   background: black;
 }
-/* line 1229, sass/base.scss */
+/* line 1237, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper {
   position: relative;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-/* line 1235, sass/base.scss */
+/* line 1243, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper > a {
   display: block;
   height: 100%;
 }
-/* line 1240, sass/base.scss */
+/* line 1248, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
   width: 100%;
   padding: 10px 20px;
@@ -1378,12 +1387,12 @@ body.programok-template-default .fusion-page-title-bar h3 {
   z-index: 2;
   font-size: 0.8em;
 }
-/* line 1252, sass/base.scss */
+/* line 1260, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag .title {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 1257, sass/base.scss */
+/* line 1265, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag .desc {
   font-size: 0.8em;
   text-align: justify;
@@ -1392,7 +1401,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   margin: 10px 0 0 0;
   display: none;
 }
-/* line 1266, sass/base.scss */
+/* line 1274, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .image {
   z-index: 1;
   width: 100%;
@@ -1405,7 +1414,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   pointer-events: none;
   overflow: hidden;
 }
-/* line 1278, sass/base.scss */
+/* line 1286, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .image img {
   height: 100%;
   width: auto;
@@ -1422,11 +1431,11 @@ body.programok-template-default .fusion-page-title-bar h3 {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-/* line 1298, sass/base.scss */
+/* line 1306, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program:hover .desc {
   display: block !important;
 }
-/* line 1301, sass/base.scss */
+/* line 1309, sass/base.scss */
 .tematikus-kategoria-holder.style-boxed .programs .program:hover img {
   -webkit-transform: scale(1.2) translate(-50%, -50%) !important;
   transform: scale(1.2) translate(-50%, -50%) !important;
@@ -1434,7 +1443,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   filter: alpha(opacity=50) !important;
 }
 
-/* line 1313, sass/base.scss */
+/* line 1321, sass/base.scss */
 .destination-searcher-holder .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1444,26 +1453,26 @@ body.programok-template-default .fusion-page-title-bar h3 {
   flex-wrap: wrap;
   margin: -10px;
 }
-/* line 1322, sass/base.scss */
+/* line 1330, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton {
   position: relative;
 }
-/* line 1325, sass/base.scss */
+/* line 1333, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton .research {
   position: absolute;
   font-size: 0.7em;
   right: 10px;
   bottom: -15px;
 }
-/* line 1333, sass/base.scss */
+/* line 1341, sass/base.scss */
 .destination-searcher-holder .wrapper > div {
   flex-basis: calc(100%/5);
 }
-/* line 1335, sass/base.scss */
+/* line 1343, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper {
   padding: 10px;
 }
-/* line 1338, sass/base.scss */
+/* line 1346, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper > label {
   color: black;
   font-weight: bold;
@@ -1471,13 +1480,13 @@ body.programok-template-default .fusion-page-title-bar h3 {
   margin: 0 0 15px 0;
   display: block;
 }
-/* line 1346, sass/base.scss */
+/* line 1354, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper {
   background: rgba(218, 218, 218, 0.28);
   border: 0.5px solid #cbcbcb;
   position: relative;
 }
-/* line 1350, sass/base.scss */
+/* line 1358, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper .ico {
   pointer-events: none;
   position: absolute;
@@ -1487,7 +1496,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 1361, sass/base.scss */
+/* line 1369, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text],
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select {
   background: transparent;
@@ -1498,43 +1507,43 @@ body.programok-template-default .fusion-page-title-bar h3 {
   font-size: 1.1em;
   line-height: 34px;
 }
-/* line 1370, sass/base.scss */
+/* line 1378, sass/base.scss */
 .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select {
   width: 100%;
 }
-/* line 1375, sass/base.scss */
+/* line 1383, sass/base.scss */
 .destination-searcher-holder .wrapper > div.type {
   flex-basis: 20%;
 }
-/* line 1378, sass/base.scss */
+/* line 1386, sass/base.scss */
 .destination-searcher-holder .wrapper > div.keywords {
   flex-basis: 40%;
 }
-/* line 1381, sass/base.scss */
+/* line 1389, sass/base.scss */
 .destination-searcher-holder .wrapper > div.location {
   flex-basis: 20%;
 }
-/* line 1385, sass/base.scss */
+/* line 1393, sass/base.scss */
 .destination-searcher-holder .wrapper > div.ellatas, .destination-searcher-holder .wrapper > div.datetime {
   flex-basis: 20%;
 }
-/* line 1389, sass/base.scss */
+/* line 1397, sass/base.scss */
 .destination-searcher-holder .wrapper > div.durations, .destination-searcher-holder .wrapper > div.utazasmod {
   flex-basis: 20%;
 }
-/* line 1392, sass/base.scss */
+/* line 1400, sass/base.scss */
 .destination-searcher-holder .wrapper > div.szolgaltatasok {
   flex-basis: 40%;
 }
-/* line 1395, sass/base.scss */
+/* line 1403, sass/base.scss */
 .destination-searcher-holder .wrapper > div.pre-srcbutton {
   flex-basis: 80%;
 }
-/* line 1398, sass/base.scss */
+/* line 1406, sass/base.scss */
 .destination-searcher-holder .wrapper > div.srcbutton {
   flex-basis: 20%;
 }
-/* line 1404, sass/base.scss */
+/* line 1412, sass/base.scss */
 .destination-searcher-holder .wrapper .srcbutton button {
   cursor: pointer;
   height: 36px;
@@ -1548,29 +1557,29 @@ body.programok-template-default .fusion-page-title-bar h3 {
   background: #0b85d5;
   border: none;
 }
-/* line 1420, sass/base.scss */
+/* line 1428, sass/base.scss */
 .destination-searcher-holder.manual-insert {
   background-color: #ffffff;
 }
-/* line 1423, sass/base.scss */
+/* line 1431, sass/base.scss */
 .destination-searcher-holder.manual-insert .wrapper {
   width: 1100px;
   margin: 0 auto;
   padding: 25px 0;
 }
 
-/* line 1431, sass/base.scss */
+/* line 1439, sass/base.scss */
 .multi-selector-holder {
   position: absolute;
   width: 100%;
   z-index: 1000;
   display: none;
 }
-/* line 1437, sass/base.scss */
+/* line 1445, sass/base.scss */
 .multi-selector-holder.opened {
   display: block;
 }
-/* line 1441, sass/base.scss */
+/* line 1449, sass/base.scss */
 .multi-selector-holder .selector-wrapper {
   background: rgba(255, 255, 255, 0.9);
   border: 0.5px solid #dbdbdb;
@@ -1580,7 +1589,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   -moz-box-shadow: 0 10px 26px -9px darkgrey;
   box-shadow: 0 10px 26px -9px darkgrey;
 }
-/* line 1451, sass/base.scss */
+/* line 1459, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label {
   padding: 5px 5px 5px 35px;
   margin: 0 0 1px 0;
@@ -1589,63 +1598,63 @@ body.programok-template-default .fusion-page-title-bar h3 {
   display: block;
   line-height: 17px;
 }
-/* line 1459, sass/base.scss */
+/* line 1467, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label .n {
   color: #d2d2d2;
   font-size: 0.85em;
 }
-/* line 1463, sass/base.scss */
+/* line 1471, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:before {
   left: 10px;
 }
-/* line 1468, sass/base.scss */
+/* line 1476, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label {
   background: rgba(11, 133, 213, 0.9);
   color: white;
 }
-/* line 1472, sass/base.scss */
+/* line 1480, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox] + label:hover:before,
 .multi-selector-holder .selector-wrapper .selector-row input[type=checkbox]:checked + label:before {
   color: white;
 }
-/* line 1477, sass/base.scss */
+/* line 1485, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label {
   padding-left: 45px !important;
 }
-/* line 1479, sass/base.scss */
+/* line 1487, sass/base.scss */
 .multi-selector-holder .selector-wrapper .selector-row.lvl-1 label:before {
   left: 20px !important;
 }
-/* line 1485, sass/base.scss */
+/* line 1493, sass/base.scss */
 .multi-selector-holder .selector-wrapper.sel-def {
   margin-top: -2px;
   margin-right: 30px;
 }
 
-/* line 1494, sass/base.scss */
+/* line 1502, sass/base.scss */
 .front-home-testimonials .testimonial-content {
   text-align: center;
   color: #606060;
   font-style: italic;
 }
-/* line 1499, sass/base.scss */
+/* line 1507, sass/base.scss */
 .front-home-testimonials .testimonial-client {
   text-align: center;
 }
-/* line 1501, sass/base.scss */
+/* line 1509, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-name {
   font-weight: bold;
   font-size: 1em;
   color: #fbb03b;
   text-transform: uppercase;
 }
-/* line 1507, sass/base.scss */
+/* line 1515, sass/base.scss */
 .front-home-testimonials .testimonial-client .testimonial-destination {
   color: #0b85d5;
 }
 
-/* line 1513, sass/base.scss */
+/* line 1521, sass/base.scss */
 .postlist-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1653,14 +1662,14 @@ body.programok-template-default .fusion-page-title-bar h3 {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-/* line 1520, sass/base.scss */
+/* line 1528, sass/base.scss */
 .postlist-holder .head {
   margin: 0 0 25px 0;
   font-weight: bold;
   color: black;
   font-size: 1.1em;
 }
-/* line 1526, sass/base.scss */
+/* line 1534, sass/base.scss */
 .postlist-holder .head .links {
   float: right;
   font-size: 0.56em;
@@ -1668,35 +1677,35 @@ body.programok-template-default .fusion-page-title-bar h3 {
   color: #b7b7b7;
   margin: 5px 0 0 0;
 }
-/* line 1533, sass/base.scss */
+/* line 1541, sass/base.scss */
 .postlist-holder .head .links a {
   font-size: 1.1em;
   margin: 0 3px;
 }
-/* line 1539, sass/base.scss */
+/* line 1547, sass/base.scss */
 .postlist-holder .head .svg-inline--fa {
   color: #0b85d5;
   font-size: 18px;
   margin-right: 8px;
   vertical-align: middle;
 }
-/* line 1547, sass/base.scss */
+/* line 1555, sass/base.scss */
 .postlist-holder > div.newest-article {
   flex-basis: 60%;
 }
-/* line 1550, sass/base.scss */
+/* line 1558, sass/base.scss */
 .postlist-holder > div.more-articles {
   flex: 1;
 }
-/* line 1553, sass/base.scss */
+/* line 1561, sass/base.scss */
 .postlist-holder > div.more-articles article {
   border-bottom: 1px solid #e4e4e4;
 }
-/* line 1556, sass/base.scss */
+/* line 1564, sass/base.scss */
 .postlist-holder > div.more-articles article:last-child {
   border-bottom: none;
 }
-/* line 1561, sass/base.scss */
+/* line 1569, sass/base.scss */
 .postlist-holder article {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1707,19 +1716,19 @@ body.programok-template-default .fusion-page-title-bar h3 {
   margin: 0 0 20px 0;
   padding: 0 0 20px 0;
 }
-/* line 1571, sass/base.scss */
+/* line 1579, sass/base.scss */
 .postlist-holder article .image {
   flex-basis: 90px;
   border-radius: 4px;
   overflow: hidden;
 }
-/* line 1577, sass/base.scss */
+/* line 1585, sass/base.scss */
 .postlist-holder article .data {
   flex: 1;
   font-size: 0.9em;
   padding-left: 10px;
 }
-/* line 1583, sass/base.scss */
+/* line 1591, sass/base.scss */
 .postlist-holder article .data .title a {
   color: black;
   text-decoration: none;
@@ -1728,37 +1737,37 @@ body.programok-template-default .fusion-page-title-bar h3 {
   display: block;
   overflow: hidden;
 }
-/* line 1591, sass/base.scss */
+/* line 1599, sass/base.scss */
 .postlist-holder article .data .title a:hover {
   color: #0b85d5;
 }
-/* line 1597, sass/base.scss */
+/* line 1605, sass/base.scss */
 .postlist-holder article .data .meta {
   font-size: 0.8em !important;
   margin: 10px 0 0 0 !important;
   color: #0b85d5 !important;
   font-weight: bold !important;
 }
-/* line 1603, sass/base.scss */
+/* line 1611, sass/base.scss */
 .postlist-holder article .data .meta .svg-inline--fa {
   color: #acacac !important;
   margin-right: 5px;
 }
-/* line 1610, sass/base.scss */
+/* line 1618, sass/base.scss */
 .postlist-holder article img {
   max-width: 100%;
 }
-/* line 1615, sass/base.scss */
+/* line 1623, sass/base.scss */
 .postlist-holder div.newest-article {
   padding-right: 25px;
 }
-/* line 1617, sass/base.scss */
+/* line 1625, sass/base.scss */
 .postlist-holder div.newest-article article {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
 }
-/* line 1621, sass/base.scss */
+/* line 1629, sass/base.scss */
 .postlist-holder div.newest-article article .image {
   flex-basis: 100%;
   border-radius: 3px;
@@ -1768,7 +1777,7 @@ body.programok-template-default .fusion-page-title-bar h3 {
   position: relative;
   box-shadow: 0 25px 30px -13px #ababab;
 }
-/* line 1630, sass/base.scss */
+/* line 1638, sass/base.scss */
 .postlist-holder div.newest-article article .image img {
   position: absolute;
   top: 50%;
@@ -1776,39 +1785,39 @@ body.programok-template-default .fusion-page-title-bar h3 {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 1639, sass/base.scss */
+/* line 1647, sass/base.scss */
 .postlist-holder div.newest-article article .data {
   padding-left: 0 !important;
 }
-/* line 1641, sass/base.scss */
+/* line 1649, sass/base.scss */
 .postlist-holder div.newest-article article .data .desc {
   margin: 15px 0 5px 0;
   line-height: 1.4;
   font-size: 0.8em;
 }
-/* line 1647, sass/base.scss */
+/* line 1655, sass/base.scss */
 .postlist-holder div.newest-article article .data .title a {
   color: #0b85d5 !important;
   font-size: 1.6em !important;
 }
 
-/* line 1658, sass/base.scss */
+/* line 1666, sass/base.scss */
 body.archive.post-type-archive-utazas #main,
 body.archive.tax-utazas_kategoria #main {
   padding: 0 !important;
 }
-/* line 1661, sass/base.scss */
+/* line 1669, sass/base.scss */
 body.archive.post-type-archive-utazas #main > .fusion-row,
 body.archive.tax-utazas_kategoria #main > .fusion-row {
   width: 100% !important;
   max-width: initial !important;
 }
 
-/* line 1669, sass/base.scss */
+/* line 1677, sass/base.scss */
 body.single-post .content-inside {
   color: #323232;
 }
-/* line 1673, sass/base.scss */
+/* line 1681, sass/base.scss */
 body.single-post .author-data {
   border-top: 1px solid #dfdfdf;
   margin: 40px 0;
@@ -1816,63 +1825,63 @@ body.single-post .author-data {
   text-align: center;
   color: #343434;
 }
-/* line 1680, sass/base.scss */
+/* line 1688, sass/base.scss */
 body.single-post .author-data .author-title {
   color: #b2b2b2;
   font-style: italic;
   margin: 0 0 5px 0;
   font-size: 0.8em;
 }
-/* line 1686, sass/base.scss */
+/* line 1694, sass/base.scss */
 body.single-post .author-data .name {
   color: black;
   font-size: 1.5em;
   margin: 0 0 10px 0;
 }
-/* line 1691, sass/base.scss */
+/* line 1699, sass/base.scss */
 body.single-post .author-data .desc {
   line-height: 1.4;
   color: grey;
   font-size: 0.9em;
 }
 
-/* line 1701, sass/base.scss */
+/* line 1709, sass/base.scss */
 body.page-template-default .fusion-breadcrumbs, body.page-template-default .fusion-breadcrumbs a {
   color: white !important;
 }
-/* line 1704, sass/base.scss */
+/* line 1712, sass/base.scss */
 body.page-template-default .fusion-page-title-bar h1 {
   color: white !important;
 }
 
-/* line 1711, sass/base.scss */
+/* line 1719, sass/base.scss */
 body.single-utazas #wrapper {
   background: white;
 }
-/* line 1714, sass/base.scss */
+/* line 1722, sass/base.scss */
 body.single-utazas #main {
   padding: 0 !important;
 }
-/* line 1718, sass/base.scss */
+/* line 1726, sass/base.scss */
 body.single-utazas #primary.content-area #content {
   float: none;
   width: 100%;
 }
-/* line 1725, sass/base.scss */
+/* line 1733, sass/base.scss */
 body.single-utazas .fusion-page-title-bar .meta {
   font-size: 1.1em;
 }
-/* line 1727, sass/base.scss */
+/* line 1735, sass/base.scss */
 body.single-utazas .fusion-page-title-bar .meta .kiemelt {
   background: #e83939;
   font-size: 0.65em;
   padding: 4px 6px;
 }
-/* line 1732, sass/base.scss */
+/* line 1740, sass/base.scss */
 body.single-utazas .fusion-page-title-bar .meta .positions {
   color: #fbb03b;
 }
-/* line 1738, sass/base.scss */
+/* line 1746, sass/base.scss */
 body.single-utazas .travel-main-params {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1881,57 +1890,57 @@ body.single-utazas .travel-main-params {
   flex-wrap: wrap;
   margin: 0 -25px;
 }
-/* line 1746, sass/base.scss */
+/* line 1754, sass/base.scss */
 body.single-utazas .travel-main-params > div {
   flex-basis: 50%;
   padding: 5px 25px;
   font-size: 1.13em;
   color: #2c2c2c;
 }
-/* line 1752, sass/base.scss */
+/* line 1760, sass/base.scss */
 body.single-utazas .travel-main-params > div .svg-inline--fa {
   width: 25px;
   text-align: center;
   color: #0b85d5;
 }
 
-/* line 1763, sass/base.scss */
+/* line 1771, sass/base.scss */
 .travel-base-wrapper .fake-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   flex-wrap: nowrap;
 }
-/* line 1769, sass/base.scss */
+/* line 1777, sass/base.scss */
 .travel-base-wrapper .fake-wrapper .fake-inside {
   flex-basis: calc(100% - 350px);
   padding-right: 25px;
 }
-/* line 1775, sass/base.scss */
+/* line 1783, sass/base.scss */
 .travel-base-wrapper .travel-header {
   background: #eaeaea;
   padding: 30px 0;
 }
-/* line 1779, sass/base.scss */
+/* line 1787, sass/base.scss */
 .travel-base-wrapper .travel-nav {
   background: #e0e0e0;
   padding: 0;
   position: relative;
   z-index: 10;
 }
-/* line 1785, sass/base.scss */
+/* line 1793, sass/base.scss */
 .travel-base-wrapper .travel-nav ul, .travel-base-wrapper .travel-nav li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 1792, sass/base.scss */
+/* line 1800, sass/base.scss */
 .travel-base-wrapper .travel-nav ul li {
   display: inline-block;
   *display: inline;
   zoom: 1;
 }
-/* line 1797, sass/base.scss */
+/* line 1805, sass/base.scss */
 .travel-base-wrapper .travel-nav ul li a {
   display: block;
   font-weight: bold;
@@ -1940,12 +1949,12 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 0.9em;
   border-bottom: 3px solid transparent;
 }
-/* line 1807, sass/base.scss */
+/* line 1815, sass/base.scss */
 .travel-base-wrapper .travel-nav ul li.active a {
   border-bottom: 3px solid #0b85d5;
   color: #313131;
 }
-/* line 1815, sass/base.scss */
+/* line 1823, sass/base.scss */
 .travel-base-wrapper .base-content-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1956,16 +1965,16 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 0 auto;
   padding: 35px 0;
 }
-/* line 1826, sass/base.scss */
+/* line 1834, sass/base.scss */
 .travel-base-wrapper .base-content-holder h2 .svg-inline--fa {
   color: #0b85d5;
 }
-/* line 1831, sass/base.scss */
+/* line 1839, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents {
   flex: 1;
   padding: 0 25px 0 0;
 }
-/* line 1835, sass/base.scss */
+/* line 1843, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents a.gotop {
   text-align: right;
   color: #c5c5c5;
@@ -1974,11 +1983,11 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 5px 0;
   display: block;
 }
-/* line 1844, sass/base.scss */
+/* line 1852, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .description {
   color: #4c4c4c;
 }
-/* line 1848, sass/base.scss */
+/* line 1856, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .price-comment {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1991,11 +2000,11 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: #ffffff;
   padding: 0.5px;
 }
-/* line 1860, sass/base.scss */
+/* line 1868, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .price-comment > div {
   padding: 5px;
 }
-/* line 1864, sass/base.scss */
+/* line 1872, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .price-comment > .ico {
   background: #0b85d5;
   flex-basis: 35px;
@@ -2003,7 +2012,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   position: relative;
   color: white;
 }
-/* line 1871, sass/base.scss */
+/* line 1879, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .price-comment > .ico svg {
   position: absolute;
   top: 50%;
@@ -2011,24 +2020,24 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 1880, sass/base.scss */
+/* line 1888, sass/base.scss */
 .travel-base-wrapper .base-content-holder .travel-contents .price-comment > .text {
   flex: 1;
   line-height: 1.4;
   padding: 10px;
   color: #000;
 }
-/* line 1890, sass/base.scss */
+/* line 1898, sass/base.scss */
 .travel-base-wrapper .base-content-holder .sidebar {
   flex-basis: 350px;
 }
-/* line 1893, sass/base.scss */
+/* line 1901, sass/base.scss */
 .travel-base-wrapper .base-content-holder .sidebar .sidebar-fix-holder {
   position: relative;
   top: 0;
   z-index: 20;
 }
-/* line 1901, sass/base.scss */
+/* line 1909, sass/base.scss */
 .travel-base-wrapper.fixedelements .travel-nav {
   z-index: 10;
   position: fixed;
@@ -2037,16 +2046,16 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   right: 0;
   box-shadow: 0 5px 10px -2px rgba(187, 187, 187, 0.85);
 }
-/* line 1909, sass/base.scss */
+/* line 1917, sass/base.scss */
 .travel-base-wrapper.fixedelements .base-content-holder {
   padding-top: 115px;
 }
 
-/* line 1915, sass/base.scss */
+/* line 1923, sass/base.scss */
 .gettraveloffer {
   background: #d2d2d2;
 }
-/* line 1918, sass/base.scss */
+/* line 1926, sass/base.scss */
 .gettraveloffer .preorder-sending {
   font-size: 1.3em;
   text-align: center;
@@ -2056,13 +2065,13 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 1928, sass/base.scss */
+/* line 1936, sass/base.scss */
 .gettraveloffer > .header {
   background: #0b85d5;
   padding: 20px;
   text-align: center;
 }
-/* line 1933, sass/base.scss */
+/* line 1941, sass/base.scss */
 .gettraveloffer > .header h2 {
   color: white;
   text-transform: uppercase;
@@ -2071,23 +2080,23 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 0;
   line-height: 1;
 }
-/* line 1943, sass/base.scss */
+/* line 1951, sass/base.scss */
 .gettraveloffer .calc-loader {
   text-align: center;
   padding: 40px;
   font-size: 1.4em;
 }
-/* line 1948, sass/base.scss */
+/* line 1956, sass/base.scss */
 .gettraveloffer .calc-loader .svg-inline--fa {
   font-size: 48px;
   color: #fbb03b;
 }
-/* line 1954, sass/base.scss */
+/* line 1962, sass/base.scss */
 .gettraveloffer > .wrapper {
   padding: 25px 0;
   color: #202020;
 }
-/* line 1959, sass/base.scss */
+/* line 1967, sass/base.scss */
 .gettraveloffer .offer-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2097,17 +2106,17 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 5px 0;
   position: relative;
 }
-/* line 1968, sass/base.scss */
+/* line 1976, sass/base.scss */
 .gettraveloffer .offer-group .orderder-details {
   border: 10px solid #3ace8b;
   border-bottom: none;
 }
-/* line 1973, sass/base.scss */
+/* line 1981, sass/base.scss */
 .gettraveloffer .offer-group .missing-form-data {
   background: #3ace8b;
   padding: 10px;
 }
-/* line 1977, sass/base.scss */
+/* line 1985, sass/base.scss */
 .gettraveloffer .offer-group .missing-form-data > div {
   background: #e83939;
   padding: 10px 10px 10px 50px;
@@ -2115,7 +2124,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 5px 0;
   position: relative;
 }
-/* line 1984, sass/base.scss */
+/* line 1992, sass/base.scss */
 .gettraveloffer .offer-group .missing-form-data > div:before {
   content: "\f071";
   font-family: 'FontAwesome';
@@ -2130,12 +2139,12 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   transform: translateY(-50%);
   color: #f39494;
 }
-/* line 2001, sass/base.scss */
+/* line 2009, sass/base.scss */
 .gettraveloffer .offer-group > div.progline {
   flex-basis: 5px;
   height: 1px;
 }
-/* line 2005, sass/base.scss */
+/* line 2013, sass/base.scss */
 .gettraveloffer .offer-group > div.progline:after {
   content: "";
   width: 5px;
@@ -2146,7 +2155,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: #6e6e6e;
   display: none;
 }
-/* line 2017, sass/base.scss */
+/* line 2025, sass/base.scss */
 .gettraveloffer .offer-group > div.header {
   flex-basis: calc(35% - 5px);
   padding: 0 20px 0 0;
@@ -2156,11 +2165,11 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   flex-wrap: nowrap;
   align-items: flex-start;
 }
-/* line 2026, sass/base.scss */
+/* line 2034, sass/base.scss */
 .gettraveloffer .offer-group > div.header .n {
   flex-basis: 40px;
 }
-/* line 2029, sass/base.scss */
+/* line 2037, sass/base.scss */
 .gettraveloffer .offer-group > div.header .n .c {
   width: 40px;
   height: 40px;
@@ -2172,14 +2181,14 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: black;
   border-radius: 40px;
 }
-/* line 2042, sass/base.scss */
+/* line 2050, sass/base.scss */
 .gettraveloffer .offer-group > div.header .title {
   flex: 1;
   padding-left: 20px;
   color: #4c4c4c;
   font-size: 0.7em;
 }
-/* line 2047, sass/base.scss */
+/* line 2055, sass/base.scss */
 .gettraveloffer .offer-group > div.header .title h3 {
   margin: 0 0 15px 0;
   color: black;
@@ -2187,18 +2196,18 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 2057, sass/base.scss */
+/* line 2065, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder {
   flex: 1;
   font-size: 0.9em;
 }
-/* line 2061, sass/base.scss */
+/* line 2069, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper {
   background: white;
   padding: 0;
   position: relative;
 }
-/* line 2066, sass/base.scss */
+/* line 2074, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder {
   position: absolute;
   background: rgba(58, 204, 104, 0.94);
@@ -2213,7 +2222,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   z-index: 1;
   width: 100%;
 }
-/* line 2080, sass/base.scss */
+/* line 2088, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2228,32 +2237,32 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 2094, sass/base.scss */
+/* line 2102, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .header {
   flex-basis: 60px;
   color: white !important;
   font-size: 0.9em;
   text-align: center;
 }
-/* line 2100, sass/base.scss */
+/* line 2108, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .header .svg-inline--fa {
   display: block;
   font-size: 50px;
   margin: 0 auto;
 }
-/* line 2107, sass/base.scss */
+/* line 2115, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .v {
   flex: 1;
   font-size: 1.3em;
   text-align: left;
   padding: 0 0 0 15px;
 }
-/* line 2114, sass/base.scss */
+/* line 2122, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .be {
   flex-basis: 80px;
   text-align: center;
 }
-/* line 2117, sass/base.scss */
+/* line 2125, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .be button {
   border: none;
   background: #313131;
@@ -2264,7 +2273,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 0.8em;
   margin: 0 auto;
 }
-/* line 2131, sass/base.scss */
+/* line 2139, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper > .step-loader {
   background: #15b2e8;
   color: white;
@@ -2272,11 +2281,11 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   text-align: center;
   font-size: 1.3em;
 }
-/* line 2139, sass/base.scss */
+/* line 2147, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table {
   width: 100%;
 }
-/* line 2142, sass/base.scss */
+/* line 2150, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table thead tr th {
   background: #0b85d5;
   color: white;
@@ -2286,18 +2295,18 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 0.9em;
   text-align: center;
 }
-/* line 2154, sass/base.scss */
+/* line 2162, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td {
   padding: 10px;
   text-align: center;
   border-bottom: 0.5px solid #dddddd;
 }
-/* line 2159, sass/base.scss */
+/* line 2167, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.tetel {
   text-align: left;
   position: relative;
 }
-/* line 2162, sass/base.scss */
+/* line 2170, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.tetel .label {
   background: #8f8f8f;
   color: white;
@@ -2306,19 +2315,19 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 0.7em;
   border-radius: 7px;
 }
-/* line 2170, sass/base.scss */
+/* line 2178, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.tetel .label.info {
   float: right;
   background: #fbb03b;
   cursor: help;
 }
-/* line 2176, sass/base.scss */
+/* line 2184, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.tetel.opcio {
   font-size: 0.9em;
   padding-left: 30px;
   box-shadow: inset 20px 0 0 #f1f1f1;
 }
-/* line 2182, sass/base.scss */
+/* line 2190, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.price-group {
   text-align: center;
   font-weight: bold;
@@ -2326,7 +2335,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   padding: 8px;
   background: #f5f5f5;
 }
-/* line 2193, sass/base.scss */
+/* line 2201, sass/base.scss */
 .gettraveloffer .offer-group > div.cholder > .next button {
   display: block;
   width: 100%;
@@ -2338,31 +2347,31 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 2210, sass/base.scss */
+/* line 2218, sass/base.scss */
 .gettraveloffer .offer-group.done > div.header .n .c {
   background: #3ace8b;
 }
-/* line 2215, sass/base.scss */
+/* line 2223, sass/base.scss */
 .gettraveloffer .offer-group.done > div.cholder {
   padding: 5px;
 }
-/* line 2220, sass/base.scss */
+/* line 2228, sass/base.scss */
 .gettraveloffer .offer-group.done > div.progline:after {
   display: block;
 }
-/* line 2229, sass/base.scss */
+/* line 2237, sass/base.scss */
 .gettraveloffer .offer-group.overview > div.header .n .c {
   background: #0b85d5;
 }
-/* line 2238, sass/base.scss */
+/* line 2246, sass/base.scss */
 .gettraveloffer .offer-group.last-item > div.progline:after {
   display: none;
 }
-/* line 2244, sass/base.scss */
+/* line 2252, sass/base.scss */
 .gettraveloffer .offer-group.last-item > div.header .n .c {
   background: #fbb03b;
 }
-/* line 2251, sass/base.scss */
+/* line 2259, sass/base.scss */
 .gettraveloffer .offer-group div.form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2370,42 +2379,42 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   flex-wrap: nowrap;
   align-items: flex-start;
 }
-/* line 2258, sass/base.scss */
+/* line 2266, sass/base.scss */
 .gettraveloffer .offer-group div.form > div {
   flex: 1;
 }
-/* line 2261, sass/base.scss */
+/* line 2269, sass/base.scss */
 .gettraveloffer .offer-group div.form > div label {
   display: block;
   font-weight: bold;
   margin: 0 0 5px 0;
 }
-/* line 2267, sass/base.scss */
+/* line 2275, sass/base.scss */
 .gettraveloffer .offer-group div.form > div .w {
   padding: 15px;
 }
-/* line 2271, sass/base.scss */
+/* line 2279, sass/base.scss */
 .gettraveloffer .offer-group div.form > div input {
   display: block;
   width: 100%;
   padding: 15px;
   font-size: 1.2em;
 }
-/* line 2282, sass/base.scss */
+/* line 2290, sass/base.scss */
 .gettraveloffer .offer-group.passengers .wrapper {
   padding: 15px !important;
 }
-/* line 2286, sass/base.scss */
+/* line 2294, sass/base.scss */
 .gettraveloffer .offer-group.passengers .wrapper .form label {
   text-align: center;
 }
-/* line 2289, sass/base.scss */
+/* line 2297, sass/base.scss */
 .gettraveloffer .offer-group.passengers .wrapper .form input[type=number] {
   color: #0b85d5;
   font-size: 1.6em;
   font-weight: bold;
 }
-/* line 2296, sass/base.scss */
+/* line 2304, sass/base.scss */
 .gettraveloffer .offer-group.passengers .wrapper > .header {
   font-weight: bold;
   text-transform: uppercase;
@@ -2414,12 +2423,12 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 1.4em;
   margin: 0 0 15px 0;
 }
-/* line 2308, sass/base.scss */
+/* line 2316, sass/base.scss */
 .gettraveloffer .offer-group.last-item > div.cholder > .next button {
   background: #3ace8b;
   text-align: center;
 }
-/* line 2314, sass/base.scss */
+/* line 2322, sass/base.scss */
 .gettraveloffer .offer-group.preorder-msg {
   margin: 0 0 25px 0;
   color: white;
@@ -2427,41 +2436,41 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 1.4em;
   font-weight: bold;
 }
-/* line 2321, sass/base.scss */
+/* line 2329, sass/base.scss */
 .gettraveloffer .offer-group.preorder-msg .svg-inline--fa {
   margin: 4px 15px 10px 0;
   float: left;
   font-size: 22px;
   color: white;
 }
-/* line 2328, sass/base.scss */
+/* line 2336, sass/base.scss */
 .gettraveloffer .offer-group.preorder-msg.success {
   background: #3ace8b;
 }
-/* line 2331, sass/base.scss */
+/* line 2339, sass/base.scss */
 .gettraveloffer .offer-group.preorder-msg.error {
   background: #e83939;
 }
-/* line 2337, sass/base.scss */
+/* line 2345, sass/base.scss */
 .gettraveloffer .priceev {
   font-size: 1.2em;
 }
-/* line 2339, sass/base.scss */
+/* line 2347, sass/base.scss */
 .gettraveloffer .priceev .ev {
   text-align: right !important;
 }
-/* line 2342, sass/base.scss */
+/* line 2350, sass/base.scss */
 .gettraveloffer .priceev .price {
   text-align: center;
   font-weight: bold;
   color: #3ace8b;
 }
-/* line 2349, sass/base.scss */
+/* line 2357, sass/base.scss */
 .gettraveloffer .price-overview {
   background: #3ace8b;
   padding: 15px;
 }
-/* line 2352, sass/base.scss */
+/* line 2360, sass/base.scss */
 .gettraveloffer .price-overview .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2472,19 +2481,19 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   justify-content: space-between;
   font-size: 1.2em;
 }
-/* line 2362, sass/base.scss */
+/* line 2370, sass/base.scss */
 .gettraveloffer .price-overview .wrapper .value {
   font-size: 1.4em;
   font-weight: bold;
 }
-/* line 2368, sass/base.scss */
+/* line 2376, sass/base.scss */
 .gettraveloffer .price-overview-info {
   font-size: 0.7em;
   margin: 15px 0;
   color: #5f5f5f;
   line-height: 1.3;
 }
-/* line 2377, sass/base.scss */
+/* line 2385, sass/base.scss */
 .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2493,31 +2502,31 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   flex-wrap: nowrap;
   padding: 5px;
 }
-/* line 2385, sass/base.scss */
+/* line 2393, sass/base.scss */
 .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div {
   flex: 1;
   padding: 5px;
 }
-/* line 2389, sass/base.scss */
+/* line 2397, sass/base.scss */
 .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div .wrapper {
   background: #f1f1f1;
   padding: 10px;
   cursor: pointer;
 }
-/* line 2393, sass/base.scss */
+/* line 2401, sass/base.scss */
 .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div .wrapper:focus {
   outline: none !important;
 }
-/* line 2399, sass/base.scss */
+/* line 2407, sass/base.scss */
 .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div.selected .wrapper {
   background: #0b85d5;
   color: white;
 }
-/* line 2411, sass/base.scss */
+/* line 2419, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak {
   padding: 10px;
 }
-/* line 2413, sass/base.scss */
+/* line 2421, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2528,11 +2537,11 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   color: #919191;
   padding: 0 15px 10px 15px;
 }
-/* line 2423, sass/base.scss */
+/* line 2431, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header > div {
   text-align: center;
 }
-/* line 2427, sass/base.scss */
+/* line 2435, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba {
   margin-bottom: 10px;
   background: #f1f1f1;
@@ -2543,53 +2552,53 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   align-items: center;
   flex-wrap: wrap;
 }
-/* line 2438, sass/base.scss */
+/* line 2446, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .title {
   font-weight: bold;
   color: black;
   margin: 0 0 5px 0;
 }
-/* line 2444, sass/base.scss */
+/* line 2452, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .desc {
   font-size: 0.8em;
   color: #7a7a7a;
 }
-/* line 2450, sass/base.scss */
+/* line 2458, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
   font-weight: bold;
   font-size: 1.1em;
 }
-/* line 2456, sass/base.scss */
+/* line 2464, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected {
   background: #0b85d5;
   color: white;
   cursor: pointer;
 }
-/* line 2462, sass/base.scss */
+/* line 2470, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover .datas .title, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected .datas .title {
   color: white;
 }
-/* line 2466, sass/base.scss */
+/* line 2474, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba:hover .datas .desc, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba.selected .datas .desc {
   color: #c2e0f3;
 }
-/* line 2474, sass/base.scss */
+/* line 2482, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas {
   flex: 1;
 }
-/* line 2478, sass/base.scss */
+/* line 2486, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult,
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult,
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children {
   flex-basis: 100px;
   text-align: center;
 }
-/* line 2482, sass/base.scss */
+/* line 2490, sass/base.scss */
 .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
   flex-basis: 120px;
   text-align: center;
 }
-/* line 2492, sass/base.scss */
+/* line 2500, sass/base.scss */
 .gettraveloffer .orderder-details label {
   font-weight: bold;
   color: black;
@@ -2598,7 +2607,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   line-height: 1.2;
   margin: 0 0 5px 0;
 }
-/* line 2500, sass/base.scss */
+/* line 2508, sass/base.scss */
 .gettraveloffer .orderder-details h3 {
   text-align: center;
   font-weight: bold;
@@ -2607,36 +2616,36 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: #f5f5f5;
   margin: 0;
 }
-/* line 2508, sass/base.scss */
+/* line 2516, sass/base.scss */
 .gettraveloffer .orderder-details h4 {
   margin: 0 0 10px 0;
 }
-/* line 2512, sass/base.scss */
+/* line 2520, sass/base.scss */
 .gettraveloffer .orderder-details .child h4 {
   color: #0b85d5;
 }
-/* line 2515, sass/base.scss */
+/* line 2523, sass/base.scss */
 .gettraveloffer .orderder-details .child input {
   color: #0b85d5;
 }
-/* line 2520, sass/base.scss */
+/* line 2528, sass/base.scss */
 .gettraveloffer .orderder-details .adult h4 {
   color: #fbb03b;
 }
-/* line 2523, sass/base.scss */
+/* line 2531, sass/base.scss */
 .gettraveloffer .orderder-details .adult input {
   color: #fbb03b;
 }
-/* line 2529, sass/base.scss */
+/* line 2537, sass/base.scss */
 .gettraveloffer .orderder-details .orderer > .flex {
   margin: 5px;
 }
-/* line 2531, sass/base.scss */
+/* line 2539, sass/base.scss */
 .gettraveloffer .orderder-details .orderer > .flex > div {
   padding: 5px;
   flex: 1;
 }
-/* line 2535, sass/base.scss */
+/* line 2543, sass/base.scss */
 .gettraveloffer .orderder-details .orderer > .flex > div input {
   color: #e83939;
   padding: 10px;
@@ -2645,32 +2654,32 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   display: block;
   width: 100%;
 }
-/* line 2548, sass/base.scss */
+/* line 2556, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex {
   padding: 5px;
 }
-/* line 2550, sass/base.scss */
+/* line 2558, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div {
   flex-basis: 50%;
   padding: 5px;
 }
-/* line 2553, sass/base.scss */
+/* line 2561, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper {
   border: 0.5px solid #e6e6e6;
   padding: 10px;
   background: #f7f7f7;
   border-radius: 3px;
 }
-/* line 2560, sass/base.scss */
+/* line 2568, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex {
   margin: -5px;
   align-items: flex-start;
 }
-/* line 2563, sass/base.scss */
+/* line 2571, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > div {
   padding: 5px;
 }
-/* line 2566, sass/base.scss */
+/* line 2574, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > div input {
   padding: 5px;
   font-size: 0.9em;
@@ -2678,30 +2687,30 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   display: block;
   width: 100%;
 }
-/* line 2574, sass/base.scss */
+/* line 2582, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > div span.inf {
   font-size: 0.6em;
   line-height: 1.2;
   color: #868686;
 }
-/* line 2581, sass/base.scss */
+/* line 2589, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > .name {
   flex-basis: 60%;
 }
-/* line 2584, sass/base.scss */
+/* line 2592, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > .dob {
   flex-basis: 40%;
 }
-/* line 2587, sass/base.scss */
+/* line 2595, sass/base.scss */
 .gettraveloffer .orderder-details .passengers-details > .flex > div > .wrapper .iwrapper > .flex > .address {
   flex-basis: 100%;
 }
-/* line 2598, sass/base.scss */
+/* line 2606, sass/base.scss */
 .gettraveloffer .orderder-details .accepts,
 .gettraveloffer .orderder-details .comment {
   padding: 10px;
 }
-/* line 2603, sass/base.scss */
+/* line 2611, sass/base.scss */
 .gettraveloffer .orderder-details .comment textarea {
   border: 0.5px solid #dedede;
   height: 130px;
@@ -2712,7 +2721,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   font-size: 0.9em;
   color: #555555;
 }
-/* line 2618, sass/base.scss */
+/* line 2626, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2720,22 +2729,22 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   align-items: center;
   flex-wrap: wrap;
 }
-/* line 2625, sass/base.scss */
+/* line 2633, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div {
   margin: 0;
   text-align: center;
   position: relative;
 }
-/* line 2630, sass/base.scss */
+/* line 2638, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div .v:focus {
   outline: none !important;
 }
-/* line 2634, sass/base.scss */
+/* line 2642, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div.selected {
   background: #0b85d5;
   color: white;
 }
-/* line 2638, sass/base.scss */
+/* line 2646, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper > div > div.selected:after {
   content: "";
   height: 10px;
@@ -2745,69 +2754,69 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   right: 0;
   position: absolute;
 }
-/* line 2651, sass/base.scss */
+/* line 2659, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations {
   padding: 10px;
 }
-/* line 2653, sass/base.scss */
+/* line 2661, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration {
   font-size: 0.9em;
   background: #eaeaea;
   border-right: 1px solid white;
 }
-/* line 2658, sass/base.scss */
+/* line 2666, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v {
   padding: 25px;
   cursor: pointer;
 }
-/* line 2662, sass/base.scss */
+/* line 2670, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v strong {
   font-size: 1.2em;
   text-transform: uppercase;
 }
-/* line 2667, sass/base.scss */
+/* line 2675, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration:hover {
   background: #e3e3e3;
 }
-/* line 2670, sass/base.scss */
+/* line 2678, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration.selected {
   background: #0b85d5;
   color: white;
 }
-/* line 2673, sass/base.scss */
+/* line 2681, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .durrations .durration.selected:after {
   content: "";
   background: #0b85d5;
   border-right: 1px solid white;
 }
-/* line 2682, sass/base.scss */
+/* line 2690, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years {
   background: #353535;
   color: white;
   border-top: 5px solid #0b85d5;
 }
-/* line 2687, sass/base.scss */
+/* line 2695, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year {
   background: #4a4a4a;
   margin: 0 2px;
 }
-/* line 2689, sass/base.scss */
+/* line 2697, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year .v {
   padding: 15px;
   cursor: pointer;
 }
-/* line 2693, sass/base.scss */
+/* line 2701, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year .v .month {
   font-size: 0.9em;
   text-transform: uppercase;
   font-weight: bold;
 }
-/* line 2701, sass/base.scss */
+/* line 2709, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year.selected {
   background: #fa9c09;
   color: black;
 }
-/* line 2704, sass/base.scss */
+/* line 2712, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .travel-years .travel-year.selected:after {
   content: "";
   bottom: -5px;
@@ -2815,7 +2824,7 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   background: #fa9c09;
   border-right: 1px solid white;
 }
-/* line 2715, sass/base.scss */
+/* line 2723, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates {
   background: #fbb03b;
   border-top: 5px solid #fa9c09;
@@ -2823,69 +2832,69 @@ body.single-utazas .travel-main-params > div .svg-inline--fa {
   margin: 5px 0 0 0;
   font-size: 0.9em;
 }
-/* line 2722, sass/base.scss */
+/* line 2730, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date {
   border-right: 1px solid white;
 }
-/* line 2724, sass/base.scss */
+/* line 2732, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v {
   padding: 10px 15px;
   cursor: pointer;
 }
-/* line 2728, sass/base.scss */
+/* line 2736, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v .datemonth {
   font-size: 0.9em;
 }
-/* line 2732, sass/base.scss */
+/* line 2740, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date .v .day {
   font-size: 1.1em;
   font-weight: bold;
 }
-/* line 2738, sass/base.scss */
+/* line 2746, sass/base.scss */
 .gettraveloffer .date-selectors .selector-wrapper .dates .date.selected {
   background: #3ace8b;
   color: white;
 }
-/* line 2749, sass/base.scss */
+/* line 2757, sass/base.scss */
 .gettraveloffer .date-picker .selected-date-text,
 .gettraveloffer .date-picker md-date-range-picker {
   flex-basis: 100%;
 }
-/* line 2753, sass/base.scss */
+/* line 2761, sass/base.scss */
 .gettraveloffer .date-picker .selected-date-text > .wrapper {
   font-size: 1.5em;
   padding: 10px;
   font-weight: bold;
   color: #0b85d5;
 }
-/* line 2759, sass/base.scss */
+/* line 2767, sass/base.scss */
 .gettraveloffer .date-picker .selected-date-text > .wrapper .head {
   font-size: 0.6em;
   font-weight: normal;
   color: #333333;
 }
-/* line 2766, sass/base.scss */
+/* line 2774, sass/base.scss */
 .gettraveloffer .date-picker md-date-range-picker {
   margin: 0 auto;
 }
 
-/* line 2773, sass/base.scss */
+/* line 2781, sass/base.scss */
 body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   top: 97px;
 }
 
-/* line 2778, sass/base.scss */
+/* line 2786, sass/base.scss */
 .utazas-sidebar {
   color: #545454;
   font-size: 0.9em;
 }
-/* line 2782, sass/base.scss */
+/* line 2790, sass/base.scss */
 .utazas-sidebar .swrapper {
   padding: 0;
   height: 100%;
   position: relative;
 }
-/* line 2788, sass/base.scss */
+/* line 2796, sass/base.scss */
 .utazas-sidebar .discount {
   background: rgba(213, 25, 25, 0.9);
   font-weight: bold;
@@ -2894,12 +2903,12 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   padding: 0;
   line-height: 3;
 }
-/* line 2797, sass/base.scss */
+/* line 2805, sass/base.scss */
 .utazas-sidebar .sidebar-header {
   color: white;
   background: rgba(11, 133, 213, 0.9);
 }
-/* line 2801, sass/base.scss */
+/* line 2809, sass/base.scss */
 .utazas-sidebar .sidebar-header .price {
   text-align: center;
   font-size: 1.2em;
@@ -2910,30 +2919,30 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* line 2811, sass/base.scss */
+/* line 2819, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .c {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 0.75em;
 }
-/* line 2817, sass/base.scss */
+/* line 2825, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .f {
   font-size: 0.6em;
   color: #d2d7db;
 }
-/* line 2822, sass/base.scss */
+/* line 2830, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .current {
   font-weight: bold;
   font-size: 1.5em;
 }
-/* line 2826, sass/base.scss */
+/* line 2834, sass/base.scss */
 .utazas-sidebar .sidebar-header .price .old {
   margin-right: 10px;
   font-size: 0.9em;
   color: #a8cce4;
   text-decoration: line-through;
 }
-/* line 2835, sass/base.scss */
+/* line 2843, sass/base.scss */
 .utazas-sidebar .getoffer a {
   display: block;
   background: #064874;
@@ -2944,17 +2953,17 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-weight: bold;
   font-size: 1.4em;
 }
-/* line 2846, sass/base.scss */
+/* line 2854, sass/base.scss */
 .utazas-sidebar .sidebar-content {
   background: rgba(255, 255, 255, 0.9);
 }
 
-/* line 2852, sass/base.scss */
+/* line 2860, sass/base.scss */
 .comments .commentlist div.avatar {
   border-radius: 55px;
   overflow: hidden;
 }
-/* line 2856, sass/base.scss */
+/* line 2864, sass/base.scss */
 .comments .comment-numbers {
   text-align: center;
   font-weight: bold;
@@ -2964,22 +2973,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-/* line 2866, sass/base.scss */
+/* line 2874, sass/base.scss */
 .comments .comment-box .comment-text {
   margin: 20px 0 0 69px;
 }
-/* line 2870, sass/base.scss */
+/* line 2878, sass/base.scss */
 .comments .comment-box .comment-author strong {
   color: #323232;
   font-size: 1.45em;
 }
-/* line 2875, sass/base.scss */
+/* line 2883, sass/base.scss */
 .comments .comment-box .comment-author .date {
   font-size: 1.1em;
   margin: 10px 0 0 0;
   color: #9c9c9c;
 }
-/* line 2882, sass/base.scss */
+/* line 2890, sass/base.scss */
 .comments .comment-box .comment-reply-link {
   margin-left: 5px;
   float: right;
@@ -2988,32 +2997,32 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-/* line 2890, sass/base.scss */
+/* line 2898, sass/base.scss */
 .comments .comment-box .comment-edit {
   margin: 10px 0 0 69px;
 }
-/* line 2893, sass/base.scss */
+/* line 2901, sass/base.scss */
 .comments .comment-box .comment-edit .svg-inline--fa {
   font-size: 10px;
   margin-right: 5px;
   color: #ec7878;
 }
-/* line 2899, sass/base.scss */
+/* line 2907, sass/base.scss */
 .comments .comment-box .comment-edit-link {
   font-size: 0.65em;
   color: #ec7878;
 }
 
-/* line 2905, sass/base.scss */
+/* line 2913, sass/base.scss */
 .comment-respond {
   background: #ededed;
   padding: 40px;
 }
-/* line 2908, sass/base.scss */
+/* line 2916, sass/base.scss */
 .comment-respond .comment-form .form-submit {
   text-align: center;
 }
-/* line 2911, sass/base.scss */
+/* line 2919, sass/base.scss */
 .comment-respond .comment-form #comment-submit {
   margin: 0 auto;
   background-color: #0b85d5;
@@ -3022,22 +3031,22 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-/* line 2919, sass/base.scss */
+/* line 2927, sass/base.scss */
 .comment-respond .logged-in-as {
   text-align: center;
   color: #4c4c4c;
   font-size: 0.85em;
   margin: 0 0 35px 0;
 }
-/* line 2925, sass/base.scss */
+/* line 2933, sass/base.scss */
 .comment-respond .fusion-title .title-sep-container {
   display: none;
 }
-/* line 2928, sass/base.scss */
+/* line 2936, sass/base.scss */
 .comment-respond .fusion-title {
   margin: 0 0 10px 0 !important;
 }
-/* line 2930, sass/base.scss */
+/* line 2938, sass/base.scss */
 .comment-respond .fusion-title h3 {
   flex-basis: 100%;
   padding: 0 !important;
@@ -3048,12 +3057,12 @@ body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
   font-weight: bold;
 }
 
-/* line 2942, sass/base.scss */
+/* line 2950, sass/base.scss */
 body.single .fusion-page-title-bar {
   background-position: center;
 }
 
-/* line 2945, sass/base.scss */
+/* line 2953, sass/base.scss */
 .single-post-caption {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3062,7 +3071,7 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 2953, sass/base.scss */
+/* line 2961, sass/base.scss */
 .single-post-caption .date {
   flex-basis: 80px;
   padding: 0 25px 0 0;
@@ -3073,18 +3082,18 @@ body.single .fusion-page-title-bar {
   line-height: 1;
   color: #808080;
 }
-/* line 2963, sass/base.scss */
+/* line 2971, sass/base.scss */
 .single-post-caption .date .day {
   font-size: 4em;
   font-weight: bold;
   color: white;
 }
-/* line 2969, sass/base.scss */
+/* line 2977, sass/base.scss */
 .single-post-caption .titledata {
   flex: 1;
   padding: 0 0 0 25px;
 }
-/* line 2973, sass/base.scss */
+/* line 2981, sass/base.scss */
 .single-post-caption .titledata .meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3094,30 +3103,30 @@ body.single .fusion-page-title-bar {
   color: white !important;
   margin-top: 10px;
 }
-/* line 2982, sass/base.scss */
+/* line 2990, sass/base.scss */
 .single-post-caption .titledata .meta .svg-inline--fa {
   color: white;
   margin-right: 5px;
 }
-/* line 2987, sass/base.scss */
+/* line 2995, sass/base.scss */
 .single-post-caption .titledata .meta a {
   color: white;
 }
-/* line 2990, sass/base.scss */
+/* line 2998, sass/base.scss */
 .single-post-caption .titledata .meta a:hover {
   color: #0b85d5;
 }
-/* line 2995, sass/base.scss */
+/* line 3003, sass/base.scss */
 .single-post-caption .titledata .meta > div {
   margin-right: 20px;
 }
 
-/* line 3004, sass/base.scss */
+/* line 3012, sass/base.scss */
 .contact-form-holder .requester-holder,
 .contact-form-holder .btns {
   margin: 0 auto;
 }
-/* line 3008, sass/base.scss */
+/* line 3016, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3126,11 +3135,11 @@ body.single .fusion-page-title-bar {
   flex-wrap: wrap;
   margin: 0 -5px;
 }
-/* line 3015, sass/base.scss */
+/* line 3023, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div {
   padding: 5px;
 }
-/* line 3018, sass/base.scss */
+/* line 3026, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text],
 .contact-form-holder .requester-holder .flxtbl > div textarea {
   color: #4c4c4c;
@@ -3140,44 +3149,44 @@ body.single .fusion-page-title-bar {
   font-size: 1.1em;
   border: 1px solid transparent;
 }
-/* line 3026, sass/base.scss */
+/* line 3034, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-webkit-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #9c9c9c;
 }
-/* line 3029, sass/base.scss */
+/* line 3037, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]::-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #9c9c9c;
 }
-/* line 3032, sass/base.scss */
+/* line 3040, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-ms-input-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #9c9c9c;
 }
-/* line 3035, sass/base.scss */
+/* line 3043, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text]:-moz-placeholder,
 .contact-form-holder .requester-holder .flxtbl > div textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #9c9c9c;
 }
-/* line 3038, sass/base.scss */
+/* line 3046, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > div input[type=text].missing,
 .contact-form-holder .requester-holder .flxtbl > div textarea.missing {
   border: 1px solid #ffb5aa;
 }
-/* line 3044, sass/base.scss */
+/* line 3052, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
   flex-basis: 50%;
 }
-/* line 3048, sass/base.scss */
+/* line 3056, sass/base.scss */
 .contact-form-holder .requester-holder .flxtbl > .subject, .contact-form-holder .requester-holder .flxtbl > .uzenet {
   flex-basis: 100%;
 }
-/* line 3054, sass/base.scss */
+/* line 3062, sass/base.scss */
 .contact-form-holder .btns button {
   background: #0b85d5;
   text-align: center;
@@ -3192,20 +3201,20 @@ body.single .fusion-page-title-bar {
   -webkit-transition: all .6s;
   transition: all .6s;
 }
-/* line 3068, sass/base.scss */
+/* line 3076, sass/base.scss */
 .contact-form-holder .btns button.in-progress {
   background: #d5600b;
 }
-/* line 3071, sass/base.scss */
+/* line 3079, sass/base.scss */
 .contact-form-holder .btns button.sended {
   background: #3ace8b;
 }
 
-/* line 3081, sass/base.scss */
+/* line 3089, sass/base.scss */
 .post-caption-utazas .titledata h1 .t {
   float: left;
 }
-/* line 3084, sass/base.scss */
+/* line 3092, sass/base.scss */
 .post-caption-utazas .titledata h1 .stars {
   float: left;
   margin: 0 0 0 5px;
@@ -3213,29 +3222,29 @@ body.single .fusion-page-title-bar {
   color: #fbb03b !important;
 }
 
-/* line 3094, sass/base.scss */
+/* line 3102, sass/base.scss */
 .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover {
   background: #fa9c09;
 }
 
-/* line 3098, sass/base.scss */
+/* line 3106, sass/base.scss */
 .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised {
   background: #fbb03b;
 }
 
-/* line 3104, sass/base.scss */
+/* line 3112, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 3109, sass/base.scss */
+/* line 3117, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 0.5px solid #cecece;
 }
-/* line 3112, sass/base.scss */
+/* line 3120, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 3116, sass/base.scss */
+/* line 3124, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

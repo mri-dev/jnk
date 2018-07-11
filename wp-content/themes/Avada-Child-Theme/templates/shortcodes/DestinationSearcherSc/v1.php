@@ -4,7 +4,7 @@
   $tax_url = get_term_link($tax);
   $action = '/'.UTAZAS_SLUG;
   if ($tax->taxonomy == 'utazas_kategoria') {
-    $action = $tax_url;
+    //$action = $tax_url;
   }
 ?>
 <form class="" action="<?=$action?>" method="get" id="searcher-form">

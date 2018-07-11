@@ -952,7 +952,15 @@ body.programok-template-default{
           font-weight: bold !important;
           font-size: 2em !important;
           margin: 0 0 8px 0;
+          color: black;
         }
+         h2 a{
+           color: black;
+
+           &:hover{
+             color: $color-orange;
+           }
+         }
 
         .desc{
           color: #4c4c4c;

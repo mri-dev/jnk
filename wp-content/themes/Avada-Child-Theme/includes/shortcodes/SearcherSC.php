@@ -18,6 +18,8 @@ class SearcherSc
       $defaults = apply_filters(
           self::SCTAG.'_defaults',
           array(
+            'utazas_kategoria' => false,
+            'cities' => false,
             'kiemelt' => 0,
             'limit' => 30,
             'orderby' => false
@@ -35,6 +37,14 @@ class SearcherSc
 
       if ( $attr['orderby'] ) {
         $arg['orderby'] = $attr['orderby'];
+      }
+
+      if ( $attr['utazas_kategoria'] !== false ) {
+        $arg['filters']['type'] = $attr['utazas_kategoria'];
+      }
+
+      if ( $attr['cities'] !== false ) {
+        $arg['filters']['cities'] = $attr['cities'];
       }
 
       $arg['limit'] = (int)$attr['limit'];
