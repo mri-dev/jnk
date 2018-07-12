@@ -192,7 +192,7 @@ function create_custom_posttypes()
   // Utak
   $utak = new PostTypeFactory( 'utazas' );
 	$utak->set_textdomain( TD );
-	$utak->set_icon('tag');
+	$utak->set_icon('palmtree');
 	$utak->set_name( 'Utazás', 'Utazások' );
 	$utak->set_labels( array(
 		'add_new' => 'Új %s',
@@ -306,7 +306,7 @@ function create_custom_posttypes()
   // Programok
   $programok = new PostTypeFactory( 'programok' );
 	$programok->set_textdomain( TD );
-	$programok->set_icon('tag');
+	$programok->set_icon('admin-post');
 	$programok->set_name( 'Program', 'Programok' );
 	$programok->set_labels( array(
 		'add_new' => 'Új %s',
@@ -316,6 +316,33 @@ function create_custom_posttypes()
 	) );
   $programok->create();
   add_post_type_support( 'programok', 'excerpt' );
+
+  // Partnerek
+  $partnerek = new PostTypeFactory( 'partnerek' );
+	$partnerek->set_textdomain( TD );
+	$partnerek->set_icon('admin-users');
+	$partnerek->set_name( 'Partner', 'Partnerek' );
+	$partnerek->set_labels( array(
+		'add_new' => 'Új %s',
+		'not_found_in_trash' => 'Nincsenek %s a lomtárban.',
+		'not_found' => 'Nincsenek %s a listában.',
+		'add_new_item' => 'Új %s létrehozása',
+	) );
+
+
+  $partnerek->add_taxonomy( 'partner_kategoria', array(
+    'rewrite' => 'partner-kategoria',
+    'name' => array('Kategória', 'Kategóriák'),
+    'labels' => array(
+      'menu_name' => 'Kategóriák',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
+  $partnerek->create();  
+  add_post_type_support( 'partnerek', 'excerpt' );
 }
 
 /**

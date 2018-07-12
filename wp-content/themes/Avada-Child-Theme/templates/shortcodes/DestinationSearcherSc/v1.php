@@ -21,7 +21,7 @@
   <div class="type">
     <div class="iwrapper">
       <label for="src_search"><?php echo __('Típus', TD); ?></label>
-      <div class="input-wrapper">
+      <div class="input-wrapper select-wrapper">
         <select class="" name="type">
           <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':'selected="selected"'?>>Csoportos utazás</option>
           <option value="egyeni" <?=($_GET['type'] == 'egyeni')?'selected="selected"':''?>>Egyéni utazás</option>

@@ -20,7 +20,8 @@ class TematikusKategoriaSc
             array(
               'style' => 'boxed',
               'limit' => 5,
-              'orderby' => 'rand'
+              'orderby' => 'rand',
+              'utazas_kategoria' => false
             )
         );
 
@@ -28,17 +29,21 @@ class TematikusKategoriaSc
         $attr = shortcode_atts( $defaults, $attr );
         $output = '<div class="'.self::SCTAG.'-holder style-'.$attr['style'].'"><div class="programs">';
 
+        $searcher = new Searcher();
         $arg = array();
-        $arg['post_type'] = 'programok';
+        $arg['limit'] = (int)$attr['limit'];
         $arg['orderby'] = $attr['orderby'];
-        $arg['posts_per_page'] = (int)$attr['limit'];
 
-        $programs = get_posts($arg);
+        if ( $attr['utazas_kategoria'] !== false ) {
+          $arg['filters']['type'] = $attr['utazas_kategoria'];
+        }
 
         $t = new ShortcodeTemplates(__CLASS__.'/'.$attr['style']);
 
-        foreach ( $programs as $program ) {
-          $output .= $t->load_template( array( 'program' => $program ) );
+        $list = $searcher->Listing( $arg );
+
+        foreach ( $list as $program ) {
+          $output .= $t->load_template( array( 'travel' => $program ) );
         }
         $output .= '</div></div>';
         $output .= (new ShortcodeTemplates(__CLASS__.'/js'))->load_template();

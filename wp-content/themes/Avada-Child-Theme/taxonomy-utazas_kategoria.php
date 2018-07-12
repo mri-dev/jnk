@@ -11,8 +11,6 @@
 	$is_tematic = ($tax && $tax->slug == 'tematikus') ? true : false;
 
 	$grouped = (in_array($tax->slug, array('egyeni', 'csoportos'))) ? true : false;
-
-
 	//
 	if ($grouped)
 	{
@@ -126,7 +124,7 @@
 				<?php if (empty($list)): ?>
 					<div class="no-item">
 						<i class="fa fa-plane"></i>
-						<h3><?php echo __('Nincs találat', TD); ?></h3>
+						<h3><?php echo __('Nincs találat.', TD); ?></h3>
 						<?php echo __('A keresési és szűrési feltételek alapján ebben a kategóriában nem találtunk Önnek utazási ajánlatot.', TD); ?><br>
 						<a href="/utazas-kategoria/tematikus"><?php echo __('Böngészés a tematikus kategóriák között',TD); ?> >></a>
 					</div>

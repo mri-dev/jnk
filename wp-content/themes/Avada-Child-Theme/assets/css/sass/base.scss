@@ -483,6 +483,9 @@ body.programok-template-default{
     & > .wrapper{
       background: #efefef;
       border: 0.5px solid #d9d9d9;
+      box-shadow: 2px 2px 10px -5px black;
+      border-radius: 3px;
+      overflow: hidden;
 
       .image{
         position: relative;
@@ -594,8 +597,26 @@ body.programok-template-default{
       margin: 0 0 15px 0;
     }
   }
+
+  .tag-sidebar{
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 3px;
+    h3 {
+      margin: 0 0 5px 0;
+    }
+  }
+
   .recent-post{
     margin-bottom: 25px;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 3px;
+
+    h3 {
+      margin: 0 0 5px 0;
+    }
+
     .popular-articles{
       article{
         padding: 10px 0;
@@ -996,7 +1017,7 @@ body.programok-template-default{
   }
 }
 
-.travels{
+.travels, .partners{
   margin: -20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1004,7 +1025,7 @@ body.programok-template-default{
   align-items: flex-start;
   flex-wrap: wrap;
 
-  .travel{
+  .travel, .partner{
     padding: 20px;
     flex-basis: calc(100%/3);
     .wrapper{
@@ -1156,6 +1177,17 @@ body.programok-template-default{
   }
 }
 
+.partners{
+  .partner{
+    .datas{
+      .desc{
+        font-size: 0.8em !important;
+        line-height: 1.3 !important;
+      }
+    }
+  }
+}
+
 .destinations-holder{
   & > .wrapper{
     display: -webkit-box;
@@ -1246,20 +1278,37 @@ body.programok-template-default{
         }
 
         .szalag{
-          width: 100%;
+          width: 90%;
           padding: 10px 20px;
           background: rgba(0, 0, 0, 0.7);
           color: white;
           position: absolute;
-          left: 0;
-          right: 0;
-          top: 15px;
+          left: 50%;
+          top: 50%;
           z-index: 2;
           font-size: 0.8em;
+          -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 
           .title {
             text-transform: uppercase;
             text-align: center;
+
+            .sub {
+              text-transform: none;
+              font-size: 0.8em;
+              margin: 5px 0 0 0;
+              & > div {
+                margin: 3px 0;
+              }
+
+              .destinations{
+                color: $color-orange;
+              }
+              .cat{
+                color: #44b5ff;
+              }
+            }
           }
 
           .desc{
@@ -1303,9 +1352,6 @@ body.programok-template-default{
       }
 
       &:hover{
-        .desc{
-          display: block !important;
-        }
         img {
           -webkit-transform: scale(1.2) translate(-50%,-50%) !important;
           transform: scale(1.2) translate(-50%,-50%) !important;
@@ -1352,7 +1398,7 @@ body.programok-template-default{
         }
 
         .input-wrapper{
-          background: rgba(218, 218, 218, 0.28);
+          background: rgba(218, 218, 218, 0.3);
           border: 0.5px solid #cbcbcb;
           position: relative;
           .ico {
@@ -1377,6 +1423,7 @@ body.programok-template-default{
           }
           select{
             width: 100%;
+            cursor: pointer;
           }
         }
       }
@@ -1676,6 +1723,15 @@ body.archive.tax-utazas_kategoria{
 body.single-post {
   .content-inside{
     color: #323232;
+
+    iframe{
+      max-width: 100%;
+    }
+
+    blockquote{
+      padding: 0 0 0 15px !important;
+      margin: 5px 0 !important;
+    }
   }
 
   .author-data{
@@ -2978,6 +3034,10 @@ body.single .fusion-page-title-bar{
     flex: 1;
     padding: 0 0 0 25px;
 
+    h1 {
+      color: white;
+    }
+
     .meta{
       display: -webkit-box;
       display: -ms-flexbox;
@@ -3097,6 +3157,10 @@ body.single .fusion-page-title-bar{
       }
     }
   }
+}
+
+.fusion-is-sticky .fusion-header-v1 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v2 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v3 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v6 .fusion-sticky-shadow{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
 }
 
 .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover{

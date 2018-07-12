@@ -1,18 +1,21 @@
 <?php
-  $img = get_the_post_thumbnail_url( $program->ID );
+  $img = $travel->Image();
+  $dest = $travel->showDestinations();
+  $termv = $travel->showUtazasKategoria();
 ?>
 <article class="program">
   <div class="wrapper">
-    <a href="<?php echo get_post_permalink($program->ID); ?>">
+    <a href="<?=$travel->Url()?>">
       <div class="image">
-        <img src="<?=$img?>" alt="<?php echo $program->post_title; ?>">
+        <img src="<?=$img?>" alt="<?=$travel->Title()?>">
       </div>
       <div class="szalag">
         <div class="title">
-          <?php echo $program->post_title; ?>
-        </div>
-        <div class="desc">
-          <?php echo get_the_excerpt($program->ID); ?>
+          <?=$travel->Title()?>
+          <div class="sub">
+            <div class="cat"><?php echo implode($termv, ", "); ?></div>
+            <div class="destinations"><?php echo implode($dest, ", "); ?></div>
+          </div>
         </div>
       </div>
     </a>

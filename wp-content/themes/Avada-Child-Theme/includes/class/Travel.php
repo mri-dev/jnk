@@ -338,6 +338,19 @@ class Travel
     return $back;
   }
 
+  public function showUtazasKategoria()
+  {
+    $back = array();
+
+    $raw_terms = $this->getTermValues('utazas_kategoria');
+
+    foreach ($raw_terms as $t) {
+      $back[] = $t['name'];
+    }
+
+    return $back;
+  }
+
   public function showUtazasMod()
   {
     $back = array();
