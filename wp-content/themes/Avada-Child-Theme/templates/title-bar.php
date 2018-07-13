@@ -1,8 +1,11 @@
 <?php
   global $post;
+  $exc_type = array('partnerek');
   $single = is_single();
   $image = get_the_post_thumbnail_url($post);
   $post_type = get_post_type();
+
+  if ( !$single || (!in_array($post_type, $exc_type) && $single)) {
 ?>
 <div class="fusion-page-title-bar fusion-page-title-bar-<?php echo $content_type; ?> fusion-page-title-bar-<?php echo $alignment; ?>" style="<?=($single && $image)?'background-image:url(\''.$image.'\');':''?>">
 	<div class="fusion-page-title-row">
@@ -38,3 +41,4 @@
 		</div>
 	</div>
 </div>
+<?php } ?>

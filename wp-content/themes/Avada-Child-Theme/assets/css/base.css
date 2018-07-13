@@ -3271,11 +3271,16 @@ body.single .fusion-page-title-bar {
   background: #3ace8b;
 }
 
-/* line 3149, sass/base.scss */
+/* line 3146, sass/base.scss */
+body.single-partnerek #main {
+  padding-top: 155px;
+}
+
+/* line 3153, sass/base.scss */
 .post-caption-utazas .titledata h1 .t {
   float: left;
 }
-/* line 3152, sass/base.scss */
+/* line 3156, sass/base.scss */
 .post-caption-utazas .titledata h1 .stars {
   float: left;
   margin: 0 0 0 5px;
@@ -3283,34 +3288,98 @@ body.single .fusion-page-title-bar {
   color: #fbb03b !important;
 }
 
-/* line 3162, sass/base.scss */
+/* line 3169, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+/* line 3176, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .images {
+  flex-basis: 30%;
+}
+/* line 3179, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .images .img {
+  text-align: center;
+}
+/* line 3184, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas {
+  flex: 1;
+  padding-left: 25px;
+}
+/* line 3188, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title {
+  margin: 0 0 25px 0;
+}
+/* line 3190, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title h1 {
+  margin: 0 0 5px 0;
+  color: black;
+  font-size: 2em;
+}
+/* line 3197, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title .nav ul, body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title .nav li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 3204, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title .nav ul li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding-right: 5px;
+  vertical-align: middle;
+  font-size: 0.9em;
+  color: #848484;
+}
+/* line 3213, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title .nav ul li a {
+  color: #0b85d5;
+}
+/* line 3217, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .title .nav ul li .svg-inline--fa {
+  font-size: 12px;
+  color: #bfbfbf !important;
+}
+/* line 3226, sass/base.scss */
+body.single-partnerek .partner-data .partner-page-inside > .wrapper > .datas .excerpt {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #222222;
+  margin: 0 0 30px 0;
+}
+
+/* line 3239, sass/base.scss */
 .fusion-is-sticky .fusion-header-v1 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v2 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v3 .fusion-sticky-shadow, .fusion-is-sticky .fusion-header-v6 .fusion-sticky-shadow {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
 }
 
-/* line 3166, sass/base.scss */
+/* line 3243, sass/base.scss */
 .md-button.md-default-theme.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-primary.md-fab:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-fab:not([disabled]):hover, .md-button.md-primary.md-fab:not([disabled]):hover, .md-button.md-default-theme.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-primary.md-raised:not([disabled]).md-focused, .md-button.md-default-theme.md-primary.md-raised:not([disabled]):hover, .md-button.md-primary.md-raised:not([disabled]):hover {
   background: #fa9c09;
 }
 
-/* line 3170, sass/base.scss */
+/* line 3247, sass/base.scss */
 .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised {
   background: #fbb03b;
 }
 
-/* line 3176, sass/base.scss */
+/* line 3253, sass/base.scss */
 footer .contact-info-container p {
   margin-bottom: 8px !important;
 }
-/* line 3181, sass/base.scss */
+/* line 3258, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column {
   border-right: 0.5px solid #cecece;
 }
-/* line 3184, sass/base.scss */
+/* line 3261, sass/base.scss */
 footer .fusion-widget-area > div.fusion-column-last {
   border-right: none;
 }
-/* line 3188, sass/base.scss */
+/* line 3265, sass/base.scss */
 footer .fusion-copyright-notice {
   font-size: 0.9em !important;
   color: #575757 !important;

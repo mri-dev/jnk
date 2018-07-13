@@ -341,7 +341,7 @@ function create_custom_posttypes()
     )
   ) );
 
-  $partnerek->create();  
+  $partnerek->create();
   add_post_type_support( 'partnerek', 'excerpt' );
 }
 
