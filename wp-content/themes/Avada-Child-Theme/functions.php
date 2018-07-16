@@ -341,6 +341,16 @@ function create_custom_posttypes()
     )
   ) );
 
+  $partner_metabox = new CustomMetabox(
+    'partnerek',
+    __('Partner beállítások', TD),
+    new PartnerMetaboxSave(),
+    'partnerek',
+    array(
+      'class' => 'partnerek-postbox'
+    )
+  );
+
   $partnerek->create();
   add_post_type_support( 'partnerek', 'excerpt' );
 }

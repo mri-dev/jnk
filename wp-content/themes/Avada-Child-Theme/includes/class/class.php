@@ -7,5 +7,6 @@
   require_once "Travel.php";
   require_once "Searcher.php";
   require_once "UtazasMetaboxSave.php";
+  require_once "PartnerMetaboxSave.php";
   require_once "TravelCalcEditorMetaboxSave.php";
 ?>
