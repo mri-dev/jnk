@@ -1251,7 +1251,6 @@ body.programok-template-default{
 }
 
 .tematikus-kategoria-holder.style-boxed{
-  height: 300px;
   background: rgba(21, 37, 47, 0.77);
 
   .programs{
@@ -1263,7 +1262,7 @@ body.programok-template-default{
     flex-wrap: wrap;
     height: 100%;
     .program{
-      flex-basis: calc(100% / 5);
+      flex-basis: calc(100% / 4);
       height: 100%;
       background: black;
       & > .wrapper{
@@ -3007,9 +3006,9 @@ body.single .fusion-page-title-bar{
   background-position: center;
 }
 .single-post-caption{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
@@ -3266,4 +3265,98 @@ footer {
     font-size: 0.9em !important;
     color: #575757 !important;
   }
+}
+
+/* mobile breakpoint  */
+@media all and (max-width: 1000px)
+{
+  .page-width,
+  .destination-searcher-holder.manual-insert .wrapper,
+  .travel-base-wrapper .base-content-holder{
+    width: 100% !important;
+  }
+  .travels .travel, .travels .partner, .partners .travel, .partners .partner{
+    flex-basis: calc(100% / 2);
+  }
+  .tematikus-kategoria-holder.style-boxed .programs .program{
+    flex-basis: calc(100% / 2);
+  }
+  footer .fusion-widget-area > div.fusion-column{
+    border-right: none;
+  }
+
+  .widget.contact_info,
+  .fusion-footer-widget-column{
+    text-align: center;
+
+
+    h4.widget-title{
+      font-size: 4vw;
+    }
+  }
+  .destinations-holder > .wrapper > div > .w .title{
+    font-size: 1.8vw;
+  }
+  .fusion-modal h1, .fusion-widget-area h1, .post-content h1{
+    font-size: 3.5vw;
+  }
+  .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag{
+    font-size: 1.9vw;
+  }
+  .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text], .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select{
+    font-size: 1.45vw;
+  }
+  .listing-utazasok{
+    padding: 0 15px;
+  }
+  .travels, .partners{
+    margin: -10px;
+  }
+  .travels .travel, .travels .partner, .partners .travel, .partners .partner{
+    padding: 10px;
+  }
+  .listing-utazasok .list-wrapper .list-group .more-travels a{
+    font-size: 2vw;
+  }
+  .single-post-caption .titledata h1{
+    font-size: 4vw;
+  }
+  .single-post-caption .titledata .meta{
+    font-size: 1.2vw;
+  }
+  .travel-base-wrapper .base-content-holder .sidebar{
+    flex-basis: 100%;
+  }
+  .travel-base-wrapper .base-content-holder .sidebar .sidebar-fix-holder{
+    top: 0 !important;
+    position: relative;
+  }
+  .travel-base-wrapper .travel-header{
+    padding: 15px;
+  }
+  .travel-base-wrapper .fake-wrapper .fake-inside{
+    flex-basis: 100% !important;
+    padding: 0;
+  }
+  .travel-base-wrapper.fixedelements .travel-nav{
+    z-index: 100;
+  }
+  .travel-base-wrapper .base-content-holder .travel-contents{
+    padding: 15px;
+  }
+  .travel-base-wrapper .base-content-holder{
+    padding: 0;
+  }
+  body .travel-base-wrapper.fixedelements .travel-nav{
+    top: 0;
+  }
+  body.admin-bar .travel-base-wrapper.fixedelements .travel-nav{
+    top: 46px;
+  }
+}
+
+/* Tablet */
+@media all and (max-width: 768px)
+{
+
 }
