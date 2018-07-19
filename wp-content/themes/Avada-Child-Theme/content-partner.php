@@ -2,17 +2,21 @@
   global $post;
   $image = get_the_post_thumbnail_url($post->ID);
   $terms = wp_get_object_terms( $post->ID, 'partner_kategoria');
-  $gallery_id = get_post_meta($post->ID, METAKEY_PREFIX . 'photo_gallery_id');
+  $gallery_id = get_post_meta($post->ID, METAKEY_PREFIX . 'photo_gallery_id', true);
+
 ?>
-<div class="content-inside partner-page-inside <?=($image != '')?'imaged':''?>">
+<div class="content-inside partner-page-inside <?=($image != '' || $gallery_id != '' )?'imaged':''?>">
   <div class="wrapper">
+
     <div class="images">
+      <?php if ($image): ?>
       <div class="img">
         <img src="<?=$image?>" alt="<?php the_title(); ?>">
       </div>
+      <?php endif; ?>
       <?php if ($gallery_id): ?>
       <div class="gallery">
-        <h3><? echo __('További képek', TD); ?></h3>
+        <h3><? echo __('Galéria', TD); ?></h3>
         <?php photo_gallery($gallery_id); ?>
       </div>
       <?php endif; ?>

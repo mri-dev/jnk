@@ -24,7 +24,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 				<?php	$t = get_term_by('slug', 'egyeni', 'utazas_kategoria'); ?>
 				<div class="list-group">
 					<div class="group-title">
-						<h2><a href="/utazas/?type=egyeni"><?=$t->name?></a></h2>
+						<h2><a href="/utazas-kategoria/egyeni/"><?=$t->name?></a></h2>
 						<?php if ($t->description != ''): ?>
 						<div class="desc">
 							<?=$t->description?>
@@ -33,13 +33,13 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 					</div>
 					<?php echo do_shortcode('[searcher limit="3" utazas_kategoria="egyeni" orderby="rand"]'); ?>
 					<div class="more-travels">
-				 		<a href="/utazas/?type=egyeni"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
+				 		<a href="/utazas-kategoria/egyeni/"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
 				 	</div>
 				</div>
 				<?php	$t = get_term_by('slug', 'csoportos', 'utazas_kategoria'); ?>
 				<div class="list-group">
 					<div class="group-title">
-						<h2><a href="/utazas/?type=csoportos"><?=$t->name?></a></h2>
+						<h2><a href="/utazas-kategoria/csoportos/"><?=$t->name?></a></h2>
 						<?php if ($t->description != ''): ?>
 						<div class="desc">
 							<?=$t->description?>
@@ -48,7 +48,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 					</div>
 					<?php echo do_shortcode('[searcher limit="3" utazas_kategoria="csoportos" orderby="rand"]'); ?>
 					<div class="more-travels">
-				 		<a href="/utazas/?type=csoportos"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
+				 		<a href="/utazas-kategoria/csoportos/"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
 				 	</div>
 				</div>
 			</div>
