@@ -132,7 +132,7 @@ input[type=checkbox].fake-radio:checked + label {
 body.single{
   .fusion-page-title-bar{
     height: 380px;
-    box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.85);
+    box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.83);
   }
   .fusion-page-title-wrapper{
     padding-top: 250px;
@@ -3373,10 +3373,172 @@ footer {
   body.admin-bar .travel-base-wrapper.fixedelements .travel-nav{
     top: 46px;
   }
+  .fusion-header-wrapper{
+    position: relative;
+  }
+  .fusion-page-title-wrapper{
+    padding-top: 0 !important;
+  }
+  body.single .fusion-page-title-bar{
+    height: 220px;
+  }
+  .sidebar .sidebar-group{
+    padding: 15px;
+  }
 }
 
-/* Tablet */
-@media all and (max-width: 768px)
+/* Mobile */
+@media all and (max-width: 640px)
 {
+  .fusion-contact-info{
+    font-size: 2.8vw;
+  }
+  .destination-searcher-holder .wrapper > div{
+    flex-basis: 100% !important;
+  }
+  .destination-searcher-holder .wrapper > div .iwrapper{
+    padding: 5px 0;
+  }
+  .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text], .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select{
+    font-size: 4.6vw;
+  }
+  .fusion-modal h1, .fusion-widget-area h1, .post-content h1{
+    font-size: 5vw;
+  }
+  .travels .travel, .travels .partner, .partners .travel, .partners .partner{
+    flex-basis: 100%;
+  }
+  .tematikus-kategoria-holder.style-boxed .programs .program{
+    flex-basis: 100%;
+  }
+  .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag{
+    font-size: 3.5vw;
+  }
+  .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag{
+    height: 40%;
+  }
+  .postlist-holder > div.newest-article{
+    flex-basis: 100%;
+    padding: 0;
+  }
+  .postlist-holder > div.more-articles{
+    padding-top: 30px;
+  }
+  .postlist-holder .head .links{
+    float: none;
+    font-size: 3vw;
+  }
+  .postlist-holder div.newest-article article .data .title a{
+    font-size: 5vw !important;
+  }
+  .postlist-holder article .data .meta{
+    font-size: 2.4vw !important;
+  }
+  .single-post-caption .titledata .meta{
+    font-size: 2vw;
+  }
+  .single-post-caption .date{
+    font-size: 3vw;
+    flex-basis: 50px;
+    padding: 0 10px 0 0;
+  }
+  .single-post-caption .titledata .meta > div{
+    margin-right: 10px;
+  }
+  .comment-respond{
+    padding: 15px;
+  }
+  #comment-textarea textarea{
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .sidebar .sidebar-group{
+    padding: 0;
+  }
+  .single-post-caption .titledata .meta{
+    flex-wrap: wrap;
+  }
+  body.single-utazas .fusion-page-title-bar .meta .kiemelt{
+    margin: 5px auto;
+  }
+  .single-post-caption .titledata{
+    padding: 0;
+    text-align: center;
+  }
+  .post-caption-utazas .titledata h1 .t{
+    float: none;
+  }
+  body.single-utazas .fusion-page-title-bar .meta .positions{
+    margin: 0;
+    font-size: 3vw;
+    flex-basis: 100%;
+  }
+  body.single-utazas .travel-main-params > div{
+    flex-basis: 100%;
+  }
+  .travel-base-wrapper .travel-nav ul li a{
+    padding: 10px;
+    font-size: 2.4vw;
+  }
+  .program-list .program > .wrapper{
+    flex-wrap: wrap;
+  }
+  .program-list .program > .wrapper .image{
+    flex-basis: 100%;
+  }
+  .program-list .program > .wrapper .image img{
+    position: relative;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(0,0);
+          transform: translate(0,0);
+  }
+  .program-list .program > .wrapper .data{
+    padding: 10px;
+    font-size: 3.4vw;
+  }
+  .testimonial-content > .wrapper .comment > .wrapper .desc{
+    font-size: 3.5vw;
+  }
 
+  .single-utazas{
+    .sidebar .sidebar-group{
+      padding: 0 15px !important;
+    }
+  }
+  .gettraveloffer .offer-group{
+    flex-wrap: wrap;
+  }
+  .gettraveloffer .offer-group > div.header{
+    flex-basis: calc(100% - 5px);
+  }
+  .gettraveloffer .offer-group > div.cholder{
+    flex: initial;
+    flex-basis: 100%;
+  }
+  .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v{
+    padding: 10px;
+  }
+  .gettraveloffer .offer-group > div.header .title h3{
+    font-size: 5vw;
+  }
+  .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .v{
+    font-size: 4vw;
+  }
+  .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok{
+    flex-wrap: wrap;
+  }
+  .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div{
+    flex-basis: 100%;
+  }
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas,
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas{
+    flex-basis: 100%;
+  }
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children{
+    flex-basis: 100%;
+  }
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header{
+    display: none;
+  }
 }

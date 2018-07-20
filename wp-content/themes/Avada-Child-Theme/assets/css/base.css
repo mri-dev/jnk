@@ -139,7 +139,7 @@ input[type=checkbox].fake-radio:checked + label:before {
 /* line 133, sass/base.scss */
 body.single .fusion-page-title-bar {
   height: 380px;
-  box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0 -180px 200px -40px rgba(0, 0, 0, 0.83);
 }
 /* line 137, sass/base.scss */
 body.single .fusion-page-title-wrapper {
@@ -3533,5 +3533,262 @@ footer .fusion-copyright-notice {
   body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
     top: 46px;
   }
+
+  /* line 3376, sass/base.scss */
+  .fusion-header-wrapper {
+    position: relative;
+  }
+
+  /* line 3379, sass/base.scss */
+  .fusion-page-title-wrapper {
+    padding-top: 0 !important;
+  }
+
+  /* line 3382, sass/base.scss */
+  body.single .fusion-page-title-bar {
+    height: 220px;
+  }
+
+  /* line 3385, sass/base.scss */
+  .sidebar .sidebar-group {
+    padding: 15px;
+  }
 }
-/* Tablet */
+/* Mobile */
+@media all and (max-width: 640px) {
+  /* line 3393, sass/base.scss */
+  .fusion-contact-info {
+    font-size: 2.8vw;
+  }
+
+  /* line 3396, sass/base.scss */
+  .destination-searcher-holder .wrapper > div {
+    flex-basis: 100% !important;
+  }
+
+  /* line 3399, sass/base.scss */
+  .destination-searcher-holder .wrapper > div .iwrapper {
+    padding: 5px 0;
+  }
+
+  /* line 3402, sass/base.scss */
+  .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text], .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select {
+    font-size: 4.6vw;
+  }
+
+  /* line 3405, sass/base.scss */
+  .fusion-modal h1, .fusion-widget-area h1, .post-content h1 {
+    font-size: 5vw;
+  }
+
+  /* line 3408, sass/base.scss */
+  .travels .travel, .travels .partner, .partners .travel, .partners .partner {
+    flex-basis: 100%;
+  }
+
+  /* line 3411, sass/base.scss */
+  .tematikus-kategoria-holder.style-boxed .programs .program {
+    flex-basis: 100%;
+  }
+
+  /* line 3414, sass/base.scss */
+  .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
+    font-size: 3.5vw;
+  }
+
+  /* line 3417, sass/base.scss */
+  .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
+    height: 40%;
+  }
+
+  /* line 3420, sass/base.scss */
+  .postlist-holder > div.newest-article {
+    flex-basis: 100%;
+    padding: 0;
+  }
+
+  /* line 3424, sass/base.scss */
+  .postlist-holder > div.more-articles {
+    padding-top: 30px;
+  }
+
+  /* line 3427, sass/base.scss */
+  .postlist-holder .head .links {
+    float: none;
+    font-size: 3vw;
+  }
+
+  /* line 3431, sass/base.scss */
+  .postlist-holder div.newest-article article .data .title a {
+    font-size: 5vw !important;
+  }
+
+  /* line 3434, sass/base.scss */
+  .postlist-holder article .data .meta {
+    font-size: 2.4vw !important;
+  }
+
+  /* line 3437, sass/base.scss */
+  .single-post-caption .titledata .meta {
+    font-size: 2vw;
+  }
+
+  /* line 3440, sass/base.scss */
+  .single-post-caption .date {
+    font-size: 3vw;
+    flex-basis: 50px;
+    padding: 0 10px 0 0;
+  }
+
+  /* line 3445, sass/base.scss */
+  .single-post-caption .titledata .meta > div {
+    margin-right: 10px;
+  }
+
+  /* line 3448, sass/base.scss */
+  .comment-respond {
+    padding: 15px;
+  }
+
+  /* line 3451, sass/base.scss */
+  #comment-textarea textarea {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* line 3455, sass/base.scss */
+  .sidebar .sidebar-group {
+    padding: 0;
+  }
+
+  /* line 3458, sass/base.scss */
+  .single-post-caption .titledata .meta {
+    flex-wrap: wrap;
+  }
+
+  /* line 3461, sass/base.scss */
+  body.single-utazas .fusion-page-title-bar .meta .kiemelt {
+    margin: 5px auto;
+  }
+
+  /* line 3464, sass/base.scss */
+  .single-post-caption .titledata {
+    padding: 0;
+    text-align: center;
+  }
+
+  /* line 3468, sass/base.scss */
+  .post-caption-utazas .titledata h1 .t {
+    float: none;
+  }
+
+  /* line 3471, sass/base.scss */
+  body.single-utazas .fusion-page-title-bar .meta .positions {
+    margin: 0;
+    font-size: 3vw;
+    flex-basis: 100%;
+  }
+
+  /* line 3476, sass/base.scss */
+  body.single-utazas .travel-main-params > div {
+    flex-basis: 100%;
+  }
+
+  /* line 3479, sass/base.scss */
+  .travel-base-wrapper .travel-nav ul li a {
+    padding: 10px;
+    font-size: 2.4vw;
+  }
+
+  /* line 3483, sass/base.scss */
+  .program-list .program > .wrapper {
+    flex-wrap: wrap;
+  }
+
+  /* line 3486, sass/base.scss */
+  .program-list .program > .wrapper .image {
+    flex-basis: 100%;
+  }
+
+  /* line 3489, sass/base.scss */
+  .program-list .program > .wrapper .image img {
+    position: relative;
+    left: 0;
+    top: 0;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  /* line 3496, sass/base.scss */
+  .program-list .program > .wrapper .data {
+    padding: 10px;
+    font-size: 3.4vw;
+  }
+
+  /* line 3500, sass/base.scss */
+  .testimonial-content > .wrapper .comment > .wrapper .desc {
+    font-size: 3.5vw;
+  }
+
+  /* line 3505, sass/base.scss */
+  .single-utazas .sidebar .sidebar-group {
+    padding: 0 15px !important;
+  }
+
+  /* line 3509, sass/base.scss */
+  .gettraveloffer .offer-group {
+    flex-wrap: wrap;
+  }
+
+  /* line 3512, sass/base.scss */
+  .gettraveloffer .offer-group > div.header {
+    flex-basis: calc(100% - 5px);
+  }
+
+  /* line 3515, sass/base.scss */
+  .gettraveloffer .offer-group > div.cholder {
+    flex: initial;
+    flex-basis: 100%;
+  }
+
+  /* line 3519, sass/base.scss */
+  .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v {
+    padding: 10px;
+  }
+
+  /* line 3522, sass/base.scss */
+  .gettraveloffer .offer-group > div.header .title h3 {
+    font-size: 5vw;
+  }
+
+  /* line 3525, sass/base.scss */
+  .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .v {
+    font-size: 4vw;
+  }
+
+  /* line 3528, sass/base.scss */
+  .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok {
+    flex-wrap: wrap;
+  }
+
+  /* line 3531, sass/base.scss */
+  .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div {
+    flex-basis: 100%;
+  }
+
+  /* line 3535, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas,
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas {
+    flex-basis: 100%;
+  }
+
+  /* line 3538, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children {
+    flex-basis: 100%;
+  }
+
+  /* line 3541, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header {
+    display: none;
+  }
+}

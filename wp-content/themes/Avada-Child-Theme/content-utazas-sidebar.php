@@ -217,7 +217,7 @@ $kapcs_utazas = $rec_utazas->Listing( $arg );
       <?php while ( $popularpost->have_posts() ) : $popularpost->the_post(); $cats = wp_get_post_categories($post->ID, array('fields' => 'all_with_object_id')); ?>
         <article class="imaged">
           <div class="img">
-            <a href="<?php echo the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url($post->ID); ?>" alt="<?php echo the_title(); ?>"></a> 
+            <a href="<?php echo the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url($post->ID); ?>" alt="<?php echo the_title(); ?>"></a>
           </div>
           <div class="datas">
             <div class="title">
