@@ -201,6 +201,17 @@ function create_custom_posttypes()
 		'add_new_item' => 'Új %s létrehozása',
 	) );
 
+  $utak->add_taxonomy( 'penznem', array(
+    'rewrite' => 'penznem',
+    'name' => array('Pénznem', 'Pénznemek'),
+    'labels' => array(
+      'menu_name' => 'Pénznemek',
+      'add_new_item' => 'Új %s',
+      'search_items' => '%s keresése',
+      'all_items' => '%s',
+    )
+  ) );
+
   // Utazás hosszak
   $utak->add_taxonomy( 'utazas_duration', array(
 		'rewrite' => 'utazas-hossz',

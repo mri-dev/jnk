@@ -228,13 +228,13 @@
                     </div>
                   </div>
                   <div class="price-adult">
-                    {{calced_room_price[szoba.ID].adults|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Felnőtt ár', TD)?>:</span> {{calced_room_price[szoba.ID].adults|number:0}} Ft
                   </div>
                   <div class="price-children">
-                    {{calced_room_price[szoba.ID].children|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Gyermek ár', TD)?>:</span> {{calced_room_price[szoba.ID].children|number:0}} Ft
                   </div>
                   <div class="total-prices">
-                    {{calced_room_price[szoba.ID].all|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Összesen', TD)?>:</span> {{calced_room_price[szoba.ID].all|number:0}} Ft
                   </div>
                 </div>
               </div>

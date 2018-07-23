@@ -3402,315 +3402,340 @@ footer .fusion-copyright-notice {
   color: #575757 !important;
 }
 
+/* line 3290, sass/base.scss */
+.show-on-mobile {
+  display: none !important;
+}
+
 /* mobile breakpoint  */
 @media all and (max-width: 1000px) {
-  /* line 3295, sass/base.scss */
+  /* line 3297, sass/base.scss */
+  .mobile-label {
+    font-size: 0.65em;
+  }
+
+  /* line 3300, sass/base.scss */
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  /* line 3305, sass/base.scss */
   .page-width,
   .destination-searcher-holder.manual-insert .wrapper,
   .travel-base-wrapper .base-content-holder {
     width: 100% !important;
   }
 
-  /* line 3298, sass/base.scss */
+  /* line 3308, sass/base.scss */
   .travels .travel, .travels .partner, .partners .travel, .partners .partner {
     flex-basis: calc(100% / 2);
   }
 
-  /* line 3301, sass/base.scss */
+  /* line 3311, sass/base.scss */
   .tematikus-kategoria-holder.style-boxed .programs .program {
     flex-basis: calc(100% / 2);
   }
 
-  /* line 3304, sass/base.scss */
+  /* line 3314, sass/base.scss */
   footer .fusion-widget-area > div.fusion-column {
     border-right: none;
   }
 
-  /* line 3309, sass/base.scss */
+  /* line 3319, sass/base.scss */
   .widget.contact_info,
   .fusion-footer-widget-column {
     text-align: center;
   }
-  /* line 3313, sass/base.scss */
+  /* line 3323, sass/base.scss */
   .widget.contact_info h4.widget-title,
   .fusion-footer-widget-column h4.widget-title {
     font-size: 4vw;
   }
 
-  /* line 3317, sass/base.scss */
+  /* line 3327, sass/base.scss */
   .destinations-holder > .wrapper > div > .w .title {
     font-size: 1.8vw;
   }
 
-  /* line 3320, sass/base.scss */
+  /* line 3330, sass/base.scss */
   .fusion-modal h1, .fusion-widget-area h1, .post-content h1 {
     font-size: 3.5vw;
   }
 
-  /* line 3323, sass/base.scss */
+  /* line 3333, sass/base.scss */
   .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
     font-size: 1.9vw;
   }
 
-  /* line 3326, sass/base.scss */
+  /* line 3336, sass/base.scss */
   .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text], .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select {
     font-size: 1.45vw;
   }
 
-  /* line 3329, sass/base.scss */
+  /* line 3339, sass/base.scss */
   .listing-utazasok {
     padding: 0 15px;
   }
 
-  /* line 3332, sass/base.scss */
+  /* line 3342, sass/base.scss */
   .travels, .partners {
     margin: -10px;
   }
 
-  /* line 3335, sass/base.scss */
+  /* line 3345, sass/base.scss */
   .travels .travel, .travels .partner, .partners .travel, .partners .partner {
     padding: 10px;
   }
 
-  /* line 3338, sass/base.scss */
+  /* line 3348, sass/base.scss */
   .listing-utazasok .list-wrapper .list-group .more-travels a {
     font-size: 2vw;
   }
 
-  /* line 3341, sass/base.scss */
+  /* line 3351, sass/base.scss */
   .single-post-caption .titledata h1 {
     font-size: 4vw;
   }
 
-  /* line 3344, sass/base.scss */
+  /* line 3354, sass/base.scss */
   .single-post-caption .titledata .meta {
     font-size: 1.2vw;
   }
 
-  /* line 3347, sass/base.scss */
+  /* line 3357, sass/base.scss */
   .travel-base-wrapper .base-content-holder .sidebar {
     flex-basis: 100%;
   }
 
-  /* line 3350, sass/base.scss */
+  /* line 3360, sass/base.scss */
   .travel-base-wrapper .base-content-holder .sidebar .sidebar-fix-holder {
     top: 0 !important;
     position: relative;
   }
 
-  /* line 3354, sass/base.scss */
+  /* line 3364, sass/base.scss */
   .travel-base-wrapper .travel-header {
     padding: 15px;
   }
 
-  /* line 3357, sass/base.scss */
+  /* line 3367, sass/base.scss */
   .travel-base-wrapper .fake-wrapper .fake-inside {
     flex-basis: 100% !important;
     padding: 0;
   }
 
-  /* line 3361, sass/base.scss */
+  /* line 3371, sass/base.scss */
   .travel-base-wrapper.fixedelements .travel-nav {
     z-index: 100;
   }
 
-  /* line 3364, sass/base.scss */
+  /* line 3374, sass/base.scss */
   .travel-base-wrapper .base-content-holder .travel-contents {
     padding: 15px;
   }
 
-  /* line 3367, sass/base.scss */
+  /* line 3377, sass/base.scss */
   .travel-base-wrapper .base-content-holder {
     padding: 0;
   }
 
-  /* line 3370, sass/base.scss */
+  /* line 3380, sass/base.scss */
   body .travel-base-wrapper.fixedelements .travel-nav {
     top: 0;
   }
 
-  /* line 3373, sass/base.scss */
+  /* line 3383, sass/base.scss */
   body.admin-bar .travel-base-wrapper.fixedelements .travel-nav {
     top: 46px;
   }
 
-  /* line 3376, sass/base.scss */
+  /* line 3386, sass/base.scss */
   .fusion-header-wrapper {
     position: relative;
   }
 
-  /* line 3379, sass/base.scss */
+  /* line 3389, sass/base.scss */
   .fusion-page-title-wrapper {
     padding-top: 0 !important;
   }
 
-  /* line 3382, sass/base.scss */
+  /* line 3392, sass/base.scss */
   body.single .fusion-page-title-bar {
     height: 220px;
   }
 
-  /* line 3385, sass/base.scss */
+  /* line 3395, sass/base.scss */
   .sidebar .sidebar-group {
     padding: 15px;
+  }
+
+  /* line 3398, sass/base.scss */
+  .utazas-sidebar .discount {
+    font-size: 4vw;
+  }
+
+  /* line 3401, sass/base.scss */
+  .utazas-sidebar .sidebar-header .price {
+    font-size: 3vw;
   }
 }
 /* Mobile */
 @media all and (max-width: 640px) {
-  /* line 3393, sass/base.scss */
+  /* line 3409, sass/base.scss */
   .fusion-contact-info {
     font-size: 2.8vw;
   }
 
-  /* line 3396, sass/base.scss */
+  /* line 3412, sass/base.scss */
   .destination-searcher-holder .wrapper > div {
     flex-basis: 100% !important;
   }
 
-  /* line 3399, sass/base.scss */
+  /* line 3415, sass/base.scss */
   .destination-searcher-holder .wrapper > div .iwrapper {
     padding: 5px 0;
   }
 
-  /* line 3402, sass/base.scss */
+  /* line 3418, sass/base.scss */
   .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper input[type=text], .destination-searcher-holder .wrapper > div .iwrapper .input-wrapper select {
     font-size: 4.6vw;
   }
 
-  /* line 3405, sass/base.scss */
+  /* line 3421, sass/base.scss */
   .fusion-modal h1, .fusion-widget-area h1, .post-content h1 {
     font-size: 5vw;
   }
 
-  /* line 3408, sass/base.scss */
+  /* line 3424, sass/base.scss */
   .travels .travel, .travels .partner, .partners .travel, .partners .partner {
     flex-basis: 100%;
   }
 
-  /* line 3411, sass/base.scss */
+  /* line 3427, sass/base.scss */
   .tematikus-kategoria-holder.style-boxed .programs .program {
     flex-basis: 100%;
   }
 
-  /* line 3414, sass/base.scss */
+  /* line 3430, sass/base.scss */
   .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
     font-size: 3.5vw;
   }
 
-  /* line 3417, sass/base.scss */
+  /* line 3433, sass/base.scss */
   .tematikus-kategoria-holder.style-boxed .programs .program > .wrapper .szalag {
     height: 40%;
   }
 
-  /* line 3420, sass/base.scss */
+  /* line 3436, sass/base.scss */
   .postlist-holder > div.newest-article {
     flex-basis: 100%;
     padding: 0;
   }
 
-  /* line 3424, sass/base.scss */
+  /* line 3440, sass/base.scss */
   .postlist-holder > div.more-articles {
     padding-top: 30px;
   }
 
-  /* line 3427, sass/base.scss */
+  /* line 3443, sass/base.scss */
   .postlist-holder .head .links {
     float: none;
     font-size: 3vw;
   }
 
-  /* line 3431, sass/base.scss */
+  /* line 3447, sass/base.scss */
   .postlist-holder div.newest-article article .data .title a {
     font-size: 5vw !important;
   }
 
-  /* line 3434, sass/base.scss */
+  /* line 3450, sass/base.scss */
   .postlist-holder article .data .meta {
     font-size: 2.4vw !important;
   }
 
-  /* line 3437, sass/base.scss */
+  /* line 3453, sass/base.scss */
   .single-post-caption .titledata .meta {
     font-size: 2vw;
   }
 
-  /* line 3440, sass/base.scss */
+  /* line 3456, sass/base.scss */
   .single-post-caption .date {
     font-size: 3vw;
     flex-basis: 50px;
     padding: 0 10px 0 0;
   }
 
-  /* line 3445, sass/base.scss */
+  /* line 3461, sass/base.scss */
   .single-post-caption .titledata .meta > div {
     margin-right: 10px;
   }
 
-  /* line 3448, sass/base.scss */
+  /* line 3464, sass/base.scss */
   .comment-respond {
     padding: 15px;
   }
 
-  /* line 3451, sass/base.scss */
+  /* line 3467, sass/base.scss */
   #comment-textarea textarea {
     max-width: 100% !important;
     width: 100% !important;
   }
 
-  /* line 3455, sass/base.scss */
+  /* line 3471, sass/base.scss */
   .sidebar .sidebar-group {
     padding: 0;
   }
 
-  /* line 3458, sass/base.scss */
+  /* line 3474, sass/base.scss */
   .single-post-caption .titledata .meta {
     flex-wrap: wrap;
   }
 
-  /* line 3461, sass/base.scss */
+  /* line 3477, sass/base.scss */
   body.single-utazas .fusion-page-title-bar .meta .kiemelt {
     margin: 5px auto;
   }
 
-  /* line 3464, sass/base.scss */
+  /* line 3480, sass/base.scss */
   .single-post-caption .titledata {
-    padding: 0;
-    text-align: center;
+    padding: 0 0 0 10px;
+    text-align: left;
   }
 
-  /* line 3468, sass/base.scss */
+  /* line 3484, sass/base.scss */
   .post-caption-utazas .titledata h1 .t {
     float: none;
   }
 
-  /* line 3471, sass/base.scss */
+  /* line 3487, sass/base.scss */
   body.single-utazas .fusion-page-title-bar .meta .positions {
     margin: 0;
     font-size: 3vw;
     flex-basis: 100%;
   }
 
-  /* line 3476, sass/base.scss */
+  /* line 3492, sass/base.scss */
   body.single-utazas .travel-main-params > div {
     flex-basis: 100%;
   }
 
-  /* line 3479, sass/base.scss */
+  /* line 3495, sass/base.scss */
   .travel-base-wrapper .travel-nav ul li a {
     padding: 10px;
     font-size: 2.4vw;
   }
 
-  /* line 3483, sass/base.scss */
+  /* line 3499, sass/base.scss */
   .program-list .program > .wrapper {
     flex-wrap: wrap;
   }
 
-  /* line 3486, sass/base.scss */
+  /* line 3502, sass/base.scss */
   .program-list .program > .wrapper .image {
     flex-basis: 100%;
   }
 
-  /* line 3489, sass/base.scss */
+  /* line 3505, sass/base.scss */
   .program-list .program > .wrapper .image img {
     position: relative;
     left: 0;
@@ -3719,76 +3744,221 @@ footer .fusion-copyright-notice {
     transform: translate(0, 0);
   }
 
-  /* line 3496, sass/base.scss */
+  /* line 3512, sass/base.scss */
   .program-list .program > .wrapper .data {
     padding: 10px;
     font-size: 3.4vw;
   }
 
-  /* line 3500, sass/base.scss */
+  /* line 3516, sass/base.scss */
   .testimonial-content > .wrapper .comment > .wrapper .desc {
     font-size: 3.5vw;
   }
 
-  /* line 3505, sass/base.scss */
+  /* line 3521, sass/base.scss */
   .single-utazas .sidebar .sidebar-group {
     padding: 0 15px !important;
   }
 
-  /* line 3509, sass/base.scss */
+  /* line 3525, sass/base.scss */
   .gettraveloffer .offer-group {
     flex-wrap: wrap;
   }
 
-  /* line 3512, sass/base.scss */
+  /* line 3528, sass/base.scss */
   .gettraveloffer .offer-group > div.header {
     flex-basis: calc(100% - 5px);
   }
 
-  /* line 3515, sass/base.scss */
+  /* line 3531, sass/base.scss */
   .gettraveloffer .offer-group > div.cholder {
     flex: initial;
     flex-basis: 100%;
   }
 
-  /* line 3519, sass/base.scss */
+  /* line 3535, sass/base.scss */
   .gettraveloffer .date-selectors .selector-wrapper .durrations .durration .v {
     padding: 10px;
   }
 
-  /* line 3522, sass/base.scss */
+  /* line 3538, sass/base.scss */
   .gettraveloffer .offer-group > div.header .title h3 {
     font-size: 5vw;
   }
 
-  /* line 3525, sass/base.scss */
+  /* line 3541, sass/base.scss */
   .gettraveloffer .offer-group > div.cholder > .wrapper > .selected-item-holder > .holder .v {
     font-size: 4vw;
   }
 
-  /* line 3528, sass/base.scss */
+  /* line 3544, sass/base.scss */
   .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok {
     flex-wrap: wrap;
   }
 
-  /* line 3531, sass/base.scss */
+  /* line 3547, sass/base.scss */
   .gettraveloffer .ellatas-selectors .selector-wrapper .ellatasok > div {
     flex-basis: 100%;
   }
 
-  /* line 3535, sass/base.scss */
+  /* line 3551, sass/base.scss */
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas,
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas {
     flex-basis: 100%;
+    text-align: center;
+    margin: 0 0 10px 0 !important;
   }
 
-  /* line 3538, sass/base.scss */
-  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children {
+  /* line 3556, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .title {
+    margin: 0 0 5px 0 !important;
+  }
+
+  /* line 3559, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
+    margin: 10px 0 0 0 !important;
+  }
+
+  /* line 3563, sass/base.scss */
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children,
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices {
     flex-basis: 100%;
   }
 
-  /* line 3541, sass/base.scss */
+  /* line 3566, sass/base.scss */
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header {
     display: none;
+  }
+
+  /* line 3570, sass/base.scss */
+  .utazas-sidebar .discount {
+    font-size: 6vw;
+  }
+
+  /* line 3573, sass/base.scss */
+  .utazas-sidebar .sidebar-header .price {
+    font-size: 5vw;
+  }
+
+  /* line 3576, sass/base.scss */
+  .gettraveloffer .offer-group > div.cholder > .wrapper table {
+    font-size: 2.4vw;
+  }
+
+  /* line 3579, sass/base.scss */
+  .gettraveloffer .offer-group > div.cholder > .wrapper table thead tr th {
+    font-size: 2.2vw;
+  }
+
+  /* line 3582, sass/base.scss */
+  body.single-utazas #content {
+    margin-bottom: 0 !important;
+  }
+
+  /* line 3585, sass/base.scss */
+  .gettraveloffer .offer-group div.form {
+    margin: -15px;
+  }
+
+  /* line 3588, sass/base.scss */
+  .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.price-group {
+    font-size: 3vw;
+  }
+
+  /* line 3591, sass/base.scss */
+  .gettraveloffer .orderder-details .orderer > .flex > div {
+    flex: initial;
+    flex-basis: 100%;
+  }
+
+  /* line 3595, sass/base.scss */
+  .gettraveloffer .orderder-details .passengers-details > .flex > div {
+    flex-basis: 100%;
+  }
+
+  /* line 3598, sass/base.scss */
+  .travel-base-wrapper .travel-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  /* line 3603, sass/base.scss */
+  .travel-base-wrapper .travel-nav ul > li:not(.reviews) {
+    display: initial !important;
+    flex: 1 !important;
+    text-align: center !important;
+  }
+  /* line 3609, sass/base.scss */
+  .travel-base-wrapper .travel-nav ul > li.reviews {
+    flex-basis: 95px !important;
+  }
+
+  /* line 3613, sass/base.scss */
+  .testimonial-creator > .wrapper .header h3 {
+    font-size: 7vw;
+  }
+
+  /* line 3617, sass/base.scss */
+  .testimonial-creator > .wrapper .cont > .name,
+  .testimonial-creator > .wrapper .cont > .city {
+    flex-basis: 100%;
+  }
+
+  /* line 3620, sass/base.scss */
+  .destination-searcher-holder.manual-insert .wrapper {
+    padding: 15px 15px 30px 15px;
+  }
+
+  /* line 3623, sass/base.scss */
+  .listing-utazasok .list-wrapper .list-group .more-travels a {
+    font-size: 3.5vw;
+  }
+
+  /* line 3626, sass/base.scss */
+  .multi-selector-holder .selector-wrapper {
+    background: white;
+  }
+
+  /* line 3629, sass/base.scss */
+  .contact-form-holder .requester-holder, .contact-form-holder .btns {
+    width: 100% !important;
+  }
+
+  /* line 3632, sass/base.scss */
+  .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email {
+    flex-basis: 100%;
+  }
+
+  /* line 3635, sass/base.scss */
+  body.archive #main {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  /* line 3639, sass/base.scss */
+  .articles article .image {
+    margin-bottom: 0;
+    min-height: 62vw;
+    height: 62vw;
+  }
+
+  /* line 3644, sass/base.scss */
+  .articles article .datas {
+    padding: 15px;
+  }
+
+  /* line 3647, sass/base.scss */
+  .articles article .title h2 {
+    font-size: 5vw !important;
+  }
+
+  /* line 3650, sass/base.scss */
+  body.single.single-post #main {
+    padding: 15px !important;
+  }
+
+  /* line 3653, sass/base.scss */
+  #comment-input input {
+    width: 100% !important;
   }
 }

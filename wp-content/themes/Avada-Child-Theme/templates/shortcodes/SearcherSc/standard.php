@@ -52,11 +52,11 @@ $hotel_type = $travel->getHotelType();
         <?php if ((int)$travel->getPrice() !== 0): ?>
           <?php if ($discount): ?>
           <div class="old">
-            <?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+            <?=$travel->getPriceBefore()?><?=number_format($travel->getOriginalPrice(), 0, '', ' ')?><?=$travel->getPriceAfter()?>
           </div>
           <?php endif; ?>
           <div class="current">
-            <?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
+            <?=$travel->getPriceBefore()?><?=number_format($travel->getPrice(), 0, '', ' ')?><?=$travel->getPriceAfter()?>
           </div>
         <?php else: ?>
           <?php if ($egyeni_utazas): ?>

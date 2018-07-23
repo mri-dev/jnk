@@ -43,10 +43,10 @@ $kapcs_utazas = $rec_utazas->Listing( $arg );
             </div>
             <?php if ($discount): ?>
             <span class="old">
-              <?=number_format($travel->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+              <?=$travel->getPriceBefore()?><?=number_format($travel->getOriginalPrice(), 0, '', ' ')?><?=$travel->getPriceAfter()?>
             </span>
             <?php endif; ?>
-            <span class="current"><?=number_format($travel->getPrice(), 0, '', ' ')?> <?=get_valuta()?><?=($price_comment)?'<sup>*</sup>':''?></span>
+            <span class="current"><?=$travel->getPriceBefore()?><?=number_format($travel->getPrice(), 0, '', ' ')?><?=$travel->getPriceAfter()?><?=($price_comment)?'<sup>*</sup>':''?></span>
           <?php else: ?>
             <div class="c">
               <?php echo __('Utazás ára', TD); ?>:
@@ -113,11 +113,11 @@ $kapcs_utazas = $rec_utazas->Listing( $arg );
               <?php if ((int)$u->getPrice() !== 0): ?>
                 <?php if ($discount): ?>
                 <div class="old">
-                  <?=number_format($u->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+                  <?=$u->getPriceBefore()?><?=number_format($u->getOriginalPrice(), 0, '', ' ')?><?=$u->getPriceAfter()?>
                 </div>
                 <?php endif; ?>
                 <div class="current">
-                  <?=number_format($u->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
+                  <?=$u->getPriceBefore()?><?=number_format($u->getPrice(), 0, '', ' ')?><?=$u->getPriceAfter()?>
                 </div>
               <?php else: ?>
                 <div class="current">
@@ -179,15 +179,16 @@ $kapcs_utazas = $rec_utazas->Listing( $arg );
               <?php endforeach; ?>
             </div>
             <?php endif; ?>
+
             <div class="price">
               <?php if ((int)$u->getPrice() !== 0): ?>
                 <?php if ($discount): ?>
                 <div class="old">
-                  <?=number_format($u->getOriginalPrice(), 0, '', ' ')?> <?=get_valuta()?>
+                  <?=$u->getPriceBefore()?><?=number_format($u->getOriginalPrice(), 0, '', ' ')?><?=$u->getPriceAfter()?>
                 </div>
                 <?php endif; ?>
                 <div class="current">
-                  <?=number_format($u->getPrice(), 0, '', ' ')?> <?=get_valuta()?>
+                  <?=$u->getPriceBefore()?><?=number_format($u->getPrice(), 0, '', ' ')?><?=$u->getPriceAfter()?>
                 </div>
               <?php else: ?>
                 <div class="current">

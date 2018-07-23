@@ -203,6 +203,35 @@ class Travel
     return $v;
   }
 
+  public function getValuta()
+  {
+    $terms = wp_get_post_terms($this->id, array(
+      'taxonomy' => 'penznem'
+    ));
+
+    return $terms[0];
+  }
+
+  public function getPriceBefore()
+  {
+    $valuta = $this->getValuta();
+
+    if ($valuta->name != 'Ft') {
+      return $valuta->name;
+    }
+    return false;
+  }
+
+  public function getPriceAfter()
+  {
+    $valuta = $this->getValuta();
+
+    if ($valuta->name == 'Ft') {
+      return ' '.$valuta->name;
+    }
+    return false;
+  }
+
   public function isEgyeni()
   {
     $egyeni_utazas = get_post_meta($this->id, METAKEY_PREFIX . 'egyeni_utazas', true);

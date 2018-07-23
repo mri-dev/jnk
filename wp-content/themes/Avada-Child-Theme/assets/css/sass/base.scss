@@ -3287,9 +3287,19 @@ footer {
   }
 }
 
+.show-on-mobile{
+  display: none !important;
+}
+
 /* mobile breakpoint  */
 @media all and (max-width: 1000px)
 {
+  .mobile-label{
+    font-size: 0.65em;
+  }
+  .show-on-mobile{
+    display: block !important;
+  }
   .page-width,
   .destination-searcher-holder.manual-insert .wrapper,
   .travel-base-wrapper .base-content-holder{
@@ -3385,6 +3395,12 @@ footer {
   .sidebar .sidebar-group{
     padding: 15px;
   }
+  .utazas-sidebar .discount{
+    font-size: 4vw;
+  }
+  .utazas-sidebar .sidebar-header .price{
+    font-size: 3vw;
+  }
 }
 
 /* Mobile */
@@ -3462,8 +3478,8 @@ footer {
     margin: 5px auto;
   }
   .single-post-caption .titledata{
-    padding: 0;
-    text-align: center;
+    padding: 0 0 0 10px;
+    text-align: left;
   }
   .post-caption-utazas .titledata h1 .t{
     float: none;
@@ -3534,11 +3550,107 @@ footer {
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .datas,
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas{
     flex-basis: 100%;
+    text-align: center;
+    margin: 0 0 10px 0 !important;
   }
-  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children{
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .datas .title{
+    margin: 0 0 5px 0 !important;
+  }
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices{
+    margin: 10px 0 0 0 !important;
+  }
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .price-children, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-adult, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .price-children,
+  .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header .total-prices, .gettraveloffer .szoba-selectors .selector-wrapper .szobak .szoba .total-prices{
     flex-basis: 100%;
   }
   .gettraveloffer .szoba-selectors .selector-wrapper .szobak .header{
     display: none;
+  }
+
+  .utazas-sidebar .discount{
+    font-size: 6vw;
+  }
+  .utazas-sidebar .sidebar-header .price{
+    font-size: 5vw;
+  }
+  .gettraveloffer .offer-group > div.cholder > .wrapper table{
+    font-size: 2.4vw;
+  }
+  .gettraveloffer .offer-group > div.cholder > .wrapper table thead tr th{
+    font-size: 2.2vw;
+  }
+  body.single-utazas #content{
+    margin-bottom: 0 !important;
+  }
+  .gettraveloffer .offer-group div.form{
+    margin: -15px;
+  }
+  .gettraveloffer .offer-group > div.cholder > .wrapper table tbody tr td.price-group{
+    font-size: 3vw;
+  }
+  .gettraveloffer .orderder-details .orderer > .flex > div{
+    flex: initial;
+    flex-basis: 100%;
+  }
+  .gettraveloffer .orderder-details .passengers-details > .flex > div{
+    flex-basis: 100%;
+  }
+  .travel-base-wrapper .travel-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    & > li:not(.reviews) {
+      display: initial !important;
+      flex: 1 !important;
+      text-align: center !important;
+    }
+
+    & > li.reviews{
+      flex-basis: 95px !important;
+    }
+  }
+  .testimonial-creator > .wrapper .header h3{
+    font-size: 7vw;
+  }
+  .testimonial-creator > .wrapper .cont > .name,
+  .testimonial-creator > .wrapper .cont > .city{
+    flex-basis: 100%;
+  }
+  .destination-searcher-holder.manual-insert .wrapper{
+    padding: 15px 15px 30px 15px;
+  }
+  .listing-utazasok .list-wrapper .list-group .more-travels a{
+    font-size: 3.5vw;
+  }
+  .multi-selector-holder .selector-wrapper{
+    background: white;
+  }
+  .contact-form-holder .requester-holder, .contact-form-holder .btns{
+    width: 100% !important;
+  }
+  .contact-form-holder .requester-holder .flxtbl > .name, .contact-form-holder .requester-holder .flxtbl > .email{
+    flex-basis: 100%;
+  }
+  body.archive #main{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .articles article .image{
+    margin-bottom: 0;
+    min-height: 62vw;
+    height: 62vw;
+  }
+  .articles article .datas{
+    padding: 15px;
+  }
+  .articles article .title h2{
+    font-size: 5vw !important
+  }
+  body.single.single-post #main {
+    padding: 15px !important;
+  }
+  #comment-input input{
+    width: 100% !important;
   }
 }
