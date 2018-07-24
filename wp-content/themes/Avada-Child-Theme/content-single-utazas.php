@@ -80,7 +80,9 @@
           <ul>
             <li class="active datas"><a href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('Adatok', TD); ?></a></li>
             <li class="description"><a href="javascript:void(0);" data-scrollTarget="description"><?php echo __('Ismertető', TD); ?></a></li>
+            <?php if ($programs): ?>
             <li class="programs"><a href="javascript:void(0);" data-scrollTarget="programs"><?php echo __('Programok', TD); ?></a></li>
+            <?php endif; ?>
             <?php if ($gallery_id): ?>
             <li class="gallery"><a href="javascript:void(0);" data-scrollTarget="gallery"><?php echo __('Képek', TD); ?></a></li>
             <?php endif; ?>

@@ -84,17 +84,17 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     {
       name: '3 nap',
       dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5)
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
     },
     {
       name: '5 nap',
       dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7)
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 6)
     },
     {
       name: '1  hét',
       dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 9)
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 8)
     }
   ];
 
@@ -140,7 +140,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     selectedTemplate: '3 nap',
     selectedTemplateName: null,
     dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-    dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 5)
+    dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
   };
 
   $scope.doPreOrder = function()
