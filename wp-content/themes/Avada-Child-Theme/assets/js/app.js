@@ -417,13 +417,14 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     $scope.recalcFinalPrice();
   }
 
-  $scope.findConfigItemByID = function( what, id )
+  $scope.findConfigItemByID = function( what, id, by )
   {
     var list = $scope.configs[what];
     var item = null;
+    by = (typeof by === 'undefined') ? 'ID' : by;
 
     angular.forEach( list, function(e, i){
-      if( id == parseInt(e.ID) ) {
+      if( id == parseInt(e[by]) ) {
        item = e;
       }
     });
@@ -450,6 +451,12 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     $scope.selected_ellatas = id;
     $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
 
+    if ($scope.configs.szobak.length == 0) {
+      $scope.selected_ellatas_data.ellatas = $scope.selected_ellatas_data;
+    }
+
+    console.log($scope.selected_ellatas_data);
+
     var nights = 1;
     if ($scope.dates.length == 0) {
       // Egyéni utazás esetén az éjszaka kiszámítása
@@ -459,36 +466,46 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       nights = parseInt($scope.selected_date_data.durration.nights);
     }
 
-    angular.forEach( $scope.selected_ellatas_data.rooms, function(e,i) {
-      var calc = 0;
-      $scope.calced_room_price[e.ID] = {};
+    if ($scope.selected_ellatas_data.rooms) {
+      angular.forEach( $scope.selected_ellatas_data.rooms, function(e,i) {
+        var calc = 0;
+        $scope.calced_room_price[e.ID] = {};
 
-      if ($scope.passengers.adults > 0) {
-        $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * (e.adult_price * nights);
-        calc += $scope.passengers.adults * (e.adult_price * nights);
-      } else {
-        $scope.calced_room_price[e.ID].adults = 0;
-      }
+        if ($scope.passengers.adults > 0) {
+          $scope.calced_room_price[e.ID].adults = $scope.passengers.adults * (e.adult_price * nights);
+          calc += $scope.passengers.adults * (e.adult_price * nights);
+        } else {
+          $scope.calced_room_price[e.ID].adults = 0;
+        }
 
-      if ($scope.passengers.children > 0) {
-        $scope.calced_room_price[e.ID].children = $scope.passengers.children * (e.child_price * nights);
-        calc += $scope.passengers.children * (e.child_price * nights);
-      } else {
-        $scope.calced_room_price[e.ID].children = 0;
-      }
+        if ($scope.passengers.children > 0) {
+          $scope.calced_room_price[e.ID].children = $scope.passengers.children * (e.child_price * nights);
+          calc += $scope.passengers.children * (e.child_price * nights);
+        } else {
+          $scope.calced_room_price[e.ID].children = 0;
+        }
 
-      $scope.calced_room_price[e.ID].all = calc;
-    });
+        $scope.calced_room_price[e.ID].all = calc;
+      });
+    }
   }
 
   $scope.getEllatasInfo = function( id )
   {
     if ($scope.dates.length == 0) {
       // Egyéni utazások
+      if ($scope.configs.szobak.length != 0) {
         return $scope.configs.szobak[0].ellatas[id];
+      } else {
+        return $scope.findConfigItemByID('ellatas', id, 'term_id');
+      }
     } else {
       // Csoportos utazások
+      if ($scope.configs.szobak.length != 0) {
       return $scope.configs.szobak[$scope.dateselect.date].ellatas[id];
+      } else {
+        return $scope.findConfigItemByID('ellatas', id, 'term_id');
+      }
     }
   }
 
@@ -824,8 +841,13 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
           $scope.step_loading = false;
         });
       break;
+      case 3:
+        if ( $scope.configs.szobak.length == 0 ) {
+          $scope.nextStep(5);
+        }
+      break;
       case 4:
-        $scope.recalcFinalPrice();
+          $scope.recalcFinalPrice();
       break;
       default:
         $scope.step_loading = false;

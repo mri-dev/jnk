@@ -321,10 +321,11 @@
                   <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['programok'][item.ID]" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
                   <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
                 </td>
-                <td>{{item.price|number:0}}</td>
-                <td>{{item.price_after}}</td>
-                <td>x {{priceCalcMe(item)}}</td>
-                <td>{{priceCalcSum(item)|number:0}} Ft</td>
+                <td ng-hide="item.price==0">{{item.price|number:0}}</td>
+                <td ng-hide="item.price==0">{{item.price_after}}</td>
+                <td ng-hide="item.price==0">x {{priceCalcMe(item)}}</td>
+                <td ng-hide="item.price==0">{{priceCalcSum(item)|number:0}} Ft</td>
+                <td colspan="4" ng-show="item.price==0"><?=__('Benne az árban', TD)?></td>
               </tr>
               <tr class="priceev" ng-show="configs.programok.length!=0">
                 <td colspan="4" class="ev">Programok összesen:</td>

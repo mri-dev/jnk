@@ -21,15 +21,17 @@ $hotel_type = $travel->getHotelType();
         <?php echo __('Egyéni utazás',TD); ?>
       </div>
       <div class="fusion-clearfix"></div>
-      <?php if (!$stars): ?>
+      <?php if (!$stars && $hotel_type->name != ''): ?>
       <div class="hotel-type">
         <?php echo $hotel_type->name; ?>
       </div>
       <div class="fusion-clearfix"></div>
       <?php else: ?>
+      <?php if ($stars !== false): ?>
       <div class="hotel-type">
         <?php echo str_repeat('<i class="fa fa-star"></i>', $stars); ?>
       </div>
+      <?php endif; ?>
       <div class="fusion-clearfix"></div>
       <?php endif; ?>
     <?php endif; ?>
