@@ -2230,16 +2230,19 @@ body.single-utazas{
             tr td.tetel{
               text-align: left;
               position: relative;
+
+              .labs {
+                padding: 0 0 0 22px;
+              }
               .label{
                 background: #8f8f8f;
                 color: white;
                 padding: 2px 5px;
                 line-height: 1;
-                font-size: 0.7em;
-                border-radius: 7px;
+                font-size: 0.6em;
+                border-radius: 3px;
 
                 &.info{
-                  float:right;
                   background: $color-orange;
                   cursor: help;
                 }
@@ -2479,6 +2482,10 @@ body.single-utazas{
 
   .szoba-selectors{
     .selector-wrapper{
+      .no-szobak{
+        padding: 25px;
+        text-align: center;
+      }
       .szobak{
         padding: 10px;
         .header{

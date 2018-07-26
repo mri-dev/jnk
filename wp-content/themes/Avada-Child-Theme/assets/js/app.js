@@ -168,6 +168,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     prepare.datepicker = $scope.calendarModel;
     prepare.nights = $scope.nights;
 
+    console.log(prepare);
+
     $http({
       method: 'POST',
       url: '/wp-admin/admin-ajax.php?action=traveler',
@@ -178,6 +180,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         calculator: prepare
       })
     }).success(function(r){
+      console.log(r);
       $scope.preorder_sending = false;
       if (r.data) {
         // Reset
@@ -363,6 +366,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       $scope.dates_loaded = true;
       $scope.dates = r.data;
 
+      console.log(r);
+
       // list
       angular.forEach(r.data, function(a,i){
         angular.forEach(a.data, function(b,i){
@@ -449,13 +454,13 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.selectEllatas = function( id )
   {
     $scope.selected_ellatas = id;
-    $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
 
-    if ($scope.configs.szobak.length == 0) {
-      $scope.selected_ellatas_data.ellatas = $scope.selected_ellatas_data;
+    if ($scope.configs.szobak.length == 0 ) {
+      $scope.selected_ellatas_data = {};
+      $scope.selected_ellatas_data.ellatas = $scope.getEllatasInfo(id);
+    } else {
+      $scope.selected_ellatas_data = $scope.getEllatasInfo(id);
     }
-
-    console.log($scope.selected_ellatas_data);
 
     var nights = 1;
     if ($scope.dates.length == 0) {
@@ -1210,6 +1215,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         mode: 'getRooms'
       })
     }).success(function(r){
+      console.log(r);
       $scope.configs.szobak = r.data;
     });
   }
@@ -1225,6 +1231,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid
       })
     }).success(function(r){
+      console.log(r);
       $scope.dates_loaded = true;
       $scope.dates = r.data;
       if (typeof callback !== 'undefined') {

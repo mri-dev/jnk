@@ -213,7 +213,7 @@
           </div>
           <div class="szoba-selectors">
             <div class="selector-wrapper">
-              <div class="szobak">
+              <div class="szobak" ng-hide="configs.szobak.length==0">
                 <div class="header">
                   <div class="datas">Típus</div>
                   <div class="price-adult">Ár - Felnőttek</div>
@@ -237,6 +237,9 @@
                     <span class="show-on-mobile mobile-label"><?=__('Összesen', TD)?>:</span> {{calced_room_price[szoba.ID].all|number:0}} Ft
                   </div>
                 </div>
+              </div>
+              <div class="no-szobak" ng-show="configs.szobak.length==0">
+                <?=__('Nincs előre kiválasztható szobatípus.', TD)?>
               </div>
             </div>
           </div>
@@ -270,7 +273,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr ng-hide="configs.szobak.length==0">
                 <td class="tetel">
                   <strong>{{selected_room_data.title}}</strong>
                 </td>
@@ -278,6 +281,9 @@
                 <td>/fő/éjszaka</td>
                 <td>x{{nights*passengers.adults}}</td>
                 <td>{{(calced_room_price[selected_room_data.ID].adults)|number:0}} Ft</td>
+              </tr>
+              <tr>
+                <td colspan="5" ng-show="configs.szobak.length==0"><?=__('Ajánlatunkban megküldjük az elszállásolási módokat, elérhető szobákat.', TD)?></td>
               </tr>
               <tr ng-show="(passengers.children!=0)">
                 <td class="tetel opcio">
@@ -299,8 +305,11 @@
               </tr>
               <tr ng-repeat="item in configs.szolgaltatas">
                 <td class="tetel">
-                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['szolgaltatas'][item.ID]" ng-value="item.ID" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
-                  <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
+                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['szolgaltatas'][item.ID]" ng-value="item.ID" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}}</label>
+                  <div class="labs">
+                    <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
+                    <span class="label required" ng-show="item.requireditem">kötelező</span>
+                  </div>
                 </td>
                 <td>{{item.price|number:0}}</td>
                 <td>{{item.price_after}}</td>
@@ -318,8 +327,11 @@
               </tr>
               <tr ng-repeat="item in configs.programok">
                 <td class="tetel">
-                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['programok'][item.ID]" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}} <span class="label required" ng-show="item.requireditem">kötelező</span></label>
-                  <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
+                  <input type="checkbox" ng-change="pickExtraItem()" ng-model="configs_selected['programok'][item.ID]" ng-checked="item.requireditem" ng-disabled="item.requireditem" id="program_{{item.ID}}"> <label for="program_{{item.ID}}">{{item.title}}</label>
+                  <div class="labs">
+                    <span class="label info" ng-show="(item.description!=''&& item.description)" title="{{item.description}}">infó</span>
+                    <span class="label required" ng-show="item.requireditem">kötelező</span>
+                  </div>
                 </td>
                 <td ng-hide="item.price==0">{{item.price|number:0}}</td>
                 <td ng-hide="item.price==0">{{item.price_after}}</td>
@@ -363,7 +375,7 @@
         </div>
       </div>
     </div>
-    <div class="price-overview" ng-show="(step>=5)">
+    <div class="price-overview" ng-show="(step>=5 && configs.szobak.length!=0)">
       <div class="wrapper">
         <div class="head">
           <?php echo __('Kalkulált ár',TD); ?>*
@@ -373,7 +385,17 @@
         </div>
       </div>
     </div>
-    <div class="price-overview-info" ng-show="(step>=5)">
+    <div class="price-overview" ng-show="(step>=5 && configs.szobak.length==0)">
+      <div class="wrapper">
+        <div class="head">
+          <?php echo __('Utazás ára',TD); ?>
+        </div>
+        <div class="value">
+          <?=__('Később küldjük meg ajánlatunkban.',TD)?>
+        </div>
+      </div>
+    </div>
+    <div class="price-overview-info" ng-show="(step>=5 && configs.szobak.length!=0)">
       <em>* <?=__('a kalkulált ár tájékoztató jellegű, nem minősül konkrét ajánlatnak. Adatai megadása után kollégáink felveszik Önnel a kapcsolatot és részletes tájékoztatást adnak a kiválasztott utazásról. Az árváltozás jogát fenntartjuk.', TD)?></em>
     </div>
     <div class="offer-group last-item" ng-show="(step>=6)" ng-class="(step>6)?'done':''">

@@ -1,5 +1,6 @@
 <?php
   $nights = (int)$calculator['nights'];
+  $no_rooms = ($calculator['selected_room']['title'] == '') ? true : false;
 ?>
 <!DOCTYPE html>
 <html>
@@ -292,8 +293,12 @@
     <div class="group">
       <h3>Kiválasztott szobatípus</h3>
       <div class="option-select">
-        <strong><?=$calculator['selected_room']['title']?></strong><br>
-        <small><?=$calculator['selected_room']['description']?></small>
+        <?php if ( !$no_rooms ): ?>
+          <strong><?=$calculator['selected_room']['title']?></strong><br>
+          <small><?=$calculator['selected_room']['description']?></small>
+        <?php else: ?>
+          <em>(!) Nem történt szoba kiválasztás.</em>
+        <?php endif; ?>
       </div>
     </div>
     <h2>Ár összesítő táblázat</h2>
@@ -310,15 +315,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="tetel">
-                <strong><?=$calculator['selected_room']['title']?></strong>
-              </td>
-              <td><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?> Ft</td>
-              <td>/fő/éjszaka</td>
-              <td>x<?=($nights * $calculator['passengers']['adults'])?></td>
-              <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?> Ft</td>
-            </tr>
+            <?php if ( !$no_rooms ): ?>
+              <tr>
+                <td class="tetel">
+                  <strong><?=$calculator['selected_room']['title']?></strong>
+                </td>
+                <td><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?> Ft</td>
+                <td>/fő/éjszaka</td>
+                <td>x<?=($nights * $calculator['passengers']['adults'])?></td>
+                <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?> Ft</td>
+              </tr>
+            <?php else: ?>
+              <tr>
+                <td colspan="5">
+                  Az elérhető szobákkal és szállásokkal kapcsoaltban ajánlatunkban tájékoztatjuk.
+                </td>
+              </tr>
+            <?php endif; ?>
             <?php if ($calculator['passengers']['children'] != 0): ?>
             <tr>
               <td class="tetel opcio">
@@ -412,10 +425,14 @@
     </div>
     <div class="group">
       <div class="calculation-price">
-        Kalkulált ár: <span class="price"><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?> Ft*</span>
+        <?php if ( $no_rooms ): ?>
+          Kalkulált ár: <span class="price">Ajánlatban küldjük</span>
+        <?php else: ?>
+          Kalkulált ár: <span class="price"><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?> Ft*</span>
+        <?php endif; ?>
       </div>
     </div>
-    <?php if ($is_user_alert): ?>
+    <?php if ($is_user_alert && !$no_rooms): ?>
     <small>
       * a kalkulált ár tájékoztató jellegű, nem minősül konkrét ajánlatnak. Adatai megadása után kollégáink felveszik Önnel a kapcsolatot és részletes tájékoztatást adnak a kiválasztott utazásról. Az árváltozás jogát fenntartjuk.
     </small>

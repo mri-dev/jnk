@@ -78,23 +78,30 @@ class TravelModul
 
   public function getRooms()
   {
+    $hide_older_dates = true;
     $back = array();
     $q = "SELECT
       r.*,
       td.travel_year,
       td.travel_month,
       td.travel_day,
-      td.utazas_duration_id
+      td.utazas_duration_id,
+      TIMESTAMP(CONCAT(td.travel_year,'-',td.travel_month,'-',td.travel_day)) as ts
     FROM travel_rooms as r
     LEFT OUTER JOIN travel_dates as td ON td.ID = r.date_id
     WHERE 1=1 and
-    r.post_id = %d
-    ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC, r.title ASC
-    ";
+    r.post_id = %d ";
+
+    if ($hide_older_dates) {
+      $q .= " HAVING ts >= TIMESTAMP(now()) ";
+    }
+
+    $q .= " ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC, r.title ASC";
 
     $data = $this->db->get_results( $this->db->prepare($q, $this->postid) );
 
-    foreach ( (array)$data as $d ) {
+    foreach ( (array)$data as $d )
+    {
       $duration = $this->getTermValuById('utazas_duration', (int)$d->utazas_duration_id);
       $back[$d->date_id]['date_on'] = $d->travel_year.' / '.$d->travel_month.' / '.$d->travel_day;
       $back[$d->date_id]['ID'] = (int)$d->date_id;
@@ -586,9 +593,11 @@ class TravelModul
 
   public function loadDates( $arg = array() )
   {
+    $hide_older_dates = true;
 
     $q = "SELECT
-      td.*
+      td.*,
+      TIMESTAMP(CONCAT(td.travel_year,'-',td.travel_month,'-',td.travel_day)) as ts
     FROM travel_dates as td
     WHERE 1=1 and
     td.post_id = {$this->postid}";
@@ -606,6 +615,10 @@ class TravelModul
         $q .= " and td.ID IN (".implode(",", $data_arr).")";
       }
 
+    }
+
+    if ( $hide_older_dates ) {
+      $q .= " HAVING ts >= TIMESTAMP(now()) ";
     }
 
     $q .= " ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC ";
