@@ -10,6 +10,7 @@ $tags = $travel->getTags();
 $ajutazasok = $travel->getRecommendedTravelIDS();
 $kapcs_utazas = $travel->getRecommendedTravelIDS( $tags );
 $posts_ids = $travel->getRecommendedPostsIDSByTags( $tags );
+$is_egyeni = $travel->isEgyeni();
 
 // Ajánlott utazások kereső
 $rec_utazas = new Searcher();
@@ -250,7 +251,7 @@ $kapcs_utazas = $rec_utazas->Listing( $arg );
     <div class="tags">
     <?php foreach ($tags as $tag): ?>
       <div class="tag">
-        <a href="/utazas/?search=&tag=<?=$tag->slug?>"><?php echo $tag->name; ?></a>
+        <a href="/utazas/?type=<?=(!$is_egyeni)?'csoportos':'egyeni'?>&search=&tag=<?=$tag->slug?>"><?php echo $tag->name; ?></a>
       </div>
     <?php endforeach; ?>
     </div>

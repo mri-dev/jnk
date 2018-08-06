@@ -93,7 +93,7 @@ class TravelModul
     r.post_id = %d ";
 
     if ($hide_older_dates) {
-      $q .= " HAVING ts >= TIMESTAMP(now()) ";
+      $q .= " HAVING (ts >= TIMESTAMP(now()) and r.date_id != 0) or r.date_id = 0 ";
     }
 
     $q .= " ORDER BY td.travel_year ASC, td.travel_month ASC, td.travel_day ASC, r.title ASC";

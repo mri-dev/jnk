@@ -1023,6 +1023,7 @@ body.programok-template-default{
   display: -ms-flexbox;
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 
   .travel, .partner{
@@ -3254,6 +3255,22 @@ body.single-partnerek{
         }
       }
     }
+  }
+}
+
+.fusion-footer-widget-area .contact-info-container > div{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 4px 0;
+
+  & > .h{
+    flex-basis: 90px;
+  }
+
+  & > .v{
+    flex: 1;
   }
 }
 

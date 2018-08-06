@@ -82,10 +82,18 @@ class Searcher
       }
     }
 
-    // Keresés - tag
+    // Keresés - tag alapján
     if ( isset($filters['search']) && !empty($filters['search']) )
     {
-      $src['s'] = trim($filters['search']);
+      $tagslugs = array();
+      $keyword = explode(" ", trim($filters['search']));
+      foreach ($keyword as $keyw) {
+        $tagslugs[] = sanitize_title($keyw);
+      }
+
+      if (!empty($tagslugs)) {
+        $src['tag_slug__in'] = $tagslugs;
+      }
     }
 
     // Ellátás
