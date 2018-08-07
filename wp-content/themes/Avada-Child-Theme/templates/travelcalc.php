@@ -228,13 +228,13 @@
                     </div>
                   </div>
                   <div class="price-adult">
-                    <span class="show-on-mobile mobile-label"><?=__('Felnőtt ár', TD)?>:</span> {{calced_room_price[szoba.ID].adults|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Felnőtt ár', TD)?>:</span> {{price_before}}{{calced_room_price[szoba.ID].adults|number:0}}{{price_after}}
                   </div>
                   <div class="price-children">
-                    <span class="show-on-mobile mobile-label"><?=__('Gyermek ár', TD)?>:</span> {{calced_room_price[szoba.ID].children|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Gyermek ár', TD)?>:</span> {{price_before}}{{calced_room_price[szoba.ID].children|number:0}}{{price_after}}
                   </div>
                   <div class="total-prices">
-                    <span class="show-on-mobile mobile-label"><?=__('Összesen', TD)?>:</span> {{calced_room_price[szoba.ID].all|number:0}} Ft
+                    <span class="show-on-mobile mobile-label"><?=__('Összesen', TD)?>:</span> {{price_before}}{{calced_room_price[szoba.ID].all|number:0}}{{price_after}}
                   </div>
                 </div>
               </div>
@@ -277,10 +277,10 @@
                 <td class="tetel">
                   <strong>{{selected_room_data.title}}</strong>
                 </td>
-                <td>{{selected_room_data.adult_price|number:0}} Ft</td>
+                <td>{{price_before}}{{selected_room_data.adult_price|number:0}}{{price_after}}</td>
                 <td>/fő/éjszaka</td>
                 <td>x{{nights*passengers.adults}}</td>
-                <td>{{(calced_room_price[selected_room_data.ID].adults)|number:0}} Ft</td>
+                <td>{{price_before}}{{(calced_room_price[selected_room_data.ID].adults)|number:0}}{{price_after}}</td>
               </tr>
               <tr>
                 <td colspan="5" ng-show="configs.szobak.length==0"><?=__('Ajánlatunkban megküldjük az elszállásolási módokat, elérhető szobákat.', TD)?></td>
@@ -289,14 +289,14 @@
                 <td class="tetel opcio">
                   <strong>-> {{passengers.children}} gyerek</strong>
                 </td>
-                <td>{{selected_room_data.child_price|number:0}} Ft</td>
+                <td>{{price_before}}{{selected_room_data.child_price|number:0}}{{price_after}}</td>
                 <td>/fő/éjszaka</td>
                 <td>x{{nights*passengers.children}}</td>
-                <td>{{(calced_room_price[selected_room_data.ID].children)|number:0}} Ft</td>
+                <td>{{price_before}}{{(calced_room_price[selected_room_data.ID].children)|number:0}}{{price_after}}</td>
               </tr>
               <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="4" class="ev">Szállás összesen:</td>
-                <td class="price">{{travel_prices|number:0}} Ft</td>
+                <td class="price">{{price_before}}{{travel_prices|number:0}}{{price_after}}</td>
               </tr>
               <tr ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="5" class="price-group">
@@ -314,11 +314,11 @@
                 <td>{{item.price|number:0}}</td>
                 <td>{{item.price_after}}</td>
                 <td>x {{priceCalcMe(item)}}</td>
-                <td>{{priceCalcSum(item)|number:0}} Ft</td>
+                <td>{{price_before}}{{priceCalcSum(item)|number:0}}{{price_after}}</td>
               </tr>
               <tr class="priceev" ng-show="configs.szolgaltatas.length!=0">
                 <td colspan="4" class="ev">Szolgáltatások összesen:</td>
-                <td class="price">{{config_szolgaltatas_prices|number:0}} Ft</td>
+                <td class="price">{{price_before}}{{config_szolgaltatas_prices|number:0}}{{price_after}}</td>
               </tr>
               <tr ng-show="configs.programok.length!=0">
                 <td colspan="5" class="price-group">
@@ -336,12 +336,12 @@
                 <td ng-hide="item.price==0">{{item.price|number:0}}</td>
                 <td ng-hide="item.price==0">{{item.price_after}}</td>
                 <td ng-hide="item.price==0">x {{priceCalcMe(item)}}</td>
-                <td ng-hide="item.price==0">{{priceCalcSum(item)|number:0}} Ft</td>
+                <td ng-hide="item.price==0">{{price_before}}{{priceCalcSum(item)|number:0}}{{price_after}}</td>
                 <td colspan="4" ng-show="item.price==0"><?=__('Benne az árban', TD)?></td>
               </tr>
               <tr class="priceev" ng-show="configs.programok.length!=0">
                 <td colspan="4" class="ev">Programok összesen:</td>
-                <td class="price">{{config_programok_prices|number:0}} Ft</td>
+                <td class="price">{{price_before}}{{config_programok_prices|number:0}}{{price_after}}</td>
               </tr>
               <tr ng-hide="biztositas.price===-1">
                 <td colspan="5" class="price-group">
@@ -364,7 +364,7 @@
                 <td ng-hide="biztositas.price===0">{{biztositas.price}}</td>
                 <td ng-hide="biztositas.price===0">{{biztositas.price_after}}</td>
                 <td ng-hide="biztositas.price===0">x {{priceCalcMe(biztositas)}}</td>
-                <td ng-hide="biztositas.price===0">{{priceCalcSum(biztositas)|number:0}} Ft</td>
+                <td ng-hide="biztositas.price===0">{{price_before}}{{priceCalcSum(biztositas)|number:0}}{{price_after}}</td>
                 <td colspan="4" ng-show="biztositas.price===0"><?=__('Egyedi ajánlat', TD)?></td>
               </tr>
             </tbody>
@@ -381,7 +381,7 @@
           <?php echo __('Kalkulált ár',TD); ?>*
         </div>
         <div class="value">
-          {{final_calc_price|number:0}} Ft
+          {{price_before}}{{final_calc_price|number:0}}{{price_after}}
         </div>
       </div>
     </div>

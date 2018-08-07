@@ -34,6 +34,15 @@ class TravelModul
       $back[$tg] = $data;
     }
 
+    // Valuta
+    $valuta = wp_get_post_terms($this->postid, array(
+      'taxonomy' => 'penznem'
+    ));
+
+    $penznem = $valuta[0];
+
+    $back['valuta'] = $penznem;
+
     return $back;
   }
 
@@ -206,6 +215,21 @@ class TravelModul
     $utazas_tipus = ($calculator['egyeni'] == 1) ? __('egyéni utazás', TD) : __('csoportos utazás', TD);
 
     if ( $can_send ) {
+    
+      // Valuta
+      if ($calculator['valuta']) {
+        if ($calculator['valuta']['name'] == 'Ft') {
+          $price_after = ' '.$calculator['valuta']['name'];
+          $price_before = '';
+        } else {
+          $price_after = '';
+          $price_before = $calculator['valuta']['name'];
+        }
+      } else {
+        $price_after = ' Ft';
+        $price_before = '';
+      }
+
       // Admin értesítés
       $name = $calculator['order']['contact']['name'];
       $email = $calculator['order']['contact']['email'];
@@ -236,6 +260,7 @@ class TravelModul
       $to = $email;
       $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
       $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)'), $pa_text);
+
 
       ob_start();
     	  include(locate_template('templates/mails/utazascalculator.php'));

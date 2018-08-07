@@ -17,7 +17,7 @@
       <?php if ($gallery_id): ?>
       <div class="gallery">
         <h3><? echo __('Galéria', TD); ?></h3>
-        <?php photo_gallery($gallery_id); ?>
+        <?php echo do_shortcode('[Best_Wordpress_Gallery use_option_defaults="1" type="gallery" theme_id="1" gallery_id="'.$gallery_id.'" tag="0" gallery_type="thumbnails"]'); ?>
       </div>
       <?php endif; ?>
     </div>

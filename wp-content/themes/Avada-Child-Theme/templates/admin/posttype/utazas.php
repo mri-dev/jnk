@@ -13,18 +13,24 @@
     'order' => 'ASC',
     'post__not_in' => array($post->ID)
   ));
+
+  $valuta = wp_get_post_terms($post->ID, array(
+    'taxonomy' => 'penznem'
+  ));
+
+  $penznem = $valuta[0];
 ?>
 <table class="jnk">
   <tr>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'ar'; ?>
-      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Meghirdetett ár (Ft)', TD); ?></strong></label></p>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo sprintf(__('Meghirdetett ár (%s)', TD), $penznem->name); ?></strong></label></p>
       <?php $ar_content = get_post_meta($post->ID, $metakey, true); ?>
       <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_content?>">
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'ar_akcios'; ?>
-      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Meghirdetett akciós ár (Ft)', TD); ?></strong></label></p>
+      <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo sprintf(__('Meghirdetett akciós ár (%s)', TD), $penznem->name); ?></strong></label></p>
       <?php $ar_akcios = get_post_meta($post->ID, $metakey, true); ?>
       <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_akcios?>">
     </td>

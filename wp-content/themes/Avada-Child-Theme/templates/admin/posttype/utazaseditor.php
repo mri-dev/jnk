@@ -1,6 +1,13 @@
 <?php
   global $post;
   $egyeni_utazas = get_post_meta($post->ID, METAKEY_PREFIX . 'egyeni_utazas', true);
+
+
+    $valuta = wp_get_post_terms($post->ID, array(
+      'taxonomy' => 'penznem'
+    ));
+
+    $penznem = $valuta[0];
 ?>
 <div class="travel-editor" ng-class="(loading)?'loading':''" ng-app="jonapotnagyvilag" ng-controller="TravelConfigEditor" ng-init="init(<?=$post->ID?>)">
   <?php if ( empty($egyeni_utazas) ): ?>
@@ -151,13 +158,13 @@
                 </div>
                 <div class="price">
                   <div class="w">
-                    <label for="">Felnőtt ár (Ft /fő)</label>
+                    <label for="">Felnőtt ár (<?=$penznem->name?> /fő)</label>
                     <input type="number" class="fullw" ng-model="config_creator.szobak[i].adult_price">
                   </div>
                 </div>
                 <div class="price">
                   <div class="w">
-                    <label for="">Gyermek ár (Ft /fő)</label>
+                    <label for="">Gyermek ár (<?=$penznem->name?> /fő)</label>
                     <input type="number" class="fullw" ng-model="config_creator.szobak[i].child_price">
                   </div>
                 </div>

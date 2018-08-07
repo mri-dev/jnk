@@ -320,10 +320,10 @@
                 <td class="tetel">
                   <strong><?=$calculator['selected_room']['title']?></strong>
                 </td>
-                <td><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?> Ft</td>
+                <td><?=$price_before?><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?><?=$price_after?></td>
                 <td>/fő/éjszaka</td>
                 <td>x<?=($nights * $calculator['passengers']['adults'])?></td>
-                <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?> Ft</td>
+                <td><?=$price_before?><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?><?=$price_after?></td>
               </tr>
             <?php else: ?>
               <tr>
@@ -337,15 +337,15 @@
               <td class="tetel opcio">
                 <strong>-> <?=$calculator['passengers']['children']?> gyerek</strong>
               </td>
-              <td><?=number_format((float)$calculator['selected_room']['child_price'], 0, '', ',')?> Ft</td>
+              <td><?=$price_before?><?=number_format((float)$calculator['selected_room']['child_price'], 0, '', ',')?><?=$price_after?></td>
               <td>/fő/éjszaka</td>
               <td>x<?=($nights * $calculator['passengers']['children'])?></td>
-              <td><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['children'], 0, '', ',')?> Ft</td>
+              <td><?=$price_before?><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['children'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <tr class="priceev">
               <td colspan="4" class="ev">Szállás összesen:</td>
-              <td class="price"><?=number_format((float)$calculator['travel_prices'], 0, '', ',')?> Ft</td>
+              <td class="price"><?=$price_before?><?=number_format((float)$calculator['travel_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php if ( count($calculator['selected_szolgaltatas']) > 0 ): ?>
             <tr>
@@ -367,12 +367,12 @@
               <td><?=number_format((float)$item['price'], 0, '', ',')?></td>
               <td><?=$item['price_after']?></td>
               <td>x<?=$this->priceCalcMe($item, $calculator['selected_date'], $calculator['passengers'])?></td>
-              <td><?=number_format($this->priceCalcSum($item, $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?> Ft</td>
+              <td><?=$price_before?><?=number_format($this->priceCalcSum($item, $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endforeach; ?>
             <tr class="priceev">
               <td colspan="4" class="ev">Szolgáltatások összesen:</td>
-              <td class="price"><?=number_format((float)$calculator['config_szolgaltatas_prices'], 0, '', ',')?> Ft</td>
+              <td class="price"><?=$price_before?><?=number_format((float)$calculator['config_szolgaltatas_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <?php if ( count($calculator['selected_programs']) > 0 ): ?>
@@ -395,12 +395,12 @@
               <td><?=number_format((float)$item['price'], 0, '', ',')?></td>
               <td><?=$item['price_after']?></td>
               <td>x<?=$this->priceCalcMe($item, $calculator['selected_date'], $calculator['passengers'])?></td>
-              <td><?=number_format($this->priceCalcSum($item, $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?> Ft</td>
+              <td><?=$price_before?><?=number_format($this->priceCalcSum($item, $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endforeach; ?>
             <tr class="priceev">
               <td colspan="4" class="ev">Programok összesen:</td>
-              <td class="price"><?=number_format((float)$calculator['config_programok_prices'], 0, '', ',')?> Ft</td>
+              <td class="price"><?=$price_before?><?=number_format((float)$calculator['config_programok_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <tr>
@@ -412,7 +412,7 @@
               <td><?=number_format((float)$calculator['biztositas']['price'], 0, '', ',')?></td>
               <td><?=$item['price_after']?></td>
               <td>x<?=$this->priceCalcMe($calculator['biztositas'], $calculator['selected_date'], $calculator['passengers'])?></td>
-              <td><?=number_format($this->priceCalcSum($calculator['biztositas'], $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?> Ft</td>
+              <td><?=$price_before?><?=number_format($this->priceCalcSum($calculator['biztositas'], $calculator['selected_date'], $calculator['passengers']), 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php else: ?>
             <tr>
@@ -428,7 +428,7 @@
         <?php if ( $no_rooms ): ?>
           Kalkulált ár: <span class="price">Ajánlatban küldjük</span>
         <?php else: ?>
-          Kalkulált ár: <span class="price"><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?> Ft*</span>
+          Kalkulált ár: <span class="price"><?=$price_before?><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?><?=$price_after?>*</span>
         <?php endif; ?>
       </div>
     </div>
@@ -522,5 +522,4 @@
     </div>
   </div>
 </body>
-
 </html>

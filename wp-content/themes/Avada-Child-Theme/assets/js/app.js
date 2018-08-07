@@ -12,6 +12,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.config_loaded = false;
   $scope.config_groups = ['szolgaltatas', 'programok', 'biztositas'];
   $scope.preorder_sending = false;
+  $scope.price_before = '';
+  $scope.price_after = '';
+  $scope.valuta = null;
 
   // Datas
   $scope.nights = 0;
@@ -167,8 +170,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     prepare.egyeni = ($scope.dates.length == 0) ? 1 : 0;
     prepare.datepicker = $scope.calendarModel;
     prepare.nights = $scope.nights;
-
-    console.log(prepare);
+    prepare.valuta = $scope.valuta;
 
     $http({
       method: 'POST',
@@ -180,7 +182,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         calculator: prepare
       })
     }).success(function(r){
-      console.log(r);
       $scope.preorder_sending = false;
       if (r.data) {
         // Reset
@@ -546,7 +547,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         postid: $scope.postid,
         mode: 'getConfigTerms'
       })
-    }).success(function(r){
+    }).success(function(r)
+    {
       $scope.config_loaded = true;
       angular.forEach($scope.config_groups, function(c,i){
         $scope.configs[c] = r.data[c];
@@ -554,6 +556,21 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
       if ( r.data.biztositas && typeof r.data.biztositas[0] !== 'undefined' ) {
         $scope.biztositas = r.data.biztositas[0];
+      }
+
+      // Valuta
+      if (r.data.valuta) {
+        $scope.valuta = r.data.valuta;
+        if (r.data.valuta.name == 'Ft') {
+          $scope.price_after = ' '+r.data.valuta.name;
+          $scope.price_before = '';
+        } else {
+          $scope.price_after = '';
+          $scope.price_before = r.data.valuta.name;
+        }
+      } else {
+        $scope.price_after = ' Ft';
+        $scope.price_before = '';
       }
 
       $http({

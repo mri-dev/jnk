@@ -148,7 +148,7 @@
       <div class="gallery">
         <a name="gallery"></a>
         <h2><i class="far fa-images"></i> <?php echo __('Képek', TD); ?></h2>
-        <?php photo_gallery($gallery_id); ?>
+        <?php echo do_shortcode('[Best_Wordpress_Gallery use_option_defaults="1" type="gallery" theme_id="1" gallery_id="'.$gallery_id.'" tag="0" gallery_type="thumbnails"]'); ?>
         <a class="gotop" href="javascript:void(0);" data-scrollTarget="datas"><?php echo __('lap tetejére', TD); ?> <i class="fas fa-long-arrow-alt-up"></i></a>
       </div>
       <?php endif; ?>
