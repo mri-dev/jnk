@@ -234,10 +234,10 @@
                   {{room.adult_capacity+room.child_capacity}} fő ({{room.adult_capacity}} felnőtt + {{room.child_capacity}} gyermek)
                 </div>
                 <div class="price price-adult center">
-                  {{room.adult_price}} Ft / fő
+                  {{price_before}}{{room.adult_price}}{{price_after}} / fő
                 </div>
                 <div class="price price-adult center">
-                  {{room.child_price}} Ft / fő
+                  {{price_before}}{{room.child_price}}{{price_after}} / fő
                 </div>
                 <div class="active center">
                   <i ng-show="(room.active=='1')" class="fa fa-check-circle"></i>
@@ -333,7 +333,7 @@
               <i ng-show="(d.requireditem=='0')" class="fa fa-ban"></i>
             </div>
             <div class="price">
-              <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
+              <span class="p" ng-show="(d.price!=0)">{{price_before}}{{d.price}}{{price_after}}</span>
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">
@@ -424,7 +424,7 @@
               <i ng-show="(d.requireditem=='0')" class="fa fa-ban"></i>
             </div>
             <div class="price">
-              <span class="p" ng-show="(d.price!=0)">{{d.price}} {{d.price_after}}</span>
+              <span class="p" ng-show="(d.price!=0)">{{price_before}}{{d.price}}{{price_after}}</span>
               <span class="ba" ng-show="(d.price==0)">Benne az árban.</span>
             </div>
             <div class="action">

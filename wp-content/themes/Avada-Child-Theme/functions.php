@@ -464,6 +464,20 @@ function custom_admin_css() {
     padding: 8px;
     height: auto;
   }
+  table.jnk .selector-list{
+    border: 1px solid #ebebeb;
+    background: #fbfbfb;
+    padding: 0;
+  }
+  table.jnk .selector-list > .wrapper{
+    overflow:auto;
+    padding: 10px;
+    max-height: 250px;
+  }
+  table.jnk .selector-list > .wrapper ul{
+    padding: 0;
+    margin: 0;
+  }
   </style>';
 }
 add_action('admin_head', 'custom_admin_css');

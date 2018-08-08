@@ -15,6 +15,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.price_before = '';
   $scope.price_after = '';
   $scope.valuta = null;
+  $scope.price_after = ' Ft';
+  $scope.price_before = '';
 
   // Datas
   $scope.nights = 0;
@@ -907,6 +909,7 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
     'programok': false,
     'biztositas': false
   };
+  $scope.valuta = null;
 
   // Datas
   $scope.dates = [];
@@ -1031,7 +1034,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       })
     }).success(function(r){
       $scope.dates_saving = false;
-      console.log(r);
       if (r.error == 1) {
         $scope.alertDialog('Hiba történt', r.msg);
       } else {
@@ -1221,6 +1223,21 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       if ( r.data.biztositas && typeof r.data.biztositas[0] !== 'undefined' ) {
         $scope.config_creator.biztositas[0] = r.data.biztositas[0];
       }
+
+      // Valuta
+      if (r.data.valuta) {
+        $scope.valuta = r.data.valuta;
+        if (r.data.valuta.name == 'Ft') {
+          $scope.price_after = ' '+r.data.valuta.name;
+          $scope.price_before = '';
+        } else {
+          $scope.price_after = '';
+          $scope.price_before = r.data.valuta.name;
+        }
+      } else {
+        $scope.price_after = ' Ft';
+        $scope.price_before = '';
+      }
     });
 
     $http({
@@ -1232,7 +1249,6 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         mode: 'getRooms'
       })
     }).success(function(r){
-      console.log(r);
       $scope.configs.szobak = r.data;
     });
   }

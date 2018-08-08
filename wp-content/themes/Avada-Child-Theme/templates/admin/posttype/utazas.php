@@ -20,45 +20,47 @@
 
   $penznem = $valuta[0];
 ?>
+<?php if (true): ?>
 <table class="jnk">
   <tr>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'ar'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo sprintf(__('Meghirdetett ár (%s)', TD), $penznem->name); ?></strong></label></p>
       <?php $ar_content = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_content?>">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_content?>">
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'ar_akcios'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo sprintf(__('Meghirdetett akciós ár (%s)', TD), $penznem->name); ?></strong></label></p>
       <?php $ar_akcios = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_akcios?>">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_akcios?>">
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'travel_from'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Indulás - város', TD); ?></strong></label></p>
       <?php $travel_from = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$travel_from?>">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$travel_from?>">
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'travel_to'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Érkezés - város', TD); ?></strong></label></p>
       <?php $travel_to = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$travel_to?>">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$travel_to?>">
     </td>
   </tr>
+
   <tr>
     <td colspan="2">
       <?php $metakey = METAKEY_PREFIX . 'ar_magyarazat'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Meghirdetett ár magyarázó szövege (*)', TD); ?></strong></label></p>
       <?php $ar_magyarazat = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_magyarazat?>">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$ar_magyarazat?>">
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'max_befogadas'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Befogadóképesség - Csoportos utazásnál', TD); ?></strong></label></p>
       <?php $max_befogadas = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$max_befogadas?>" placeholder="pl.: 1 - 20 fő">
+      <input class="" id="<?=$metakey?>" type="text" name="<?=$metakey?>" value="<?=$max_befogadas?>" placeholder="pl.: 1 - 20 fő">
     </td>
     <td colspan="2">
       <?php
@@ -83,16 +85,16 @@
   <tr>
     <td colspan="2">
       <p><label class="post-attributes-label" for=""><strong><?php echo __('Program ajánlók', TD); ?></strong></label></p>
-      <div class="categorydiv">
-        <div class="tabs-panel">
-          <ul class="categorychecklist ">
+      <div class="selector-list">
+        <div class="wrapper">
+          <ul class="">
             <?php
             $metakey = METAKEY_PREFIX . 'programok';
             $program_ids = explode(",",get_post_meta($post->ID, $metakey, true));
             ?>
             <?php foreach ($programok as $program): ?>
             <li>
-              <label for="program_aj_<?=$program->ID?>"><input id="program_aj_<?=$program->ID?>" type="checkbox" <?=(in_array($program->ID, $program_ids))?'checked="checked"':''?> name="programok[]" value="<?=$program->ID?>"> <?=$program->post_title?></label>
+              <label for="program_aj_<?=$program->ID?>"><input class="" id="program_aj_<?=$program->ID?>" type="checkbox" <?=(in_array($program->ID, $program_ids))?'checked="checked"':''?> name="programok[]" value="<?=$program->ID?>"> <?=$program->post_title?></label>
             </li>
             <?php endforeach; ?>
           </ul>
@@ -101,16 +103,16 @@
     </td>
     <td colspan="2">
       <p><label class="post-attributes-label" for=""><strong><?php echo __('Érdekes lehet még (kézzel beállított ajánlat)', TD); ?></strong></label></p>
-      <div class="categorydiv">
-        <div class="tabs-panel">
-          <ul class="categorychecklist ">
+      <div class="selector-list">
+        <div class="wrapper">
+          <ul class="">
           <?php
           $metakey = METAKEY_PREFIX . 'ajanlatok';
           $ajanlat_ids = explode(",",get_post_meta($post->ID, $metakey, true));
           ?>
           <?php foreach ($ajanlatok as $ajanlat): ?>
           <li>
-            <label for="ajanlat_aj_<?=$ajanlat->ID?>"><input id="ajanlat_aj_<?=$ajanlat->ID?>" type="checkbox" <?=(in_array($ajanlat->ID, $ajanlat_ids))?'checked="checked"':''?> name="ajanlatok[]" value="<?=$ajanlat->ID?>"> <?=$ajanlat->post_title?></label>
+            <label for="ajanlat_aj_<?=$ajanlat->ID?>"><input class="" id="ajanlat_aj_<?=$ajanlat->ID?>" type="checkbox" <?=(in_array($ajanlat->ID, $ajanlat_ids))?'checked="checked"':''?> name="ajanlatok[]" value="<?=$ajanlat->ID?>"> <?=$ajanlat->post_title?></label>
           </li>
           <?php endforeach; ?>
           </ul>
@@ -118,20 +120,27 @@
       </div>
     </td>
   </tr>
+
+  <?php if (false): ?>
+  <? endif;?>
 </table>
+<? endif;?>
+
+<?php if (true): ?>
 <table class="jnk">
   <tr>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'egyeni_utazas'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Egyéni utazás', TD); ?></strong></label></p>
         <?php $kiemelt = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="checkbox" name="<?=$metakey?>" <?=($kiemelt=='1')?'checked="checked"':''?>>
+      <input class="" id="<?=$metakey?>" type="checkbox" name="<?=$metakey?>" <?=($kiemelt=='1')?'checked="checked"':''?>>
     </td>
     <td>
       <?php $metakey = METAKEY_PREFIX . 'kiemelt'; ?>
       <p><label class="post-attributes-label" for="<?=$metakey?>"><strong><?php echo __('Kiemelt ajánlat', TD); ?></strong></label></p>
         <?php $kiemelt = get_post_meta($post->ID, $metakey, true); ?>
-      <input id="<?=$metakey?>" type="checkbox" name="<?=$metakey?>" <?=($kiemelt=='1')?'checked="checked"':''?>>
+      <input  class="" id="<?=$metakey?>" type="checkbox" name="<?=$metakey?>" <?=($kiemelt=='1')?'checked="checked"':''?>>
     </td>
   </tr>
 </table>
+<?php endif; ?>
