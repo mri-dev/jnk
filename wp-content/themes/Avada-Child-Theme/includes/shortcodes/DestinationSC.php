@@ -27,7 +27,7 @@ class DestinationSC
       $attr = shortcode_atts( $defaults, $attr );
 
       // View data term
-      $pq = $wpdb->get_results("SELECT post_id, sum(viewcount) as vc FROM `travel_term_view` WHERE datediff(now(),dategroup) <= 30 GROUP BY post_id ORDER BY vc DESC LIMIT 0,".$attr['limit']);
+      $pq = $wpdb->get_results("SELECT post_id, sum(viewcount) as vc FROM `travel_term_view` WHERE datediff(now(),dategroup) <= 30 GROUP BY post_id ORDER BY vc DESC ");
 
       $top_post_ids = array();
       $dest_terms = array();
