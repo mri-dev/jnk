@@ -129,7 +129,7 @@ add_action( 'wp_enqueue_scripts', 'custom_theme_enqueue_styles', 100 );
 
 function avada_lang_setup() {
 	$lang = get_stylesheet_directory() . '/languages';
-	load_child_theme_textdomain( 'Avada', $lang );
+	load_child_theme_textdomain( TD, $lang );
   $ucid = ucid();
   $ucid = $_COOKIE['uid'];
 }

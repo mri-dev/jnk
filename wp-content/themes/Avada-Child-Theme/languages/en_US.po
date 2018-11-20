@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Jónapotkrakkó\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-20 16:42+0000\n"
+"PO-Revision-Date: 2018-11-20 16:42+0000\n"
+"Last-Translator: Jó Napot Nagyvilág <prog2@ideafontana.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#. Author of the theme
+msgid "Anonymous"
+msgstr ""
+
+#. Name of the theme
+msgid "Jónapotkrakkó"
+msgstr ""

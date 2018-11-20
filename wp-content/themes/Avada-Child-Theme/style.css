@@ -1,0 +1,900 @@
+/*
+Theme Name: Jónapotkrakkó
+Template: Avada
+Version: 1.0.0
+Text Domain:  jnk
+*/
+
+/*Gabor's Code*/
+
+/*Contact Form*/
+.flxtbl{
+	background-color: white !important;
+	border: 0px solid #fbb03b !important
+}
+
+.contact-form-holder .btns button {
+	/*border: 0px solid black !important;*/
+	border-top: none !important;
+	margin-top: 10px;
+	/*width: 101.5% !important;*/
+}
+
+.flxtbl .name, .email, .subject,.uzenet{
+	color: #3a3a3a !important;
+}
+
+#name{
+	background-color: #f5e3d0 !important;
+	box-shadow: 2px 2px 4px 0px #ccc;	
+}
+
+.flxtbl .email #email{
+	background-color: #f5e3d0 !important;
+	box-shadow: 2px 2px 4px 0px #ccc;	
+}
+
+#subject{
+	background-color: #f5e3d0 !important;
+	box-shadow: 2px 2px 4px 0px #ccc;	
+}
+
+#uzenet{
+	/*background-color: rgba(251,176,59,0.3) !important;*/
+	background-color: #f5e3d0 !important;
+	box-shadow: 2px 2px 4px 0px #ccc;	
+}
+
+.contact-form-holder .requester-holder .flxtbl > div input[type=text],
+.contact-form-holder .requester-holder .flxtbl > div textarea {
+	color: #3a3a3a !important;
+}
+
+/* Post Quote*/
+
+.post .format-quote{
+	border-bottom: none !important;
+}
+
+/*footer*/
+.fusion-footer-widget-area{
+	background-color: #bbd6f1 !important;
+	box-shadow: inset 0 180px 270px -110px rgba(255, 255, 255, 0.83) !important;
+	color: #3a3a3a !important;	
+	border-top: 0px solid #fbb03b !important;
+	border-bottom: 5px solid white !important;
+}
+
+.fusion-footer-widget-area a:link {
+	color: #3a3a3a !important;	
+}
+
+.fusion-footer-widget-area a:hover {
+	color: #fbb03b !important;	
+}
+
+.fusion-footer-widget-area  h4, h5, h6{
+	color: #3a3a3a !important;
+	text-align: center;
+	
+}
+
+.fusion-footer-copyright-area{
+	background-color: #f1d6bb !important;
+}
+
+.single-post-caption .titledata .meta {
+  color: white !important;
+}
+
+h4.widget-title{
+	color: #3a3a3a !important;
+}
+/*Ajánlott utazások, footer*/
+
+.destinations-holder > .wrapper > div {
+  flex-basis: calc(98% / 3) !important;
+  padding: 0px !important;
+	border: 2px solid whitesmoke !important;
+	border-radius: 4px !important;
+	margin-left: 2px !important;
+	margin-bottom: 2px !important;
+}
+
+.destinations-holder > .wrapper > div > .w {
+  border-radius: 3px !important;
+}
+
+.destinations-holder > .wrapper > div > .w .title {
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #3a3a3a !important;
+  font-size: 0.8em  !important;
+	font-weight: bold !important;
+  width: 100%  !important;
+  top: 80%  !important;
+}
+
+
+/*Kiemelt utak a főoldalon*/
+#kiemeltutakmain{
+	/*box-shadow: inset 0 180px 100px -60px rgba(255, 255, 255, 0.83) ;*/
+}
+
+#kiemeltMain{
+	border-top: 5px solid #fbb03b !important;
+	margin-bottom: -10px !important;
+	padding-bottom: 0px !important;
+}
+
+/*blog bejegyzés doboza, kép a dobozban*/
+.articles article {
+  border: 1px solid #e0e0e0;
+	box-shadow: 1px 1px 4px 0px #ccc;
+}
+
+.articles article .image img {
+  height: 140% !important;
+  max-height: 140% !important;
+
+}
+
+/*Blog bejegyzés, utazás, szálloda feje*/
+
+.single-post-caption {
+	margin-top: 15px !important;
+}
+.titledata h1{
+	text-align: left !important;
+}
+
+.single-post-caption .date{
+	margin-top: 0px !important;
+	color: white !important;
+}
+
+/*Képek a szövegben*/
+
+.wp-caption.alignnone{	
+	background-color: white !important;
+	margin-bottom: 25px !important;
+}
+
+.wp-caption-text{
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	margin: 0px !important;
+	color: grey;
+}
+
+/*Ajánlott utazások Sidebar*/
+.recommended-travels .travel, .travel-discounted {
+	border-radius: 0px !important;
+}
+.recommended-travels .data{
+	background-color: white !important;
+	border-radius: 0px !important;
+}
+
+/*Tag Sidebar*/
+.tag-sidebar{
+	background-color: #bbd6f1 !important;
+	border-radius: 0px !important;
+	box-shadow: 1px 1px 4px 0px #ccc !important;
+}
+
+/*Page title bar*/
+.fusion-page-title-bar {
+  background-color: #0B85D5 !important;
+	box-shadow: inset 0 -180px 270px -110px rgba(255, 255, 255, 0.83) !important;
+	
+}
+
+/*Utazások, Cikkek PageTitleBar*/
+
+.utazas-template-default .fusion-page-title-bar{
+	box-shadow: inset 0 -180px 400px -160px rgba(0, 0, 0, 0.93), inset 0 180px 400px -160px rgba(0, 0, 0, 0.83) !important;
+}
+
+.post-template-default .fusion-page-title-bar{
+	box-shadow: inset 0 -180px 400px -160px rgba(0, 0, 0, 0.93), inset 0 180px 400px -160px rgba(0, 0, 0, 0.83) !important;
+}
+
+/*Vékony header utazáskategóriákra és szöveges menüpontokra*/
+
+.partnerek-template-default .fusion-header-wrapper{background-color: #0b85d5 !important; max-height: 65px !important}
+
+.page-id-10				.fusion-page-title-bar, 
+.page-id-363			.fusion-page-title-bar,
+.category-14			.fusion-page-title-bar,
+.category-20			.fusion-page-title-bar,
+.tag					.fusion-page-title-bar,
+.tax-utazas_kategoria	.fusion-page-title-bar,
+.tax-partner_kategoria	.fusion-page-title-bar,
+.partnerek-template-default	.fusion-page-title-bar,
+.post-type-archive		.fusion-page-title-bar{
+	max-height: 65px !important;
+	box-shadow: none !important;
+}
+
+.page-id-10				.fusion-header-wrapper	.fusion-header, 
+.page-id-363			.fusion-header-wrapper	.fusion-header,
+.category-14			.fusion-header-wrapper	.fusion-header,
+.category-20			.fusion-header-wrapper	.fusion-header,
+.tag					.fusion-header-wrapper	.fusion-header,
+.tax-utazas_kategoria	.fusion-header-wrapper	.fusion-header,
+.tax-partner_kategoria	.fusion-header-wrapper	.fusion-header,
+.partnerek-template-default	.fusion-header-wrapper	.fusion-header,
+.post-type-archive		.fusion-header-wrapper	.fusion-header{
+	max-height: 65px !important;
+}
+
+.page-id-10				.fusion-header-wrapper	.fusion-row, 
+.page-id-363			.fusion-header-wrapper	.fusion-row,
+.category-14			.fusion-header-wrapper	.fusion-row,
+.category-20			.fusion-header-wrapper	.fusion-row,
+.tag					.fusion-header-wrapper	.fusion-row,
+.tax-utazas_kategoria	.fusion-header-wrapper	.fusion-row,
+.tax-partner_kategoria	.fusion-header-wrapper	.fusion-row,
+.partnerek-template-default	.fusion-header-wrapper	.fusion-row,
+.post-type-archive		.fusion-header-wrapper	.fusion-row{
+	max-height: 		65px 	!important;
+	padding-top:		0px		!important;
+	margin-top:			5px		!important;
+}
+
+.page-id-10				.fusion-header-wrapper	.fusion-logo, 
+.page-id-363			.fusion-header-wrapper	.fusion-logo,
+.category-14			.fusion-header-wrapper	.fusion-logo,
+.category-20			.fusion-header-wrapper	.fusion-logo,
+.tag					.fusion-header-wrapper	.fusion-logo,
+.tax-utazas_kategoria	.fusion-header-wrapper	.fusion-logo,
+.tax-partner_kategoria	.fusion-header-wrapper	.fusion-logo,
+.partnerek-template-default	.fusion-header-wrapper	.fusion-logo,
+.post-type-archive		.fusion-header-wrapper	.fusion-logo{
+	max-height:		55px	!important;
+	max-width:		55px	!important;
+	margin-bottom:	0px		!important;
+	margin-top:		0px		!important;
+	padding-top:	0px		!important;
+	padding-bottom:	0px		!important;
+}
+
+
+.page-id-10 .fusion-header-wrapper #menu-item-114, 
+.page-id-10 .fusion-header-wrapper #menu-item-404, 
+.page-id-10 .fusion-header-wrapper #menu-item-107, 
+.page-id-10 .fusion-header-wrapper #menu-item-111, 
+.page-id-10 .fusion-header-wrapper #menu-item-75, 
+.page-id-10 .fusion-header-wrapper #menu-item-12,
+
+.page-id-363 .fusion-header-wrapper #menu-item-114, 
+.page-id-363 .fusion-header-wrapper #menu-item-404, 
+.page-id-363 .fusion-header-wrapper #menu-item-107, 
+.page-id-363 .fusion-header-wrapper #menu-item-111, 
+.page-id-363 .fusion-header-wrapper #menu-item-75, 
+.page-id-363 .fusion-header-wrapper #menu-item-12,
+
+.category-14 .fusion-header-wrapper #menu-item-114, 
+.category-14 .fusion-header-wrapper #menu-item-404, 
+.category-14 .fusion-header-wrapper #menu-item-107, 
+.category-14 .fusion-header-wrapper #menu-item-111, 
+.category-14 .fusion-header-wrapper #menu-item-75, 
+.category-14 .fusion-header-wrapper #menu-item-12,
+
+.category-20 .fusion-header-wrapper #menu-item-114, 
+.category-20 .fusion-header-wrapper #menu-item-404, 
+.category-20 .fusion-header-wrapper #menu-item-107, 
+.category-20 .fusion-header-wrapper #menu-item-111, 
+.category-20 .fusion-header-wrapper #menu-item-75, 
+.category-20 .fusion-header-wrapper #menu-item-12,
+
+.tag .fusion-header-wrapper #menu-item-114, 
+.tag .fusion-header-wrapper #menu-item-404, 
+.tag .fusion-header-wrapper #menu-item-107, 
+.tag .fusion-header-wrapper #menu-item-111, 
+.tag .fusion-header-wrapper #menu-item-75, 
+.tag .fusion-header-wrapper #menu-item-12,
+
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-114, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-404, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-107, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-111, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-75, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-12,
+
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-114, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-404, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-107, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-111, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-75, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-12,
+
+.partnerek-template-default .fusion-header-wrapper #menu-item-114, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-404, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-107, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-111, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-75, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-12,
+
+.post-type-archive .fusion-header-wrapper #menu-item-114, 
+.post-type-archive .fusion-header-wrapper #menu-item-404, 
+.post-type-archive .fusion-header-wrapper #menu-item-107, 
+.post-type-archive .fusion-header-wrapper #menu-item-111, 
+.post-type-archive .fusion-header-wrapper #menu-item-75, 
+.post-type-archive .fusion-header-wrapper #menu-item-12{
+	padding-bottom:	20px		!important;
+	padding-top: 	10px 		!important;
+	margin-top:		0px			!important;
+	margin-right:	0px			!important;
+	padding-right:	35px		!important;
+}
+
+
+.page-id-10		.fusion-header-wrapper #menu-item-12,
+.page-id-363	.fusion-header-wrapper #menu-item-12,
+.category-14	.fusion-header-wrapper #menu-item-12,
+.category-20	.fusion-header-wrapper #menu-item-12,
+.tag			.fusion-header-wrapper #menu-item-12,
+.tax-utazas_kategoria	.fusion-header-wrapper #menu-item-12,
+.tax-partner_kategoria	.fusion-header-wrapper #menu-item-12,
+.partnerek-template-default .fusion-header-wrapper #menu-item-12,
+.post-type-archive		.fusion-header-wrapper #menu-item-12{
+	padding-right:	0px		!important;
+}
+
+.page-id-10 .fusion-header-wrapper #menu-item-114 a, 
+.page-id-10 .fusion-header-wrapper #menu-item-404 a, 
+.page-id-10 .fusion-header-wrapper #menu-item-107 a, 
+.page-id-10 .fusion-header-wrapper #menu-item-111 a, 
+.page-id-10 .fusion-header-wrapper #menu-item-75 a, 
+.page-id-10 .fusion-header-wrapper #menu-item-12 a,
+
+.page-id-363 .fusion-header-wrapper #menu-item-114 a, 
+.page-id-363 .fusion-header-wrapper #menu-item-404 a, 
+.page-id-363 .fusion-header-wrapper #menu-item-107 a, 
+.page-id-363 .fusion-header-wrapper #menu-item-111 a, 
+.page-id-363 .fusion-header-wrapper #menu-item-75 a, 
+.page-id-363 .fusion-header-wrapper #menu-item-12 a,
+
+.category-14 .fusion-header-wrapper #menu-item-114 a, 
+.category-14 .fusion-header-wrapper #menu-item-404 a, 
+.category-14 .fusion-header-wrapper #menu-item-107 a, 
+.category-14 .fusion-header-wrapper #menu-item-111 a, 
+.category-14 .fusion-header-wrapper #menu-item-75 a, 
+.category-14 .fusion-header-wrapper #menu-item-12 a,
+
+.category-20 .fusion-header-wrapper #menu-item-114 a, 
+.category-20 .fusion-header-wrapper #menu-item-404 a, 
+.category-20 .fusion-header-wrapper #menu-item-107 a, 
+.category-20 .fusion-header-wrapper #menu-item-111 a, 
+.category-20 .fusion-header-wrapper #menu-item-75 a, 
+.category-20 .fusion-header-wrapper #menu-item-12 a,
+
+.tag .fusion-header-wrapper #menu-item-114 a, 
+.tag .fusion-header-wrapper #menu-item-404 a, 
+.tag .fusion-header-wrapper #menu-item-107 a, 
+.tag .fusion-header-wrapper #menu-item-111 a, 
+.tag .fusion-header-wrapper #menu-item-75 a, 
+.tag .fusion-header-wrapper #menu-item-12 a,
+
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-114 a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-404 a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-107 a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-111 a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-75 a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-12 a,
+
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-114 a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-404 a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-107 a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-111 a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-75 a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-12 a,
+
+.partnerek-template-default .fusion-header-wrapper #menu-item-114 a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-404 a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-107 a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-111 a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-75 a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-12 a,
+
+.post-type-archive .fusion-header-wrapper #menu-item-114 a, 
+.post-type-archive .fusion-header-wrapper #menu-item-404 a, 
+.post-type-archive .fusion-header-wrapper #menu-item-107 a, 
+.post-type-archive .fusion-header-wrapper #menu-item-111 a, 
+.post-type-archive .fusion-header-wrapper #menu-item-75 a, 
+.post-type-archive .fusion-header-wrapper #menu-item-12 a{
+	
+	padding-bottom:		17px			!important;
+	padding-right:		0px				!important;
+	font-size:			14px			!important;
+}
+
+.page-id-10 .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.page-id-363 .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.category-14 .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.category-14 .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.category-14 .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.category-14 .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.category-14 .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.category-14 .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.category-20 .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.category-20 .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.category-20 .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.category-20 .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.category-20 .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.category-20 .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.tag .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.tag .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.tag .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.tag .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.tag .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.tag .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.partnerek-template-default .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper #menu-item-12 .sub-menu a,
+
+.post-type-archive .fusion-header-wrapper #menu-item-114 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper #menu-item-404 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper #menu-item-107 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper #menu-item-111 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper #menu-item-75 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper #menu-item-12 .sub-menu a{
+	
+	padding-bottom:		7px			!important;
+	padding-top:		7px			!important;
+	font-size:			13px		!important;
+}
+
+.page-id-10				.fusion-header-wrapper	a, 
+.page-id-363			.fusion-header-wrapper	a,
+.category-14			.fusion-header-wrapper	a,
+.category-20			.fusion-header-wrapper	a,
+.tag					.fusion-header-wrapper	a,
+.tax-utazas_kategoria	.fusion-header-wrapper	a,
+.tax-partner_kategoria	.fusion-header-wrapper	a,
+.partnerek-template-default .fusion-header-wrapper a,
+.post-type-archive		.fusion-header-wrapper	a{
+	font-size: 15px !important;
+}
+
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12,
+
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12{
+	margin-top:		-5px	!important;
+	padding-top:	0px		!important;
+	padding-bottom: 10px	!important;
+}	
+	
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a,
+
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 a{
+	padding-bottom: 0px 	!important;
+	font-size:		14px	!important;
+}	
+
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.page-id-10 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.page-id-363 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.category-14 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.category-20 .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.tag .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.tax-utazas_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.tax-partner_kategoria .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.partnerek-template-default .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a,
+
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-114 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-404 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-107 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-111 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-75 .sub-menu a, 
+.post-type-archive .fusion-header-wrapper .fusion-sticky-shadow #menu-item-12 .sub-menu a{	
+	padding-bottom: 7px 	!important;
+	padding-top:	7px 	!important;
+	font-size:		13px	!important;
+}	
+
+
+/*Search box*/
+
+#searcher-form .wrapper{
+	padding-top: 10px !important;
+}
+
+#searcher-form label{
+	margin-bottom: 10px !important;
+}
+
+#searcher-form .szolgaltatasok{
+	max-width: 20% !important;
+}
+
+#searcher-form .pre-srcbutton{
+	max-width: 0px !important;
+}
+
+
+
+/*Slider főoldal*/
+
+.home #wrapper .fusion-header-wrapper{
+	box-shadow: inset 0 180px 50px -110px rgba(0, 0, 0, 0.58);
+	
+}
+
+/*Népszerű bejegyzések szövegdoboz*/
+.sidebar .recent-post {
+  background: white !important;
+
+  border-radius: 0px !important;
+	border: 1px solid #e0e0e0;
+	box-shadow: 1px 1px 4px 0px #ccc;
+}
+
+/*Idézetek, kiemelés*/
+blockquote {
+font-family: 'Poppins', Verdana, sans-serif;
+font-style: normal !important;
+font-weight:bold;
+font-size: 16px !important;
+padding: 15px !important;
+width: 100%;
+margin: 10px !important;
+line-height: 30px !important;
+position: relative;
+color: #3a3a3a;
+border-left: 5px solid  #f1d6bb;
+box-shadow: 2px 2px 4px 0px #ccc;	
+background:#f5e3d0;
+opacity: 0.75;
+}
+ 
+blockquote cite {
+color: grey;
+font-size: 14px;
+display: block;
+margin-top: 5px;
+}
+  
+blockquote cite:before {
+content: "\2014 \2009";
+}
+
+/*Price Tables*/
+
+#priceTable{
+	font-family: 'Poppins', Verdana, sans-serif !important;
+	width: 100% !important;
+	text-align: center !important;
+	border-collapse: collapse !important;
+}
+
+/*#priceTable tr:nth-child(even){background-color: rgba(251, 176, 59, 1)!important}*/
+#priceTable tr:nth-child(even){background-color: #f5e3d0 !important}
+
+/*#priceTable tr:nth-child(odd){background-color: #fcc46d !important}*/
+#priceTable tr:nth-child(odd){background-color: #f1d6bb !important}
+
+#priceTable th {
+	font-family: 'Poppins', Verdana, sans-serif !important;
+	letter-spacing: 2px !important;
+	text-align: center !important;
+    background-color: #bbd6f1;
+    color: #3a3a3a;
+}
+
+#priceTable th, td {
+    padding: 8px;
+}
+/*Utazás Adatok Header*/
+
+.travel-base-wrapper .travel-header {
+  background: #f5e3d0 !important;
+}
+
+.travel-base-wrapper .travel-nav {
+  background: #f1d6bb !important;
+}
+
+/*Árajánlatkérő*/
+
+.gettraveloffer > .wrapper {
+	background-color: #fff6e8 !important;
+	background-image: url(http://jnk.ideafontana.eu/wp-content/uploads/2018/08/backgroundPalm.png);
+	
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gettraveloffer .orderer .flex .w{
+	color: #3a3a3a !important;
+}
+
+#orderer_name{
+	color: #3a3a3a !important;
+}
+
+#orderer_email{
+	color: #3a3a3a !important;
+}
+
+#orderer_phone{
+	color: #3a3a3a !important;
+}
+
+.ng-pristine .ng-untouched .ng-valid .ng-empty{
+	color: #3a3a3a !important;
+}
+#pass_name{
+	color: #3a3a3a !important;
+}
+
+#pass_adult0_dob{
+	color: #3a3a3a !important;
+}
+
+#pass_adult0_address{
+	color: #3a3a3a !important;
+}
+
+/*Kártya*/
+.travels .travel .wrapper, .travels .partner .wrapper, .partners .travel .wrapper, .partners .partner .wrapper {
+  background: white !important;
+  position: relative;
+  box-shadow: 0 5px 20px -5px #d2d8dc;
+  border-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-top-left-radius: 0px !important;
+	border-bottom: 5px solid #f1d6bb !important;
+}
+
+/*Blog cikk kártya*/
+.articles article .datas {
+	border-bottom: 10px solid #f1d6bb !important;
+}
+
+/* Mobilos*/
+
+@media all and (max-width: 1100px){
+	
+	.fusion-header-wrapper{
+		max-height:	60px	!important;
+	}
+	
+	div.fusion-header{
+		padding-top:	0px	!important;
+		padding-bottom:	0px	!important;
+	}
+	div.fusion-header > .fusion-row{
+		max-height: 60px !important;
+		padding-top: 5px !important;
+		padding-bottom: 5px !important;
+		margin-top:	0px	!important;
+	}
+	
+	.fusion-mobile-logo{
+		padding-top:	0px !important;
+		padding-bottom: 0px !important;
+	}
+	
+	div.fusion-mobile-nav-holder{
+		padding-top: 5px !important;
+	}
+	
+	
+
+}
+
+@media all and (max-width: 640px) {
+	
+	.destination-searcher-holder .wrapper > div {
+    flex-basis: 100% !important;
+  	}
+	
+	#searcher-form .szolgaltatasok{
+		max-width: 100% !important;
+	}
+
+}
+
+#TestContainer1{ max-width: 100%; background-color:green}
+
+/*Gabor's code over*/
