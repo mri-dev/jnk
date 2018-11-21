@@ -11,7 +11,7 @@
 <div class="wrapper">
   <div class="keywords">
     <div class="iwrapper">
-      <label for="src_search"><?php echo __('Keresés', TD); ?>:</label>
+      <label for="src_search"><?php echo __('Keresés', 'jnk'); ?>:</label>
       <div class="input-wrapper">
         <div class="ico"><i class="fas fa-search"></i></div>
         <input type="text" name="search" value="<?=$_GET['search']?>" id="src_search">
@@ -20,7 +20,7 @@
   </div>
   <div class="type">
     <div class="iwrapper">
-      <label for="src_search"><?php echo __('Típus', TD); ?></label>
+      <label for="src_search"><?php echo __('Típus', 'jnk'); ?></label>
       <div class="input-wrapper select-wrapper">
         <select class="" name="type">
           <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':'selected="selected"'?>>Csoportos utazás</option>
