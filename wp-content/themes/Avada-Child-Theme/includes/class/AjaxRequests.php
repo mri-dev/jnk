@@ -47,6 +47,10 @@ class AjaxRequests
       'params' => $_POST
     );
 
+    if ($blogid != '') {
+      switch_to_blog($blogid);
+    }
+
     $travels = new TravelModul((int)$_POST['postid']);
 
     switch ($mode)
@@ -214,8 +218,10 @@ class AjaxRequests
           $return['msg'] = $e->getMessage();
         }
       break;
+    }
 
-
+    if ($blogid != '') {
+      restore_current_blog();
     }
 
     echo json_encode($return);
@@ -225,12 +231,17 @@ class AjaxRequests
   public function GetTermsRequest()
   {
     extract($_POST);
+
     $return = array(
       'error' => 0,
       'msg' => '',
       'data' => array(),
       'params' => $_POST
     );
+
+    if ($blogid != '') {
+      switch_to_blog($blogid);
+    }
 
     foreach ((array)$terms as $term) {
       $data = wp_get_post_terms($postid, $term);
@@ -248,6 +259,10 @@ class AjaxRequests
       $return['data'][$term] = $td;
     }
 
+    if ($blogid != '') {
+      restore_current_blog();
+    }
+
     echo json_encode($return);
     die();
   }
@@ -261,6 +276,9 @@ class AjaxRequests
       'data' => array(),
       'params' => $_POST
     );
+    if ($blogid != '') {
+      switch_to_blog($blogid);
+    }
 
     $arg = array();
 
@@ -277,6 +295,10 @@ class AjaxRequests
     $dates = $travels->loadDates( $arg );
     $return['data'] = $dates;
 
+    if ($blogid != '') {
+      restore_current_blog();
+    }
+
     echo json_encode($return);
     die();
   }
@@ -292,6 +314,10 @@ class AjaxRequests
       'missing' => 0,
       'passed_params' => false
     );
+
+    if ($blogid != '') {
+      switch_to_blog($blogid);
+    }
 
     $err_elements_text = '';
 
@@ -391,6 +417,10 @@ class AjaxRequests
       $this->returnJSON($return);
     }
 
+    if ($blogid != '') {
+      restore_current_blog();
+    }
+
     echo json_encode($return);
     die();
   }
@@ -409,6 +439,10 @@ class AjaxRequests
       'orderby' => 'name',
       'order' => 'ASC'
     );
+
+    if ($blogid != '') {
+      switch_to_blog($blogid);
+    }
 
     if ($region) {
       //$arg['child_of'] = $region;
@@ -469,6 +503,10 @@ class AjaxRequests
           'parent' => $parent->parent
         )
       );
+    }
+
+    if ($blogid != '') {
+      restore_current_blog();
     }
 
     header('Content-Type: application/json;charset=utf8');

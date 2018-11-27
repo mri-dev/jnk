@@ -5,6 +5,96 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   // Vars
   var date = new Date();
 
+  $scope.translate = function( t ) {
+    return $scope.translateTexts[t][$scope.lang];
+  }
+
+  $scope.lang = 'hu_HU';
+  $scope.blogid = 1;
+  $scope.translateTexts = {
+    '3 nap': {
+      'hu_HU': '3 nap',
+      'en_US': '3 days'
+    },
+    '5 nap': {
+      'hu_HU': '5 nap',
+      'en_US': '5 days'
+    },
+    '1 hét': {
+      'hu_HU': '1 hét',
+      'en_US': '1 week'
+    },
+    'éjszaka': {
+      'hu_HU': 'éjszaka',
+      'en_US': 'nights'
+    }
+  };
+
+  $scope.init = function( postid, lang, blogid )
+  {
+    $scope.blogid = blogid;
+    $scope.lang = lang;
+    $scope.postid = postid;
+    $scope.loadAll();
+
+    $scope.customPickerTemplates = [
+      {
+        name: $scope.translate('3 nap'),
+        dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+        dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
+      },
+      {
+        name: $scope.translate('5 nap'),
+        dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+        dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 6)
+      },
+      {
+        name: $scope.translate('1 hét'),
+        dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+        dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 8)
+      }
+    ];
+
+    $scope.calendarModel = {
+      selectedTemplate: $scope.translate('3 nap'),
+      selectedTemplateName: null,
+      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
+      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
+    };
+
+    if ($scope.lang == 'hu_HU') {
+      $scope.localizationMap = {
+        'Mon': 'H',
+        'Tue': 'K',
+        'Wed': 'Sz',
+        'Thu': 'Cs',
+        'Fri': 'P',
+        'Sat': 'Szo',
+        'Sun': 'V',
+        'Today': 'Ma',
+        'Yesterday': 'Tegnap',
+        'This week': 'Ez a hét',
+        'Last week': 'Utolsó hét',
+        'This month': 'Ez a hónap',
+        'Last month': 'Utolsó hónap',
+        'This year': 'Ez az év',
+        'Last year': 'Utolsó év',
+        'January': 'Január',
+        'February': 'Február',
+        'March': 'Március',
+        'April': 'Április',
+        'May': 'Május',
+        'June': 'Június',
+        'July': 'Július',
+        'August': 'Augusztus',
+        'September': 'Szeptember',
+        'October': 'Október',
+        'November': 'November',
+        'December': 'December'
+      };
+    }
+  }
+
   $scope.postid = 0;
   $scope.loading = false;
   $scope.loaded = false;
@@ -85,53 +175,9 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
   $scope.step_loading = false;
 
   // datepicker
-  $scope.customPickerTemplates = [
-    {
-      name: '3 nap',
-      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
-    },
-    {
-      name: '5 nap',
-      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 6)
-    },
-    {
-      name: '1  hét',
-      dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-      dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 8)
-    }
-  ];
 
-  $scope.localizationMap = {
-    'Mon': 'H',
-    'Tue': 'K',
-    'Wed': 'Sz',
-    'Thu': 'Cs',
-    'Fri': 'P',
-    'Sat': 'Szo',
-    'Sun': 'V',
-    'Today': 'Ma',
-    'Yesterday': 'Tegnap',
-    'This week': 'Ez a hét',
-    'Last week': 'Utolsó hét',
-    'This month': 'Ez a hónap',
-    'Last month': 'Utolsó hónap',
-    'This year': 'Ez az év',
-    'Last year': 'Utolsó év',
-    'January': 'Január',
-    'February': 'Február',
-    'March': 'Március',
-    'April': 'Április',
-    'May': 'Május',
-    'June': 'Június',
-    'July': 'Július',
-    'August': 'Augusztus',
-    'September': 'Szeptember',
-    'October': 'Október',
-    'November': 'November',
-    'December': 'December'
-  };
+
+
 
   $scope.isDisabledDate = function( d ) {
     if (
@@ -139,13 +185,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     ) {
       return true;
     } else return false;
-  };
-
-  $scope.calendarModel = {
-    selectedTemplate: '3 nap',
-    selectedTemplateName: null,
-    dateStart: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 2),
-    dateEnd: new Date(date.getFullYear(), date.getMonth(), date.getDate() + 4)
   };
 
   $scope.doPreOrder = function()
@@ -181,7 +220,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,
         mode: 'sendPreOrder',
-        calculator: prepare
+        calculator: prepare,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.preorder_sending = false;
@@ -196,12 +236,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         $scope.preorder_msg.msg = 'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!';
       }
     });
-  }
-
-  $scope.init = function( postid )
-  {
-    $scope.postid = postid;
-    $scope.loadAll();
   }
 
   $scope.canSendPreOrder = function(){
@@ -331,7 +365,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,
-        terms: ['utazas_duration', 'utazas_ellatas']
+        terms: ['utazas_duration', 'utazas_ellatas'],
+        blogid: $scope.blogid
       })
     }).success(function(r){
       angular.forEach(r.data, function(e,i){
@@ -363,7 +398,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,
-        passengers: $scope.passengers
+        passengers: $scope.passengers,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.dates_loaded = true;
@@ -525,7 +561,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,
-        terms: ['utazas_ellatas']
+        terms: ['utazas_ellatas'],
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.configs.ellatas = {};
@@ -547,7 +584,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,
-        mode: 'getConfigTerms'
+        mode: 'getConfigTerms',
+        blogid: $scope.blogid
       })
     }).success(function(r)
     {
@@ -581,7 +619,8 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: $httpParamSerializerJQLike({
           postid: $scope.postid,
-          mode: 'getRooms'
+          mode: 'getRooms',
+          blogid: $scope.blogid
         })
       }).success(function(r){
         $scope.configs.szobak = r.data;
@@ -600,11 +639,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       if ($scope.dateselect.durration && $scope.dateselect.year && $scope.dateselect.date) {
         $scope.selected_date_data = $scope.datelist[$scope.dateselect.date];
         var seldate = $scope.selected_date_data;
-        text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name+', '+seldate.durration.nights+' '+ 'éjszaka';
+        text += seldate.travel_year+'. '+ seldate.travel_month+'. '+seldate.travel_day+'., '+$scope.datelist[$scope.dateselect.date].travel_weekday+' - '+seldate.durration.name+', '+seldate.durration.nights+' '+ $scope.translate('éjszaka');
       }
     } else {
       //Egyéni utazások
-      text += $scope.calendarModel.selectedTemplateName+', '+ $scope.nights + ' éjszaka';
+      text += $scope.calendarModel.selectedTemplateName+', '+ $scope.nights + ' '+ $scope.translate('éjszaka');
     }
 
     return text;
@@ -884,6 +923,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog', function($scope, $http, $mdToast, $mdDialog)
 {
   // Vars
+  $scope.blogid = 1;
   $scope.postid = 0;
   $scope.range_months = [];
   $scope.range_days = [];
@@ -921,8 +961,9 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
   $scope.dates_loaded = false;
   $scope.dates_saving = false;
 
-  $scope.init = function( postid )
+  $scope.init = function( postid, blogid )
   {
+    $scope.blogid = blogid;
     $scope.postid = postid;
     $scope.prepareRanges();
     $scope.loadAll();
@@ -952,7 +993,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid,
         mode: 'saveConfigTerm',
         group: group,
-        data: $scope.config_creator[group]
+        data: $scope.config_creator[group],
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.config_saving[group] = false;
@@ -975,7 +1017,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid,
         mode: 'saveConfigData',
         id: id,
-        datas: data
+        datas: data,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       if (typeof callback !== 'undefined') {
@@ -993,7 +1036,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid,
         mode: 'saveRoomData',
         id: id,
-        datas: data
+        datas: data,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       if (typeof callback !== 'undefined') {
@@ -1011,7 +1055,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid,
         mode: 'saveDateData',
         id: id,
-        datas: data
+        datas: data,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       if (typeof callback !== 'undefined') {
@@ -1030,7 +1075,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       data: $.param({
         postid: $scope.postid,
         mode: 'saveDates',
-        data: $scope.dates_create
+        data: $scope.dates_create,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.dates_saving = false;
@@ -1051,9 +1097,11 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
         postid: $scope.postid,
-        terms: ['utazas_duration', 'utazas_ellatas']
+        terms: ['utazas_duration', 'utazas_ellatas'],
+        blogid: $scope.blogid
       })
     }).success(function(r){
+      console.log(r);
       angular.forEach(r.data, function(e,i){
         $scope.terms[i] = e;
       });
@@ -1135,7 +1183,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         data: $.param({
           postid: $scope.postid,
           mode: 'deleteConfigData',
-          id: id
+          id: id,
+          blogid: $scope.blogid
         })
       }).success(function(r){
         $scope.loadAll();
@@ -1160,7 +1209,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         data: $.param({
           postid: $scope.postid,
           mode: 'deleteDate',
-          id: id
+          id: id,
+          blogid: $scope.blogid
         })
       }).success(function(r){
         $scope.loadAll();
@@ -1185,7 +1235,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         data: $.param({
           postid: $scope.postid,
           mode: 'deleteRoomData',
-          id: id
+          id: id,
+          blogid: $scope.blogid
         })
       }).success(function(r){
         $scope.loadAll();
@@ -1213,7 +1264,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
         postid: $scope.postid,
-        mode: 'getConfigTerms'
+        mode: 'getConfigTerms',
+        blogid: $scope.blogid
       })
     }).success(function(r){
       angular.forEach($scope.config_groups, function(c,i){
@@ -1246,7 +1298,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
         postid: $scope.postid,
-        mode: 'getRooms'
+        mode: 'getRooms',
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.configs.szobak = r.data;
@@ -1261,7 +1314,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       url: '/wp-admin/admin-ajax.php?action=travel_api',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param({
-        postid: $scope.postid
+        postid: $scope.postid,
+        blogid: $scope.blogid
       })
     }).success(function(r){
       console.log(r);
@@ -1303,7 +1357,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       data: $.param({
         postid: $scope.postid,
         id: id,
-        mode: 'getDateData'
+        mode: 'getDateData',
+        blogid: $scope.blogid
       })
     }).success(function(r){
       console.log(r);
@@ -1347,7 +1402,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
       data: $.param({
         postid: $scope.postid,
         id: id,
-        mode: 'getRoomData'
+        mode: 'getRoomData',
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.modalEditorData = r.data;
@@ -1391,7 +1447,8 @@ jnk.controller('TravelConfigEditor', ['$scope', '$http', '$mdToast', '$mdDialog'
         postid: $scope.postid,
         id: id,
         group: group,
-        mode: 'getConfigData'
+        mode: 'getConfigData',
+        blogid: $scope.blogid
       })
     }).success(function(r){
       $scope.modalEditorData = r.data;

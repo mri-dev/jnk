@@ -9,6 +9,7 @@ class TravelModul
   public function __construct( $postid )
   {
     global $wpdb;
+    $this->blogid = get_current_blog_id();
     $this->db = $wpdb;
     $this->postid = $postid;
 
@@ -24,7 +25,7 @@ class TravelModul
       $q = "SELECT
         c.*
       FROM travel_term_config as c
-      WHERE 1=1 and
+      WHERE 1=1 and c.blogid = {$this->blogid} and
       c.post_id = %d and
       c.termgroup = %s
       ORDER BY c.title ASC
@@ -51,7 +52,7 @@ class TravelModul
     $q = "SELECT
       c.*
     FROM travel_term_config as c
-    WHERE 1=1 and
+    WHERE 1=1 and c.blogid = {$this->blogid} and
     c.post_id = %d and
     c.ID = %d
     LIMIT 0,1
@@ -71,7 +72,7 @@ class TravelModul
     $q = "SELECT
       c.*
     FROM travel_term_config as c
-    WHERE 1=1 and
+    WHERE 1=1 and c.blogid = {$this->blogid} and
     c.termgroup = '%s' and
     c.post_id = %d and
     c.ID = %d
@@ -98,7 +99,7 @@ class TravelModul
       TIMESTAMP(CONCAT(td.travel_year,'-',td.travel_month,'-',td.travel_day)) as ts
     FROM travel_rooms as r
     LEFT OUTER JOIN travel_dates as td ON td.ID = r.date_id
-    WHERE 1=1 and
+    WHERE 1=1 and r.blogid = {$this->blogid} and
     r.post_id = %d ";
 
     if ($hide_older_dates) {
@@ -136,7 +137,7 @@ class TravelModul
       td.utazas_duration_id
     FROM travel_rooms as r
     LEFT OUTER JOIN travel_dates as td ON td.ID = r.date_id
-    WHERE 1=1 and
+    WHERE 1=1 and and r.blogid = {$this->blogid} and
     r.post_id = %d and r.ID = %d
     ";
 
@@ -212,10 +213,10 @@ class TravelModul
     $spost_sdesc = get_the_excerpt( $this->postid );
     $spost_img = get_the_post_thumbnail_url( $this->postid );
     $is_user_alert = false;
-    $utazas_tipus = ($calculator['egyeni'] == 1) ? __('egyéni utazás', TD) : __('csoportos utazás', TD);
+    $utazas_tipus = ($calculator['egyeni'] == 1) ? __('egyéni utazás', 'jnk') : __('csoportos utazás', 'jnk');
 
     if ( $can_send ) {
-    
+
       // Valuta
       if ($calculator['valuta']) {
         if ($calculator['valuta']['name'] == 'Ft') {
@@ -387,6 +388,7 @@ class TravelModul
       $this->db->insert(
         'travel_rooms',
         array(
+          'blogid' => $this->blogid,
           'post_id' => $this->postid,
           'title' => $d['title'],
           'description' => ($d['description'] == '') ? NULL : $d['description'],
@@ -398,7 +400,7 @@ class TravelModul
           'child_capacity' => (int)$d['child_capacity'],
           'active' => ($d['active'] == 'true') ? 1 : 0,
         ),
-        array('%d', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d')
+        array('%d','%d', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d')
       );
 
       $back['inserted_id'][] = $this->db->insert_id;
@@ -418,7 +420,7 @@ class TravelModul
         'travel_day' => (int)$datas['travel_day'],
         'active' => ($datas['active'] == 'true') ? 1 : 0
     	),
-    	array( 'ID' => (int)$id ),
+    	array( 'ID' => (int)$id, 'blogid' => $this->blogid ),
     	array(
     		'%d',
         '%d',
@@ -426,7 +428,7 @@ class TravelModul
         '%d',
         '%d'
     	),
-    	array( '%d' )
+    	array( '%d', '%d' )
     );
 
     return $datas;
@@ -447,7 +449,7 @@ class TravelModul
         'child_capacity' => (int)$datas['child_capacity'],
         'active' => ($datas['active']) ? 1 : 0
     	),
-    	array( 'ID' => (int)$id ),
+    	array( 'ID' => (int)$id, 'blogid' => $this->blogid ),
     	array(
     		'%s',
         '%s',
@@ -459,7 +461,7 @@ class TravelModul
         '%d',
         '%d',
     	),
-    	array( '%d' )
+    	array( '%d', '%d' )
     );
 
     return true;
@@ -476,7 +478,7 @@ class TravelModul
         'price_calc_mode' => $datas['price_calc_mode'],
         'requireditem' => ($datas['requireditem'] == 'false') ? 0 : 1
     	),
-    	array( 'ID' => (int)$id ),
+    	array( 'ID' => (int)$id, 'blogid' => $this->blogid ),
     	array(
     		'%s',
     		'%s',
@@ -484,7 +486,7 @@ class TravelModul
         '%s',
         '%d',
     	),
-    	array( '%d' )
+    	array( '%d', '%d' )
     );
 
     return true;
@@ -494,8 +496,8 @@ class TravelModul
   {
     $this->db->delete(
       'travel_term_config',
-      array( 'ID' => $id ),
-      array( '%d' )
+      array( 'ID' => $id, 'blogid' => $this->blogid ),
+      array( '%d', '%d' )
     );
   }
 
@@ -503,8 +505,8 @@ class TravelModul
   {
     $this->db->delete(
       'travel_rooms',
-      array( 'ID' => $id ),
-      array( '%d' )
+      array( 'ID' => $id, 'blogid' => $this->blogid ),
+      array( '%d', '%d' )
     );
   }
 
@@ -512,8 +514,8 @@ class TravelModul
   {
     $this->db->delete(
       'travel_dates',
-      array( 'ID' => $id ),
-      array( '%d' )
+      array( 'ID' => $id, 'blogid' => $this->blogid ),
+      array( '%d', '%d' )
     );
   }
 
@@ -536,7 +538,6 @@ class TravelModul
         throw new \Exception("Hiba: az elem(ek) megnevezése kötelező.");
       }
 
-
       if ( $d['price_calc_mode'] == '0' ) {
         throw new \Exception("Hiba: az elem(ek)nél kötelezően ki kell választani az ár jellegét.");
       }
@@ -554,6 +555,7 @@ class TravelModul
       $this->db->insert(
         'travel_term_config',
         array(
+          'blogid' => $this->blogid,
           'post_id' => $this->postid,
           'title' => $d['title'],
           'description' => ($d['description'] == '') ? NULL : $d['description'],
@@ -562,7 +564,7 @@ class TravelModul
           'price_calc_mode' => $d['price_calc_mode'],
           'requireditem' => ($d['requireditem'] == 'true') ? 1 : 0,
         ),
-        array('%d','%s','%s','%s','%d','%s','%d')
+        array('%d','%d','%s','%s','%s','%d','%s','%d')
       );
 
       $back['inserted_id'][] = $this->db->insert_id;
@@ -576,12 +578,13 @@ class TravelModul
           'price_calc_mode' => $data[0]['price_calc_mode']
         ),
         array(
+          'blogid' => $this->blogid,
           'ID' => (int)$data[0]['ID']
         ),
         array(
           '%d', '%s'
         ),
-        array( '%d' )
+        array( '%d','%d' )
       );
     }
 
@@ -592,6 +595,8 @@ class TravelModul
   {
     $back = array();
 
+    $blogid = get_current_blog_id();
+
     if (empty($data)) {
       return false;
     }
@@ -600,6 +605,7 @@ class TravelModul
       $this->db->insert(
         'travel_dates',
         array(
+          'blogid' => $this->blogid,
           'utazas_duration_id' => (int)$d['utazas_duration_id']['term_id'],
           'post_id' => $this->postid,
           'travel_year' => (int)$d['travel_year'],
@@ -624,14 +630,14 @@ class TravelModul
       td.*,
       TIMESTAMP(CONCAT(td.travel_year,'-',td.travel_month,'-',td.travel_day)) as ts
     FROM travel_dates as td
-    WHERE 1=1 and
+    WHERE 1=1 and td.blogid = {$this->blogid} and
     td.post_id = {$this->postid}";
 
     if (isset($arg['passengers'])) {
       $adults = $arg['passengers']['adult'];
       $child =  $arg['passengers']['child'];
       $data_arr = array();
-      $pq = "SELECT date_id FROM `travel_rooms` WHERE post_id = {$this->postid} and active = 1 and adult_capacity >= {$adults} and child_capacity >= {$child} GROUP BY date_id";
+      $pq = "SELECT date_id FROM `travel_rooms` WHERE blogid = {$this->blogid} and post_id = {$this->postid} and active = 1 and adult_capacity >= {$adults} and child_capacity >= {$child} GROUP BY date_id";
       $pqry = $this->db->get_results($pq, ARRAY_N);
       if($pqry){
         foreach ($pqry as $di) {
@@ -686,6 +692,10 @@ class TravelModul
   private function getWeekdayByNum( $num )
   {
     $weekdays = array('Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat');
+
+    if (get_locale() != 'hu_HU') {
+      $weekdays = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+    }
 
     return $weekdays[$num];
   }

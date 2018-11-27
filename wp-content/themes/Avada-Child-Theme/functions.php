@@ -105,7 +105,7 @@ add_action( 'create_utazas_duration', 'save_taxonomy_custom_meta', 10, 2 );
 
 function utazas_duration_taxonomy_columns( $columns )
 {
-	$columns['nights'] = __('Éjszakák száma', TD);
+	$columns['nights'] = __('Éjszakák száma', 'jnk');
 
 	return $columns;
 }
@@ -293,7 +293,7 @@ function create_custom_posttypes()
 
   $utak_metabox = new CustomMetabox(
     'utazas',
-    __('Utazás alapadatok', TD),
+    __('Utazás alapadatok', 'jnk'),
     new UtazasMetaboxSave(),
     'utazas',
     array(
@@ -303,7 +303,7 @@ function create_custom_posttypes()
 
   $editor_metabox = new CustomMetabox(
     'utazas',
-    __('Utazás beállításai', TD),
+    __('Utazás beállításai', 'jnk'),
     new TravelCalcEditorMetaboxSave(),
     'utazaseditor',
     array(
@@ -354,7 +354,7 @@ function create_custom_posttypes()
 
   $partner_metabox = new CustomMetabox(
     'partnerek',
-    __('Partner beállítások', TD),
+    __('Partner beállítások', 'jnk'),
     new PartnerMetaboxSave(),
     'partnerek',
     array(

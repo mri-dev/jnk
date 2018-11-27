@@ -9,7 +9,7 @@
 
     $penznem = $valuta[0];
 ?>
-<div class="travel-editor" ng-class="(loading)?'loading':''" ng-app="jonapotnagyvilag" ng-controller="TravelConfigEditor" ng-init="init(<?=$post->ID?>)">
+<div class="travel-editor" ng-class="(loading)?'loading':''" ng-app="jonapotnagyvilag" ng-controller="TravelConfigEditor" ng-init="init(<?=$post->ID?>, <?php echo get_current_blog_id(); ?>)">
   <?php if ( empty($egyeni_utazas) ): ?>
   <div class="group">
     <div class="ghead">
@@ -19,7 +19,7 @@
     <div class="cont">
       <div>
         <div class="loading-data" ng-hide="dates_loaded">
-          <i class="fa fa-spin fa-spinner"></i> <?php echo __('Időpontok betöltése folyamatban', TD); ?>
+          <i class="fa fa-spin fa-spinner"></i> <?php echo __('Időpontok betöltése folyamatban', 'jnk'); ?>
         </div>
         <div class="no-data" ng-show="(dates_loaded && dates.length == 0)">
           Nincs időpont meghatározva ehhez az utazáshoz.
@@ -106,7 +106,7 @@
     </div>
     <div class="cont">
       <div class="loading-data" ng-hide="configs.szobak">
-        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szobák betöltése folyamatban', TD); ?>
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szobák betöltése folyamatban', 'jnk'); ?>
       </div>
       <div class="no-data" ng-show="(configs.szobak && configs.szobak.length == 0)">
         Nincs szoba meghatározva ehhez az utazáshoz.
@@ -263,7 +263,7 @@
     </div>
     <div class="cont">
       <div class="loading-data" ng-hide="configs.szolgaltatas">
-        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szolgáltatások betöltése folyamatban', TD); ?>
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Szolgáltatások betöltése folyamatban', 'jnk'); ?>
       </div>
       <div class="no-data" ng-show="(configs.szolgaltatas && configs.szolgaltatas.length == 0)">
         Nincsenek szolgáltatások meghatározva ehhez az utazáshoz.
@@ -354,7 +354,7 @@
     <div class="cont">
 
       <div class="loading-data" ng-hide="configs.programok">
-        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Programok betöltése folyamatban', TD); ?>
+        <i class="fa fa-spin fa-spinner"></i> <?php echo __('Programok betöltése folyamatban', 'jnk'); ?>
       </div>
       <div class="no-data" ng-show="(configs.programok && configs.programok.length == 0)">
         Nincsenek programok meghatározva ehhez az utazáshoz.
