@@ -176,9 +176,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
   // datepicker
 
-
-
-
   $scope.isDisabledDate = function( d ) {
     if (
       d < date
@@ -224,10 +221,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         blogid: $scope.blogid
       })
     }).success(function(r){
+      console.log(r);
       $scope.preorder_sending = false;
       if (r.data) {
         // Reset
-        $scope.backToEdit(1);
+        //$scope.backToEdit(1);
         $scope.preorder_msg.error = 0;
         $scope.preorder_msg.msg = 'Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!';
       } else {

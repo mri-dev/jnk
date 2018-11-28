@@ -236,7 +236,7 @@ class TravelModul
       $email = $calculator['order']['contact']['email'];
       $to = get_option('admin_email');
       $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
-      $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)'), $utazas_tipus, $name, $pa_text);
+      $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)', 'jnk'), $utazas_tipus, $name, $pa_text);
 
       ob_start();
     	  include(locate_template('templates/mails/utazascalculator.php'));
@@ -260,7 +260,7 @@ class TravelModul
       $email = $calculator['order']['contact']['email'];
       $to = $email;
       $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
-      $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)'), $pa_text);
+      $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)', 'jnk'), $pa_text);
 
 
       ob_start();

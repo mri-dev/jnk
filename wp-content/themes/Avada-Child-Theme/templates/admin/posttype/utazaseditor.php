@@ -2,12 +2,11 @@
   global $post;
   $egyeni_utazas = get_post_meta($post->ID, METAKEY_PREFIX . 'egyeni_utazas', true);
 
+  $valuta = wp_get_post_terms($post->ID, array(
+    'taxonomy' => 'penznem'
+  ));
 
-    $valuta = wp_get_post_terms($post->ID, array(
-      'taxonomy' => 'penznem'
-    ));
-
-    $penznem = $valuta[0];
+  $penznem = $valuta[0];
 ?>
 <div class="travel-editor" ng-class="(loading)?'loading':''" ng-app="jonapotnagyvilag" ng-controller="TravelConfigEditor" ng-init="init(<?=$post->ID?>, <?php echo get_current_blog_id(); ?>)">
   <?php if ( empty($egyeni_utazas) ): ?>

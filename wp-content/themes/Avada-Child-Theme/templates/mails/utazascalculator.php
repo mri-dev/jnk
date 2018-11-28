@@ -242,16 +242,16 @@
 </head>
 <body>
   <header>
-    <img src="http://jnk.ideafontana.eu/wp-content/uploads/2018/02/jnn_logo_hor-x2.png" alt="Jó Napot Nagyvilág">
+    <img src="/wp-content/uploads/2018/08/Logo_pecset_atlatszo_png200.png" alt="Jó Napot Nagyvilág">
   </header>
   <div class="mail-box">
     <?php if ($is_user_alert): ?>
     <div class="user-alert-msg">
-      <h1>Tisztelt <?=$name?>!</h1>
-      Köszönjük, hogy érdeklődik szolgáltatásaink iránt! Az előzetes utazás kalkulációját fogadtuk és hamarosan megkezdjük a feldolgozását. Kollégáink hamarosan fel fogják venni Önnel a kapcsolatot!
+      <h1><?=sprintf(__('Tisztelt %s', 'jnk'), $name)?>!</h1>
+      <?=__('Köszönjük, hogy érdeklődik szolgáltatásaink iránt! Az előzetes utazás kalkulációját fogadtuk és hamarosan megkezdjük a feldolgozását. Kollégáink hamarosan fel fogják venni Önnel a kapcsolatot!', 'jnk')?>
     </div>
     <?php endif; ?>
-    <h2>Választott utazási termék</h2>
+    <h2><?=__('Választott utazási termék', 'jnk')?></h2>
     <div class="group">
       <div class="travel-term">
         <div class="img">
@@ -267,51 +267,51 @@
         </div>
       </div>
     </div>
-    <h1>Konfiguráció</h1>
+    <h1><?=__('Konfiguráció', 'jnk')?> </h1>
     <div class="group">
-      <h3>Utasok száma</h3>
+      <h3><?=__('Utasok száma', 'jnk')?></h3>
       <div class="option-select">
-        <?=$calculator['passengers']['adults']?> felnőtt <? if($calculator['passengers']['children'] != 0): ?> + <?=$calculator['passengers']['children']?> gyermek.<? endif; ?>
+        <?=$calculator['passengers']['adults']?> <?=__('felnőtt', 'jnk')?> <? if($calculator['passengers']['children'] != 0): ?> + <?=$calculator['passengers']['children']?> <?=__('gyermek', 'jnk')?>.<? endif; ?>
       </div>
     </div>
     <div class="group">
-      <h3>Kiválasztott időpont</h3>
+      <h3><?=__('Kiválasztott időpont', 'jnk')?></h3>
       <div class="option-select">
         <?php if ($calculator['egyeni'] == 0): ?>
-          <?=$calculator['selected_date']['onday']?>, <?=$calculator['selected_date']['travel_weekday']?> - <?=$nights?> éjszaka.
+          <?=$calculator['selected_date']['onday']?>, <?=$calculator['selected_date']['travel_weekday']?> - <?=$nights?> <?=__('éjszaka', 'jnk')?>.
         <?php else: ?>
-          Egyéni utazás: <?=$calculator['datepicker']['selectedTemplateName']?>, <?=$nights?> éjszaka.
+          <?=__('Egyéni utazás', 'jnk')?>: <?=$calculator['datepicker']['selectedTemplateName']?>, <?=$nights?> <?=__('éjszaka', 'jnk')?>.
         <?php endif; ?>
       </div>
     </div>
     <div class="group">
-      <h3>Kiválasztott ellátás</h3>
+      <h3><?=__('Kiválasztott ellátás', 'jnk')?></h3>
       <div class="option-select">
         <?=$calculator['selected_ellatas']['ellatas']['name']?>
       </div>
     </div>
     <div class="group">
-      <h3>Kiválasztott szobatípus</h3>
+      <h3><?=__('Kiválasztott szobatípus', 'jnk')?></h3>
       <div class="option-select">
         <?php if ( !$no_rooms ): ?>
           <strong><?=$calculator['selected_room']['title']?></strong><br>
           <small><?=$calculator['selected_room']['description']?></small>
         <?php else: ?>
-          <em>(!) Nem történt szoba kiválasztás.</em>
+          <em>(!) <?=__('Nem történt szoba kiválasztás.', 'jnk')?></em>
         <?php endif; ?>
       </div>
     </div>
-    <h2>Ár összesítő táblázat</h2>
+    <h2><?=__('Ár összesítő táblázat', 'jnk')?></h2>
     <div class="group">
       <div class="calculation-table">
         <table>
           <thead>
             <tr>
-              <th>Tétel</th>
-              <th>Egységár</th>
-              <th>Egység</th>
-              <th>Mennyiség</th>
-              <th>Összesen</th>
+              <th><?=__('Tétel', 'jnk')?></th>
+              <th><?=__('Egységár', 'jnk')?></th>
+              <th><?=__('Egység', 'jnk')?></th>
+              <th><?=__('Mennyiség', 'jnk')?></th>
+              <th><?=__('Összesen', 'jnk')?></th>
             </tr>
           </thead>
           <tbody>
@@ -321,41 +321,41 @@
                   <strong><?=$calculator['selected_room']['title']?></strong>
                 </td>
                 <td><?=$price_before?><?=number_format((float)$calculator['selected_room']['adult_price'], 0, '', ',')?><?=$price_after?></td>
-                <td>/fő/éjszaka</td>
+                <td><?=__('/fő/éjszaka', 'jnk')?></td>
                 <td>x<?=($nights * $calculator['passengers']['adults'])?></td>
                 <td><?=$price_before?><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['adults'], 0, '', ',')?><?=$price_after?></td>
               </tr>
             <?php else: ?>
               <tr>
                 <td colspan="5">
-                  Az elérhető szobákkal és szállásokkal kapcsoaltban ajánlatunkban tájékoztatjuk.
+                  <?=__('Az elérhető szobákkal és szállásokkal kapcsolatban ajánlatunkban tájékoztatjuk.', 'jnk')?>
                 </td>
               </tr>
             <?php endif; ?>
             <?php if ($calculator['passengers']['children'] != 0): ?>
             <tr>
               <td class="tetel opcio">
-                <strong>-> <?=$calculator['passengers']['children']?> gyerek</strong>
+                <strong>-> <?=$calculator['passengers']['children']?> <?=__('gyerek', 'jnk')?></strong>
               </td>
               <td><?=$price_before?><?=number_format((float)$calculator['selected_room']['child_price'], 0, '', ',')?><?=$price_after?></td>
-              <td>/fő/éjszaka</td>
+              <td><?=__('/fő/éjszaka', 'jnk')?></td>
               <td>x<?=($nights * $calculator['passengers']['children'])?></td>
               <td><?=$price_before?><?=number_format((float)$calculator['roomprice'][$calculator['selected_room']['ID']]['children'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <tr class="priceev">
-              <td colspan="4" class="ev">Szállás összesen:</td>
+              <td colspan="4" class="ev"><?=__('Szállás összesen', 'jnk')?>:</td>
               <td class="price"><?=$price_before?><?=number_format((float)$calculator['travel_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php if ( count($calculator['selected_szolgaltatas']) > 0 ): ?>
             <tr>
-              <td colspan="5" class="price-group">Választott szolgáltatások</td>
+              <td colspan="5" class="price-group"><?=__('Választott szolgáltatások', 'jnk')?></td>
             </tr>
             <?php foreach ( (array)$calculator['selected_szolgaltatas'] as $item ): ?>
             <tr>
               <td class="tetel">
                 <?php if ($item['requireditem'] == 'true'): ?>
-                <span class="req" title="Kötelező elem">K</span>
+                <span class="req" title="<?=__('Kötelező elem', 'jnk')?>">K</span>
                 <?php endif; ?>
                 <strong><?=$item['title']?></strong>
                 <?php if ($item['description'] != ''): ?>
@@ -371,19 +371,19 @@
             </tr>
             <?php endforeach; ?>
             <tr class="priceev">
-              <td colspan="4" class="ev">Szolgáltatások összesen:</td>
+              <td colspan="4" class="ev"><?=__('Szolgáltatások összesen', 'jnk')?>:</td>
               <td class="price"><?=$price_before?><?=number_format((float)$calculator['config_szolgaltatas_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <?php if ( count($calculator['selected_programs']) > 0 ): ?>
             <tr>
-              <td colspan="5" class="price-group">Választott programok</td>
+              <td colspan="5" class="price-group"><?=__('Választott programok', 'jnk')?></td>
             </tr>
             <?php foreach ( (array)$calculator['selected_programs'] as $item ): ?>
             <tr>
               <td class="tetel">
                 <?php if ($item['requireditem'] == 'true'): ?>
-                <span class="req" title="Kötelező elem">K</span>
+                <span class="req" title="<?=__('Kötelező elem', 'jnk')?>">K</span>
                 <?php endif; ?>
                 <strong><?=$item['title']?></strong>
                 <?php if ($item['description'] != ''): ?>
@@ -399,16 +399,16 @@
             </tr>
             <?php endforeach; ?>
             <tr class="priceev">
-              <td colspan="4" class="ev">Programok összesen:</td>
+              <td colspan="4" class="ev"><?=__('Programok összesen', 'jnk')?>:</td>
               <td class="price"><?=$price_before?><?=number_format((float)$calculator['config_programok_prices'], 0, '', ',')?><?=$price_after?></td>
             </tr>
             <?php endif; ?>
             <tr>
-              <td colspan="5" class="price-group">Utasbiztosítás</td>
+              <td colspan="5" class="price-group"><?=__('Utasbiztosítás', 'jnk')?></td>
             </tr>
             <?php if ( $calculator['configs']['biztositas'] != '0' ): ?>
             <tr>
-              <td><strong>Kér biztosítást!</strong></td>
+              <td><strong><?=__('Kér biztosítást!', 'jnk')?></strong></td>
               <td><?=number_format((float)$calculator['biztositas']['price'], 0, '', ',')?></td>
               <td><?=$item['price_after']?></td>
               <td>x<?=$this->priceCalcMe($calculator['biztositas'], $calculator['selected_date'], $calculator['passengers'])?></td>
@@ -416,7 +416,7 @@
             </tr>
             <?php else: ?>
             <tr>
-              <td colspan="5" style="text-align: center;">Nem kért biztosítást!</td>
+              <td colspan="5" style="text-align: center;"><?=__('Nem kért biztosítást!', 'jnk')?></td>
             </tr>
             <?php endif; ?>
           </tbody>
@@ -426,56 +426,56 @@
     <div class="group">
       <div class="calculation-price">
         <?php if ( $no_rooms ): ?>
-          Kalkulált ár: <span class="price">Ajánlatban küldjük</span>
+          <?=__('Kalkulált ár', 'jnk')?>: <span class="price"><?=__('Ajánlatban küldjük', 'jnk')?></span>
         <?php else: ?>
-          Kalkulált ár: <span class="price"><?=$price_before?><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?><?=$price_after?>*</span>
+          <?=__('Kalkulált ár', 'jnk')?>: <span class="price"><?=$price_before?><?=number_format((float)$calculator['final_calc_price'], 0, '', ',')?><?=$price_after?>*</span>
         <?php endif; ?>
       </div>
     </div>
     <?php if ($is_user_alert && !$no_rooms): ?>
     <small>
-      * a kalkulált ár tájékoztató jellegű, nem minősül konkrét ajánlatnak. Adatai megadása után kollégáink felveszik Önnel a kapcsolatot és részletes tájékoztatást adnak a kiválasztott utazásról. Az árváltozás jogát fenntartjuk.
+      <?=__('* a kalkulált ár tájékoztató jellegű, nem minősül konkrét ajánlatnak. Adatai megadása után kollégáink felveszik Önnel a kapcsolatot és részletes tájékoztatást adnak a kiválasztott utazásról. Az árváltozás jogát fenntartjuk.', 'jnk')?>
     </small>
     <?php endif; ?>
     <br><br>
-    <h2>Kapcsolattartó adatai</h2>
+    <h2><?=__('Kapcsolattartó adatai', 'jnk')?></h2>
     <div class="group">
       <div class="contact">
         <table>
           <tr>
-            <td>Név</td>
+            <td><?=__('Név', 'jnk')?></td>
             <td><strong><?=$calculator['order']['contact']['name']?></strong></td>
           </tr>
           <tr>
-            <td>E-mail</td>
+            <td><?=__('E-mail', 'jnk')?></td>
             <td><strong><?=$calculator['order']['contact']['email']?></strong></td>
           </tr>
           <tr>
-            <td>Telefon</td>
+            <td><?=__('Telefon', 'jnk')?></td>
             <td><strong><?=$calculator['order']['contact']['phone']?></strong></td>
           </tr>
         </table>
       </div>
     </div>
-    <h2>Utasok adatai</h2>
+    <h2><?=__('Utasok adatai', 'jnk')?></h2>
     <div class="passengers">
       <?php foreach ((array)$calculator['passengers_details']['adults'] as $i => $p): ?>
         <div class="passenger adult">
           <div class="wrapper">
             <div class="head">
-              #<?=$i+1?> felnőtt adatai:
+              #<?=$i+1?> <?=__('felnőtt adatai', 'jnk')?>:
             </div>
             <table>
               <tr>
-                <td>Név</td>
+                <td><?=__('Név', 'jnk')?></td>
                 <td><strong><?=$p['name']?></strong></td>
               </tr>
               <tr>
-                <td>Születési idő</td>
+                <td><?=__('Születési idő', 'jnk')?></td>
                 <td><strong><?=$p['dob']?></strong></td>
               </tr>
               <tr>
-                <td>Lakcím</td>
+                <td><?=__('Lakcím', 'jnk')?></td>
                 <td><strong><?=$p['address']?></strong></td>
               </tr>
             </table>
@@ -486,19 +486,19 @@
         <div class="passenger child">
           <div class="wrapper">
             <div class="head">
-              #<?=$i+1?> gyermek adatai:
+              #<?=$i+1?> <?=__('gyermek adatai', 'jnk')?>:
             </div>
             <table>
               <tr>
-                <td>Név</td>
+                <td><?=__('Név', 'jnk')?></td>
                 <td><strong><?=$p['name']?></strong></td>
               </tr>
               <tr>
-                <td>Születési idő</td>
+                <td><?=__('Születési idő', 'jnk')?></td>
                 <td><strong><?=$p['dob']?></strong></td>
               </tr>
               <tr>
-                <td>Lakcím</td>
+                <td><?=__('Lakcím', 'jnk')?></td>
                 <td><strong><?=$p['address']?></strong></td>
               </tr>
             </table>
@@ -509,7 +509,7 @@
     </div>
     <br>
     <div class="group">
-      <h3>Megjegyzés az ajánlatkéréshez:</h3>
+      <h3><?=__('Megjegyzés az ajánlatkéréshez', 'jnk')?>:</h3>
       <?php if ($calculator['order']['comment']): ?>
         <?=$calculator['order']['comment']?>
       <?php else: ?>
@@ -518,7 +518,7 @@
     </div>
     <br><br>
     <div class="group">
-      Az ajánlatkérés kalkuláció leadási ideje: <strong><?=date('Y-m-d H:i:s')?></strong>.
+      <?=__('Az ajánlatkérés kalkuláció leadási ideje', 'jnk')?>: <strong><?=date('Y-m-d H:i:s')?></strong>.
     </div>
   </div>
 </body>

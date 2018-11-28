@@ -20,6 +20,16 @@ function get_valuta()
   return 'Ft';
 }
 
+add_filter( 'locale', 'set_my_locale', 1, 1 );
+function set_my_locale( $lang ) {
+  $l = get_option('WPLANG', false);
+  if ( $l ) {
+    $lang = $l;
+  }
+
+  return $lang;
+}
+
 function theme_enqueue_styles() {
     wp_enqueue_style( 'avada-parent-stylesheet', get_template_directory_uri() . '/style.css?' . ( (DEVMODE === true) ? time() : '' )  );
     wp_enqueue_style( 'avada-child-stylesheet', IFROOT . '/style.css?t=' . ( (DEVMODE === true) ? time() : '' ) );
@@ -171,7 +181,6 @@ function jk_init()
     'index.php?custom_page=travelmodalconfig&postid=$matches[1]&travel_group=$matches[2]&travel_mode=$matches[3]&travel_termid=$matches[4]',
     'top'
   );
-
   create_custom_posttypes();
 }
 add_action('init', 'jk_init');
