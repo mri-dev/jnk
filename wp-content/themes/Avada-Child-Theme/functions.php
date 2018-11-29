@@ -139,11 +139,20 @@ add_action( 'wp_enqueue_scripts', 'custom_theme_enqueue_styles', 100 );
 
 function avada_lang_setup() {
 	$lang = get_stylesheet_directory() . '/languages';
-	load_child_theme_textdomain( TD, $lang );
+	load_child_theme_textdomain( 'jnk', $lang );
   $ucid = ucid();
   $ucid = $_COOKIE['uid'];
 }
 add_action( 'after_setup_theme', 'avada_lang_setup' );
+
+function set_locale_for_frontend_ajax_calls() {
+  if (is_admin() && defined( 'DOING_AJAX' )) {
+    if (isset($_GET['blogid'])) {
+      switch_to_blog($_GET['blogid']);
+    }
+  }
+}
+add_action( 'admin_init', 'set_locale_for_frontend_ajax_calls' );
 
 function ucid()
 {
@@ -386,6 +395,7 @@ function ajax_requests()
   $ajax->travel_api();
   $ajax->getterms();
   $ajax->traveler();
+
 }
 add_action( 'init', 'ajax_requests' );
 

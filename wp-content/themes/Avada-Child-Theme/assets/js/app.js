@@ -212,7 +212,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
     $http({
       method: 'POST',
-      url: '/wp-admin/admin-ajax.php?action=traveler',
+      url: '/wp-admin/admin-ajax.php?action=traveler&blogid='+$scope.blogid,
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $httpParamSerializerJQLike({
         postid: $scope.postid,

@@ -25,7 +25,7 @@ class Fusion_Widget_Contact_Info extends WP_Widget {
 
 		<div class="contact-info-container">
 			<?php if ( isset( $instance['address'] ) && $instance['address'] ) : ?>
-				<div class="address"><div class="h"><?php _e( 'Cím:', TD ); ?></div> <div class="v"><?php echo $instance['address']; ?></div></div>
+				<div class="address"><div class="h"><?php _e( 'Address:', 'Avada' ); ?></div> <div class="v"><?php echo $instance['address']; ?></div></div>
 			<?php endif; ?>
 
 			<?php if ( isset( $instance['phone'] ) && $instance['phone'] ) : ?>

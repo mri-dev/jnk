@@ -208,6 +208,7 @@ class TravelModul
   {
     $can_send = true;
 
+
     $spost = get_post( $this->postid, \ARRAY_A );
     $spost_url = get_permalink( $this->postid );
     $spost_sdesc = get_the_excerpt( $this->postid );
@@ -215,8 +216,8 @@ class TravelModul
     $is_user_alert = false;
     $utazas_tipus = ($calculator['egyeni'] == 1) ? __('egyéni utazás', 'jnk') : __('csoportos utazás', 'jnk');
 
-    if ( $can_send ) {
-
+    if ( $can_send )
+    {
       // Valuta
       if ($calculator['valuta']) {
         if ($calculator['valuta']['name'] == 'Ft') {
@@ -235,8 +236,11 @@ class TravelModul
       $name = $calculator['order']['contact']['name'];
       $email = $calculator['order']['contact']['email'];
       $to = get_option('admin_email');
-      $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
+      $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
       $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)', 'jnk'), $utazas_tipus, $name, $pa_text);
+
+
+      //return __('Lakcím', 'jnk');
 
       ob_start();
     	  include(locate_template('templates/mails/utazascalculator.php'));
@@ -259,7 +263,7 @@ class TravelModul
       $name = $calculator['order']['contact']['name'];
       $email = $calculator['order']['contact']['email'];
       $to = $email;
-      $pa_text = $calculator['passengers']['adults'].' felnőtt'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' gyermek' : '');
+      $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
       $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)', 'jnk'), $pa_text);
 
 
