@@ -1,4 +1,4 @@
-<h4 class="widget-title"><?=__('Népszerű úti célok', TD)?></h4>
+<h4 class="widget-title"><?=__('Népszerű úti célok', 'jnk')?></h4>
 <div class="wrapper">
 <?php foreach ( (array)$dest as $d ): ?>
   <?php
@@ -8,14 +8,15 @@
     } else {
       $image = IMG . '/no-travel-img.jpg';
     }
+    $url = site_url();
   ?>
   <div class="destination">
     <div class="w">
       <div class="title">
         <?=$d->name?><br>
-        <span class="ct">- <?=sprintf(__('%d ajánlat', TD), $d->count)?> -</span>
+        <span class="ct">- <?=sprintf(__('%d ajánlat', 'jnk'), $d->count)?> -</span>
       </div>
-      <a href="/utazas/?cities=<?=$d->name?>"><img src="<?=$image?>" alt="<?=$d->name?>"></a>
+      <a href="<?=$url?>/utazas/?cities=<?=$d->name?>"><img src="<?=$image?>" alt="<?=$d->name?>"></a>
     </div>
 
   </div>

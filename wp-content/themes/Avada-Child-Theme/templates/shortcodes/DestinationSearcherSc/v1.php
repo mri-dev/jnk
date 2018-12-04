@@ -2,10 +2,14 @@
   $searcher = new Searcher();
   $tax = get_queried_object();
   $tax_url = get_term_link($tax);
-  $action = '/'.UTAZAS_SLUG;
+  $url = site_url();
+  $action = $url.'/'.UTAZAS_SLUG;
   if ($tax->taxonomy == 'utazas_kategoria') {
     //$action = $tax_url;
   }
+  $utazaskatterm = get_terms(array(
+    'taxonomy' => 'utazas_kategoria'
+  ));
 ?>
 <form class="" action="<?=$action?>" method="get" id="searcher-form">
 <div class="wrapper">
@@ -23,18 +27,19 @@
       <label for="src_search"><?php echo __('Típus', 'jnk'); ?></label>
       <div class="input-wrapper select-wrapper">
         <select class="" name="type">
-          <option value="csoportos" <?=($_GET['type'] == 'csoportos')?'selected="selected"':'selected="selected"'?>>Csoportos utazás</option>
-          <option value="egyeni" <?=($_GET['type'] == 'egyeni')?'selected="selected"':''?>>Egyéni utazás</option>
+          <?php foreach ((array)$utazaskatterm as $ukt): if(!in_array($ukt->slug, array('egyeni', 'csoportos', 'individual', 'group'))) continue; ?>
+            <option value="<?=$ukt->slug?>" <?=($_GET['type'] == $ukt->slug)?'selected="selected"':''?>><?php echo $ukt->name; ?></option>
+          <?php endforeach; ?>
         </select>
       </div>
     </div>
   </div>
   <div class="ellatas">
     <div class="iwrapper">
-      <label for="ellatas_multiselect_text"><?=__('Ellátás', TD)?></label>
+      <label for="ellatas_multiselect_text"><?=__('Ellátás', 'jnk')?></label>
       <div class="input-wrapper">
         <div class="tglwatcher-wrapper">
-          <input type="text" readonly="readonly" id="ellatas_multiselect_text" class="form-control tglwatcher" tglwatcher="ellatas_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
+          <input type="text" readonly="readonly" id="ellatas_multiselect_text" class="form-control tglwatcher" tglwatcher="ellatas_multiselect" placeholder="<?=__('Mindegy', 'jnk')?>" value="">
         </div>
         <input type="hidden" id="ellatas_multiselect_ids" name="el" value="<?=$_GET['el']?>">
         <div class="multi-selector-holder" tglwatcherkey="ellatas_multiselect" id="ellatas_multiselect">
@@ -60,19 +65,19 @@
   </div>
   <div class="datetime">
     <div class="iwrapper">
-      <label for="src_datetime"><?php echo __('Időpont', TD); ?></label>
+      <label for="src_datetime"><?php echo __('Időpont', 'jnk'); ?></label>
       <div class="input-wrapper">
         <div class="ico"><i class="far fa-calendar-alt"></i></div>
-        <input type="text" name="date" readonly="readonly" value="<?=$_GET['date']?>" placeholder="<?=__('Bármikor', TD)?>" id="src_datetime">
+        <input type="text" name="date" readonly="readonly" value="<?=$_GET['date']?>" placeholder="<?=__('Bármikor', 'jnk')?>" id="src_datetime">
       </div>
     </div>
   </div>
   <div class="location">
     <div class="iwrapper">
-      <label for="searcher_city"><?=__('Úti cél', TD)?></label>
+      <label for="searcher_city"><?=__('Úti cél', 'jnk')?></label>
       <div class="input-wrapper">
         <div class="ico"><i class="fas fa-globe"></i></div>
-        <input type="text" id="searcher_city" name="cities" class="form-control" autocomplete="off" value="<?=$_GET['cities']?>" placeholder="<?=__('Összes város', TD)?>">
+        <input type="text" id="searcher_city" name="cities" class="form-control" autocomplete="off" value="<?=$_GET['cities']?>" placeholder="<?=__('Összes város', 'jnk')?>">
         <div id="searcher_city_autocomplete" class="selector-wrapper"></div>
         <input type="hidden" name="ci" id="searcher_city_ids" value="">
       </div>
@@ -80,10 +85,10 @@
   </div>
   <div class="durations">
     <div class="iwrapper">
-      <label for="duration_multiselect_text"><?=__('Utazás hossza', TD)?></label>
+      <label for="duration_multiselect_text"><?=__('Utazás hossza', 'jnk')?></label>
       <div class="input-wrapper">
         <div class="tglwatcher-wrapper">
-          <input type="text" readonly="readonly" id="duration_multiselect_text" class="form-control tglwatcher" tglwatcher="duration_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
+          <input type="text" readonly="readonly" id="duration_multiselect_text" class="form-control tglwatcher" tglwatcher="duration_multiselect" placeholder="<?=__('Összes', 'jnk')?>" value="">
         </div>
         <input type="hidden" id="duration_multiselect_ids" name="dur" value="<?=$_GET['dur']?>">
         <div class="multi-selector-holder" tglwatcherkey="duration_multiselect" id="duration_multiselect">
@@ -110,10 +115,10 @@
 
   <div class="utazasmod">
     <div class="iwrapper">
-      <label for="utazasmod_multiselect_text"><?=__('Utazás módja', TD)?></label>
+      <label for="utazasmod_multiselect_text"><?=__('Utazás módja', 'jnk')?></label>
       <div class="input-wrapper">
         <div class="tglwatcher-wrapper">
-          <input type="text" readonly="readonly" id="utazasmod_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasmod_multiselect" placeholder="<?=__('Összes', TD)?>" value="">
+          <input type="text" readonly="readonly" id="utazasmod_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasmod_multiselect" placeholder="<?=__('Összes', 'jnk')?>" value="">
         </div>
         <input type="hidden" id="utazasmod_multiselect_ids" name="um" value="<?=$_GET['um']?>">
         <div class="multi-selector-holder" tglwatcherkey="utazasmod_multiselect" id="utazasmod_multiselect">
@@ -140,10 +145,10 @@
 
   <div class="szolgaltatasok">
     <div class="iwrapper">
-      <label for="utazasszolg_multiselect_text"><?=__('Szolgáltatások', TD)?></label>
+      <label for="utazasszolg_multiselect_text"><?=__('Szolgáltatások', 'jnk')?></label>
       <div class="input-wrapper">
         <div class="tglwatcher-wrapper">
-          <input type="text" readonly="readonly" id="utazasszolg_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasszolg_multiselect" placeholder="<?=__('Mindegy', TD)?>" value="">
+          <input type="text" readonly="readonly" id="utazasszolg_multiselect_text" class="form-control tglwatcher" tglwatcher="utazasszolg_multiselect" placeholder="<?=__('Mindegy', 'jnk')?>" value="">
         </div>
         <input type="hidden" id="utazasszolg_multiselect_ids" name="szolg" value="<?=$_GET['szolg']?>">
         <div class="multi-selector-holder" tglwatcherkey="utazasszolg_multiselect" id="utazasszolg_multiselect">
@@ -170,8 +175,8 @@
   <div class="pre-srcbutton">&nbsp;</div>
   <div class="srcbutton">
     <div class="iwrapper">
-      <button type="submit"><?php echo __('Keresés',TD); ?></button>
-      <a href="<?=$action?>" class="research"><?php echo __('új keresés indítása',TD); ?></a>
+      <button type="submit"><?php echo __('Keresés','jnk'); ?></button>
+      <a href="<?=$action?>" class="research"><?php echo __('új keresés indítása','jnk'); ?></a>
     </div>
   </div>
 </div>

@@ -33,7 +33,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 					</div>
 					<?php echo do_shortcode('[searcher limit="3" utazas_kategoria="egyeni" orderby="rand"]'); ?>
 					<div class="more-travels">
-				 		<a href="/utazas-kategoria/egyeni/"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
+				 		<a href="/utazas-kategoria/egyeni/"><?=sprintf(__('További <strong>%s</strong>','jnk'), $t->name)?> >></a>
 				 	</div>
 				</div>
 				<?php	$t = get_term_by('slug', 'csoportos', 'utazas_kategoria'); ?>
@@ -48,14 +48,14 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 					</div>
 					<?php echo do_shortcode('[searcher limit="3" utazas_kategoria="csoportos" orderby="rand"]'); ?>
 					<div class="more-travels">
-				 		<a href="/utazas-kategoria/csoportos/"><?=sprintf(__('További <strong>%s</strong>',TD), $t->name)?> >></a>
+				 		<a href="/utazas-kategoria/csoportos/"><?=sprintf(__('További <strong>%s</strong>','jnk'), $t->name)?> >></a>
 				 	</div>
 				</div>
 			</div>
 		<?php else: ?>
-			<h2><?=__('Keresési eredmény', TD)?>:</h2>
+			<h2><?=__('Keresési eredmény', 'jnk')?>:</h2>
 			<div class="pages">
-				<?=sprintf(__('%d db találat &mdash; %d / <strong>%d. oldal</strong>', TD), $pages['items'], $pages['max'], $pages['current'])?>
+				<?=sprintf(__('%d db találat &mdash; %d / <strong>%d. oldal</strong>', 'jnk'), $pages['items'], $pages['max'], $pages['current'])?>
 			</div>
 			<?php if (!empty($filters)): ?>
 			<div class="filters">
@@ -64,32 +64,32 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 				</div>
 				<?php if ( isset($filters['tag']) ): ?>
 					<div class="tag">
-						<?=__('Címke', TD)?>: <span class="opt"><?=$filters['tag']['label']?></span>
+						<?=__('Címke', 'jnk')?>: <span class="opt"><?=$filters['tag']['label']?></span>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset($filters['type']) ): ?>
 					<div class="type">
-						<?=__('Típus', TD)?>: <span class="opt"><?=$filters['type']['label']?></span>
+						<?=__('Típus', 'jnk')?>: <span class="opt"><?=$filters['type']['label']?></span>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset($filters['el']) && count($filters['el']) != 0 ): ?>
 					<div class="el">
-						<?=__('Ellátás', TD)?>: <? foreach( $filters['el'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+						<?=__('Ellátás', 'jnk')?>: <? foreach( $filters['el'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset($filters['dur']) && count($filters['dur']) != 0 ): ?>
 					<div class="dur">
-						<?=__('Utazás hossza', TD)?>: <? foreach( $filters['dur'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+						<?=__('Utazás hossza', 'jnk')?>: <? foreach( $filters['dur'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset($filters['um']) && count($filters['um']) != 0 ): ?>
 					<div class="um">
-						<?=__('Utazás módja', TD)?>: <? foreach( $filters['um'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+						<?=__('Utazás módja', 'jnk')?>: <? foreach( $filters['um'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
 					</div>
 				<?php endif; ?>
 				<?php if ( isset($filters['szolg']) && count($filters['szolg']) != 0 ): ?>
 					<div class="szolg">
-						<?=__('Szolgáltatás', TD)?>: <? foreach( $filters['szolg'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
+						<?=__('Szolgáltatás', 'jnk')?>: <? foreach( $filters['szolg'] as $v ): ?><span class="opt"><?=$v['label']?></span><? endforeach; ?>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -98,8 +98,8 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
 				<?php if (empty($list)): ?>
 					<div class="no-item">
 						<i class="fa fa-plane"></i>
-						<h3><?php echo __('Nincs megjeleníthető utazás.',TD); ?></h3>
-						<?php echo __('Keresési feltételei alapján nem találtunk Önnek megfelelő utazást.',TD); ?>
+						<h3><?php echo __('Nincs megjeleníthető utazás.','jnk'); ?></h3>
+						<?php echo __('Keresési feltételei alapján nem találtunk Önnek megfelelő utazást.','jnk'); ?>
 					</div>
 				<?php else: ?>
 					<div class="travels">
