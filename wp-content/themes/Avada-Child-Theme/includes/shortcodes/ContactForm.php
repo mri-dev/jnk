@@ -15,8 +15,8 @@ class ContactFormSC
 
     public function do_shortcode( $attr, $content = null )
     {
-        $button_text = 'Ajánlatot kérek';
-        $whatisit = 'Ajánlatkérés';
+        $button_text = __('Ajánlatot kérek', 'jnk');
+        $whatisit = __('Ajánlatkérés', 'jnk');
 
     	  /* Set up the default arguments. */
         $defaults = apply_filters(
@@ -31,8 +31,8 @@ class ContactFormSC
         $pass_data = array();
 
         if ($attr['tipus'] == 'kapcsolat') {
-          $button_text = 'Üzenet elküldése';
-          $whatisit = 'Kapcsolat üzenet';
+          $button_text = __('Üzenet elküldése', 'jnk');
+          $whatisit = __('Kapcsolat üzenet', 'jnk');
         }
 
         $pass_data['button_text'] = $button_text;

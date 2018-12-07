@@ -5,22 +5,22 @@
       <div class="flxtbl">
         <div class="name">
           <div class="form-input-holder">
-            <input type="text" id="name" name="name" class="form-control" placeholder="Az Ön neve *" value="">
+            <input type="text" id="name" name="name" class="form-control" placeholder="<?=__('Az Ön neve', 'jnk')?> *" value="">
           </div>
         </div>
         <div class="email">
           <div class="form-input-holder">
-            <input type="text" id="email" name="email" class="form-control" placeholder="E-mail címe *" value="">
+            <input type="text" id="email" name="email" class="form-control" placeholder="<?=__('E-mail címe', 'jnk')?> *" value="">
           </div>
         </div>
         <div class="subject">
           <div class="form-input-holder">
-            <input type="text" id="subject" name="subject" class="form-control" placeholder="Téma *" value="">
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="<?=__('Téma', 'jnk')?> *" value="">
           </div>
         </div>
         <div class="uzenet">
           <div class="form-input-holder">
-            <textarea name="uzenet" id="uzenet" class="form-control" placeholder="Üzenet *"></textarea>
+            <textarea name="uzenet" id="uzenet" class="form-control" placeholder="<?=__('Üzenet', 'jnk')?> *"></textarea>
           </div>
         </div>
         <div class="recaptcha">
@@ -45,7 +45,7 @@ var mail_sended = 0;
 function uzenetKuldes()
 {
   if(mail_sending_progress == 0 && mail_sended == 0){
-    jQuery('#mail-sending-btn').html('<?php echo __('<?php echo $whatisit; ?> küldése folyamatban', 'Avada'); ?> <i class="fa fa-spinner fa-spin"></i>').addClass('in-progress');
+    jQuery('#mail-sending-btn').html('<?php echo $whatisit; ?> <?=__('küldés folyamatban', 'jnk')?>', 'Avada'); ?> <i class="fa fa-spinner fa-spin"></i>').addClass('in-progress');
     jQuery('#mailsend .missing').removeClass('missing');
 
     mail_sending_progress = 1;
@@ -58,7 +58,7 @@ function uzenetKuldes()
         console.log(resp);
         if(resp.error == 0) {
           mail_sended = 1;
-          jQuery('#mail-sending-btn').html('<?php echo __( $whatisit.' elküldve', 'Avada'); ?> <i class="fa fa-check-circle"></i>').removeClass('in-progress').addClass('sended');
+          jQuery('#mail-sending-btn').html('<?php echo $whatisit; ?> <?=__('elküldve', 'jnk')?> <i class="fa fa-check-circle"></i>').removeClass('in-progress').addClass('sended');
         } else {
           jQuery('#mail-sending-btn').html('<?php echo $button_text; ?>').removeClass('in-progress');
           jQuery('#mail-msg').show();

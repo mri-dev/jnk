@@ -27,7 +27,15 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
     'éjszaka': {
       'hu_HU': 'éjszaka',
       'en_US': 'nights'
-    }
+    },
+    'Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!': {
+      'hu_HU': 'Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!',
+      'en_US': 'Successfull sent your travel request!'
+    },
+    'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!': {
+      'hu_HU': 'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!',
+      'en_US': 'Could not submit request now. Try it later!'
+    }    
   };
 
   $scope.init = function( postid, lang, blogid )
@@ -191,7 +199,6 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
 
     prepare.passengers = $scope.passengers;
     prepare.configs = $scope.configs_selected;
-    prepare.configs = $scope.configs_selected;
     prepare.biztositas = $scope.biztositas;
     prepare.roomprice = $scope.calced_room_price;
     prepare.passengers_details = $scope.passengers_detail;
@@ -227,11 +234,11 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
         // Reset
         //$scope.backToEdit(1);
         $scope.preorder_msg.error = 0;
-        $scope.preorder_msg.msg = 'Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!';
+        $scope.preorder_msg.msg = $scope.translate('Sikeresen elküldte ajánlatkérését! Köszönjük, hogy érdeklődik szolgáltatásaink iránt!');
       } else {
         // Nem küldte el a levelet.
         $scope.preorder_msg.error = 1;
-        $scope.preorder_msg.msg = 'Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!';
+        $scope.preorder_msg.msg = $scope.translate('Nem sikerült elküldeni az ajánlatkérést. Próbálja meg később!');
       }
     });
   }
@@ -587,6 +594,7 @@ jnk.controller('TravelCalculator', ['$scope', '$http', '$mdToast', '$mdDialog', 
       })
     }).success(function(r)
     {
+      console.log(r);
       $scope.config_loaded = true;
       angular.forEach($scope.config_groups, function(c,i){
         $scope.configs[c] = r.data[c];

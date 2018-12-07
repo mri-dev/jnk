@@ -232,49 +232,101 @@ class TravelModul
         $price_before = '';
       }
 
-      // Admin értesítés
-      $name = $calculator['order']['contact']['name'];
-      $email = $calculator['order']['contact']['email'];
-      $to = get_option('admin_email');
-      $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
-      $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)', 'jnk'), $utazas_tipus, $name, $pa_text);
-
 
       //return __('Lakcím', 'jnk');
 
-      ob_start();
-    	  include(locate_template('templates/mails/utazascalculator.php'));
-        $message = ob_get_contents();
-  		ob_end_clean();
+      if ( get_locale() == 'hu_HU' )
+      {
+      // Visszaigazoló e-mail MAGYAR NYELV ESETÉN
+      // Admin értesítés
+        $name = $calculator['order']['contact']['name'];
+        $email = $calculator['order']['contact']['email'];
+        $to = get_option('admin_email');
+        $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
+        $mail_subject  = sprintf(__('Új %s ajnálatkérés: %s (%s)', 'jnk'), $utazas_tipus, $name, $pa_text);
 
-      add_filter( 'wp_mail_from', array($this, 'getMailSender') );
-      add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
-      add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+        ob_start();
+      	  include(locate_template('templates/mails/utazascalculator.php'));
+          $message = ob_get_contents();
+    		ob_end_clean();
 
-      $headers  = array();
-      if (!empty($email)) {
-        $headers[]  = 'Reply-To: '.$name.' <'.$email.'>';
+        add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+        add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+        add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+
+        $headers  = array();
+        if (!empty($email)) {
+          $headers[]  = 'Reply-To: '.$name.' <'.$email.'>';
+        }
+
+        $alert = wp_mail( $to, $mail_subject, $message, $headers );
+
+        ///////////////////////////////////////////////////////////////////////
+
+        // User értesítés
+        $is_user_alert = true;
+        $name = $calculator['order']['contact']['name'];
+        $email = $calculator['order']['contact']['email'];
+        $to = $email;
+        $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
+        $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)', 'jnk'), $pa_text);
+
+
+        ob_start();
+      	  include(locate_template('templates/mails/utazascalculator.php'));
+          $message = ob_get_contents();
+    		ob_end_clean();
+
+        add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+        add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+        add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+      }
+      else if( get_locale() == 'en_US' )
+      {
+      // Visszaigazoló e-mail ANGOL NYELV ESETÉN
+        $name = $calculator['order']['contact']['name'];
+        $email = $calculator['order']['contact']['email'];
+        $to = get_option('admin_email');
+        $pa_text = $calculator['passengers']['adults'].' adults'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' children' : '');
+        $mail_subject  = sprintf(__('[JNN - EN] New request offer: %s -  %s (%s)', 'jnk'), $utazas_tipus, $name, $pa_text);
+
+        ob_start();
+      	  include(locate_template('templates/mails/utazascalculator_en.php'));
+          $message = ob_get_contents();
+    		ob_end_clean();
+
+        add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+        add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+        add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
+
+        $headers  = array();
+        if (!empty($email)) {
+          $headers[]  = 'Reply-To: '.$name.' <'.$email.'>';
+        }
+
+        $alert = wp_mail( $to, $mail_subject, $message, $headers );
+
+        ///////////////////////////////////////////////////////////////////////
+
+        // User értesítés
+        $is_user_alert = true;
+        $name = $calculator['order']['contact']['name'];
+        $email = $calculator['order']['contact']['email'];
+        $to = $email;
+        $pa_text = $calculator['passengers']['adults'].' adults'. ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' children' : '');
+        $mail_subject  = sprintf(__('Confirmation - Travel request (for %s)', 'jnk'), $pa_text);
+
+
+        ob_start();
+      	  include(locate_template('templates/mails/utazascalculator_en.php'));
+          $message = ob_get_contents();
+    		ob_end_clean();
+
+        add_filter( 'wp_mail_from', array($this, 'getMailSender') );
+        add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
+        add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
       }
 
-      $alert = wp_mail( $to, $mail_subject, $message, $headers );
-
-      // User értesítés
-      $is_user_alert = true;
-      $name = $calculator['order']['contact']['name'];
-      $email = $calculator['order']['contact']['email'];
-      $to = $email;
-      $pa_text = $calculator['passengers']['adults'].' '.__('felnőtt', 'jnk'). ( ($calculator['passengers']['children']!=0)  ? ' + '.$calculator['passengers']['children'].' '.__('gyermek', 'jnk') : '');
-      $mail_subject  = sprintf(__('Visszaigazolás - Utazási ajánlatkérés (%s részére)', 'jnk'), $pa_text);
-
-
-      ob_start();
-    	  include(locate_template('templates/mails/utazascalculator.php'));
-        $message = ob_get_contents();
-  		ob_end_clean();
-
-      add_filter( 'wp_mail_from', array($this, 'getMailSender') );
-      add_filter( 'wp_mail_from_name', array($this, 'getMailSenderName') );
-      add_filter( 'wp_mail_content_type', array($this, 'getMailFormat') );
 
       $headers  = array();
       if (!empty($email)) {
@@ -353,19 +405,36 @@ class TravelModul
 
   private function priceTypeText( $type )
   {
-    switch ($type) {
-      case 'daily':
-        return '/nap';
-      break;
-      case 'once':
-        return '';
-      break;
-      case 'once_person':
-        return '/fő';
-      break;
-      case 'day_person':
-        return '/fő/nap';
-      break;
+    if (get_locale() == 'hu_HU') {
+      switch ($type) {
+        case 'daily':
+          return '/nap';
+        break;
+        case 'once':
+          return '';
+        break;
+        case 'once_person':
+          return '/fő';
+        break;
+        case 'day_person':
+          return '/fő/nap';
+        break;
+      }
+    } else if(get_locale() == 'en_US'){
+      switch ($type) {
+        case 'daily':
+          return '/day';
+        break;
+        case 'once':
+          return '';
+        break;
+        case 'once_person':
+          return '/person';
+        break;
+        case 'day_person':
+          return '/person/day';
+        break;
+      }
     }
   }
 
