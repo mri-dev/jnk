@@ -9,6 +9,11 @@
       $image = IMG . '/no-travel-img.jpg';
     }
     $url = site_url();
+    $type = 'csoportos';
+
+    if (get_locale() != 'hu_HU') {
+      $type = 'group';
+    }
   ?>
   <div class="destination">
     <div class="w">
@@ -16,7 +21,7 @@
         <?=$d->name?><br>
         <span class="ct">- <?=sprintf(__('%d ajánlat', 'jnk'), $d->count)?> -</span>
       </div>
-      <a href="<?=$url?>/utazas/?cities=<?=$d->name?>"><img src="<?=$image?>" alt="<?=$d->name?>"></a>
+      <a href="<?=$url?>/utazas/?type=<?=$type?>&cities=<?=$d->name?>"><img src="<?=$image?>" alt="<?=$d->name?>"></a>
     </div>
 
   </div>

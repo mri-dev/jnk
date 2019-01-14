@@ -8,7 +8,7 @@ get_header(); ?>
 			?>
 			<div class="cat-header">
 				<div class="count-post">
-					<?php echo sprintf(__('%d db bejegyzést találtunk:', TD), $current_cat[0]->count); ?>
+					<?php echo sprintf(__('%d db bejegyzést találtunk:', 'jnk'), $current_cat[0]->count); ?>
 				</div>
 			</div>
 

@@ -12,13 +12,13 @@ $hotel_type = $travel->getHotelType();
     <div class="badges">
     <?php if ($kiemelt): ?>
       <div class="highlighted">
-        <?php echo __('Kiemelt',TD); ?>
+        <?php echo __('Kiemelt','jnk'); ?>
       </div>
       <div class="fusion-clearfix"></div>
     <?php endif; ?>
     <?php if ($egyeni_utazas): ?>
       <div class="egyeni">
-        <?php echo __('Egyéni utazás',TD); ?>
+        <?php echo __('Egyéni utazás','jnk'); ?>
       </div>
       <div class="fusion-clearfix"></div>
       <?php if (!$stars && $hotel_type->name != ''): ?>
@@ -37,7 +37,7 @@ $hotel_type = $travel->getHotelType();
     <?php endif; ?>
     <?php if ($discount): ?>
       <div class="discounted">
-        <?php echo $discount['percent'].__('% leárazás',TD); ?>
+        <?php echo $discount['percent'].__('% leárazás','jnk'); ?>
       </div>
       <div class="fusion-clearfix"></div>
     <?php endif; ?>
@@ -64,7 +64,7 @@ $hotel_type = $travel->getHotelType();
           <?php if ($egyeni_utazas): ?>
             <div class="current"></div>
           <?php else: ?>
-            <div class="current"><?php echo __('Egyedi ár',TD); ?> </div>
+            <div class="current"><?php echo __('Egyedi ár','jnk'); ?> </div>
           <?php endif; ?>
         <?php endif; ?>
       </div>
@@ -72,7 +72,7 @@ $hotel_type = $travel->getHotelType();
         <?php if (count($destionations) > 0 ): ?>
         <i class="fa fa-map-pin"></i>
         <?php if (count($destionations) > 5): ?>
-          <span title="<?php echo implode(', ', $destionations); ?>"><?php echo sprintf(__('%d úti célt érint', TD), count($destionations)); ?></span>
+          <span title="<?php echo implode(', ', $destionations); ?>"><?php echo sprintf(__('%d úti célt érint', 'jnk'), count($destionations)); ?></span>
         <?php else: ?>
           <?php echo implode(', ', $destionations); ?>
         <?php endif; ?>
@@ -82,7 +82,7 @@ $hotel_type = $travel->getHotelType();
       </div>
       <div class="duration">
         <i class="far fa-clock"></i> <?php if (count($durations) > 5): ?>
-          <span title="<?php echo implode(', ', $durations); ?>"><?php echo sprintf(__('%d utazási hossz elérhető', TD), count($durations)); ?></span>
+          <span title="<?php echo implode(', ', $durations); ?>"><?php echo sprintf(__('%d utazási hossz elérhető', 'jnk'), count($durations)); ?></span>
         <?php else: ?>
           <?php echo implode(', ', $durations); ?>
         <?php endif; ?>

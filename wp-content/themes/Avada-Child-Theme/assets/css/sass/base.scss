@@ -1017,7 +1017,7 @@ body.programok-template-default{
   }
 }
 
-.travels, .partners{
+.travels, .partners, .programs{
   margin: -20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1026,7 +1026,7 @@ body.programok-template-default{
   justify-content: center;
   flex-wrap: wrap;
 
-  .travel, .partner{
+  .travel, .partner, .program{
     padding: 20px;
     flex-basis: calc(100%/3);
     .wrapper{
@@ -1178,6 +1178,17 @@ body.programok-template-default{
   }
 }
 
+.programs .program{
+  .datas{
+    .desc{
+      font-size: 0.8rem;
+      height: 124px;
+      max-height: 124px;
+      overflow: hidden;
+    }
+  }
+}
+
 .partners{
   .partner{
     .datas{
@@ -1187,6 +1198,7 @@ body.programok-template-default{
         height: 92px;
         max-height: 92px;
         overflow: hidden;
+        margin: 0 0 15px 0;
       }
     }
   }
