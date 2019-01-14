@@ -194,14 +194,6 @@ function jk_init()
 }
 add_action('init', 'jk_init');
 
-
-add_filter( 'locale', 'custom_locale_settings' );
-function custom_locale_settings()
-{
-  switch_to_blog(3);
-  return 'en_US';
-}
-
 function app_custom_template($template) {
   global $post, $wp_query;
 
